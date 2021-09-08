@@ -64,3 +64,8 @@ copy：复制输入流的编码
 ```
 
 相关实验：{% post_link ffmpeg03 'ffmpeg | 删除视频中的元数据' %}
+
+# 添加封面文件
+```
+-disposition:0 attached_pic
+```
