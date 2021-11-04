@@ -1,5 +1,5 @@
 ---
-title: mutagen库的一些使用要点
+title: mutagen | MP3封面操作
 date: 2021-01-06 21:47:25
 tags: [Python]
 categories: 

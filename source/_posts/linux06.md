@@ -24,6 +24,8 @@ passwd 用户名
 su 用户名
 
 vim ~/.bashrc
+
+source ~/.bashrc
 ```
 
 添加 `export PATH=/data/anaconda3/bin:$PATH`
