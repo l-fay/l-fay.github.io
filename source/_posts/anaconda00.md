@@ -6,7 +6,7 @@ categories:
   - [Anaconda, pip]
 ---
 
-之前把pip换源了，现在要装opencv-python的3.4.11.43版本，清华源没有，就把默认源加上了https://pypi.python.org/simple/，顺便记一下pip换源的方法。
+之前把pip换源了，现在要装opencv-python的3.4.11.43版本，清华源没有，就把默认源加上了'https://pypi.python.org/simple/'，顺便记一下pip换源的方法。
 
 <!-- more -->
 

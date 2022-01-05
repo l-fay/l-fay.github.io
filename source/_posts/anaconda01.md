@@ -33,9 +33,9 @@ ls -lah
 environments.txt
 envs
 pkgs
-其中，`environment.txt`是各个环境的指向。
+其中，`environments.txt`是各个环境的指向。
 
-cat environment.txt
+cat environments.txt
     /home/aaa/.conda/envs/py27
     /home/aaa/.conda/envs/py36
 然后 `envs`存放着我们弄的那些环境，`pkgs`存放的是各种第三方库。

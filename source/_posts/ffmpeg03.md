@@ -132,6 +132,6 @@ Try adding this ffmpeg parameter:
 
 再结合上边论坛的发帖时间和第一个帖子内容与我测试结果不同，推断操作元数据的一些参数在近几年进行了更新，导致适用范围和帖子描述出现一定的出入。
 
-先总结到这，一会去跟新下ffmpeg参数的那篇博客。
+先总结到这，一会去更新下ffmpeg参数的那篇博客。
 
 {% post_link ffmpegParameter 'ffmpeg | 参数记录' %}
