@@ -30,6 +30,7 @@ table th:nth-of-type(3) {
 | -crf | 25 | 固定码率因子，越小码率越大，18一般认为是视觉无损的，h264默认值是23，h265默认值是28，我一般都用25 |
 | -map_metadata | -1 | 删除所有流的元数据 |
 | -map_chapters | -1 | 删除所有章节数据 |
+| -max_muxing_queue_size | 1024 | 解决`Too many packets buffered for output stream 0:0.`问题 |
 | -vf | subtitles=xxx.ass | 压制字幕 |
 | -filter_complex | "subtitles=xxx.ass" | 压制字幕，多个值一起用时用逗号隔开 |
 |  | "crop=1920:800:0:140" | 用来将1920x1080去上下黑边为1920x800 |
