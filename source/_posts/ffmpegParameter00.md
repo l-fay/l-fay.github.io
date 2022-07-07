@@ -41,3 +41,8 @@ table th:nth-of-type(3) {
 |  | 4 | 4.0 |
 |  | 5 | 5.0 |
 |  | 6 | 5.1 |
+| -bsf:a | aac_adtstoasc | 有的旧版ffmpeg在ts文件转码的时候需要加这个参数，新版ffmpeg会自动添加 |
+| -threads | 任意数字，默认是0 | 多线程参数，0表示最佳（虽然有时并不是最佳） |
+| -preset | medium | 用时间换空间和压制质量，从快到慢依次为ultrafast、superfast、veryfast、faster、fast、medium、slow、slower、veryslow、placebo，默认为medium，一般用默认就比较合适 |
+| -pix_fmt | yuv420p | 设定像素格式 |
+
