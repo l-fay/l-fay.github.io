@@ -1,5 +1,5 @@
 ---
-title: neo4j|基本用法
+title: neo4j | 基本用法
 date: 2022-08-11 20:37:36
 tags: [数据库, neo4j]
 categories:
