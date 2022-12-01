@@ -1,6 +1,6 @@
 ---
 title: Linux | Linux服务器上配置域和DNS
-date: 2022-12-01 16:30:30
+date: 2022-10-21 19:30:30
 tags: [Linux, DNS]
 categories: 
   - [Linux, DNS]
