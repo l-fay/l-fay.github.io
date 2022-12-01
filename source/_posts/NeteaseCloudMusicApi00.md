@@ -1,9 +1,9 @@
 ---
-title: 网易云音乐Api搜集
+title: 网易云音乐Api
 date: 2021-01-06 18:44:11
-tags: [API]
+tags: [开源项目, NodeJs]
 categories: 
-  - [API]
+  - [开源项目, NodeJs]
 ---
 在这搜集一下网易云音乐的一些Api。
 
@@ -19,26 +19,6 @@ https://music.163.com/#/song?id={{id}}。
 
 id=后边的数字就是id。
 
-## imjad接口
-
-文档
-
-```
-https://api.imjad.cn/cloudmusic.md
-```
-
-### 音乐
-
-```
-https://api.imjad.cn/cloudmusic/?type=song&search_type=1&id={{id}}
-```
-
-### lrc
-
-```
-https://api.imjad.cn/cloudmusic/?type=lyric&id={{id}}
-```
-
 ## 163官方接口
 
 ### 音乐
@@ -52,6 +32,10 @@ https://music.163.com/song/media/outer/url?id={{id}}.mp3
 http://music.163.com/api/song/media?id={{id}}
 ```
 
-把ID换一下就行了。
+## NeteaseCloudMusicApi
 
-个人倾向于使用imjad接口。
+可以用这个开源项目
+
+[NeteaseCloudMusicApi](https://github.com/Binaryify/NeteaseCloudMusicApi)
+
+[文档](https://binaryify.github.io/NeteaseCloudMusicApi/#/)
