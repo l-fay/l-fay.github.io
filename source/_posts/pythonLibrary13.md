@@ -1,9 +1,10 @@
 ---
 title: Selenium | iframe的操作
 date: 2021-06-05 15:01:59
-tags: [Python]
+tags: [Python, 自动化, Selenium]
 categories:
-  - [Python, 常用库, selenium]
+  - [Python, 常用库, Selenium]
+  - [自动化, Selenium]
 ---
 
 在selenium中，不能用`find_element`对iframe内元素进行直接操作
