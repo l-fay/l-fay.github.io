@@ -55,7 +55,7 @@ categories:
 ```
 其中appPackage和appActivity是用`adb logcat>D:/log.txt`获取log之后，搜索`Displayed`查看。
 
-由于我要测的app充值后需要手机验证码登录，所以需要`noReset`参数来防止重置。
+由于我要测的app重置后需要手机验证码登录，所以需要`noReset`参数来防止重置。
 
 
 
