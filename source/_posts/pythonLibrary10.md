@@ -3,8 +3,8 @@ title: Selenium | 窗口的句柄问题
 date: 2021-04-19 11:45:19
 tags: [Python, 自动化, selenium]
 categories:
-  - [Python, 常用库, Selenium]
-  - [自动化, Selenium]
+  - [Python, 常用库, selenium]
+  - [自动化, selenium]
 ---
 
 自动化脚本处理弹出窗口及异常处理的方法。
