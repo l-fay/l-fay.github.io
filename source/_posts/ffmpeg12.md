@@ -1,8 +1,9 @@
 ---
-title: ffmpeg12
+title:  ffmpeg | 字体文件的抽取
 date: 2023-01-17 15:05:01
-tags:
-categories:
+tags: [ffmpeg]
+categories: 
+  - [ffmpeg]
 ---
 
 在压字幕的过程中，发现一些mkv中自带了字体文件，于是就找了一下提取字体的方法。毕竟直接从mkv中提取的字母一是方便，不用在网上到处找；二是不用担心找的不对。
