@@ -1,7 +1,7 @@
 ---
 title: Selenium | 窗口的句柄问题
 date: 2021-04-19 11:45:19
-tags: [Python, 自动化, Selenium]
+tags: [Python, 自动化, selenium]
 categories:
   - [Python, 常用库, Selenium]
   - [自动化, Selenium]

@@ -1,10 +1,10 @@
 ---
 title: Selenium | 配置Chrome的option
 date: 2021-04-19 11:50:58
-tags: [Python, 自动化, Selenium]
+tags: [Python, 自动化, selenium]
 categories:
-  - [Python, 常用库, Selenium]
-  - [自动化, Selenium]
+  - [Python, 常用库, selenium]
+  - [自动化, selenium]
 ---
 
 有的网站会检测Chrome配置，所以为了规避检测，大抵有两种方法。
