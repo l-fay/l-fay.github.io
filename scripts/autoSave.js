@@ -14,7 +14,13 @@ function run() {
 		exit(1);
 	} else {
 		echo("======================Auto Backup Begin===========================");
-		cd('D:\\blog');    //此处修改为Hexo根目录路径
+		if (process.env.computername === "LQNQ"){
+			cd('F:\\blog');    //此处修改为Hexo根目录路径
+		}else{
+			echo(process.env.computername)
+			echo("请修改openNewMD的判断条件")
+		}
+		
 		if (exec('git add --all').code !== 0) {
 			echo('Error: Git add failed');
 			exit(1);
