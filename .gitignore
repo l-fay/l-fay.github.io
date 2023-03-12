@@ -1,9 +1,88 @@
-.DS_Store
-Thumbs.db
-db.json
-*.log
+# Datasource local storage ignored files
+/dataSources.local.xml
+
+### Maven template
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+
+.idea/
+
+## File-based project format:
+*.iws
+*.iml
+*.ipr
+## Plugin-specific files:
+# IntelliJ
+/out/
+# mpeltonen/sbt-idea plugin
+.idea_modules/
+
+# JIRA plugin
+atlassian-ide-plugin.xml
+
+# Crashlytics plugin (for Android Studio and IntelliJ)
+com_crashlytics_export_strings.xml
+crashlytics.properties
+crashlytics-build.properties
+fabric.properties
+
 node_modules/
-public/
-.deploy*/
-scripts/
-_config.yml
+npm-debug.log
+# Numerous always-ignore extensions
+*.diff
+*.err
+*.orig
+*.log
+*.rej
+*.swo
+*.swp
+*.zip
+*.vi
+*~
+# OS or Editor folders
+.DS_Store
+._*
+Thumbs.db
+.cache
+.project
+.settings
+*.sublime-project
+*.sublime-workspace
+
+# Compiled class file
+*.class
+*.pyc
+
+# BlueJ files
+*.ctxt
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+# Package Files #
+*.war
+*.ear
+*.tar.gz
+*.rar
+
+# office
+*.xlsx
+*.xls
+*.doc
+*.docx
+*.ppt
+*.pptx
+
+# smart-doc文档
+*.html
+*.js
+
+hs_err_pid*
+.idea/*
+/*.iml
+/*/target/*
