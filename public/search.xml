@@ -7886,4 +7886,22 @@ VALUES
 <p>要注意的是，联合主键不能使用upsert。</p>
 ]]></content>
   </entry>
+  <entry>
+    <title>麒麟 | 麒麟SP1更改系统快捷键</title>
+    <url>/2023/05/16/kylin00/</url>
+    <content><![CDATA[<p>麒麟SP1的快捷键不能在设置里边直接改，但是一些快捷键不太符合我的个人习惯。<br>比如Ctrl+Alt+L是锁屏，但我习惯在idea里用Ctrl+Alt+L来重排代码。<br>所以有了修改系统快捷键的需求</p>
+<a id="more"></a>
+
+<p>快捷键的配置位置为</p>
+<pre><code>~/.config/kglobalshortcutsrc</code></pre>
+]]></content>
+      <categories>
+        <category>Linux</category>
+        <category>麒麟</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>麒麟</tag>
+      </tags>
+  </entry>
 </search>
