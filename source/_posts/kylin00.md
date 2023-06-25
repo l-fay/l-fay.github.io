@@ -17,3 +17,5 @@ categories:
 ```
 ~/.config/kglobalshortcutsrc
 ```
+
+修改之后重启生效
