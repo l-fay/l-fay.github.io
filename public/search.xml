@@ -498,14 +498,11 @@ tail -f 保存的文件名.txt</code></pre>
       <categories>
         <category>Python</category>
         <category>CUDA</category>
-        <category>报错</category>
         <category>PyTorch</category>
-        <category>报错</category>
       </categories>
       <tags>
         <tag>Python</tag>
         <tag>CUDA</tag>
-        <tag>报错</tag>
         <tag>PyTorch</tag>
       </tags>
   </entry>
@@ -8038,6 +8035,161 @@ http &#123;
       </categories>
       <tags>
         <tag>生活</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>rpm格式cuda安装</title>
+    <url>/2023/07/12/cuda01/</url>
+    <content><![CDATA[<p>遇到的问题就不说了，反正最后的需求是用一个rpm格式的安装包去离线安装cuda。</p>
+<a id="more"></a>
+
+<pre><code># 安装存储库
+sudo rpm -i cuda-xxx.rpm
+# 更新软件包缓存
+sudo yum update
+# 安装CUDA
+sudo yum install cuda</code></pre>
+<p>刚开始以为类似于<code>apt-get install</code>，只用执行上边第一步就完事了，后来发现根本没装上。</p>
+]]></content>
+      <categories>
+        <category>CUDA</category>
+      </categories>
+      <tags>
+        <tag>CUDA</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>异步 | @Async注解配置线程池</title>
+    <url>/2023/07/08/spring00/</url>
+    <content><![CDATA[<p><a href="https://blog.csdn.net/dyc87112/article/details/120326353">参考文档</a></p>
+<a id="more"></a>
+
+<p>省流版：</p>
+<h2 id="配置默认线程池"><a href="#配置默认线程池" class="headerlink" title="配置默认线程池"></a>配置默认线程池</h2><p>默认线程池的配置很简单，只需要在配置文件中完成即可，主要有以下这些参数：</p>
+<pre><code>spring.task.execution.pool.core-size=2
+spring.task.execution.pool.max-size=5
+spring.task.execution.pool.queue-capacity=10
+spring.task.execution.pool.keep-alive=60s
+spring.task.execution.pool.allow-core-thread-timeout=true
+spring.task.execution.shutdown.await-termination=false
+spring.task.execution.shutdown.await-termination-period=
+spring.task.execution.thread-name-prefix=task-</code></pre>
+<p>具体配置含义如下：</p>
+<pre><code>spring.task.execution.pool.core-size：线程池创建时的初始化线程数，默认为8
+spring.task.execution.pool.max-size：线程池的最大线程数，默认为int最大值
+spring.task.execution.pool.queue-capacity：用来缓冲执行任务的队列，默认为int最大值
+spring.task.execution.pool.keep-alive：线程终止前允许保持空闲的时间
+spring.task.execution.pool.allow-core-thread-timeout：是否允许核心线程超时
+spring.task.execution.shutdown.await-termination：是否等待剩余任务完成后才关闭应用
+spring.task.execution.shutdown.await-termination-period：等待剩余任务完成的最大时间
+spring.task.execution.thread-name-prefix：线程名的前缀，设置好了之后可以方便我们在日志中查看处理任务所在的线程池</code></pre>
+<p>亲测可用</p>
+]]></content>
+      <categories>
+        <category>Java</category>
+        <category>Spring</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>Spring</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JetBrains全家桶无法打开Terminals问题解决</title>
+    <url>/2023/07/10/ide00/</url>
+    <content><![CDATA[<p>在arm架构的linux机上用JetBrains全家桶如PyCharm和Idea会有打不开Terminals的问题。</p>
+<a id="more"></a>
+
+<p><a href="https://github.com/JetBrains/pty4j/issues/82">解决办法</a></p>
+<p>最终解决就是用的这个issue里的方法，编译一个<code>libpty.so</code>，放到<code>ide安装路径/lib/pty4j-native/linux/x86/</code></p>
+<p>其中<code>linux</code>文件夹下有很多子文件夹，保险起见我每个子文件夹都放了一个<code>libpty.so</code>，问题解决。</p>
+]]></content>
+      <categories>
+        <category>IDE</category>
+      </categories>
+      <tags>
+        <tag>IDE</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux救砖</title>
+    <url>/2023/07/09/linux10/</url>
+    <content><![CDATA[<p>骚操作把系统搞崩了，更新一个底层文件之后，系统就进不去了。</p>
+<a id="more"></a>
+
+<p>还好有备份。</p>
+<p>ctrl+alt+f1进终端救了下。</p>
+<p>ctrl+alt+f7回到图形界面。</p>
+<p>另外，如果你不太了解linux，不要用ctrl+alt+f1，因为是root帐号，有可能更改系统。</p>
+<p>用ctrl+alt+f2，f2~f6都可以。</p>
+<p><a href="https://m.656463.com/wenda/ubuntuactrlaltF1jrdmlxmsssmzmtccydmlynx_83">参考资料</a></p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+        <category>Ubuntu</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>Ubuntu</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ReportLab | 文本排列问题</title>
+    <url>/2023/07/11/pythonLibrary18/</url>
+    <content><![CDATA[<p>在使用ReportLab生成PDF时，遇到了大字号的文本段在换行后，上下行相互覆盖的问题。</p>
+<a id="more"></a>
+
+<p>最后解决方法是</p>
+<pre><code>p = ParagraphStyle(&#39;test&#39;)
+p.leading = 120</code></pre>
+<p>简单理解就是行间距。</p>
+]]></content>
+      <categories>
+        <category>Python</category>
+        <category>常用库</category>
+        <category>ReportLab</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>ReportLab</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ReportLab | 生成表格</title>
+    <url>/2023/07/11/pythonLibrary19/</url>
+    <content><![CDATA[<p>在用ReportLab生成PDF时有加入表格的需求。</p>
+<a id="more"></a>
+
+<p><a href="https://blog.csdn.net/cloveses/article/details/79667247">参考文章</a></p>
+<p>具体的见上文，这里就写下我自己用到的部分代码。</p>
+<pre><code>from reportlab.platypus import Table
+
+    def append_table(self, table_data_list, style=&quot;&quot;):
+        if style == &quot;&quot;:
+            style_list = [
+                (&#39;TEXTCOLOR&#39;, (0, 0), (-1, -1), colors.black),  # 字的颜色
+                (&#39;ALIGN&#39;, (0, 0), (-1, -1), &#39;CENTER&#39;),  # 水平对齐
+                (&#39;VALIGN&#39;, (0, 0), (-1, -1), &#39;MIDDLE&#39;),  # 垂直对齐
+                (&#39;GRID&#39;, (0, 0), (-1, -1), 1, colors.black),  # 边框颜色
+                (&#39;FONTSIZE&#39;, (0, 0), (-1, -1), 23),  # 字体大小
+                (&#39;FONT&#39;, (0, 0), (-1, -1), &#39;汉语&#39;),  # 字体
+                (&#39;BOTTOMPADDING&#39;, (0, 0), (-1, -1), 20),  # 单元格下方距离
+                (&#39;TOPPADDING&#39;, (0, 0), (-1, -1), 2)  # 单元格上方距离
+            ]
+            style = TableStyle(style_list)
+        # lishu.alignment = 1
+        table = Table(table_data_list)
+        table.setStyle(style)
+        self.elements.append(table)</code></pre>
+]]></content>
+      <categories>
+        <category>Python</category>
+        <category>常用库</category>
+        <category>ReportLab</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>ReportLab</tag>
       </tags>
   </entry>
 </search>

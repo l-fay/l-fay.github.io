@@ -1,10 +1,10 @@
 ---
 title: no CUDA-capable device is detected
 date: 2020-12-16 16:01:13
-tags: [CUDA, 报错, Python, PyTorch]
+tags: [CUDA,  Python, PyTorch]
 categories: 
-  - [CUDA, 报错]
-  - [Python, PyTorch, 报错]
+  - [CUDA]
+  - [Python, PyTorch]
 ---
 
 这个错误可能由以下几个原因引起：
