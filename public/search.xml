@@ -2367,92 +2367,41 @@ print(music_dir)
       </tags>
   </entry>
   <entry>
-    <title>Excel | 用openpyxl库操作Excel表格</title>
-    <url>/2021/01/10/pythonLibrary03/</url>
-    <content><![CDATA[<p>首先这个库只支持xlsx格式的文件操作，其他的8行。</p>
-<p>xlsx是EXCEL 2007以上版本的扩展名。</p>
+    <title>ReportLab | 生成表格</title>
+    <url>/2023/07/11/pythonLibrary03/</url>
+    <content><![CDATA[<p>在用ReportLab生成PDF时有加入表格的需求。</p>
 <a id="more"></a>
 
-<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><pre><code>pip install openpyxl</code></pre>
-<h1 id="创建对象"><a href="#创建对象" class="headerlink" title="创建对象"></a>创建对象</h1><h2 id="新建"><a href="#新建" class="headerlink" title="新建"></a>新建</h2><pre><code>from openpyxl import Workbook 
-# 实例化
-wb = Workbook()
-# 激活 worksheet
-sheet = wb.active</code></pre>
-<h2 id="打开已有文件"><a href="#打开已有文件" class="headerlink" title="打开已有文件"></a>打开已有文件</h2><pre><code>from openpyxl import load_workbook
-wb = load_workbook(&#39;文件名称.xlsx&#39;)</code></pre>
-<h1 id="访问表"><a href="#访问表" class="headerlink" title="访问表"></a>访问表</h1><h2 id="新建表"><a href="#新建表" class="headerlink" title="新建表"></a>新建表</h2><pre><code># 方式一：插入到最后(default)
-sheet1 = wb.create_sheet(&quot;Mysheet&quot;) 
-# 方式二：插入到最开始的位置
-sheet2 = wb.create_sheet(&quot;Mysheet&quot;, 0)</code></pre>
-<h2 id="选择已有的表"><a href="#选择已有的表" class="headerlink" title="选择已有的表"></a>选择已有的表</h2><pre><code># sheet 名称可以作为 key 进行索引
-sheet3 = wb[&quot;工具表1&quot;]
-sheet4 = wb.get_sheet_by_name(&quot;工具表1&quot;)</code></pre>
-<p>这俩是一样的</p>
-<h2 id="查看表名"><a href="#查看表名" class="headerlink" title="查看表名"></a>查看表名</h2><pre><code># 显示所有表名
-print(wb.sheetnames)
-# 遍历所有表
-for sheet in wb:</code></pre>
-<h2 id="删除表"><a href="#删除表" class="headerlink" title="删除表"></a>删除表</h2><pre><code># 方式一
-wb.remove(sheet)
-# 方式二
-del wb[sheet]</code></pre>
-<h1 id="单元格操作"><a href="#单元格操作" class="headerlink" title="单元格操作"></a>单元格操作</h1><h2 id="访问单元格"><a href="#访问单元格" class="headerlink" title="访问单元格"></a>访问单元格</h2><pre><code># 方法一
-c = sheet[&#39;A4&#39;]
-# 方法二：row 行；column 列
-d = sheet.cell(row=4, column=2)
-d = sheet.cell(4, 2)
-# 方法三：只要访问就创建
-min_row = 3
-max_row = 43
-min_column = 1
-max_column = 9
-for i in range(min_row, max_row + 1):
-   for j in range(min_column, max_column + 1):
-      sheet.cell(row=i, column=j)</code></pre>
-<p>从我个人体验来说，访问单一单元格用方法一最舒服，循环访问单元格用方法三最舒服。</p>
-<h2 id="修改单元格数据"><a href="#修改单元格数据" class="headerlink" title="修改单元格数据"></a>修改单元格数据</h2><pre><code># 方法一，返回值为cell对象
-sheet.cell(row=4, column=2, value=10)
-# 方法二
-sheet[&#39;A1&#39;] = 42
-# 方法三
-sheet.cell(6, 7).value = &quot;哈哈&quot;</code></pre>
-<p>方法二适合单一单元格赋值，方法一三适合循环赋值。</p>
-<h1 id="保存文件"><a href="#保存文件" class="headerlink" title="保存文件"></a>保存文件</h1><pre><code>wb.save(&#39;文件名称.xlsx&#39;)</code></pre>
-<h1 id="其他命令"><a href="#其他命令" class="headerlink" title="其他命令"></a>其他命令</h1><h2 id="获取最大列和最大行"><a href="#获取最大列和最大行" class="headerlink" title="获取最大列和最大行"></a>获取最大列和最大行</h2><pre><code>print(sheet.max_row)
-print(sheet.max_column)</code></pre>
-<p>不太准，可能是我的数据规模太小了。</p>
-<h2 id="遍历单元格"><a href="#遍历单元格" class="headerlink" title="遍历单元格"></a>遍历单元格</h2><pre><code>sheet.rows为生成器, 里面是每一行的数据，每一行又由一个tuple包裹。
-sheet.columns类似，不过里面是每个tuple是每一列的单元格。
-# 因为按行，所以返回A1, B1, C1这样的顺序
-for row in sheet.rows:
-  for cell in row:
-    print(cell.value)
+<p><a href="https://blog.csdn.net/cloveses/article/details/79667247">参考文章</a></p>
+<p>具体的见上文，这里就写下我自己用到的部分代码。</p>
+<pre><code>from reportlab.platypus import Table
 
-# A1, A2, A3这样的顺序
-for column in sheet.columns:
-  for cell in column:
-    print(cell.value)</code></pre>
-<p>还是上边的问题，因为行列最大值不准，所以会有很多None单元格。</p>
-<h2 id="根据数字得到字母，根据字母得到数字"><a href="#根据数字得到字母，根据字母得到数字" class="headerlink" title="根据数字得到字母，根据字母得到数字"></a>根据数字得到字母，根据字母得到数字</h2><pre><code>from openpyxl.utils import get_column_letter, column_index_from_string
-
-# 根据列的数字返回字母
-print(get_column_letter(2)) # B
-# 根据字母返回列的数字
-print(column_index_from_string(&#39;D&#39;)) # 4</code></pre>
-<p>至此都是数据操作，风格操作我还没用上，之后用上再说。</p>
+    def append_table(self, table_data_list, style=&quot;&quot;):
+        if style == &quot;&quot;:
+            style_list = [
+                (&#39;TEXTCOLOR&#39;, (0, 0), (-1, -1), colors.black),  # 字的颜色
+                (&#39;ALIGN&#39;, (0, 0), (-1, -1), &#39;CENTER&#39;),  # 水平对齐
+                (&#39;VALIGN&#39;, (0, 0), (-1, -1), &#39;MIDDLE&#39;),  # 垂直对齐
+                (&#39;GRID&#39;, (0, 0), (-1, -1), 1, colors.black),  # 边框颜色
+                (&#39;FONTSIZE&#39;, (0, 0), (-1, -1), 23),  # 字体大小
+                (&#39;FONT&#39;, (0, 0), (-1, -1), &#39;汉语&#39;),  # 字体
+                (&#39;BOTTOMPADDING&#39;, (0, 0), (-1, -1), 20),  # 单元格下方距离
+                (&#39;TOPPADDING&#39;, (0, 0), (-1, -1), 2)  # 单元格上方距离
+            ]
+            style = TableStyle(style_list)
+        # lishu.alignment = 1
+        table = Table(table_data_list)
+        table.setStyle(style)
+        self.elements.append(table)</code></pre>
 ]]></content>
       <categories>
         <category>Python</category>
         <category>常用库</category>
-        <category>openpyxl</category>
-        <category>Office</category>
-        <category>Excel</category>
+        <category>ReportLab</category>
       </categories>
       <tags>
         <tag>Python</tag>
-        <tag>办公</tag>
-        <tag>Office</tag>
+        <tag>ReportLab</tag>
       </tags>
   </entry>
   <entry>
@@ -8155,44 +8104,6 @@ p.leading = 120</code></pre>
       </tags>
   </entry>
   <entry>
-    <title>ReportLab | 生成表格</title>
-    <url>/2023/07/11/pythonLibrary19/</url>
-    <content><![CDATA[<p>在用ReportLab生成PDF时有加入表格的需求。</p>
-<a id="more"></a>
-
-<p><a href="https://blog.csdn.net/cloveses/article/details/79667247">参考文章</a></p>
-<p>具体的见上文，这里就写下我自己用到的部分代码。</p>
-<pre><code>from reportlab.platypus import Table
-
-    def append_table(self, table_data_list, style=&quot;&quot;):
-        if style == &quot;&quot;:
-            style_list = [
-                (&#39;TEXTCOLOR&#39;, (0, 0), (-1, -1), colors.black),  # 字的颜色
-                (&#39;ALIGN&#39;, (0, 0), (-1, -1), &#39;CENTER&#39;),  # 水平对齐
-                (&#39;VALIGN&#39;, (0, 0), (-1, -1), &#39;MIDDLE&#39;),  # 垂直对齐
-                (&#39;GRID&#39;, (0, 0), (-1, -1), 1, colors.black),  # 边框颜色
-                (&#39;FONTSIZE&#39;, (0, 0), (-1, -1), 23),  # 字体大小
-                (&#39;FONT&#39;, (0, 0), (-1, -1), &#39;汉语&#39;),  # 字体
-                (&#39;BOTTOMPADDING&#39;, (0, 0), (-1, -1), 20),  # 单元格下方距离
-                (&#39;TOPPADDING&#39;, (0, 0), (-1, -1), 2)  # 单元格上方距离
-            ]
-            style = TableStyle(style_list)
-        # lishu.alignment = 1
-        table = Table(table_data_list)
-        table.setStyle(style)
-        self.elements.append(table)</code></pre>
-]]></content>
-      <categories>
-        <category>Python</category>
-        <category>常用库</category>
-        <category>ReportLab</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-        <tag>ReportLab</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Steam | 验证短信乱码</title>
     <url>/2023/07/13/steam00/</url>
     <content><![CDATA[<p>在用Steam的App发验证信息的时候遇到了乱码，在知乎上找到了解决方案，记一下。</p>
@@ -8212,6 +8123,132 @@ print(s.encode(&quot;utf-16be&quot;))</code></pre>
       </categories>
       <tags>
         <tag>Steam</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Excel | openpyxl库操作Excel表格中的超链接</title>
+    <url>/2023/07/14/excel01/</url>
+    <content><![CDATA[<p>有时操作单元格的超链接会报错。</p>
+<a id="more"></a>
+
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><pre><code>ws[A1].hyperlink=&#39;$&#123;工作表名&#125;!A1&#39;</code></pre>
+<p>有时想要这样去操作单元格的超链接，让其指向另一个sheet，会不生效。</p>
+<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>猜测和工作表名中的特殊字符有关</p>
+<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>换为使用HYPERLINK类而不是属性。</p>
+<p>官方参数说明如下：</p>
+<p>HYPERLINK (link_location，[friendly_name])</p>
+<p>HYPERLINK 函数语法具有下列参数：</p>
+<p>Link_location必需。 要打开的文档的路径和文件名。 Link_location 可以指向文档中的某个更为具体的位置 ，如 Excel 工作表或工作簿中特定的单元格或命名区域，或是指向 Microsoft Word 文档中的书签。 路径可以是存储在硬盘驱动器上的文件。 路径还可以是 Microsoft Excel 中服务器 (上的通用命名约定 (UNC) Windows) 路径，或者是 Internet 或 Intranet 上的统一资源定位符 (URL) 路径。</p>
+<p>请注意Excel 网页版 HYPERLINK 函数仅对 web 地址 (URL) 有效。 Link_location可以是用引号括起来的文本字符串，或者是对包含链接为文本字符串的单元格的引用。</p>
+<p>如果在单元格中指定的跳转link_location不存在或无法导航，则单击单元格时会出现错误。</p>
+<p>Friendly_name可选。 单元格中显示的跳转文本或数字值。 Friendly_name 显示为蓝色并带有下划线。 如果省略 Friendly_name，单元格会将 link_location 显示为跳转文本。</p>
+<p>Friendly_name 可以为数值、文本字符串、名称或包含跳转文本或数值的单元格。</p>
+<p>如果 Friendly_name 返回错误值（例如，#VALUE!），单元格将显示错误值以替代跳转文本。</p>
+<p>包含特殊字符是sheet_name需要用单引号包起来</p>
+<h2 id="可用代码"><a href="#可用代码" class="headerlink" title="可用代码"></a>可用代码</h2><pre><code>link_url =f&quot;=HYPERLINK(\&quot;#\&#39;&#123;sheet_name&#125;\&#39;!A1\&quot;,\&quot;&#123;sheet_name&#125;\&quot;)&quot;
+
+ws[f&#39;A&#123;i&#125;&#39;].value = link_url</code></pre>
+]]></content>
+      <categories>
+        <category>Python</category>
+        <category>常用库</category>
+        <category>openpyxl</category>
+        <category>Office</category>
+        <category>Excel</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>办公</tag>
+        <tag>Office</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Excel | 用openpyxl库操作Excel表格</title>
+    <url>/2021/01/10/excel02/</url>
+    <content><![CDATA[<p>首先这个库只支持xlsx格式的文件操作，其他的8行。</p>
+<p>xlsx是EXCEL 2007以上版本的扩展名。</p>
+<a id="more"></a>
+
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><pre><code>pip install openpyxl</code></pre>
+<h1 id="创建对象"><a href="#创建对象" class="headerlink" title="创建对象"></a>创建对象</h1><h2 id="新建"><a href="#新建" class="headerlink" title="新建"></a>新建</h2><pre><code>from openpyxl import Workbook 
+# 实例化
+wb = Workbook()
+# 激活 worksheet
+sheet = wb.active</code></pre>
+<h2 id="打开已有文件"><a href="#打开已有文件" class="headerlink" title="打开已有文件"></a>打开已有文件</h2><pre><code>from openpyxl import load_workbook
+wb = load_workbook(&#39;文件名称.xlsx&#39;)</code></pre>
+<h1 id="访问表"><a href="#访问表" class="headerlink" title="访问表"></a>访问表</h1><h2 id="新建表"><a href="#新建表" class="headerlink" title="新建表"></a>新建表</h2><pre><code># 方式一：插入到最后(default)
+sheet1 = wb.create_sheet(&quot;Mysheet&quot;) 
+# 方式二：插入到最开始的位置
+sheet2 = wb.create_sheet(&quot;Mysheet&quot;, 0)</code></pre>
+<h2 id="选择已有的表"><a href="#选择已有的表" class="headerlink" title="选择已有的表"></a>选择已有的表</h2><pre><code># sheet 名称可以作为 key 进行索引
+sheet3 = wb[&quot;工具表1&quot;]
+sheet4 = wb.get_sheet_by_name(&quot;工具表1&quot;)</code></pre>
+<p>这俩是一样的</p>
+<h2 id="查看表名"><a href="#查看表名" class="headerlink" title="查看表名"></a>查看表名</h2><pre><code># 显示所有表名
+print(wb.sheetnames)
+# 遍历所有表
+for sheet in wb:</code></pre>
+<h2 id="删除表"><a href="#删除表" class="headerlink" title="删除表"></a>删除表</h2><pre><code># 方式一
+wb.remove(sheet)
+# 方式二
+del wb[sheet]</code></pre>
+<h1 id="单元格操作"><a href="#单元格操作" class="headerlink" title="单元格操作"></a>单元格操作</h1><h2 id="访问单元格"><a href="#访问单元格" class="headerlink" title="访问单元格"></a>访问单元格</h2><pre><code># 方法一
+c = sheet[&#39;A4&#39;]
+# 方法二：row 行；column 列
+d = sheet.cell(row=4, column=2)
+d = sheet.cell(4, 2)
+# 方法三：只要访问就创建
+min_row = 3
+max_row = 43
+min_column = 1
+max_column = 9
+for i in range(min_row, max_row + 1):
+   for j in range(min_column, max_column + 1):
+      sheet.cell(row=i, column=j)</code></pre>
+<p>从我个人体验来说，访问单一单元格用方法一最舒服，循环访问单元格用方法三最舒服。</p>
+<h2 id="修改单元格数据"><a href="#修改单元格数据" class="headerlink" title="修改单元格数据"></a>修改单元格数据</h2><pre><code># 方法一，返回值为cell对象
+sheet.cell(row=4, column=2, value=10)
+# 方法二
+sheet[&#39;A1&#39;] = 42
+# 方法三
+sheet.cell(6, 7).value = &quot;哈哈&quot;</code></pre>
+<p>方法二适合单一单元格赋值，方法一三适合循环赋值。</p>
+<h1 id="保存文件"><a href="#保存文件" class="headerlink" title="保存文件"></a>保存文件</h1><pre><code>wb.save(&#39;文件名称.xlsx&#39;)</code></pre>
+<h1 id="其他命令"><a href="#其他命令" class="headerlink" title="其他命令"></a>其他命令</h1><h2 id="获取最大列和最大行"><a href="#获取最大列和最大行" class="headerlink" title="获取最大列和最大行"></a>获取最大列和最大行</h2><pre><code>print(sheet.max_row)
+print(sheet.max_column)</code></pre>
+<p>不太准，可能是我的数据规模太小了。</p>
+<h2 id="遍历单元格"><a href="#遍历单元格" class="headerlink" title="遍历单元格"></a>遍历单元格</h2><pre><code>sheet.rows为生成器, 里面是每一行的数据，每一行又由一个tuple包裹。
+sheet.columns类似，不过里面是每个tuple是每一列的单元格。
+# 因为按行，所以返回A1, B1, C1这样的顺序
+for row in sheet.rows:
+  for cell in row:
+    print(cell.value)
+
+# A1, A2, A3这样的顺序
+for column in sheet.columns:
+  for cell in column:
+    print(cell.value)</code></pre>
+<p>还是上边的问题，因为行列最大值不准，所以会有很多None单元格。</p>
+<h2 id="根据数字得到字母，根据字母得到数字"><a href="#根据数字得到字母，根据字母得到数字" class="headerlink" title="根据数字得到字母，根据字母得到数字"></a>根据数字得到字母，根据字母得到数字</h2><pre><code>from openpyxl.utils import get_column_letter, column_index_from_string
+
+# 根据列的数字返回字母
+print(get_column_letter(2)) # B
+# 根据字母返回列的数字
+print(column_index_from_string(&#39;D&#39;)) # 4</code></pre>
+<p>至此都是数据操作，风格操作我还没用上，之后用上再说。</p>
+]]></content>
+      <categories>
+        <category>Python</category>
+        <category>常用库</category>
+        <category>openpyxl</category>
+        <category>Office</category>
+        <category>Excel</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>办公</tag>
+        <tag>Office</tag>
       </tags>
   </entry>
 </search>
