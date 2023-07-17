@@ -8192,4 +8192,26 @@ p.leading = 120</code></pre>
         <tag>ReportLab</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Steam | 验证短信乱码</title>
+    <url>/2023/07/13/steam00/</url>
+    <content><![CDATA[<p>在用Steam的App发验证信息的时候遇到了乱码，在知乎上找到了解决方案，记一下。</p>
+<a id="more"></a>
+
+<p><a href="https://zhuanlan.zhihu.com/p/592974388">奈豆Nazuki - Steam 令牌手机验证器验证码短信乱码</a></p>
+<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>原理就是字符集不一致，文中指出了Steam的验证短信使用的是<code>utf-16be</code>编码，直接转一下就能看见验证码了。</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><pre><code># 替换成自己乱码的短信内容
+# 如果出错，可以删除末位字符后再运行
+s = &quot;子䥎嵃潮晩牭⁡摤楮朠愠却敡洠䅵瑨敮瑩捡瑯爠睩瑨‹㐹㤸&quot;
+print(s.encode(&quot;utf-16be&quot;))</code></pre>
+<h2 id="PS"><a href="#PS" class="headerlink" title="PS"></a>PS</h2><p>另外，评论区指出，在App里将语言改成简中再发一遍就能解决，我还没试，姑且记下来。</p>
+<p>有时最后一个字符是<code>�</code>，没法转，把这个字符删掉再转就行了。</p>
+]]></content>
+      <categories>
+        <category>Steam</category>
+      </categories>
+      <tags>
+        <tag>Steam</tag>
+      </tags>
+  </entry>
 </search>
