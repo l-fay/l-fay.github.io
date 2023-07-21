@@ -8289,6 +8289,7 @@ print(column_index_from_string(&#39;D&#39;)) # 4</code></pre>
     <content><![CDATA[<p>python3.5上使用virtualenv的一些问题。</p>
 <a id="more"></a>
 
+<p>搬运自<a href="https://www.cnblogs.com/Se7eN-HOU/p/16175633.html">这里</a></p>
 <h2 id="一、坑一：安装的virtualenv版本太高"><a href="#一、坑一：安装的virtualenv版本太高" class="headerlink" title="一、坑一：安装的virtualenv版本太高"></a>一、坑一：安装的virtualenv版本太高</h2><p>显示使用virtualenv 安装虚拟环境报错　　</p>
 <img src="/images/virtualenv01/img1.png" width="60%">
 

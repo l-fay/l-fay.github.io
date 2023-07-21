@@ -10,6 +10,8 @@ python3.5上使用virtualenv的一些问题。
 
 <!-- more -->
 
+搬运自[这里](https://www.cnblogs.com/Se7eN-HOU/p/16175633.html)
+
 ## 一、坑一：安装的virtualenv版本太高
 
 显示使用virtualenv 安装虚拟环境报错　　
