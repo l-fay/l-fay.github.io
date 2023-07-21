@@ -7751,7 +7751,7 @@ table th:nth-of-type(3) {
       </tags>
   </entry>
   <entry>
-    <title>怎样用Java获取文件后缀</title>
+    <title>Java | 怎样用Java获取文件后缀</title>
     <url>/2023/04/11/java02/</url>
     <content><![CDATA[<p>有时用Java有获取文件后缀的需求，就想找一个类似Python里<code>os.path.splitext()</code>的解决方案。</p>
 <a id="more"></a>
@@ -8249,6 +8249,22 @@ print(column_index_from_string(&#39;D&#39;)) # 4</code></pre>
         <tag>Python</tag>
         <tag>办公</tag>
         <tag>Office</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java | 文件路径分隔符</title>
+    <url>/2023/07/15/java03/</url>
+    <content><![CDATA[<p>有时用Java有拼接文件路径的需求，就想找一个类似Python里<code>os.path.join()</code>的解决方案。</p>
+<a id="more"></a>
+
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>在拼接路径时，会遇到操作系统问题，比如Windows下的默认路径分隔符是<code>\</code>，而Linux下的默认路径分隔符是<code>/</code>，所以想找一个Java语言的解决方案。</p>
+<h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><p>虽然没找到现成的函数，不过找到了个不错的解决方法<code>File.separator</code>，它在不同的操作系统下是不同方向的斜杠，直接用它代替斜杠做文件路径拼接就好了。</p>
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
       </tags>
   </entry>
 </search>
