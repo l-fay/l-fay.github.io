@@ -8310,4 +8310,72 @@ print(column_index_from_string(&#39;D&#39;)) # 4</code></pre>
         <tag>Virtualenv</tag>
       </tags>
   </entry>
+  <entry>
+    <title>virtualenv的使用场景</title>
+    <url>/2023/07/20/virtualenv03/</url>
+    <content><![CDATA[<p>说一下为什么用virtualenv。</p>
+<a id="more"></a>
+
+<p>我还是比较习惯用Anaconda，但在内网环境下，Anaconda创建和管理环境特别麻烦，所以转用virtualenv。</p>
+<p>virtualenv的优势在于可以使用本地python环境，用<code>.tar.gz</code>安装包安装多个python环境后，可以实现离线创建多种不同的python版本虚拟环境。</p>
+<p>在实际应用中，<code>.tar.gz</code>的安装包有时缺少环境，又没有root权限，所以产生了一个迂回的方案。</p>
+<p>用Anaconda的离线安装包装Anaconda，然后用virtualenv使用本地的Anaconda的base环境创建虚拟环境。</p>
+<p>也不是不能用.jpg</p>
+]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>Virtualenv</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Python多环境 | 安装virtualenv的步骤</title>
+    <url>/2023/07/20/virtualenv02/</url>
+    <content><![CDATA[<p>这篇博客记一下安装virtualenv的通常步骤。</p>
+<a id="more"></a>
+
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="检查python版本"><a href="#检查python版本" class="headerlink" title="检查python版本"></a>检查python版本</h3><p>低版本（3.5）有问题，详见<a href="/2023/07/15/virtualenv01/" title="这里">这里</a>，下边的操作都是在3.9上进行的。</p>
+<h3 id="检查pip版本"><a href="#检查pip版本" class="headerlink" title="检查pip版本"></a>检查pip版本</h3><p>安装之前确保pip版本不能太低，最少不能是8这么离谱。</p>
+<pre><code>pip install --upgrade pip</code></pre>
+<h3 id="安装virtualenv"><a href="#安装virtualenv" class="headerlink" title="安装virtualenv"></a>安装virtualenv</h3><pre><code>pip install virtualenv</code></pre>
+<h3 id="安装virtualenvwrapper"><a href="#安装virtualenvwrapper" class="headerlink" title="安装virtualenvwrapper"></a>安装virtualenvwrapper</h3><pre><code>pip install virtualenvwrapper</code></pre>
+<h3 id="编辑环境变量"><a href="#编辑环境变量" class="headerlink" title="编辑环境变量"></a>编辑环境变量</h3><p>这一步总共需要编辑4个路径，<br><code>WORKON_HOME</code>是虚拟环境目录，这个是自己想放哪就放哪。</p>
+<p><code>VIRTUALENVWRAPPER_PYTHON</code>是调用virtualenvwrapper的python路径，就填安装virtualenvwrapper的那个python路径。<br>可以用<code>which python</code>查看你当前的<code>python</code>位置。</p>
+<p><code>VIRTUALENVWRAPPER_VIRTUALENV</code>是virtualenv的路径。<br>可以用<code>find / -name virtualenv 2&gt;/dev/null</code>查找virtualenv的路径。</p>
+<p>最后是<code>virtualenvwrapper.sh</code>脚本位置。<br>可以用<code>find / -name virtualenvwrapper.sh 2&gt;/dev/null</code>查找脚本位置。</p>
+<p>用<code>vim ~/.bashrc</code>编辑用户环境变量。</p>
+<pre><code>export WORKON_HOME=/xxx/.virtualenvs
+export VIRTUALENVWRAPPER_PYTHON=/xxx/python3
+export VIRTUALENVWRAPPER_VIRTUALENV=/xxx/virtualenv
+# virtualenvwrapper.sh所在目录
+source /xxx/virtualenvwrapper.sh</code></pre>
+<p>编辑完记得重新读取生效。</p>
+<pre><code>source ~/.bashrc</code></pre>
+<h3 id="创建虚拟环境测试"><a href="#创建虚拟环境测试" class="headerlink" title="创建虚拟环境测试"></a>创建虚拟环境测试</h3><p>使用上一步配置的默认python版本创建新环境</p>
+<pre><code>mkvirtualenv env_name</code></pre>
+<p>指定本地python版本创建新环境</p>
+<pre><code>mkvirtualenv --python=/xxx/bin/python env_name</code></pre>
+<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><p>查看所有环境</p>
+<pre><code>workon</code></pre>
+<p>激活某个虚拟环境</p>
+<pre><code>workon env_name</code></pre>
+<p>退出当前虚拟环境</p>
+<pre><code>deactivate</code></pre>
+<p>删除某个虚拟环境</p>
+<pre><code>rmvirtualenv env_name</code></pre>
+<p>进入当前虚拟环境目录</p>
+<pre><code>cdvirtualenv</code></pre>
+<h2 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h2><p>有时装了多个python时，会出现<code>python</code>和<code>pip</code>命令指向的不是用一个环境的问题。</p>
+<p>这时可以用<code>python -m pip</code>去代替<code>pip</code>，这样装上的包一定是和<code>python</code>同一个环境。</p>
+]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>Virtualenv</tag>
+      </tags>
+  </entry>
 </search>
