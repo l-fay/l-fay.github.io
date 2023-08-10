@@ -8378,4 +8378,20 @@ source /xxx/virtualenvwrapper.sh</code></pre>
         <tag>Virtualenv</tag>
       </tags>
   </entry>
+  <entry>
+    <title>工单反馈 | Meta节点全为error</title>
+    <url>/2023/08/10/feedback00/</url>
+    <content><![CDATA[<p>临时博客，工单结束就删除。</p>
+<a id="more"></a>
+
+<p>就是所有的节点测速都是error，表现如下：<br><img src="/images/feedback00/img02.jpg" width="60%"><br><img src="/images/feedback00/img00.jpg" width="60%"></p>
+<p>内核也切换成meta了，是我在哪里没有配置好吗？<br><img src="/images/feedback00/img01.jpg" width="60%"></p>
+]]></content>
+      <categories>
+        <category>无</category>
+      </categories>
+      <tags>
+        <tag>无</tag>
+      </tags>
+  </entry>
 </search>
