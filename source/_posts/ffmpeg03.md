@@ -134,4 +134,4 @@ Try adding this ffmpeg parameter:
 
 先总结到这，一会去更新下ffmpeg参数的那篇博客。
 
-{% post_link ffmpegParameter 'ffmpeg | 参数记录' %}
+{% post_link ffmpegParameter00 'ffmpeg | 参数记录' %}
