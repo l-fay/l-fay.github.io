@@ -19,6 +19,7 @@ function run() {
             cd('F:\\blog');    //此处修改为Hexo根目录路径
         } else if (process.env.computername === "LENOVO") {
             // 笔记本
+			echo(process.env.computername)
             cd('D:\\blog');
         } else {
             echo(process.env.computername)
