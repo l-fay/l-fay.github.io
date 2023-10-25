@@ -1,3 +1,7 @@
+https://l-fay.github.io/2023/10/21/redis03/
+https://l-fay.github.io/2023/02/01/redis02/
+https://l-fay.github.io/2023/10/20/linux11/
+https://l-fay.github.io/2023/05/20/nginx00/
 https://l-fay.github.io/2021/02/05/ffmpeg03/
 https://l-fay.github.io/2023/07/20/virtualenv03/
 https://l-fay.github.io/2023/07/20/virtualenv02/
@@ -16,14 +20,12 @@ https://l-fay.github.io/2023/07/12/cuda01/
 https://l-fay.github.io/2020/12/16/cuda00/
 https://l-fay.github.io/2023/07/07/life01/
 https://l-fay.github.io/2023/07/02/life00/
-https://l-fay.github.io/2023/05/20/nginx00/
 https://l-fay.github.io/2020/11/27/anaconda00/
 https://l-fay.github.io/2023/05/16/kylin00/
 https://l-fay.github.io/2023/04/11/sql00/
 https://l-fay.github.io/2023/04/11/ffmpeg13/
 https://l-fay.github.io/2023/04/10/excel00/
 https://l-fay.github.io/2023/03/30/okhttp00/
-https://l-fay.github.io/2023/02/01/redis02/
 https://l-fay.github.io/2023/01/17/ffmpeg12/
 https://l-fay.github.io/2021/04/19/pythonLibrary10/
 https://l-fay.github.io/2021/04/19/pythonLibrary11/
@@ -274,3 +276,4 @@ https://l-fay.github.io/categories/Java/%E5%B7%A5%E5%85%B7/
 https://l-fay.github.io/categories/Java/%E5%B7%A5%E5%85%B7/Torna/
 https://l-fay.github.io/categories/%E6%B8%B8%E6%88%8F/
 https://l-fay.github.io/categories/%E6%B8%B8%E6%88%8F/%E6%B0%B4%E6%8E%92%E5%BA%8F%E8%B0%9C%E9%A2%98/
+https://l-fay.github.io/categories/Python/%E5%B8%B8%E7%94%A8%E5%BA%93/rediscluster/

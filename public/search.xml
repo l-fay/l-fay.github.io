@@ -2661,7 +2661,7 @@ root   hard    nofile  40000
 
 <p>资料来自<a href="https://stackoverflow.com/questions/65275764/nginx-limit-upload-speed">Stack Overflow</a></p>
 <p>没啥好写的，搬运一下。</p>
-<p>首先要确保Nginx是支持strea的，不然只能重装。</p>
+<p>首先要确保Nginx是支持stream的，不然只能重装。</p>
 <pre><code>static:
 
 $ ./configure --with-stream
@@ -8622,6 +8622,82 @@ if %isExecuted%==0 (
       <tags>
         <tag>游戏</tag>
         <tag>水排序谜题</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux分卷压缩与解压缩</title>
+    <url>/2023/10/20/linux11/</url>
+    <content><![CDATA[<p>在Linux系统下，分卷压缩与解压缩的方法。</p>
+<span id="more"></span>
+
+<p>在<a href="https://blog.csdn.net/qq_19320227/article/details/127967543">这篇文章</a>里提到了两种压缩方法和三种解压缩方法，搬运一下。</p>
+<h2 id="压缩"><a href="#压缩" class="headerlink" title="压缩"></a>压缩</h2><h3 id="方法一-直接压缩"><a href="#方法一-直接压缩" class="headerlink" title="方法一 直接压缩"></a>方法一 直接压缩</h3><pre><code>zip -r -s 1m log.zip log/
+</code></pre>
+<p>-r 代表递归子目录(如果没有加压缩出来只包含一个空目录)<br>-s 1m代表分卷大小(这里我进行测试所以设置的比较小,正式使用一般设置为1g)<br>log.zip为压缩包名<br>log&#x2F;为待压缩的目录</p>
+<h3 id="方法二-先压缩再分卷"><a href="#方法二-先压缩再分卷" class="headerlink" title="方法二 先压缩再分卷"></a>方法二 先压缩再分卷</h3><pre><code># 压缩
+zip -r log.zip log
+# 分卷
+zip -s 5m log.zip --out new.zip
+</code></pre>
+<h2 id="解压缩"><a href="#解压缩" class="headerlink" title="解压缩"></a>解压缩</h2><h3 id="方法一-先合并再解压"><a href="#方法一-先合并再解压" class="headerlink" title="方法一 先合并再解压"></a>方法一 先合并再解压</h3><pre><code># 合并
+zip -s 0 log.zip --out LOG.zip
+# 解压
+unzip LOG.zip
+</code></pre>
+<h3 id="方法二-先修复再解压"><a href="#方法二-先修复再解压" class="headerlink" title="方法二 先修复再解压"></a>方法二 先修复再解压</h3><pre><code># 修复
+zip -F log.zip --out LOG.zip
+# 解压
+unzip LOG.zip
+</code></pre>
+<p>-F 后是要修复的压缩文件<br>–out 后是修复合并出来的用于解压缩的压缩文件</p>
+<h3 id="方法三-先合并再解压"><a href="#方法三-先合并再解压" class="headerlink" title="方法三 先合并再解压"></a>方法三 先合并再解压</h3><pre><code># 合并
+cat log.z* &gt; LOG.zip
+# 解压
+unzip LOG.zip
+</code></pre>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Python连接Redis集群</title>
+    <url>/2023/10/21/redis03/</url>
+    <content><![CDATA[<p>记录一下怎么用python连接Redis集群。</p>
+<span id="more"></span>
+
+<h2 id="安装redis-py-cluster库"><a href="#安装redis-py-cluster库" class="headerlink" title="安装redis-py-cluster库"></a>安装redis-py-cluster库</h2><pre><code>pip install redis-py-cluster
+</code></pre>
+<h2 id="初始化集群类和连接池"><a href="#初始化集群类和连接池" class="headerlink" title="初始化集群类和连接池"></a>初始化集群类和连接池</h2><p>为了方便，直接写了一个demo，就不多解释了，以后直接复制照搬。</p>
+<pre><code>class RedisCluster:
+    def __init__(self, config):
+        self.expire = 1800,
+        self.redis_pool = ClusterConnectionPool(
+            startup_nodes=[&#123;&quot;host&quot;: &quot;192.168.xxx.xxx&quot;, &quot;port&quot;: &quot;6379&quot;&#125;],
+            password=&quot;password&quot;,
+            decode_responses=True,
+            encodings=&quot;UTF-8&quot;,
+            max_connections=10)
+</code></pre>
+<p>用的时候先获取链接，然后就和普通的Redis连接一样了：</p>
+<pre><code>connect = RedisCluster(connection_pool=self.redis_pool)
+</code></pre>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a href="https://wenku.baidu.com/view/8eb596869889680203d8ce2f0066f5335a8167dc.html?_wkts_=1698222924758&bdQuery=redis-py-cluster+lock">python rediscluster方法</a><br><a href="https://zhuanlan.zhihu.com/p/399126368">利用python操作redis集群</a></p>
+]]></content>
+      <categories>
+        <category>Python</category>
+        <category>常用库</category>
+        <category>数据库</category>
+        <category>Redis</category>
+        <category>rediscluster</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>数据库</tag>
+        <tag>Redis</tag>
       </tags>
   </entry>
 </search>

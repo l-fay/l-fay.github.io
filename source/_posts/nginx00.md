@@ -14,7 +14,7 @@ categories:
 
 没啥好写的，搬运一下。
 
-首先要确保Nginx是支持strea的，不然只能重装。
+首先要确保Nginx是支持stream的，不然只能重装。
 
 ```
 static:
