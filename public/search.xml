@@ -8700,4 +8700,140 @@ unzip LOG.zip
         <tag>Redis</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Flask | flask的定时任务</title>
+    <url>/2023/10/22/flask00/</url>
+    <content><![CDATA[<p>记一下flask中执行定时任务的方式</p>
+<span id="more"></span>
+
+<h1 id="安装flask-apscheduler库"><a href="#安装flask-apscheduler库" class="headerlink" title="安装flask-apscheduler库"></a>安装flask-apscheduler库</h1><pre><code>pip install flask-apscheduler
+</code></pre>
+<h1 id="配置定时任务"><a href="#配置定时任务" class="headerlink" title="配置定时任务"></a>配置定时任务</h1><h2 id="interval方式"><a href="#interval方式" class="headerlink" title="interval方式"></a>interval方式</h2><pre><code>from flask import Flask
+import datetime
+from flask_apscheduler import APScheduler
+
+aps = APScheduler()
+
+
+class Config(object):
+    JOBS = [
+        &#123;
+            &#39;id&#39;: &#39;job1&#39;,
+            &#39;func&#39;: &#39;scheduler:task&#39;,
+            &#39;args&#39;: (1, 2),
+            &#39;trigger&#39;: &#39;interval&#39;,
+            &#39;seconds&#39;: 10
+        &#125;
+    ]
+    SCHEDULER_API_ENABLED = True
+
+
+def task(a, b):
+    print(str(datetime.datetime.now()) + &#39; execute task &#39; + &#39;&#123;&#125;+&#123;&#125;=&#123;&#125;&#39;.format(a, b, a + b))
+
+
+if __name__ == &#39;__main__&#39;:
+    app = Flask(__name__)
+    app.config.from_object(Config())
+
+    scheduler = APScheduler()
+    scheduler.init_app(app)
+    scheduler.start()
+
+    app.run(port=8000)
+</code></pre>
+<h2 id="cron方式"><a href="#cron方式" class="headerlink" title="cron方式"></a>cron方式</h2><pre><code>from flask import Flask
+import datetime
+from flask_apscheduler import APScheduler
+
+aps = APScheduler()
+
+
+class Config(object):
+    JOBS = [
+        &#123;
+            &#39;id&#39;: &#39;job1&#39;,
+            &#39;func&#39;: &#39;scheduler:task&#39;,
+            &#39;args&#39;: (1, 2),
+            &#39;trigger&#39;: &#39;cron&#39;,
+            &#39;day&#39;: &#39;*&#39;,
+            &#39;hour&#39;: &#39;13&#39;,
+            &#39;minute&#39;: &#39;16&#39;,
+            &#39;second&#39;: &#39;20&#39;
+        &#125;
+    ]
+    SCHEDULER_API_ENABLED = True
+
+
+def task(a, b):
+    print(str(datetime.datetime.now()) + &#39; execute task &#39; + &#39;&#123;&#125;+&#123;&#125;=&#123;&#125;&#39;.format(a, b, a + b))
+
+
+if __name__ == &#39;__main__&#39;:
+    app = Flask(__name__)
+    app.config.from_object(Config())
+
+    scheduler = APScheduler()
+    scheduler.init_app(app)
+    scheduler.start()
+
+    app.run(port=8000)
+</code></pre>
+<h2 id="装饰器方式"><a href="#装饰器方式" class="headerlink" title="装饰器方式"></a>装饰器方式</h2><p>这种方法需要注意的是，经过测试，被装饰的函数需要被flask管理才行。</p>
+<pre><code>from flask import Flask
+from flask_apscheduler import APScheduler
+import datetime
+
+
+class Config(object):
+    SCHEDULER_API_ENABLED = True
+
+
+scheduler = APScheduler()
+
+
+# interval examples
+@scheduler.task(&#39;interval&#39;, id=&#39;do_job_1&#39;, seconds=30, misfire_grace_time=900)
+def job1():
+    print(str(datetime.datetime.now()) + &#39; Job 1 executed&#39;)
+
+
+# cron examples
+@scheduler.task(&#39;cron&#39;, id=&#39;do_job_2&#39;, minute=&#39;*&#39;)
+def job2():
+    print(str(datetime.datetime.now()) + &#39; Job 2 executed&#39;)
+
+
+@scheduler.task(&#39;cron&#39;, id=&#39;do_job_3&#39;, week=&#39;*&#39;, day_of_week=&#39;sun&#39;)
+def job3():
+    print(str(datetime.datetime.now()) + &#39; Job 3 executed&#39;)
+
+
+@scheduler.task(&#39;cron&#39;, id=&#39;do_job_3&#39;, day=&#39;*&#39;, hour=&#39;13&#39;, minute=&#39;26&#39;, second=&#39;05&#39;)
+def job4():
+    print(str(datetime.datetime.now()) + &#39; Job 4 executed&#39;)
+
+
+if __name__ == &#39;__main__&#39;:
+    app = Flask(__name__)
+    app.config.from_object(Config())
+
+    # it is also possible to enable the API directly
+    # scheduler.api_enabled = True
+    scheduler.init_app(app)
+    scheduler.start()
+
+    app.run(port=8000)
+</code></pre>
+]]></content>
+      <categories>
+        <category>Python</category>
+        <category>常用库</category>
+        <category>flask</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>Flask</tag>
+      </tags>
+  </entry>
 </search>
