@@ -1,3 +1,5 @@
+https://l-fay.github.io/2023/10/28/sql01/
+https://l-fay.github.io/2023/04/11/sql00/
 https://l-fay.github.io/2023/10/28/spring01/
 https://l-fay.github.io/2023/10/28/pythonLibraryError02/
 https://l-fay.github.io/2023/10/28/flask01/
@@ -27,7 +29,6 @@ https://l-fay.github.io/2023/07/07/life01/
 https://l-fay.github.io/2023/07/02/life00/
 https://l-fay.github.io/2020/11/27/anaconda00/
 https://l-fay.github.io/2023/05/16/kylin00/
-https://l-fay.github.io/2023/04/11/sql00/
 https://l-fay.github.io/2023/04/11/ffmpeg13/
 https://l-fay.github.io/2023/04/10/excel00/
 https://l-fay.github.io/2023/03/30/okhttp00/
@@ -201,6 +202,7 @@ https://l-fay.github.io/tags/%E6%B8%B8%E6%88%8F/
 https://l-fay.github.io/tags/%E6%B0%B4%E6%8E%92%E5%BA%8F%E8%B0%9C%E9%A2%98/
 https://l-fay.github.io/tags/Flask/
 https://l-fay.github.io/tags/Nexus/
+https://l-fay.github.io/tags/SQL/
 https://l-fay.github.io/categories/Anaconda/
 https://l-fay.github.io/categories/%E8%87%AA%E5%8A%A8%E5%8C%96/
 https://l-fay.github.io/categories/Python/
@@ -287,3 +289,4 @@ https://l-fay.github.io/categories/Python/%E5%B8%B8%E7%94%A8%E5%BA%93/redisclust
 https://l-fay.github.io/categories/Python/%E5%B8%B8%E7%94%A8%E5%BA%93/flask/
 https://l-fay.github.io/categories/Nexus/
 https://l-fay.github.io/categories/Python/%E5%B8%B8%E7%94%A8%E5%BA%93/virtualenv/
+https://l-fay.github.io/categories/SQL/

@@ -1,8 +1,9 @@
 ---
 title: sql | MySql的upserte语句
 date: 2023-04-11 19:05:49
-tags:
+tags: [SQL]
 categories:
+  - [SQL]
 ---
 
 upsert是mysql的方言，其作用是数据库没有这条数据，就新增，有这条数据就修改。

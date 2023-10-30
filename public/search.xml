@@ -5870,6 +5870,12 @@ VALUES
 <p>其中<code>id</code>是唯一主键。</p>
 <p>要注意的是，联合主键不能使用upsert。</p>
 ]]></content>
+      <categories>
+        <category>SQL</category>
+      </categories>
+      <tags>
+        <tag>SQL</tag>
+      </tags>
   </entry>
   <entry>
     <title>Steam | 验证短信乱码</title>
@@ -8978,6 +8984,54 @@ app = scheduler.app
       <tags>
         <tag>Python</tag>
         <tag>Error</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>mysql根据父节点递归查询所有子节点</title>
+    <url>/2023/10/28/sql01/</url>
+    <content><![CDATA[<p>如题。<br>搬运自<a href="https://developer.aliyun.com/article/1143831">这里</a>。</p>
+<span id="more"></span>
+
+<h1 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h1><pre><code>SELECT
+  * 
+FROM
+  (
+  SELECT
+    t1.*,
+  IF
+    ( FIND_IN_SET( parent_id, @parent_ids ) &gt; 0, @parent_ids := CONCAT( @parent_ids, &#39;,&#39;, id ), &#39;0&#39; ) AS ischild 
+  FROM
+    ( SELECT * FROM blade_menu AS t WHERE t.is_deleted = 0 AND client_type = &#39;dianduyun_app&#39; ORDER BY t.id ASC ) t1,
+    ( SELECT @parent_ids := &#39;1508255373140103170&#39; ) t2 
+  ) t3 
+WHERE
+  ischild != &#39;0&#39;
+</code></pre>
+<p>需要修改的地方:<br>• parent_id，改为你的父级id字段<br>• blade_menu ，改为你的表名称<br>• WHERE t.is_deleted &#x3D; 0 ，改为你的查询条件<br>• @parent_ids :&#x3D; ‘1508255373140103170’，值改为你要传入的父级id</p>
+<h1 id="方法二："><a href="#方法二：" class="headerlink" title="方法二："></a>方法二：</h1><pre><code>SELECT
+  rd.* 
+FROM
+  ( SELECT * FROM fine_authority_object WHERE parentId IS NOT NULL AND is_deleted = 0 ) rd,
+  ( SELECT @pid := &#39;2342465874553522423&#39; ) pd 
+WHERE
+  FIND_IN_SET( parentId, @pid ) &gt; 0 
+  AND @pid := concat( @pid, &#39;,&#39;, id ) 
+
+UNION
+SELECT
+  * 
+FROM
+  fine_authority_object 
+WHERE
+  FIND_IN_SET( id, @pid ) &gt; 0;
+</code></pre>
+<p>需要修改的地方<br>fine_authority_object ，改为你的表名，以及后面的查询条件进行修改。<br>SELECT @pid :&#x3D; ‘2342465874553522423’ ，值改为你要传的父id的值<br>FIND_IN_SET( parentId, @pid ) ，parentId改为你的父级id字段名<br>备注：<br>• 当前这条SQL是根据多个父节点查询所有子节点（包含自身）<br>• 如果不想查询结果包含自身，去掉后边的union</p>
+]]></content>
+      <categories>
+        <category>SQL</category>
+      </categories>
+      <tags>
+        <tag>SQL</tag>
       </tags>
   </entry>
 </search>

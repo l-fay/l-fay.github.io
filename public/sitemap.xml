@@ -2,6 +2,24 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://l-fay.github.io/2023/10/28/sql01/</loc>
+    
+    <lastmod>2023-10-30</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2023/04/11/sql00/</loc>
+    
+    <lastmod>2023-10-30</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://l-fay.github.io/2023/10/28/spring01/</loc>
     
     <lastmod>2023-10-30</lastmod>
@@ -257,15 +275,6 @@
     <loc>https://l-fay.github.io/2023/05/16/kylin00/</loc>
     
     <lastmod>2023-05-17</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://l-fay.github.io/2023/04/11/sql00/</loc>
-    
-    <lastmod>2023-04-11</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1698,6 +1707,13 @@
     <priority>0.2</priority>
   </url>
   
+  <url>
+    <loc>https://l-fay.github.io/tags/SQL/</loc>
+    <lastmod>2023-10-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
 
   
   <url>
@@ -2297,6 +2313,13 @@
   
   <url>
     <loc>https://l-fay.github.io/categories/Python/%E5%B8%B8%E7%94%A8%E5%BA%93/virtualenv/</loc>
+    <lastmod>2023-10-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/categories/SQL/</loc>
     <lastmod>2023-10-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
