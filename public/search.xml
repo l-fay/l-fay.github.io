@@ -8836,4 +8836,148 @@ if __name__ == &#39;__main__&#39;:
         <tag>Flask</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Nexus | Not authorized for requested path xxxx</title>
+    <url>/2023/10/28/nexus00/</url>
+    <content><![CDATA[<p>上传组件失败报错。</p>
+<span id="more"></span>
+
+<p>经过检查，发现是上传者的账号没有上传包的权限，在账号的roles中增加下权限就好了。</p>
+<pre><code>nx-repository-view-maven2-仓库名-edit
+
+nx-repository-view-maven2-仓库名-add
+</code></pre>
+]]></content>
+      <categories>
+        <category>Nexus</category>
+      </categories>
+      <tags>
+        <tag>Nexus</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>缓存 | @Cacheable注解函数内部调用不生效</title>
+    <url>/2023/10/30/spring01/</url>
+    <content><![CDATA[<p>出现问题的原因：Spring cache的实现原理是基于AOP的动态代理实现的：即都在方法调用前后去获取方法的名称、参数、返回值，然后根据方法名称、参数生成缓存的key(自定义的key例外)，进行缓存。this调用不是代理对象的调用,  所以aop失效,注解失效。</p>
+<p>解决办法就是，我们获取当前Bean,由它来调用。</p>
+<span id="more"></span>
+
+<h1 id="SpringContextUtil"><a href="#SpringContextUtil" class="headerlink" title="SpringContextUtil"></a>SpringContextUtil</h1><pre><code>import org.springframework.beans.BeansException;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
+import org.springframework.context.annotation.Lazy;
+import org.springframework.stereotype.Component;
+ 
+/**
+ *不依赖于Autowired而使用java代码快速获取到spring管理的bean
+ */
+@Component
+@Lazy(false)
+public class SpringContextUtil  implements ApplicationContextAware &#123;
+     private static ApplicationContext applicationContext;
+     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException &#123;
+         SpringContextUtil .applicationContext = applicationContext;
+     &#125;
+     public static ApplicationContext getApplicationContext() &#123;
+         return applicationContext;
+     &#125;
+     public static Object getBean(String name) &#123;
+         return getApplicationContext().getBean(name);
+     &#125;
+     public static &lt;T&gt; T getBean(Class&lt;T&gt; clazz) &#123;
+         return getApplicationContext().getBean(clazz);
+     &#125;
+     public static &lt;T&gt; T getBean(String name, Class&lt;T&gt; clazz) &#123;
+         return getApplicationContext().getBean(name, clazz);
+     &#125;
+&#125;
+</code></pre>
+<h1 id="Service-调用"><a href="#Service-调用" class="headerlink" title="Service 调用"></a>Service 调用</h1><pre><code>package com.mark.pay.service;
+ 
+import com.mark.pay.bean.User;
+import com.mark.pay.common.spring.SpringContextUtil;
+import com.mark.pay.dao.UserMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.*;
+import org.springframework.stereotype.Service;
+ 
+@Service
+@CacheConfig(cacheNames = &quot;user&quot;,cacheManager = &quot;cacheManager&quot;)
+public class TestService &#123;
+ 
+    @Autowired
+    UserMapper userMapper;
+ 
+    @Cacheable( key =&quot;#id&quot;)
+    public User query(Integer id) &#123;
+        return userMapper.selectByPrimaryKey(id);
+    &#125;
+ 
+ 
+    public User testCacheQuery(Integer id)&#123;
+        TestService service = SpringContextUtil.getBean(TestService.class);
+        return service.query(id);
+    &#125;
+&#125;
+</code></pre>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://blog.csdn.net/qq_36990177/article/details/109755106">Springboot Cache @Cacheable 类内部调用时不生效，解决办法</a></p>
+]]></content>
+      <categories>
+        <category>Java</category>
+        <category>Spring</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>Spring</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Flask | RuntimeError: No application found. Either work inside a view function or push an application context.</title>
+    <url>/2023/10/28/flask01/</url>
+    <content><![CDATA[<p>问题在于调用时找不到flask的app，就算用current_app，也会在不被flask管理的模块中调用时遇到此错误。</p>
+<span id="more"></span>
+
+<h1 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h1><p>使用flask_apscheduler模块</p>
+<pre><code>pip install flask-apscheduler
+</code></pre>
+<p>然后新建一个<code>APScheduler</code>对象</p>
+<pre><code>from flask_apscheduler import APScheduler
+
+scheduler = APScheduler()
+</code></pre>
+<p>后续遇到需要使用app的时候，按如下调用：</p>
+<pre><code>from application.scheduler import scheduler
+
+app = scheduler.app
+</code></pre>
+<p>其中import的位置自己改。</p>
+]]></content>
+      <categories>
+        <category>Python</category>
+        <category>常用库</category>
+        <category>flask</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>Flask</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SyntaxError: future feature annotations is not defined</title>
+    <url>/2023/10/28/pythonLibraryError02/</url>
+    <content><![CDATA[<p>安装virtualenv的时候报错，找了找解决办法。</p>
+<span id="more"></span>
+
+<p>重装<code>pip</code>和<code>setuptools</code>，版本忘记了，多试一试吧，下次遇到了再记一下。</p>
+]]></content>
+      <categories>
+        <category>Python</category>
+        <category>常用库</category>
+        <category>virtualenv</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>Error</tag>
+      </tags>
+  </entry>
 </search>

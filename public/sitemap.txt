@@ -1,3 +1,7 @@
+https://l-fay.github.io/2023/10/28/pythonLibraryError02/
+https://l-fay.github.io/2023/10/28/flask01/
+https://l-fay.github.io/2023/10/30/spring01/
+https://l-fay.github.io/2023/10/28/nexus00/
 https://l-fay.github.io/2023/10/22/flask00/
 https://l-fay.github.io/2023/10/21/redis03/
 https://l-fay.github.io/2023/02/01/redis02/
@@ -196,6 +200,7 @@ https://l-fay.github.io/tags/%E6%89%B9%E5%A4%84%E7%90%86/
 https://l-fay.github.io/tags/%E6%B8%B8%E6%88%8F/
 https://l-fay.github.io/tags/%E6%B0%B4%E6%8E%92%E5%BA%8F%E8%B0%9C%E9%A2%98/
 https://l-fay.github.io/tags/Flask/
+https://l-fay.github.io/tags/Nexus/
 https://l-fay.github.io/categories/Anaconda/
 https://l-fay.github.io/categories/%E8%87%AA%E5%8A%A8%E5%8C%96/
 https://l-fay.github.io/categories/Python/
@@ -280,3 +285,5 @@ https://l-fay.github.io/categories/%E6%B8%B8%E6%88%8F/
 https://l-fay.github.io/categories/%E6%B8%B8%E6%88%8F/%E6%B0%B4%E6%8E%92%E5%BA%8F%E8%B0%9C%E9%A2%98/
 https://l-fay.github.io/categories/Python/%E5%B8%B8%E7%94%A8%E5%BA%93/rediscluster/
 https://l-fay.github.io/categories/Python/%E5%B8%B8%E7%94%A8%E5%BA%93/flask/
+https://l-fay.github.io/categories/Nexus/
+https://l-fay.github.io/categories/Python/%E5%B8%B8%E7%94%A8%E5%BA%93/virtualenv/
