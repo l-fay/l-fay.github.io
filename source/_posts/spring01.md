@@ -1,6 +1,6 @@
 ---
 title: 缓存 | @Cacheable注解函数内部调用不生效
-date: 2023-10-30 16:40:47
+date: 2023-10-28 16:40:47
 tags: [Java, Spring]
 categories:
   - [Java, Spring]

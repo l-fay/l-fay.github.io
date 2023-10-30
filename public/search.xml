@@ -8857,7 +8857,7 @@ nx-repository-view-maven2-仓库名-add
   </entry>
   <entry>
     <title>缓存 | @Cacheable注解函数内部调用不生效</title>
-    <url>/2023/10/30/spring01/</url>
+    <url>/2023/10/28/spring01/</url>
     <content><![CDATA[<p>出现问题的原因：Spring cache的实现原理是基于AOP的动态代理实现的：即都在方法调用前后去获取方法的名称、参数、返回值，然后根据方法名称、参数生成缓存的key(自定义的key例外)，进行缓存。this调用不是代理对象的调用,  所以aop失效,注解失效。</p>
 <p>解决办法就是，我们获取当前Bean,由它来调用。</p>
 <span id="more"></span>
