@@ -4691,7 +4691,7 @@ python proxyPool.py server
         <category>爬虫</category>
         <category>Python</category>
         <category>代理</category>
-        <category>Python</category>
+        <category>proxy_pool</category>
       </categories>
       <tags>
         <tag>Python</tag>
@@ -5810,7 +5810,7 @@ sentinel failover-timeout mymaster 30000
 ]]></content>
       <categories>
         <category>爬虫</category>
-        <category>Python</category>
+        <category>部分实例</category>
         <category>微博</category>
       </categories>
       <tags>
@@ -9032,6 +9032,70 @@ WHERE
       </categories>
       <tags>
         <tag>SQL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>验证码识别 | 开源项目ddddocr</title>
+    <url>/2023/10/29/ddddocr00/</url>
+    <content><![CDATA[<p>因为爬虫有突破验证码的需求，找到了这个<a href="https://github.com/sml2h3/ddddocr">开源项目</a>。</p>
+<span id="more"></span>
+
+<p>发现有重大更新，原来智能识别图片验证码，现在还有图片里点击文字、滑块验证，自己看吧，说不定到时候又有更新。</p>
+]]></content>
+      <categories>
+        <category>开源项目</category>
+        <category>爬虫</category>
+        <category>Python</category>
+        <category>ddddocr</category>
+        <category>验证码</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>开源项目</tag>
+        <tag>爬虫</tag>
+        <tag>验证码</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Flask异常处理</title>
+    <url>/2023/10/29/flask02/</url>
+    <content><![CDATA[<p>在访问过程中，有两种方式可以中断请求，一是抛出错误码，二是抛出异常。</p>
+<span id="more"></span>
+
+<h1 id="abort中断请求"><a href="#abort中断请求" class="headerlink" title="abort中断请求"></a>abort中断请求</h1><pre><code>from flask import  abort
+ 
+@app.route(&#39;/&#39;)
+def index():
+    abort(401)
+</code></pre>
+<h1 id="抛出异常"><a href="#抛出异常" class="headerlink" title="抛出异常"></a>抛出异常</h1><pre><code>raise [exceptionName [(reason)]]
+</code></pre>
+<h1 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h1><p>errorhandler捕捉当前蓝图错误，app_errorhandler捕捉全局错误，下边是例子：</p>
+<pre><code>from flask import Blueprint
+from application.common.classes.Result import Result
+from application.common.constant.HttpCode import HttpCode
+
+handler_blu = Blueprint(&quot;handler_blu&quot;, __name__)
+
+
+@handler_blu.app_errorhandler(HttpCode.UNAUTHORIZED)
+def unauthorized():
+    return Result.error(HttpCode.UNAUTHORIZED, &quot;token已过期或未登陆！&quot;)
+
+
+@handler_blu.app_errorhandler(Exception)
+def exception():
+    return Result.error(500, &quot;未知异常&quot;)
+</code></pre>
+]]></content>
+      <categories>
+        <category>Python</category>
+        <category>常用库</category>
+        <category>flask</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>Flask</tag>
       </tags>
   </entry>
 </search>

@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://l-fay.github.io/2023/10/29/ddddocr00/</loc>
+    <lastmod>2023-10-31</lastmod>
+  </url>
+  <url>
+    <loc>https://l-fay.github.io/2020/08/21/spider00/</loc>
+    <lastmod>2023-10-31</lastmod>
+  </url>
+  <url>
+    <loc>https://l-fay.github.io/2020/09/08/proxy_pool00/</loc>
+    <lastmod>2023-10-31</lastmod>
+  </url>
+  <url>
+    <loc>https://l-fay.github.io/2023/10/29/flask02/</loc>
+    <lastmod>2023-10-31</lastmod>
+  </url>
+  <url>
     <loc>https://l-fay.github.io/2023/10/28/sql01/</loc>
     <lastmod>2023-10-30</lastmod>
   </url>
@@ -206,10 +222,6 @@
   </url>
   <url>
     <loc>https://l-fay.github.io/2022/01/07/compressedFile00/</loc>
-    <lastmod>2022-12-01</lastmod>
-  </url>
-  <url>
-    <loc>https://l-fay.github.io/2020/09/08/proxy_pool00/</loc>
     <lastmod>2022-12-01</lastmod>
   </url>
   <url>
@@ -538,10 +550,6 @@
   </url>
   <url>
     <loc>https://l-fay.github.io/2020/10/26/command01/</loc>
-    <lastmod>2021-01-17</lastmod>
-  </url>
-  <url>
-    <loc>https://l-fay.github.io/2020/08/21/spider00/</loc>
     <lastmod>2021-01-17</lastmod>
   </url>
 </urlset> 
