@@ -1,13 +1,13 @@
 ---
 title: Selenium | canvas元素的点击问题
 date: 2021-04-19 11:32:41
-tags: [Python, 自动化, selenium]
+tags: [Python, 自动化, Selenium]
 categories:
-  - [Python, 常用库, selenium]
-  - [自动化, selenium]
+  - [Python, 常用库, Selenium]
+  - [自动化, Selenium]
 ---
 
-用`selenium`写自动化脚本的时候遇到的一个有趣的细节。
+用`Selenium`写自动化脚本的时候遇到的一个有趣的细节。
 
 <!-- more -->
 

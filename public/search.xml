@@ -8982,7 +8982,7 @@ def exception():
   <entry>
     <title>Selenium | canvas元素的点击问题</title>
     <url>/2021/04/19/selenium00/</url>
-    <content><![CDATA[<p>用<code>selenium</code>写自动化脚本的时候遇到的一个有趣的细节。</p>
+    <content><![CDATA[<p>用<code>Selenium</code>写自动化脚本的时候遇到的一个有趣的细节。</p>
 <span id="more"></span>
 
 <p>因为要操作的对象是<code>canvas</code>元素，所以不能直接用点击element的办法操作，只能通过坐标来操作。</p>
@@ -9004,13 +9004,13 @@ action.move_by_offset(-forthWidth, -forthHeight).perform()
         <category>自动化</category>
         <category>Python</category>
         <category>常用库</category>
-        <category>selenium</category>
-        <category>selenium</category>
+        <category>Selenium</category>
+        <category>Selenium</category>
       </categories>
       <tags>
         <tag>自动化</tag>
         <tag>Python</tag>
-        <tag>selenium</tag>
+        <tag>Selenium</tag>
       </tags>
   </entry>
   <entry>
@@ -9027,13 +9027,13 @@ action.move_by_offset(-forthWidth, -forthHeight).perform()
         <category>自动化</category>
         <category>Python</category>
         <category>常用库</category>
-        <category>selenium</category>
-        <category>selenium</category>
+        <category>Selenium</category>
+        <category>Selenium</category>
       </categories>
       <tags>
         <tag>自动化</tag>
         <tag>Python</tag>
-        <tag>selenium</tag>
+        <tag>Selenium</tag>
       </tags>
   </entry>
   <entry>
@@ -9061,13 +9061,13 @@ drive.execute_cdp_cmd(&quot;Page.addScriptToEvaluateOnNewDocument&quot;, &#123;&
         <category>自动化</category>
         <category>Python</category>
         <category>常用库</category>
-        <category>selenium</category>
-        <category>selenium</category>
+        <category>Selenium</category>
+        <category>Selenium</category>
       </categories>
       <tags>
         <tag>自动化</tag>
         <tag>Python</tag>
-        <tag>selenium</tag>
+        <tag>Selenium</tag>
       </tags>
   </entry>
   <entry>
@@ -9089,13 +9089,13 @@ driver.switch_to.frame(iframe)
         <category>自动化</category>
         <category>Python</category>
         <category>常用库</category>
-        <category>selenium</category>
-        <category>selenium</category>
+        <category>Selenium</category>
+        <category>Selenium</category>
       </categories>
       <tags>
         <tag>自动化</tag>
         <tag>Python</tag>
-        <tag>selenium</tag>
+        <tag>Selenium</tag>
       </tags>
   </entry>
   <entry>
@@ -9105,13 +9105,7 @@ driver.switch_to.frame(iframe)
 <span id="more"></span>
 
 <p>示例：</p>
-<pre><code>JS = &#39;return document.getElementsByTagName(&quot;canvas&quot;)[0].toDataURL(&quot;image/png&quot;);&#39;
-# 执行 JS 代码并拿到图片 base64 数据
-im_info1 = browser.execute_script(JS1)
-
-
-
-ele = browser.find_element_by_xpath(&quot;//button&quot;)
+<pre><code>ele = browser.find_element_by_xpath(&quot;//button&quot;)
 browser.execute_script(&quot;arguments[0].innerHTML = &#39;新的文本&#39;&quot;, ele)
 </code></pre>
 <p>其中<code>arguments[0]</code>可以看做起到了传参的作用。</p>
@@ -9121,13 +9115,13 @@ browser.execute_script(&quot;arguments[0].innerHTML = &#39;新的文本&#39;&quo
         <category>自动化</category>
         <category>Python</category>
         <category>常用库</category>
-        <category>selenium</category>
-        <category>selenium</category>
+        <category>Selenium</category>
+        <category>Selenium</category>
       </categories>
       <tags>
         <tag>自动化</tag>
         <tag>Python</tag>
-        <tag>selenium</tag>
+        <tag>Selenium</tag>
       </tags>
   </entry>
 </search>
