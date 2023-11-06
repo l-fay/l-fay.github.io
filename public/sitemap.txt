@@ -1,3 +1,4 @@
+https://l-fay.github.io/2023/11/05/selenium04/
 https://l-fay.github.io/2023/10/29/ddddocr00/
 https://l-fay.github.io/2020/08/21/spider00/
 https://l-fay.github.io/2020/09/08/proxy_pool00/
@@ -37,10 +38,10 @@ https://l-fay.github.io/2023/04/11/ffmpeg13/
 https://l-fay.github.io/2023/04/10/excel00/
 https://l-fay.github.io/2023/03/30/okhttp00/
 https://l-fay.github.io/2023/01/17/ffmpeg12/
-https://l-fay.github.io/2021/04/19/pythonLibrary10/
-https://l-fay.github.io/2021/04/19/pythonLibrary11/
-https://l-fay.github.io/2021/06/05/pythonLibrary13/
-https://l-fay.github.io/2021/04/19/pythonLibrary09/
+https://l-fay.github.io/2021/04/19/selenium01/
+https://l-fay.github.io/2021/04/19/selenium02/
+https://l-fay.github.io/2021/06/05/selenium03/
+https://l-fay.github.io/2021/04/19/selenium00/
 https://l-fay.github.io/2022/10/21/linux09/
 https://l-fay.github.io/2022/09/14/neo4j04/
 https://l-fay.github.io/2022/08/26/javaLibrary01/

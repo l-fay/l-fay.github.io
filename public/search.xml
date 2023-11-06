@@ -5250,97 +5250,6 @@ chown(path,uid ,gid)
       </tags>
   </entry>
   <entry>
-    <title>Selenium | canvas元素的点击问题</title>
-    <url>/2021/04/19/pythonLibrary09/</url>
-    <content><![CDATA[<p>用<code>selenium</code>写自动化脚本的时候遇到的一个有趣的细节。</p>
-<span id="more"></span>
-
-<p>因为要操作的对象是<code>canvas</code>元素，所以不能直接用点击element的办法操作，只能通过坐标来操作。</p>
-<p>但是在具体操作的过程中，发现有的点击没有触发。</p>
-<p>经过排查，是因为<code>canvas</code>的点击有延时，而鼠标焦点在点击之后立即移开，所以点击有时没有生效。</p>
-<p>解决方法是点击之后焦点悬停一会，示例如下：</p>
-<pre><code>action = ActionChains(driver)
-size = driver.find_element_by_id(&#39;xxxx&#39;).size
-print(&quot;canvas:&quot; + str(size))
-forthHeight = size[&#39;height&#39;] * 0.25
-forthWidth = size[&#39;width&#39;] * 0.76
-action.move_by_offset(forthWidth, forthHeight).pause(0.5)
-action.click()
-action.click().pause(0.5)
-action.move_by_offset(-forthWidth, -forthHeight).perform()
-</code></pre>
-]]></content>
-      <categories>
-        <category>自动化</category>
-        <category>Python</category>
-        <category>常用库</category>
-        <category>selenium</category>
-        <category>selenium</category>
-      </categories>
-      <tags>
-        <tag>自动化</tag>
-        <tag>Python</tag>
-        <tag>selenium</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Selenium | 窗口的句柄问题</title>
-    <url>/2021/04/19/pythonLibrary10/</url>
-    <content><![CDATA[<p>自动化脚本处理弹出窗口及异常处理的方法。</p>
-<span id="more"></span>
-
-<h2 id="操作思路"><a href="#操作思路" class="headerlink" title="操作思路"></a>操作思路</h2><p>弹出窗口-&gt;检测弹窗-&gt;处理弹窗\异常处理</p>
-<h2 id="基本思想"><a href="#基本思想" class="headerlink" title="基本思想"></a>基本思想</h2><p>通过监听现有句柄的数量来检测弹窗。</p>
-<p>异常处理主要是在处理弹窗过程中发生异常的时候，及时切回主窗口，否则会造成窗口焦点丢失。</p>
-]]></content>
-      <categories>
-        <category>自动化</category>
-        <category>Python</category>
-        <category>常用库</category>
-        <category>selenium</category>
-        <category>selenium</category>
-      </categories>
-      <tags>
-        <tag>自动化</tag>
-        <tag>Python</tag>
-        <tag>selenium</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Selenium | 配置Chrome的option</title>
-    <url>/2021/04/19/pythonLibrary11/</url>
-    <content><![CDATA[<p>有的网站会检测Chrome配置，所以为了规避检测，大抵有两种方法。</p>
-<span id="more"></span>
-
-<h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h2><pre><code>chrome_options.add_argument(&quot;user-data-dir=path_to_userdata\\User Data&quot;)
-# chrome_options.add_argument(&quot;--profile-directory=Profile 1&quot;)
-chrome_options.add_experimental_option(&#39;useAutomationExtension&#39;, True)
-chrome_options.add_experimental_option(&#39;excludeSwitches&#39;, [&#39;enable-automation&#39;])
-chrome_options.add_argument(&quot;--disable-blink-features=AutomationControlled&quot;)
-</code></pre>
-<p>这个方法主要是掩藏了一部分特征，但还是建议用下一个方法。</p>
-<h2 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h2><pre><code>drive = webdriver.Chrome(options=chrome_options)
-with open(&#39;stealth.min.js&#39;) as f:
-    js = f.read()
-drive.execute_cdp_cmd(&quot;Page.addScriptToEvaluateOnNewDocument&quot;, &#123;&quot;source&quot;: js&#125;)
-</code></pre>
-<p>直接加载现成的js文件。</p>
-<p>至于这个文件怎么获得，我这也不贴现成的了，因为它一直在更新，就自己百度文件名<code>stealth.min.js</code>找吧。</p>
-]]></content>
-      <categories>
-        <category>自动化</category>
-        <category>Python</category>
-        <category>常用库</category>
-        <category>selenium</category>
-        <category>selenium</category>
-      </categories>
-      <tags>
-        <tag>自动化</tag>
-        <tag>Python</tag>
-        <tag>selenium</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Pytesseract | 简介</title>
     <url>/2021/04/19/pythonLibrary12/</url>
     <content><![CDATA[<p>这是一个本地OCR的库。</p>
@@ -5361,34 +5270,6 @@ drive.execute_cdp_cmd(&quot;Page.addScriptToEvaluateOnNewDocument&quot;, &#123;&
       <tags>
         <tag>Python</tag>
         <tag>OCR</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Selenium | iframe的操作</title>
-    <url>/2021/06/05/pythonLibrary13/</url>
-    <content><![CDATA[<p>在selenium中，不能用<code>find_element</code>对iframe内元素进行直接操作</p>
-<span id="more"></span>
-
-<p>解决方法是先切换到对应的iframe，再继续操作。</p>
-<pre><code>driver.switch_to.frame(&quot;e_iframe&quot;)
-</code></pre>
-<p>其中，传入的参数可以是id也可以是name。</p>
-<p>但是如果id和name都不唯一，我没测试会定位到哪，不过还可以先用<code>find_elements</code>的诸多方法定位，再切换。</p>
-<pre><code>iframe = driver.find_elements_by_tag_name(&#39;iframe&#39;)[0]
-driver.switch_to.frame(iframe)
-</code></pre>
-]]></content>
-      <categories>
-        <category>自动化</category>
-        <category>Python</category>
-        <category>常用库</category>
-        <category>selenium</category>
-        <category>selenium</category>
-      </categories>
-      <tags>
-        <tag>自动化</tag>
-        <tag>Python</tag>
-        <tag>selenium</tag>
       </tags>
   </entry>
   <entry>
@@ -9096,6 +8977,157 @@ def exception():
       <tags>
         <tag>Python</tag>
         <tag>Flask</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Selenium | canvas元素的点击问题</title>
+    <url>/2021/04/19/selenium00/</url>
+    <content><![CDATA[<p>用<code>selenium</code>写自动化脚本的时候遇到的一个有趣的细节。</p>
+<span id="more"></span>
+
+<p>因为要操作的对象是<code>canvas</code>元素，所以不能直接用点击element的办法操作，只能通过坐标来操作。</p>
+<p>但是在具体操作的过程中，发现有的点击没有触发。</p>
+<p>经过排查，是因为<code>canvas</code>的点击有延时，而鼠标焦点在点击之后立即移开，所以点击有时没有生效。</p>
+<p>解决方法是点击之后焦点悬停一会，示例如下：</p>
+<pre><code>action = ActionChains(driver)
+size = driver.find_element_by_id(&#39;xxxx&#39;).size
+print(&quot;canvas:&quot; + str(size))
+forthHeight = size[&#39;height&#39;] * 0.25
+forthWidth = size[&#39;width&#39;] * 0.76
+action.move_by_offset(forthWidth, forthHeight).pause(0.5)
+action.click()
+action.click().pause(0.5)
+action.move_by_offset(-forthWidth, -forthHeight).perform()
+</code></pre>
+]]></content>
+      <categories>
+        <category>自动化</category>
+        <category>Python</category>
+        <category>常用库</category>
+        <category>selenium</category>
+        <category>selenium</category>
+      </categories>
+      <tags>
+        <tag>自动化</tag>
+        <tag>Python</tag>
+        <tag>selenium</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Selenium | 窗口的句柄问题</title>
+    <url>/2021/04/19/selenium01/</url>
+    <content><![CDATA[<p>自动化脚本处理弹出窗口及异常处理的方法。</p>
+<span id="more"></span>
+
+<h2 id="操作思路"><a href="#操作思路" class="headerlink" title="操作思路"></a>操作思路</h2><p>弹出窗口-&gt;检测弹窗-&gt;处理弹窗\异常处理</p>
+<h2 id="基本思想"><a href="#基本思想" class="headerlink" title="基本思想"></a>基本思想</h2><p>通过监听现有句柄的数量来检测弹窗。</p>
+<p>异常处理主要是在处理弹窗过程中发生异常的时候，及时切回主窗口，否则会造成窗口焦点丢失。</p>
+]]></content>
+      <categories>
+        <category>自动化</category>
+        <category>Python</category>
+        <category>常用库</category>
+        <category>selenium</category>
+        <category>selenium</category>
+      </categories>
+      <tags>
+        <tag>自动化</tag>
+        <tag>Python</tag>
+        <tag>selenium</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Selenium | 配置Chrome的option</title>
+    <url>/2021/04/19/selenium02/</url>
+    <content><![CDATA[<p>有的网站会检测Chrome配置，所以为了规避检测，大抵有两种方法。</p>
+<span id="more"></span>
+
+<h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h2><pre><code>chrome_options.add_argument(&quot;user-data-dir=path_to_userdata\\User Data&quot;)
+# chrome_options.add_argument(&quot;--profile-directory=Profile 1&quot;)
+chrome_options.add_experimental_option(&#39;useAutomationExtension&#39;, True)
+chrome_options.add_experimental_option(&#39;excludeSwitches&#39;, [&#39;enable-automation&#39;])
+chrome_options.add_argument(&quot;--disable-blink-features=AutomationControlled&quot;)
+</code></pre>
+<p>这个方法主要是掩藏了一部分特征，但还是建议用下一个方法。</p>
+<h2 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h2><pre><code>drive = webdriver.Chrome(options=chrome_options)
+with open(&#39;stealth.min.js&#39;) as f:
+    js = f.read()
+drive.execute_cdp_cmd(&quot;Page.addScriptToEvaluateOnNewDocument&quot;, &#123;&quot;source&quot;: js&#125;)
+</code></pre>
+<p>直接加载现成的js文件。</p>
+<p>至于这个文件怎么获得，我这也不贴现成的了，因为它一直在更新，就自己百度文件名<code>stealth.min.js</code>找吧。</p>
+]]></content>
+      <categories>
+        <category>自动化</category>
+        <category>Python</category>
+        <category>常用库</category>
+        <category>selenium</category>
+        <category>selenium</category>
+      </categories>
+      <tags>
+        <tag>自动化</tag>
+        <tag>Python</tag>
+        <tag>selenium</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Selenium | iframe的操作</title>
+    <url>/2021/06/05/selenium03/</url>
+    <content><![CDATA[<p>在selenium中，不能用<code>find_element</code>对iframe内元素进行直接操作</p>
+<span id="more"></span>
+
+<p>解决方法是先切换到对应的iframe，再继续操作。</p>
+<pre><code>driver.switch_to.frame(&quot;e_iframe&quot;)
+</code></pre>
+<p>其中，传入的参数可以是id也可以是name。</p>
+<p>但是如果id和name都不唯一，我没测试会定位到哪，不过还可以先用<code>find_elements</code>的诸多方法定位，再切换。</p>
+<pre><code>iframe = driver.find_elements_by_tag_name(&#39;iframe&#39;)[0]
+driver.switch_to.frame(iframe)
+</code></pre>
+]]></content>
+      <categories>
+        <category>自动化</category>
+        <category>Python</category>
+        <category>常用库</category>
+        <category>selenium</category>
+        <category>selenium</category>
+      </categories>
+      <tags>
+        <tag>自动化</tag>
+        <tag>Python</tag>
+        <tag>selenium</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Selenium | 修改元素属性</title>
+    <url>/2023/11/05/selenium04/</url>
+    <content><![CDATA[<p>Selenium修改元素属性是通过执行js语句进行的。</p>
+<span id="more"></span>
+
+<p>示例：</p>
+<pre><code>JS = &#39;return document.getElementsByTagName(&quot;canvas&quot;)[0].toDataURL(&quot;image/png&quot;);&#39;
+# 执行 JS 代码并拿到图片 base64 数据
+im_info1 = browser.execute_script(JS1)
+
+
+
+ele = browser.find_element_by_xpath(&quot;//button&quot;)
+browser.execute_script(&quot;arguments[0].innerHTML = &#39;新的文本&#39;&quot;, ele)
+</code></pre>
+<p>其中<code>arguments[0]</code>可以看做起到了传参的作用。</p>
+<p>可以先在浏览器控制台里测试好js代码，再用<code>execute_script()</code>方法加载进去。</p>
+]]></content>
+      <categories>
+        <category>自动化</category>
+        <category>Python</category>
+        <category>常用库</category>
+        <category>selenium</category>
+        <category>selenium</category>
+      </categories>
+      <tags>
+        <tag>自动化</tag>
+        <tag>Python</tag>
+        <tag>selenium</tag>
       </tags>
   </entry>
 </search>
