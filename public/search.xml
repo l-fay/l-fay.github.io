@@ -4982,7 +4982,10 @@ print(music_dir)
 <p>总体上，这个函数用的不多。</p>
 <h1 id="re-search-pattern-string"><a href="#re-search-pattern-string" class="headerlink" title="re.search(pattern,string)"></a>re.search(pattern,string)</h1><p>搜索第一个满足条件的字符串，查找到第一个停止。</p>
 <p>返回值是re对象，需要用group(0)来获取匹配结果。</p>
+<p>没有匹配到返回值就是None。</p>
 <h1 id="re-findall-pattern-string"><a href="#re-findall-pattern-string" class="headerlink" title="re.findall(pattern,string)"></a>re.findall(pattern,string)</h1><p>搜索所有满足条件的字符串。</p>
+<p>返回值是所有符合要求的匹配结果的列表。</p>
+<p>没有匹配到返回值就是空列表。</p>
 <p>这个我用的最多。</p>
 <h1 id="re-sub-pattern-repl-string-count-0"><a href="#re-sub-pattern-repl-string-count-0" class="headerlink" title="re.sub(pattern, repl, string, count&#x3D;0)"></a>re.sub(pattern, repl, string, count&#x3D;0)</h1><p>类似于str.replace()，用来替换字符串中的一部分。</p>
 <p>repl是替换结果，一般是字符串或者是返回字符串的方法。</p>

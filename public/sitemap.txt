@@ -1,3 +1,4 @@
+https://l-fay.github.io/2021/01/10/pythonLibrary04/
 https://l-fay.github.io/2021/04/19/selenium00/
 https://l-fay.github.io/2021/04/19/selenium01/
 https://l-fay.github.io/2021/04/19/selenium02/
@@ -116,7 +117,6 @@ https://l-fay.github.io/2020/12/19/ffmpeg00/
 https://l-fay.github.io/2020/12/19/hexo02/
 https://l-fay.github.io/2021/01/20/ffmpeg01/
 https://l-fay.github.io/2021/01/10/excel02/
-https://l-fay.github.io/2021/01/10/pythonLibrary04/
 https://l-fay.github.io/2021/01/11/pythonLibraryError00/
 https://l-fay.github.io/2020/08/20/windows01/
 https://l-fay.github.io/2020/10/26/redis00/
