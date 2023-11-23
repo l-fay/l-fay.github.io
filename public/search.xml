@@ -9127,4 +9127,100 @@ browser.execute_script(&quot;arguments[0].innerHTML = &#39;新的文本&#39;&quo
         <tag>Selenium</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Selenium | 操作Docker里的Chrome浏览器</title>
+    <url>/2023/11/22/selenium05/</url>
+    <content><![CDATA[<p>主要是在Nas里用Docker布了一个Chrome，用来执行爬虫。</p>
+<span id="more"></span>
+
+<h2 id="镜像选择"><a href="#镜像选择" class="headerlink" title="镜像选择"></a>镜像选择</h2><p>能用Selenium调用的Chrome镜像有两个，<code>selenium/standalone-chrome</code>和<code>selenium/standalone-chrome-debug</code>，后者能在执行Selenium代码的时候启动一个VNC服务，能用VNC看看执行过程是否符合预期。VNC的默认端口是5900，默认密码是secret。</p>
+<p>具体镜像怎么怎么启动就不展开了，我是用Nas的图形界面启动的，没用命令行，所以不太了解。</p>
+<h2 id="连接"><a href="#连接" class="headerlink" title="连接"></a>连接</h2><p>使用Selenium连接的时候和Appium比较像，使用远程地址进行连接。</p>
+<pre><code>from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+
+chrome_options = Options()
+###
+# 在这添加各种配置
+###
+
+# 普通的浏览器调用方式
+# browser = webdriver.Chrome(chrome_options=chrome_options)
+
+# 远程浏览器调用方式，后边的/wd/hub不能省略
+browser = webdriver.Remote(&quot;http://192.168.50.150:9516/wd/hub&quot;, options=chrome_options)
+</code></pre>
+<p>连接起来之后就和正常调用没区别了，正常Selenium代码就行。</p>
+]]></content>
+      <categories>
+        <category>自动化</category>
+        <category>Python</category>
+        <category>常用库</category>
+        <category>Selenium</category>
+        <category>Selenium</category>
+      </categories>
+      <tags>
+        <tag>自动化</tag>
+        <tag>Python</tag>
+        <tag>Selenium</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ffmpeg | pcm格式音频转换</title>
+    <url>/2023/11/22/ffmpeg14/</url>
+    <content><![CDATA[<p>在对接一个语音服务时，发现他们用的是pcm格式的音频做处理，所以需要把手中的其他格式音频处理成pcm格式。</p>
+<span id="more"></span>
+
+<p>直接上代码：</p>
+<pre><code>ffmpeg -i 1.mp3 -c:a pcm_s16le -f s16le -ac 1 -ar 16000 1.pcm
+</code></pre>
+]]></content>
+      <categories>
+        <category>ffmpeg</category>
+      </categories>
+      <tags>
+        <tag>ffmpeg</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Selenium | Docker里的Chrome浏览器自动化过程报错</title>
+    <url>/2023/11/22/selenium06/</url>
+    <content><![CDATA[<p>记录下Docker里的Chrome浏览器自动化过程报错以及解决方法。</p>
+<span id="more"></span>
+
+<h2 id="session-deleted-because-of-page-crash"><a href="#session-deleted-because-of-page-crash" class="headerlink" title="session deleted because of page crash"></a>session deleted because of page crash</h2><p>用Docker启动的Chrome容器，可用空间默认只有64M，太小了容易崩溃。</p>
+<p>在创建容器时设置shm-size为500M即可，如果是命令行启动，加上<code>--shm-size=&quot;500M&quot;</code>。</p>
+<h2 id="‘WebDriver’-object-has-no-attribute-‘execute-cdp-cmd’"><a href="#‘WebDriver’-object-has-no-attribute-‘execute-cdp-cmd’" class="headerlink" title="‘WebDriver’ object has no attribute ‘execute_cdp_cmd’"></a>‘WebDriver’ object has no attribute ‘execute_cdp_cmd’</h2><p>在<a href="/2023/11/22/selenium05/" title="Selenium | 操作Docker里的Chrome浏览器">连接远程Chrome</a>的情况下，调用<code>execute_cdp_cmd</code>执行cdp命令（比如<a href="/2021/04/19/selenium02/" title="Selenium | 配置Chrome的option">隐藏Selenium特征</a>）时会报这个错，应该是远程浏览器不支持此函数直接执行cdp命令，一切行为都要通过url进行。</p>
+<p>可以自己封装一个函数来在远程浏览器上执行cdp命令：</p>
+<pre><code>def execute_cdp_cmd(driver, cmd, params=&#123;&#125;):
+    resource = &quot;/session/%s/chromium/send_command_and_get_result&quot; % driver.session_id
+    url = driver.command_executor._url + resource
+    body = json.dumps(&#123;&#39;cmd&#39;: cmd, &#39;params&#39;: params&#125;)
+    response = driver.command_executor._request(&#39;POST&#39;, url, body)
+    return response.get(&#39;value&#39;)
+with open(&#39;resource/stealth.min.js&#39;) as f:
+    js = f.read()
+</code></pre>
+<p>对比：</p>
+<pre><code># 本地函数
+drive.execute_cdp_cmd(&quot;Page.addScriptToEvaluateOnNewDocument&quot;, &#123;&quot;source&quot;: js&#125;)
+
+# 远程函数
+execute_cdp_cmd(browser, &quot;Page.addScriptToEvaluateOnNewDocument&quot;, &#123;&quot;source&quot;: js&#125;)
+</code></pre>
+<p>结构还是比较相似的。</p>
+]]></content>
+      <categories>
+        <category>自动化</category>
+        <category>Python</category>
+        <category>常用库</category>
+        <category>Selenium</category>
+        <category>Selenium</category>
+      </categories>
+      <tags>
+        <tag>自动化</tag>
+        <tag>Python</tag>
+        <tag>Selenium</tag>
+      </tags>
+  </entry>
 </search>
