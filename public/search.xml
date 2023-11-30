@@ -1,51 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>pip换源的注意事项</title>
-    <url>/2020/11/27/anaconda00/</url>
-    <content><![CDATA[<p>之\n前把pip换源了，现在要装opencv-python的3.4.11.43版本，清华源没有，就把默认源加上了’<a href="https://pypi.python.org/simple/'%EF%BC%8C%E9%A1%BA%E4%BE%BF%E8%AE%B0%E4%B8%80%E4%B8%8Bpip%E6%8D%A2%E6%BA%90%E7%9A%84%E6%96%B9%E6%B3%95%E3%80%82">https://pypi.python.org/simple/&#39;，顺便记一下pip换源的方法。</a></p>
-<span id="more"></span>
-
-<h2 id="位置"><a href="#位置" class="headerlink" title="位置"></a>位置</h2><p>linux:</p>
-<p>修改 ~&#x2F;.config&#x2F;pip&#x2F;pip.conf (没有就创建一个)。</p>
-<p>windows:</p>
-<p>直接在user目录中创建一个pip目录，如：C:\Users\xx\pip，新建文件pip.ini。</p>
-<h2 id="内容"><a href="#内容" class="headerlink" title="内容"></a>内容</h2><pre><code class="bash">[global]
-index-url = https://pypi.tuna.tsinghua.edu.cn/simple
-extra-index-url=
-    https://pypi.mirrors.ustc.edu.cn/simple/
-    https://pypi.douban.com/simple/
-    https://pypi.python.org/simple/
-[install]
-trusted-host = tuna.tsinghua.edu.cn
-    pypi.douban.com
-    mirrors.ustc.edu.cn
-    python.org
-</code></pre>
-<p>另外记一个错误写法：</p>
-<pre><code class="bash">[global]
-index-url=http://pypi.douban.com/simple
-extra-index-url=http://mirrors.aliyun.com/pypi/simple/
-extra-index-url=https://pypi.tuna.tsinghua.edu.cn/simple/
-extra-index-url=http://pypi.mirrors.ustc.edu.cn/simple/
-[install]
-trusted-host=pypi.douban.com
-trusted-host=mirrors.aliyun.com
-trusted-host=pypi.tuna.tsinghua.edu.cn
-trusted-host=pypi.mirrors.ustc.edu.cn
-</code></pre>
-<p>这样会报错：<code>option &#39;extra-index-url&#39; in section &#39;global&#39; already exists.</code></p>
-]]></content>
-      <categories>
-        <category>Anaconda</category>
-        <category>pip</category>
-      </categories>
-      <tags>
-        <tag>Anaconda</tag>
-        <tag>pip</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>迁移虚拟环境</title>
     <url>/2021/01/07/anaconda01/</url>
     <content><![CDATA[<p>师兄的一篇博客很有帮助，转载一下。</p>
@@ -9221,6 +9176,95 @@ execute_cdp_cmd(browser, &quot;Page.addScriptToEvaluateOnNewDocument&quot;, &#12
         <tag>自动化</tag>
         <tag>Python</tag>
         <tag>Selenium</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>pip换源的注意事项</title>
+    <url>/2020/11/27/anaconda00/</url>
+    <content><![CDATA[<p>之前把pip换源了，现在要装opencv-python的3.4.11.43版本，清华源没有，就把默认源加上了<code>https://pypi.python.org/simple/</code>，顺便记一下pip换源的方法。</p>
+<span id="more"></span>
+
+<h2 id="位置"><a href="#位置" class="headerlink" title="位置"></a>位置</h2><p>linux:</p>
+<p>修改 ~&#x2F;.config&#x2F;pip&#x2F;pip.conf (没有就创建一个)。</p>
+<p>windows:</p>
+<p>直接在user目录中创建一个pip目录，如：C:\Users\xx\pip，新建文件pip.ini。</p>
+<h2 id="内容"><a href="#内容" class="headerlink" title="内容"></a>内容</h2><pre><code class="bash">[global]
+index-url = https://pypi.tuna.tsinghua.edu.cn/simple
+extra-index-url=
+    https://pypi.mirrors.ustc.edu.cn/simple/
+    https://pypi.douban.com/simple/
+    https://pypi.python.org/simple/
+[install]
+trusted-host = tuna.tsinghua.edu.cn
+    pypi.douban.com
+    mirrors.ustc.edu.cn
+    python.org
+</code></pre>
+<p>另外记一个错误写法：</p>
+<pre><code class="bash">[global]
+index-url=http://pypi.douban.com/simple
+extra-index-url=http://mirrors.aliyun.com/pypi/simple/
+extra-index-url=https://pypi.tuna.tsinghua.edu.cn/simple/
+extra-index-url=http://pypi.mirrors.ustc.edu.cn/simple/
+[install]
+trusted-host=pypi.douban.com
+trusted-host=mirrors.aliyun.com
+trusted-host=pypi.tuna.tsinghua.edu.cn
+trusted-host=pypi.mirrors.ustc.edu.cn
+</code></pre>
+<p>这样会报错：<code>option &#39;extra-index-url&#39; in section &#39;global&#39; already exists.</code></p>
+<h2 id="进阶"><a href="#进阶" class="headerlink" title="进阶"></a>进阶</h2><p><code>pip</code>命令不止一个配置文件地址，并且配置文件有不同的覆盖范围和加载顺序，可以用<code>pip -v config list</code>查看。</p>
+]]></content>
+      <categories>
+        <category>Anaconda</category>
+        <category>pip</category>
+      </categories>
+      <tags>
+        <tag>Anaconda</tag>
+        <tag>pip</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Faker | 生成各种类型的随机数据</title>
+    <url>/2023/11/29/pythonLibrary19/</url>
+    <content><![CDATA[<p>这是一个可以用来生成各种随机信息的库，可以用于测试、开发和原型设计等场景。</p>
+<span id="more"></span>
+
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><pre><code>pip install faker
+</code></pre>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>直接上示例代码</p>
+<pre><code>from faker import Faker
+from faker.providers import internet  # 导入 internet
+
+# faker = Faker(locale=&#39;en&#39;)
+faker = Faker(locale=&#39;zh_CN&#39;)
+faker.add_provider(internet)
+
+for i in range(10):
+    # 随机名字
+    name = faker.name()
+    # 随机地址
+    address = faker.address()
+    # 随机email
+    email = faker.email(domain=&quot;aaa.com&quot;)
+    # 随机密码
+    password = faker.password()
+    # 随机手机号
+    phone_number = faker.phone_number()
+    # 随机ipv4地址
+    ipv4_private = faker.ipv4_private()
+    print(name + &#39;,&#39; + address + &#39;,&#39; + email + &#39;,&#39; + password + &#39;,&#39; + phone_number + &#39;,&#39; + ipv4_private)
+</code></pre>
+<h2 id="官方文档"><a href="#官方文档" class="headerlink" title="官方文档"></a>官方文档</h2><p><a href="https://faker.readthedocs.io/en/stable/">文档地址</a></p>
+]]></content>
+      <categories>
+        <category>Python</category>
+        <category>常用库</category>
+        <category>Faker</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>Faker</tag>
       </tags>
   </entry>
 </search>

@@ -1,3 +1,5 @@
+https://l-fay.github.io/2023/11/29/pythonLibrary19/
+https://l-fay.github.io/2020/11/27/anaconda00/
 https://l-fay.github.io/2023/11/22/ffmpeg14/
 https://l-fay.github.io/2023/11/22/selenium06/
 https://l-fay.github.io/2023/11/22/selenium05/
@@ -40,7 +42,6 @@ https://l-fay.github.io/2023/07/12/cuda01/
 https://l-fay.github.io/2020/12/16/cuda00/
 https://l-fay.github.io/2023/07/07/life01/
 https://l-fay.github.io/2023/07/02/life00/
-https://l-fay.github.io/2020/11/27/anaconda00/
 https://l-fay.github.io/2023/05/16/kylin00/
 https://l-fay.github.io/2023/04/11/ffmpeg13/
 https://l-fay.github.io/2023/04/10/excel00/
@@ -210,6 +211,7 @@ https://l-fay.github.io/tags/Nexus/
 https://l-fay.github.io/tags/SQL/
 https://l-fay.github.io/tags/%E9%AA%8C%E8%AF%81%E7%A0%81/
 https://l-fay.github.io/tags/Selenium/
+https://l-fay.github.io/tags/Faker/
 https://l-fay.github.io/categories/Anaconda/
 https://l-fay.github.io/categories/%E8%87%AA%E5%8A%A8%E5%8C%96/
 https://l-fay.github.io/categories/Python/
@@ -299,3 +301,4 @@ https://l-fay.github.io/categories/%E7%88%AC%E8%99%AB/%E9%AA%8C%E8%AF%81%E7%A0%8
 https://l-fay.github.io/categories/%E7%88%AC%E8%99%AB/%E9%83%A8%E5%88%86%E5%AE%9E%E4%BE%8B/%E5%BE%AE%E5%8D%9A/
 https://l-fay.github.io/categories/Python/%E5%B8%B8%E7%94%A8%E5%BA%93/Selenium/
 https://l-fay.github.io/categories/%E8%87%AA%E5%8A%A8%E5%8C%96/Selenium/
+https://l-fay.github.io/categories/Python/%E5%B8%B8%E7%94%A8%E5%BA%93/Faker/

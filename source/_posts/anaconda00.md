@@ -6,7 +6,7 @@ categories:
   - [Anaconda, pip]
 ---
 
-之\n前把pip换源了，现在要装opencv-python的3.4.11.43版本，清华源没有，就把默认源加上了'https://pypi.python.org/simple/'，顺便记一下pip换源的方法。
+之前把pip换源了，现在要装opencv-python的3.4.11.43版本，清华源没有，就把默认源加上了`https://pypi.python.org/simple/`，顺便记一下pip换源的方法。
 
 <!-- more -->
 
@@ -52,3 +52,7 @@ trusted-host=pypi.mirrors.ustc.edu.cn
 ```
 
 这样会报错：`option 'extra-index-url' in section 'global' already exists.`
+
+## 进阶
+
+`pip`命令不止一个配置文件地址，并且配置文件有不同的覆盖范围和加载顺序，可以用`pip -v config list`查看。

@@ -7,7 +7,7 @@ if (process.env.computername === "LQNQ"){
   spawn('start  "D:\\Practical_Software\\Notepad++\\notepad++.exe" ' + data.path);
 }else if (process.env.computername === "LENOVO"){
   // 笔记本
-  spawn('start  "C:\\Program Files (x86)\\Notepad++\\notepad++.exe" ' + data.path);
+  spawn('start  "D:\\Software\\Notepad++\\notepad++.exe" ' + data.path);
 }
 
 else{
