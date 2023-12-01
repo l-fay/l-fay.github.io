@@ -9285,4 +9285,27 @@ for i in range(10):
         <tag>ffmpeg</tag>
       </tags>
   </entry>
+  <entry>
+    <title>FFmpeg | 修改分辨率</title>
+    <url>/2023/11/30/ffmpeg16/</url>
+    <content><![CDATA[<p>当需要对视频进行放缩时（如720p-&gt;1080p或1080p-&gt;720p），用到的语法。</p>
+<span id="more"></span>
+
+<h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h2><pre><code>ffmpeg -i input.mp4 -s 1920x1080 output.mp4
+</code></pre>
+<p>这种就是使用<code>-s</code>参数进行转换，但是这个参数不支持自适应，所以当输入的分辨率不确定时（比如4:3或是16:9），这种方法就会将输入强行拉伸，导致视频变形。</p>
+<h2 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h2><pre><code>ffmpeg -i input.mp4 -vf scale=-1:1080 output.mp4
+</code></pre>
+<p>这里的<code>-1</code>就是自适应的意思，长或宽都可以。</p>
+<h2 id="错误处理"><a href="#错误处理" class="headerlink" title="错误处理"></a>错误处理</h2><p>在用方法二的时候可能会遇到下列错误：<br><code>width not divisible by 2 (1915x1080)</code><br>或者<br><code>scaling failed: height must be an integer</code></p>
+<p>这两个错误的原因都是因为在计算自适应长宽的时候出现不规则的分辨率。<br>前者是宽为小数，后者是长宽为小数。</p>
+<p>解决方法是将命令中的<code>-1</code>换成<code>-2</code>。<br><code>-n</code>当<code>n&gt;0</code>时，参数的意思是将计算后的长宽调整为能被<code>n</code>整除的数。<br>所以理论上来讲，<code>-2</code>参数会在计算结果为非偶数时将计算结果进行微调从而导致放缩结果并不完全遵守原比例，会有微小变形。<br>但是这种变形是一两个像素的级别，我个人感觉在视觉上并不影响观感。</p>
+]]></content>
+      <categories>
+        <category>ffmpeg</category>
+      </categories>
+      <tags>
+        <tag>ffmpeg</tag>
+      </tags>
+  </entry>
 </search>
