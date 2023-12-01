@@ -1,5 +1,5 @@
 ---
-title: ffmpeg | 元数据之creation_time
+title: FFmpeg | 元数据之creation_time
 date: 2021-06-07 20:53:36
 tags: [ffmpeg, Python]
 categories: 

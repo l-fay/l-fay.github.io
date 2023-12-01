@@ -1,5 +1,5 @@
 ---
-title: ffmpeg | 视频裁切
+title: FFmpeg | 视频裁切
 date: 2021-02-21 18:49:30
 tags: [ffmpeg]
 categories: 

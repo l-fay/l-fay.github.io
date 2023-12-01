@@ -1,12 +1,12 @@
 ---
-title: ffmpeg | 删除视频中的元数据
+title: FFmpeg | 删除视频中的元数据
 date: 2021-06-07 19:27:46
 tags: [ffmpeg]
 categories: 
   - [ffmpeg]
 ---
 
-补充{% post_link ffmpeg03 "ffmpeg | 删除视频中的章节数据" %}
+补充{% post_link ffmpeg03 "FFmpeg | 删除视频中的章节数据" %}
 
 <!-- more -->
 

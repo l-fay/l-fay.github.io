@@ -1,5 +1,5 @@
 ---
-title: 'ffmpeg | Failed to inject frame into filter network: Invalid argument'
+title: 'FFmpeg | Failed to inject frame into filter network: Invalid argument'
 date: 2020-12-19 14:11:44
 tags: [ffmpeg]
 categories: 

@@ -1,5 +1,5 @@
 ---
-title: ffmpeg | 如何将视频内封图片字幕压为硬字幕
+title: FFmpeg | 如何将视频内封图片字幕压为硬字幕
 date: 2023-04-11 16:54:20
 tags: [ffmpeg]
 categories: 

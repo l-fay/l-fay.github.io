@@ -1,5 +1,5 @@
 ---
-title: ffmpeg | Too many packets buffered for output stream 0:1
+title: FFmpeg | Too many packets buffered for output stream 0:1
 date: 2021-01-26 19:39:20
 tags: [ffmpeg]
 categories: 

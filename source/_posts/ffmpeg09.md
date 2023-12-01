@@ -1,5 +1,5 @@
 ---
-title: ffmpeg | attached_pic参数添加封面
+title: FFmpeg | attached_pic参数添加封面
 date: 2021-09-08 16:34:37
 tags: [ffmpeg]
 categories: 

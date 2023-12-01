@@ -693,7 +693,7 @@ print(column_index_from_string(&#39;D&#39;)) # 4
       </tags>
   </entry>
   <entry>
-    <title>ffmpeg | Failed to inject frame into filter network: Invalid argument</title>
+    <title>FFmpeg | Failed to inject frame into filter network: Invalid argument</title>
     <url>/2020/12/19/ffmpeg00/</url>
     <content><![CDATA[<p>今天在给看的剧压字幕的时候遇到了错误。</p>
 <span id="more"></span>
@@ -788,7 +788,7 @@ Error while processing the decoded data for stream #0:0
       </tags>
   </entry>
   <entry>
-    <title>ffmpeg | Too many packets buffered for output stream 0:1</title>
+    <title>FFmpeg | Too many packets buffered for output stream 0:1</title>
     <url>/2021/01/26/ffmpeg02/</url>
     <content><![CDATA[<p>报错</p>
 <pre><code>Too many packets buffered for output stream 0:1
@@ -820,7 +820,7 @@ Error while processing the decoded data for stream #0:0
       </tags>
   </entry>
   <entry>
-    <title>ffmpeg | 删除视频中的章节数据</title>
+    <title>FFmpeg | 删除视频中的章节数据</title>
     <url>/2021/02/05/ffmpeg03/</url>
     <content><![CDATA[<p>在将收藏的视频转为h265过程中，遇到的问题。</p>
 <span id="more"></span>
@@ -925,7 +925,7 @@ tbn, 23.98 tbc (default)
 <p>反倒是我之前尝试过的<code>-sn</code>参数才应该删除<code>Stream #0:1</code>。</p>
 <p>再结合上边论坛的发帖时间和第一个帖子内容与我测试结果不同，推断操作元数据的一些参数在近几年进行了更新，导致适用范围和帖子描述出现一定的出入。</p>
 <p>先总结到这，一会去更新下ffmpeg参数的那篇博客。</p>
-<a href="/2021/01/27/ffmpegParameter00/" title="ffmpeg | 参数记录">ffmpeg | 参数记录</a>
+<a href="/2021/01/27/ffmpegParameter00/" title="ffmpeg | 参数记录">FFmpeg | 参数记录</a>
 ]]></content>
       <categories>
         <category>ffmpeg</category>
@@ -935,7 +935,7 @@ tbn, 23.98 tbc (default)
       </tags>
   </entry>
   <entry>
-    <title>ffmpeg | 视频裁切</title>
+    <title>FFmpeg | 视频裁切</title>
     <url>/2021/02/21/ffmpeg04/</url>
     <content><![CDATA[<p>手里有一个1920*1080的视频，想把它裁成1920*800的视频。</p>
 <span id="more"></span>
@@ -971,9 +971,9 @@ ffmpeg -i 1.mp4 -vf crop=1280:534:0:93 2.mp4
       </tags>
   </entry>
   <entry>
-    <title>ffmpeg | 删除视频中的元数据</title>
+    <title>FFmpeg | 删除视频中的元数据</title>
     <url>/2021/06/07/ffmpeg05/</url>
-    <content><![CDATA[<p>补充<a href="/2021/02/05/ffmpeg03/" title="ffmpeg | 删除视频中的章节数据">ffmpeg | 删除视频中的章节数据</a></p>
+    <content><![CDATA[<p>补充<a href="/2021/02/05/ffmpeg03/" title="FFmpeg | 删除视频中的章节数据">FFmpeg | 删除视频中的章节数据</a></p>
 <span id="more"></span>
 
 <p>在上边那篇博客中，我提到了一个参数<code>-map_metadata -1</code>，当时觉得没有用，后来想想不太对，我之前操作的并不是元数据区，这个参数肯定没啥用。</p>
@@ -988,7 +988,7 @@ ffmpeg -i 1.mp4 -vf crop=1280:534:0:93 2.mp4
       </tags>
   </entry>
   <entry>
-    <title>ffmpeg | 元数据之creation_time</title>
+    <title>FFmpeg | 元数据之creation_time</title>
     <url>/2021/06/07/ffmpeg06/</url>
     <content><![CDATA[<p>用mutagen无法处理元数据中的creation_time，根本就读不到这个数据。</p>
 <span id="more"></span>
@@ -1008,7 +1008,7 @@ ffmpeg -i 1.mp4 -vf crop=1280:534:0:93 2.mp4
       </tags>
   </entry>
   <entry>
-    <title>ffmpeg | crf参数</title>
+    <title>FFmpeg | crf参数</title>
     <url>/2021/07/14/ffmpeg07/</url>
     <content><![CDATA[<p><code>crf</code>参数是一个控制视频质量的参数。</p>
 <span id="more"></span>
@@ -1025,7 +1025,7 @@ ffmpeg -i 1.mp4 -vf crop=1280:534:0:93 2.mp4
       </tags>
   </entry>
   <entry>
-    <title>ffmpeg | preset参数</title>
+    <title>FFmpeg | preset参数</title>
     <url>/2021/07/14/ffmpeg08/</url>
     <content><![CDATA[<p>这是一个用编码时间来换视频质量的参数。</p>
 <span id="more"></span>
@@ -1041,7 +1041,7 @@ ffmpeg -i 1.mp4 -vf crop=1280:534:0:93 2.mp4
       </tags>
   </entry>
   <entry>
-    <title>ffmpeg | attached_pic参数添加封面</title>
+    <title>FFmpeg | attached_pic参数添加封面</title>
     <url>/2021/09/08/ffmpeg09/</url>
     <content><![CDATA[<p>添加封面图片的参数。</p>
 <span id="more"></span>
@@ -1058,7 +1058,7 @@ ffmpeg -i 1.mp4 -vf crop=1280:534:0:93 2.mp4
       </tags>
   </entry>
   <entry>
-    <title>ffmpeg | 在元数据里给媒体流命名</title>
+    <title>FFmpeg | 在元数据里给媒体流命名</title>
     <url>/2021/11/25/ffmpeg10/</url>
     <content><![CDATA[<p>最近手里有个视频，英配和中配都很好，就想都保留下来，命个名加以区别。</p>
 <span id="more"></span>
@@ -1078,7 +1078,7 @@ ffmpeg -i 1.mp4 -vf crop=1280:534:0:93 2.mp4
       </tags>
   </entry>
   <entry>
-    <title>ffmpeg | hevc (Main 10) 转 hevc (Main)</title>
+    <title>FFmpeg | hevc (Main 10) 转 hevc (Main)</title>
     <url>/2022/07/07/ffmpeg11/</url>
     <content><![CDATA[<p>大部分情况下可以不指定profile直接转hevc，转完就是profile<code>main</code>，但有时默认的profile就是<code>main10</code>，更改为<code>main</code>就会报错，记录一下解决方法。</p>
 <span id="more"></span>
@@ -1115,7 +1115,7 @@ Input #0, mov,mp4,m4a,3gp,3g2,mj2, from &#39;1.mp4&#39;:
       </tags>
   </entry>
   <entry>
-    <title>ffmpeg | 字体文件的抽取</title>
+    <title>FFmpeg | 字体文件的抽取</title>
     <url>/2023/01/17/ffmpeg12/</url>
     <content><![CDATA[<p>在压字幕的过程中，发现一些mkv中自带了字体文件，于是就找了一下提取字体的方法。毕竟直接从mkv中提取的字幕一是方便，不用在网上到处找；二是不用担心找的不对。</p>
 <span id="more"></span>
@@ -1138,7 +1138,7 @@ Input #0, mov,mp4,m4a,3gp,3g2,mj2, from &#39;1.mp4&#39;:
       </tags>
   </entry>
   <entry>
-    <title>ffmpeg | 如何将视频内封图片字幕压为硬字幕</title>
+    <title>FFmpeg | 如何将视频内封图片字幕压为硬字幕</title>
     <url>/2023/04/11/ffmpeg13/</url>
     <content><![CDATA[<p>作为一个电影仓鼠党，喜欢将字幕压制为硬字幕，这样不管什么设备都能正常播放。</p>
 <span id="more"></span>
@@ -9121,7 +9121,7 @@ browser = webdriver.Remote(&quot;http://192.168.50.150:9516/wd/hub&quot;, option
       </tags>
   </entry>
   <entry>
-    <title>ffmpeg | pcm格式音频转换</title>
+    <title>FFmpeg | pcm格式音频转换</title>
     <url>/2023/11/22/ffmpeg14/</url>
     <content><![CDATA[<p>在对接一个语音服务时，发现他们用的是pcm格式的音频做处理，所以需要把手中的其他格式音频处理成pcm格式。</p>
 <span id="more"></span>
@@ -9265,6 +9265,24 @@ for i in range(10):
       <tags>
         <tag>Python</tag>
         <tag>Faker</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>FFmpeg | 添加空音轨</title>
+    <url>/2023/11/30/ffmpeg15/</url>
+    <content><![CDATA[<p>有的文件没有音轨，想添加一个空音轨。</p>
+<span id="more"></span>
+
+<p>示例：</p>
+<pre><code>ffmpeg -i input.mp4 -f lavfi -t 5 -i anullsrc=cl=stereo:r=48000 -map 0:0 -map 1:0 -c:v copy output.mp4
+</code></pre>
+<p>主要是把<code>anullsrc=cl=stereo:r=48000</code>当做一个正常的输入文件就可以。</p>
+]]></content>
+      <categories>
+        <category>ffmpeg</category>
+      </categories>
+      <tags>
+        <tag>ffmpeg</tag>
       </tags>
   </entry>
 </search>

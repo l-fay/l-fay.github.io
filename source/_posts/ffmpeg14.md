@@ -1,5 +1,5 @@
 ---
-title: 'ffmpeg | pcm格式音频转换'
+title: 'FFmpeg | pcm格式音频转换'
 date: 2023-11-22 19:12:34
 tags: [ffmpeg]
 categories: 

@@ -1,5 +1,5 @@
 ---
-title: ffmpeg | 删除视频中的章节数据
+title: FFmpeg | 删除视频中的章节数据
 date: 2021-02-05 23:03:29
 tags: [ffmpeg]
 categories: 
@@ -134,4 +134,4 @@ Try adding this ffmpeg parameter:
 
 先总结到这，一会去更新下ffmpeg参数的那篇博客。
 
-{% post_link ffmpegParameter00 'ffmpeg | 参数记录' %}
+{% post_link ffmpegParameter00 'FFmpeg | 参数记录' %}

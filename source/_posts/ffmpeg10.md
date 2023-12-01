@@ -1,5 +1,5 @@
 ---
-title: ffmpeg | 在元数据里给媒体流命名
+title: FFmpeg | 在元数据里给媒体流命名
 date: 2021-11-25 14:29:59
 tags: [ffmpeg]
 categories: 
