@@ -9308,4 +9308,22 @@ for i in range(10):
         <tag>ffmpeg</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Python | 在程序中查找当前解释权路径</title>
+    <url>/2023/12/04/python03/</url>
+    <content><![CDATA[<p>主要应用场景是在py文件中调用命令行，想确保用的是当前虚拟环境。</p>
+<span id="more"></span>
+
+<pre><code>import sys
+path = sys.executable
+</code></pre>
+<p>值得一提的是，<code>sys.executable</code>是个常量，不是个函数，在pycharm中查看这个常量，可以看到在<code>sys.py</code>中有很多其他的常量，都是跟虚拟环境有关的。</p>
+]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
 </search>
