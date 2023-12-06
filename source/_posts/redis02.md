@@ -1,6 +1,6 @@
 ---
 title: Redis的哨兵模式配置
-date: 2023-02-01 14:00:37
+date: 2020-11-01 14:00:37
 tags: [数据库, Redis]
 categories: 
   - [数据库, Redis]

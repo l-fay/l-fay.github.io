@@ -1,4 +1,12 @@
+https://l-fay.github.io/2021/10/22/redis04/
+https://l-fay.github.io/2021/10/21/redis03/
+https://l-fay.github.io/2020/11/01/redis02/
+https://l-fay.github.io/2021/10/21/mysql00/
+https://l-fay.github.io/2023/12/05/python05/
 https://l-fay.github.io/2023/12/04/python04/
+https://l-fay.github.io/2023/12/05/proxy02/
+https://l-fay.github.io/2021/01/09/proxy00/
+https://l-fay.github.io/2021/01/09/proxy01/
 https://l-fay.github.io/2023/12/04/python03/
 https://l-fay.github.io/2023/11/30/ffmpeg16/
 https://l-fay.github.io/2023/11/30/ffmpeg15/
@@ -37,8 +45,6 @@ https://l-fay.github.io/2023/10/28/pythonLibraryError02/
 https://l-fay.github.io/2023/10/28/flask01/
 https://l-fay.github.io/2023/10/28/nexus00/
 https://l-fay.github.io/2023/10/22/flask00/
-https://l-fay.github.io/2023/10/21/redis03/
-https://l-fay.github.io/2023/02/01/redis02/
 https://l-fay.github.io/2023/10/20/linux11/
 https://l-fay.github.io/2023/05/20/nginx00/
 https://l-fay.github.io/2023/07/20/virtualenv03/
@@ -131,8 +137,6 @@ https://l-fay.github.io/2020/10/26/redis00/
 https://l-fay.github.io/2020/10/26/redis01/
 https://l-fay.github.io/2020/12/04/pythonLibrary00/
 https://l-fay.github.io/2021/01/06/pythonLibrary01/
-https://l-fay.github.io/2021/01/09/proxy00/
-https://l-fay.github.io/2021/01/09/proxy01/
 https://l-fay.github.io/2021/01/06/linux03/
 https://l-fay.github.io/2021/01/09/linux04/
 https://l-fay.github.io/2021/01/09/linux05/
@@ -216,6 +220,8 @@ https://l-fay.github.io/tags/SQL/
 https://l-fay.github.io/tags/%E9%AA%8C%E8%AF%81%E7%A0%81/
 https://l-fay.github.io/tags/Selenium/
 https://l-fay.github.io/tags/Faker/
+https://l-fay.github.io/tags/MySQL/
+https://l-fay.github.io/tags/proxy/
 https://l-fay.github.io/categories/Anaconda/
 https://l-fay.github.io/categories/%E8%87%AA%E5%8A%A8%E5%8C%96/
 https://l-fay.github.io/categories/Python/
@@ -251,7 +257,6 @@ https://l-fay.github.io/categories/Linux/DNS/
 https://l-fay.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/
 https://l-fay.github.io/categories/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/
 https://l-fay.github.io/categories/Nginx/
-https://l-fay.github.io/categories/Linux/%E4%BB%A3%E7%90%86/
 https://l-fay.github.io/categories/Python/%E5%B8%B8%E7%94%A8%E5%BA%93/mutagen/
 https://l-fay.github.io/categories/Python/%E5%B8%B8%E7%94%A8%E5%BA%93/ReportLab/
 https://l-fay.github.io/categories/Python/%E5%B8%B8%E7%94%A8%E5%BA%93/re/
@@ -273,7 +278,6 @@ https://l-fay.github.io/categories/Office/
 https://l-fay.github.io/categories/LeetCode/
 https://l-fay.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/neo4j/
 https://l-fay.github.io/categories/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/NodeJs/
-https://l-fay.github.io/categories/%E4%BB%A3%E7%90%86/
 https://l-fay.github.io/categories/Java/OKhttp/
 https://l-fay.github.io/categories/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/Python/
 https://l-fay.github.io/categories/%E7%99%BE%E5%BA%A6%E4%BA%91/
@@ -284,7 +288,6 @@ https://l-fay.github.io/categories/Python/%E5%B8%B8%E7%94%A8%E5%BA%93/tkinter/
 https://l-fay.github.io/categories/%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7/
 https://l-fay.github.io/categories/Java/%E5%B8%B8%E7%94%A8%E5%BA%93/zip4j/
 https://l-fay.github.io/categories/Office/Excel/
-https://l-fay.github.io/categories/%E4%BB%A3%E7%90%86/Shadowsocks/
 https://l-fay.github.io/categories/%E6%9D%83%E9%99%90%E6%8E%A7%E5%88%B6/
 https://l-fay.github.io/categories/%E7%88%AC%E8%99%AB/%E4%BB%A3%E7%90%86/
 https://l-fay.github.io/categories/Java/%E5%B8%B8%E7%94%A8%E5%BA%93/smart-doc/
@@ -293,7 +296,6 @@ https://l-fay.github.io/categories/Java/%E5%B7%A5%E5%85%B7/
 https://l-fay.github.io/categories/Java/%E5%B7%A5%E5%85%B7/Torna/
 https://l-fay.github.io/categories/%E6%B8%B8%E6%88%8F/
 https://l-fay.github.io/categories/%E6%B8%B8%E6%88%8F/%E6%B0%B4%E6%8E%92%E5%BA%8F%E8%B0%9C%E9%A2%98/
-https://l-fay.github.io/categories/Python/%E5%B8%B8%E7%94%A8%E5%BA%93/rediscluster/
 https://l-fay.github.io/categories/Python/%E5%B8%B8%E7%94%A8%E5%BA%93/flask/
 https://l-fay.github.io/categories/Nexus/
 https://l-fay.github.io/categories/Python/%E5%B8%B8%E7%94%A8%E5%BA%93/virtualenv/
@@ -306,3 +308,10 @@ https://l-fay.github.io/categories/%E7%88%AC%E8%99%AB/%E9%83%A8%E5%88%86%E5%AE%9
 https://l-fay.github.io/categories/Python/%E5%B8%B8%E7%94%A8%E5%BA%93/Selenium/
 https://l-fay.github.io/categories/%E8%87%AA%E5%8A%A8%E5%8C%96/Selenium/
 https://l-fay.github.io/categories/Python/%E5%B8%B8%E7%94%A8%E5%BA%93/Faker/
+https://l-fay.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/
+https://l-fay.github.io/categories/Linux/proxy/
+https://l-fay.github.io/categories/proxy/
+https://l-fay.github.io/categories/Python/%E5%B8%B8%E7%94%A8%E5%BA%93/mysql-connector-python/
+https://l-fay.github.io/categories/proxy/Shadowsocks/
+https://l-fay.github.io/categories/Python/%E5%B8%B8%E7%94%A8%E5%BA%93/redis-py-cluster/
+https://l-fay.github.io/categories/Python/%E5%B8%B8%E7%94%A8%E5%BA%93/redis/

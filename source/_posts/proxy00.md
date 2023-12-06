@@ -1,10 +1,10 @@
 ---
 title: 'Shadowsocks | AttributeError: /usr/lib/x86_64-linux-gnu/libcrypto.so.1.1: undefined symbol: EVP_CIPHER_CTX_cleanup'
 date: 2021-01-09 18:32:32
-tags: [Linux, 代理, Shadowsocks]
+tags: [Linux, proxy, Shadowsocks]
 categories: 
-  - [Linux, 代理]
-  - [代理, Shadowsocks]
+  - [Linux, proxy]
+  - [proxy, Shadowsocks]
 ---
 在Linux上部署Shadowsocks的时候遇到的问题：
 

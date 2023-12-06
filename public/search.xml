@@ -2719,14 +2719,14 @@ http &#123;
 ]]></content>
       <categories>
         <category>Linux</category>
-        <category>代理</category>
-        <category>代理</category>
+        <category>proxy</category>
+        <category>proxy</category>
         <category>Shadowsocks</category>
       </categories>
       <tags>
         <tag>Linux</tag>
-        <tag>代理</tag>
         <tag>Shadowsocks</tag>
+        <tag>proxy</tag>
       </tags>
   </entry>
   <entry>
@@ -4540,14 +4540,14 @@ ssserver -c /etc/shadowsocks/conf.json -d stop // 停止服务
 ]]></content>
       <categories>
         <category>Linux</category>
-        <category>代理</category>
-        <category>代理</category>
+        <category>proxy</category>
+        <category>proxy</category>
         <category>Shadowsocks</category>
       </categories>
       <tags>
         <tag>Linux</tag>
-        <tag>代理</tag>
         <tag>Shadowsocks</tag>
+        <tag>proxy</tag>
       </tags>
   </entry>
   <entry>
@@ -5564,7 +5564,7 @@ apt-get --purge remove redis-tools
   </entry>
   <entry>
     <title>Redis的哨兵模式配置</title>
-    <url>/2023/02/01/redis02/</url>
+    <url>/2020/11/01/redis02/</url>
     <content><![CDATA[<p>在非自用场景下，单机的redis很明显不够用。当一台服务宕机时，需要及时启用备用服务，这就是哨兵的用处。</p>
 <span id="more"></span>
 
@@ -8510,34 +8510,99 @@ unzip LOG.zip
   </entry>
   <entry>
     <title>Python连接Redis集群</title>
-    <url>/2023/10/21/redis03/</url>
+    <url>/2021/10/21/redis03/</url>
     <content><![CDATA[<p>记录一下怎么用python连接Redis集群。</p>
 <span id="more"></span>
 
-<h2 id="安装redis-py-cluster库"><a href="#安装redis-py-cluster库" class="headerlink" title="安装redis-py-cluster库"></a>安装redis-py-cluster库</h2><pre><code>pip install redis-py-cluster
+<h2 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h2><pre><code>pip install redis-py-cluster
 </code></pre>
 <h2 id="初始化集群类和连接池"><a href="#初始化集群类和连接池" class="headerlink" title="初始化集群类和连接池"></a>初始化集群类和连接池</h2><p>为了方便，直接写了一个demo，就不多解释了，以后直接复制照搬。</p>
-<pre><code>class RedisCluster:
+<pre><code>import time
+from redis.lock import Lock
+from rediscluster import RedisCluster, ClusterConnectionPool
+
+class RedisCluster:
     def __init__(self, config):
         self.expire = 1800,
         self.redis_pool = ClusterConnectionPool(
-            startup_nodes=[&#123;&quot;host&quot;: &quot;192.168.xxx.xxx&quot;, &quot;port&quot;: &quot;6379&quot;&#125;],
-            password=&quot;password&quot;,
-            decode_responses=True,
-            encodings=&quot;UTF-8&quot;,
-            max_connections=10)
+            startup_nodes=config.REDIS_CLUSTER_NODES,
+            password=config.REDIS_CLUSTER_PASSWORD,
+            decode_responses=config.REDIS_DECODE_RESPONSES,
+            encodings=config.REDIS_CLUSTER_ENCODE,
+            max_connections=config.REDIS_CLUSTER_MAX_CONNECTIONS)
+
+    # 从连接池中获取连接，获取不到就一直等待
+    def __get_connect(self):
+        while (1):
+            try:
+                connect = RedisCluster(connection_pool=self.redis_pool)
+                return connect
+            except:
+                time.sleep(5)
+
+    def get(self, key: str) -&gt; str:
+        with self.__get_connect() as redis:
+            return redis.get(key)
+
+    def set(self, key, value, expire=None):
+        if expire is None:
+            expire = self.expire
+        with self.__get_connect() as redis:
+            redis.setex(key, expire, value)
+
+    def get_list(self, key) -&gt; list:
+        with self.__get_connect() as redis:
+            return redis.lrange(key, 0, -1)
+
+    # 加锁，拿不到锁就一直等待
+    def get_lock(self, key=&quot;common_lock&quot;, timeout=5):
+        with self.__get_connect() as redis:
+            lock = redis.lock(key, timeout=timeout)
+            locked = lock.acquire(blocking=True, blocking_timeout=1)
+        if locked:
+            print(&quot;获取锁&quot; + key + &quot;成功。&quot;)
+            return lock
+        else:
+            print(&quot;获取锁&quot; + key + &quot;失败。&quot;)
+            time.sleep(5)
+            return self.get_lock(key, timeout)
+
+    def release_lock(self, lock: Lock):
+        try:
+            lock.release()
+            print(&quot;释放锁成功。&quot;)
+        except Exception as e:
+            print(e)
+            print(&quot;释放锁失败，可能已经被释放。&quot;)
+
+    def append(self, key: str, value: str):
+        with self.__get_connect() as redis:
+            redis.rpush(key, value)
+
+    def pop(self, key: str):
+        with self.__get_connect() as redis:
+            return redis.lpop(key)
+
+    def lenth(self, key: str):
+        with self.__get_connect() as redis:
+            redis.set(key, &quot;空&quot;)
+            redis.delete()
+
+    def delete(self, key: str):
+        with self.__get_connect() as redis:
+            return redis.llen(key)
 </code></pre>
 <p>用的时候先获取链接，然后就和普通的Redis连接一样了：</p>
 <pre><code>connect = RedisCluster(connection_pool=self.redis_pool)
 </code></pre>
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a href="https://wenku.baidu.com/view/8eb596869889680203d8ce2f0066f5335a8167dc.html?_wkts_=1698222924758&bdQuery=redis-py-cluster+lock">python rediscluster方法</a><br><a href="https://zhuanlan.zhihu.com/p/399126368">利用python操作redis集群</a></p>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p>[python rediscluster方法]<br><a href="https://zhuanlan.zhihu.com/p/399126368">利用python操作redis集群</a></p>
 ]]></content>
       <categories>
         <category>Python</category>
         <category>常用库</category>
         <category>数据库</category>
         <category>Redis</category>
-        <category>rediscluster</category>
+        <category>redis-py-cluster</category>
       </categories>
       <tags>
         <tag>Python</tag>
@@ -9335,7 +9400,8 @@ path = sys.executable
 <h2 id="存入配置（只是像单例）"><a href="#存入配置（只是像单例）" class="headerlink" title="存入配置（只是像单例）"></a>存入配置（只是像单例）</h2><p>这是我之前自己捣鼓的。</p>
 <p>我是在Flask中实例化数据库client的时候用单例，在启动项目的时候实例化一个对象，然后存进app中，再写个函数根据key去取这个对象。</p>
 <p>你就说能不能用吧！</p>
-<h2 id="使用函数装饰器实现单例"><a href="#使用函数装饰器实现单例" class="headerlink" title="使用函数装饰器实现单例"></a>使用函数装饰器实现单例</h2><pre><code>def singleton(cls):
+<h2 id="使用函数装饰器实现单例"><a href="#使用函数装饰器实现单例" class="headerlink" title="使用函数装饰器实现单例"></a>使用函数装饰器实现单例</h2><p>由于装饰器函数的作用域是全局，所以装饰器函数中定义的变量也算是全局变量，所以可以在装饰器中存储对象信息。</p>
+<pre><code>def singleton(cls):
     _instance = &#123;&#125;
  
     def inner():
@@ -9396,6 +9462,287 @@ print(id(single1) == id(single2)) # True
       </categories>
       <tags>
         <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Python连接MySQL连接池</title>
+    <url>/2021/10/21/mysql00/</url>
+    <content><![CDATA[<p>记录一下怎么用python连接MySQL连接池。</p>
+<span id="more"></span>
+
+<h2 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h2><pre><code>pip install mysql-connector-python
+</code></pre>
+<h2 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h2><p>直接上demo。</p>
+<pre><code>import time
+from mysql.connector.pooling import MySQLConnectionPool
+
+class MySql:
+
+    def __init__(self, config):
+        self.expire = 1800
+        self.mysql_pool = MySQLConnectionPool(
+            host=config.MYSQL_HOST,
+            port=config.MYSQL_PORT,
+            user=config.MYSQL_USER,
+            passwd=config.MYSQL_PASSWORD,
+            database=config.MYSQL_DATABASE,
+            ssl_disabled=config.SSL_DISABLED,
+            pool_size=config.MYSQL_MAX_CONNECTIONS
+        )
+
+    def __get_connection(self):
+        try:
+            conn = self.mysql_pool.get_connection()
+            return conn
+        except:
+            time.sleep(5)
+
+    def select(self, sql: str, arg=None):
+        if not arg == None and not isinstance(arg, tuple):
+            arg = (arg,)
+        with self.__get_connection() as conn:
+            with conn.cursor() as cur:
+                cur.execute(sql, arg)
+                result = cur.fetchall()
+                return result
+
+    def insert(self, sql: str, arg=None):
+        if not arg == None and not isinstance(arg, tuple):
+            arg = (arg,)
+        with self.__get_connection() as conn:
+            with conn.cursor() as cur:
+                try:
+                    cur.execute(sql, arg)
+                    conn.commit()
+                    return True
+                except Exception as e:
+                    print(e)
+                    conn.rollback()
+                    return False
+
+    def update(self, sql: str, arg=None):
+        if not arg == None and not isinstance(arg, tuple):
+            arg = (arg,)
+        with self.__get_connection() as conn:
+            with conn.cursor() as cur:
+                try:
+                    cur.execute(sql, arg)
+                    conn.commit()
+                    return True
+                except Exception as e:
+                    print(e)
+                    conn.rollback()
+                    return False
+
+    def alter(self, sql: str, arg=None):
+        if not arg == None and not isinstance(arg, tuple):
+            arg = (arg,)
+        with self.__get_connection() as conn:
+            with conn.cursor() as cur:
+                try:
+                    cur.execute(sql, arg)
+                    conn.commit()
+                    return True
+                except Exception as e:
+                    print(e)
+                    conn.rollback()
+                    return False
+
+    def get_index(self, table: str):
+        sql = &quot;&quot;&quot;
+        show 
+        INDEX 
+        from 
+        &quot;&quot;&quot; + table + &quot;&quot;&quot;
+         
+        where 
+        not Key_name = &#39;PRIMARY&#39;
+        &quot;&quot;&quot;
+        with self.__get_connection() as conn:
+            with conn.cursor() as cur:
+                try:
+                    cur.execute(sql)
+                    result = cur.fetchall()
+                    index_names = []
+                    for i in result:
+                        index_names.append(i[2])
+                    return index_names
+                except Exception as e:
+                    print(e)
+                    conn.rollback()
+                    return []
+
+    def truncate(self, sql: str, arg=None):
+        if not arg == None and not isinstance(arg, tuple):
+            arg = (arg,)
+        with self.__get_connection() as conn:
+            with conn.cursor() as cur:
+                try:
+                    cur.execute(sql, arg)
+                    conn.commit()
+                    return True
+                except Exception as e:
+                    print(e)
+                    conn.rollback()
+                    return False
+</code></pre>
+]]></content>
+      <categories>
+        <category>Python</category>
+        <category>常用库</category>
+        <category>数据库</category>
+        <category>MySQL</category>
+        <category>mysql-connector-python</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>数据库</tag>
+        <tag>MySQL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CMD设置代理</title>
+    <url>/2023/12/05/proxy02/</url>
+    <content><![CDATA[<p>主要是我的软路由不太稳，所以需要备用的方法。</p>
+<span id="more"></span>
+
+<pre><code>set http_proxy=http://127.0.0.1:7890
+set https_proxy=http://127.0.0.1:7890
+curl http://www.google.com
+</code></pre>
+<p>测试的时候用<code>ping</code>不太行，要用<code>curl</code>。</p>
+<p>这个不是永久性的，只在当前终端生效。</p>
+]]></content>
+      <categories>
+        <category>proxy</category>
+      </categories>
+      <tags>
+        <tag>proxy</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Python | 获取资源文件夹路径</title>
+    <url>/2023/12/05/python05/</url>
+    <content><![CDATA[<p>不管什么编程语言，相对路径和绝对路径的问题都很让人头疼。</p>
+<span id="more"></span>
+
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>在写代码的时候，我比较倾向于使用相对路径，因为谁知道这个项目会布置到哪台服务器上，每次部署要么改代码，要么该服务器路径，太麻烦了。</p>
+<p>但是相对路径也有自己的问题，比如在函数中获取上层甚至上上层路径就是很大的问题。</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>上代码：</p>
+<pre><code>import os
+import importlib.resources as res
+
+def get_resources_path() -&gt; str:
+    with res.path(&quot;resources&quot;, &quot;__init__.py&quot;) as path:
+        resources_path = os.path.split(str(path))[0]
+        return resources_path
+</code></pre>
+<p>其中<code>resources</code>是程序根目录下的一个文件夹，文件夹中有<code>__init__.py</code>文件。</p>
+]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Python连接Redis连接池</title>
+    <url>/2021/10/22/redis04/</url>
+    <content><![CDATA[<p>记录一下怎么用python连接Redis连接池。</p>
+<span id="more"></span>
+
+<h2 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h2><pre><code>pip install redis-py-cluster
+</code></pre>
+<h2 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h2><p>直接上demo。</p>
+<pre><code>import time
+import redis
+from redis.lock import Lock
+
+class Redis:
+    def __init__(self, config):
+        self.expire = 1800,
+        self.redis_pool = redis.ConnectionPool(
+            host=config.REDIS_HOST,
+            port=config.REDIS_PORT,
+            password=config.REDIS_PASSWORD,
+            db=config.REDIS_DB,
+            decode_responses=config.REDIS_DECODE_RESPONSES,
+            max_connections=config.REDIS_MAX_CONNECTIONS)
+
+    # 从连接池中获取连接，获取不到就一直等待
+    def __get_connect(self):
+        while (1):
+            try:
+                connect = redis.Redis(connection_pool=self.redis_pool)
+                return connect
+            except:
+                time.sleep(5)
+
+    def get(self, key: str) -&gt; str:
+        with self.__get_connect() as redis:
+            return redis.get(key)
+
+    def set(self, key, value, expire=None):
+        if expire is None:
+            expire = self.expire
+        with self.__get_connect() as redis:
+            redis.setex(key, expire, value)
+
+    def get_list(self, key) -&gt; list:
+        with self.__get_connect() as redis:
+            return redis.lrange(key, 0, -1)
+
+    # 加锁，拿不到锁就一直等待
+    def get_lock(self, key=&quot;common_lock&quot;, timeout=5):
+        with self.__get_connect() as redis:
+            lock = redis.lock(key, timeout=timeout)
+            locked = lock.acquire(blocking=True, blocking_timeout=1)
+        if locked:
+            print(&quot;获取锁&quot; + key + &quot;成功。&quot;)
+            return lock
+        else:
+            print(&quot;获取锁&quot; + key + &quot;失败。&quot;)
+            time.sleep(5)
+            return self.get_lock(key, timeout)
+
+    def release_lock(self, lock: Lock):
+        try:
+            lock.release()
+            print(&quot;释放锁成功。&quot;)
+        except Exception as e:
+            print(e)
+            print(&quot;释放锁失败，可能已经被释放。&quot;)
+
+    def append(self, key: str, value: str):
+        with self.__get_connect() as redis:
+            redis.rpush(key, value)
+
+    def pop(self, key: str):
+        with self.__get_connect() as redis:
+            return redis.lpop(key)
+
+    def lenth(self, key: str):
+        with self.__get_connect() as redis:
+            redis.set(key,&quot;空&quot;)
+            redis.delete()
+
+    def delete(self, key: str):
+        with self.__get_connect() as redis:
+            return redis.llen(key)
+</code></pre>
+]]></content>
+      <categories>
+        <category>Python</category>
+        <category>常用库</category>
+        <category>数据库</category>
+        <category>Redis</category>
+        <category>redis</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>数据库</tag>
+        <tag>Redis</tag>
       </tags>
   </entry>
 </search>
