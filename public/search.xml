@@ -9309,7 +9309,7 @@ for i in range(10):
       </tags>
   </entry>
   <entry>
-    <title>Python | 在程序中查找当前解释权路径</title>
+    <title>Python | 在程序中查找当前解释器路径</title>
     <url>/2023/12/04/python03/</url>
     <content><![CDATA[<p>主要应用场景是在py文件中调用命令行，想确保用的是当前虚拟环境。</p>
 <span id="more"></span>
@@ -9318,6 +9318,78 @@ for i in range(10):
 path = sys.executable
 </code></pre>
 <p>值得一提的是，<code>sys.executable</code>是个常量，不是个函数，在pycharm中查看这个常量，可以看到在<code>sys.py</code>中有很多其他的常量，都是跟虚拟环境有关的。</p>
+]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Python | 单例模式的实现</title>
+    <url>/2023/12/04/python04/</url>
+    <content><![CDATA[<p>单例模式应用场景就不多说了。</p>
+<span id="more"></span>
+
+<h2 id="存入配置（只是像单例）"><a href="#存入配置（只是像单例）" class="headerlink" title="存入配置（只是像单例）"></a>存入配置（只是像单例）</h2><p>这是我之前自己捣鼓的。</p>
+<p>我是在Flask中实例化数据库client的时候用单例，在启动项目的时候实例化一个对象，然后存进app中，再写个函数根据key去取这个对象。</p>
+<p>你就说能不能用吧！</p>
+<h2 id="使用函数装饰器实现单例"><a href="#使用函数装饰器实现单例" class="headerlink" title="使用函数装饰器实现单例"></a>使用函数装饰器实现单例</h2><pre><code>def singleton(cls):
+    _instance = &#123;&#125;
+ 
+    def inner():
+        if cls not in _instance:
+            _instance[cls] = cls()
+        return _instance[cls]
+    return inner
+    
+@singleton
+class Cls(object):
+    def __init__(self):
+        pass
+ 
+cls1 = Cls()
+cls2 = Cls()
+print(id(cls1) == id(cls2)) # True
+</code></pre>
+<p>这种方法跟我的思路一样，区别是把类的id当做key，不用自己构建，用的时候直接创建就好，比我的方便。</p>
+<h2 id="使用类装饰器实现单例"><a href="#使用类装饰器实现单例" class="headerlink" title="使用类装饰器实现单例"></a>使用类装饰器实现单例</h2><pre><code>class Singleton(object):
+    def __init__(self, cls):
+        self._cls = cls
+        self._instance = &#123;&#125;
+    def __call__(self):
+        if self._cls not in self._instance:
+            self._instance[self._cls] = self._cls()
+        return self._instance[self._cls]
+ 
+@Singleton
+class Cls2(object):
+    def __init__(self):
+        pass
+ 
+cls1 = Cls2()
+cls2 = Cls2()
+print(id(cls1) == id(cls2)) # True
+</code></pre>
+<p>这种和上一种很相似。</p>
+<h2 id="使用-new-关键字实现单例模式"><a href="#使用-new-关键字实现单例模式" class="headerlink" title="使用__new__关键字实现单例模式"></a>使用<code>__new__</code>关键字实现单例模式</h2><p>所有的类在实例化时，都是通过<code>__new__</code>方法来完成的。</p>
+<p>所以在<code>__new__</code>方法中应用上边的思路也可以实现单例。</p>
+<pre><code>class Single(object):
+    _instance = None
+    def __new__(cls, *args, **kw):
+        if cls._instance is None:
+            cls._instance = object.__new__(cls, *args, **kw)
+        return cls._instance
+    def __init__(self):
+        pass
+ 
+single1 = Single()
+single2 = Single()
+print(id(single1) == id(single2)) # True
+</code></pre>
+<h2 id="优劣"><a href="#优劣" class="headerlink" title="优劣"></a>优劣</h2><p>类装饰器和函数装饰器适合封装后调用，在类比较多的时候很方便。</p>
+<p><code>__new__</code>关键字适合应用一两个类的情况。</p>
 ]]></content>
       <categories>
         <category>Python</category>

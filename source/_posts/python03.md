@@ -1,5 +1,5 @@
 ---
-title: 'Python | 在程序中查找当前解释权路径'
+title: 'Python | 在程序中查找当前解释器路径'
 date: 2023-12-04 19:13:56
 tags: [Python]
 categories: 
