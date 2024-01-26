@@ -47,6 +47,47 @@ trusted-host=pypi.mirrors.ustc.edu.cn
       </tags>
   </entry>
   <entry>
+    <title>Appium | 安装时遇到的一些坑</title>
+    <url>/2022/10/15/appium00/</url>
+    <content><![CDATA[<p>背景是有一个需要自动化操作实机安卓APP的需求，研究了一下，记录一下遇到的一些坑。</p>
+<span id="more"></span>
+
+<h2 id="版本"><a href="#版本" class="headerlink" title="版本"></a>版本</h2><p>首当其冲的就是版本问题，包括实机安卓版本、Appium版本、SDK版本，反倒是JDK版本没遇到什么幺蛾子。</p>
+<h3 id="安卓版本"><a href="#安卓版本" class="headerlink" title="安卓版本"></a>安卓版本</h3><p>这个没得选，自己的手机就是安卓12，只有一点需要注意，我的手机是realme的，需要在开发者模式中打开<code>禁止权限监控</code>才能成功连接Appium。</p>
+<h3 id="SDK版本"><a href="#SDK版本" class="headerlink" title="SDK版本"></a>SDK版本</h3><p>开始的时候缺少经验，死活连不上，就是因为SDK版本和安卓版本不配套。</p>
+<p>后来我选择使用SDK31，跟安卓12配套，这里需要注意的是，SDK31没找到单独下载，所以我装了个Android Studio，用它装SDK。</p>
+<h3 id="Appium版本"><a href="#Appium版本" class="headerlink" title="Appium版本"></a>Appium版本</h3><p>这个我用的是最新的，毕竟SDK和安卓版本都挺新的。</p>
+<h2 id="appium-doctor"><a href="#appium-doctor" class="headerlink" title="appium-doctor"></a>appium-doctor</h2><p>这个东西让我纠结了好久，毕竟到最后我也没过环境检查。</p>
+<p>后来才发现，高版本的SDK文件结构变了，本来就过不了appium-doctor的检查，吐血。</p>
+<h2 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h2><p>我用的参数如下：</p>
+<pre><code>&#123;
+        &quot;platformName&quot;: &quot;Android&quot;,
+        &quot;appium:platformVersion&quot;: &quot;12&quot;,
+        &quot;appium:deviceName&quot;: &quot;ff7c5db6               device&quot;,
+        &quot;appium:appPackage&quot;: &quot;com.abchina.mmspc&quot;,
+        &quot;appium:appActivity&quot;: &quot;.ui.activity.WelcomeActivity&quot;,
+        &quot;appium:noReset&quot;: True,                        // 防止重置
+        &quot;appium:resetKeyboard&quot;: False,                 // 脚本执行完后重置输入法
+        &quot;appium:unicodeKeyboard&quot;: False,               // 脚本是否使用原生输入法，如果需要输入中文，这里要选True
+        &quot;appium:newCommandTimeout&quot;: 6000,              // 超过60秒无操作自动断连
+        &quot;appium:automationName&quot;: &quot;UiAutomator2&quot;        // 高版本要指定为‘UiAutomator2’，低版本用‘UiAutomator’
+
+    &#125;
+</code></pre>
+<p>其中appPackage和appActivity是用<code>adb logcat&gt;D:/log.txt</code>获取log之后，搜索<code>Displayed</code>查看。</p>
+<p>由于我要测的app重置后需要手机验证码登录，所以需要<code>noReset</code>参数来防止重置。</p>
+<p>到这应该就能连上了。</p>
+]]></content>
+      <categories>
+        <category>自动化</category>
+        <category>Appium</category>
+      </categories>
+      <tags>
+        <tag>自动化</tag>
+        <tag>Appium</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>迁移虚拟环境</title>
     <url>/2021/01/07/anaconda01/</url>
     <content><![CDATA[<p>师兄的一篇博客很有帮助，转载一下。</p>
@@ -129,47 +170,6 @@ vim pip
       <tags>
         <tag>Anaconda</tag>
         <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Appium | 安装时遇到的一些坑</title>
-    <url>/2022/10/15/appium00/</url>
-    <content><![CDATA[<p>背景是有一个需要自动化操作实机安卓APP的需求，研究了一下，记录一下遇到的一些坑。</p>
-<span id="more"></span>
-
-<h2 id="版本"><a href="#版本" class="headerlink" title="版本"></a>版本</h2><p>首当其冲的就是版本问题，包括实机安卓版本、Appium版本、SDK版本，反倒是JDK版本没遇到什么幺蛾子。</p>
-<h3 id="安卓版本"><a href="#安卓版本" class="headerlink" title="安卓版本"></a>安卓版本</h3><p>这个没得选，自己的手机就是安卓12，只有一点需要注意，我的手机是realme的，需要在开发者模式中打开<code>禁止权限监控</code>才能成功连接Appium。</p>
-<h3 id="SDK版本"><a href="#SDK版本" class="headerlink" title="SDK版本"></a>SDK版本</h3><p>开始的时候缺少经验，死活连不上，就是因为SDK版本和安卓版本不配套。</p>
-<p>后来我选择使用SDK31，跟安卓12配套，这里需要注意的是，SDK31没找到单独下载，所以我装了个Android Studio，用它装SDK。</p>
-<h3 id="Appium版本"><a href="#Appium版本" class="headerlink" title="Appium版本"></a>Appium版本</h3><p>这个我用的是最新的，毕竟SDK和安卓版本都挺新的。</p>
-<h2 id="appium-doctor"><a href="#appium-doctor" class="headerlink" title="appium-doctor"></a>appium-doctor</h2><p>这个东西让我纠结了好久，毕竟到最后我也没过环境检查。</p>
-<p>后来才发现，高版本的SDK文件结构变了，本来就过不了appium-doctor的检查，吐血。</p>
-<h2 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h2><p>我用的参数如下：</p>
-<pre><code>&#123;
-        &quot;platformName&quot;: &quot;Android&quot;,
-        &quot;appium:platformVersion&quot;: &quot;12&quot;,
-        &quot;appium:deviceName&quot;: &quot;ff7c5db6               device&quot;,
-        &quot;appium:appPackage&quot;: &quot;com.abchina.mmspc&quot;,
-        &quot;appium:appActivity&quot;: &quot;.ui.activity.WelcomeActivity&quot;,
-        &quot;appium:noReset&quot;: True,                        // 防止重置
-        &quot;appium:resetKeyboard&quot;: False,                 // 脚本执行完后重置输入法
-        &quot;appium:unicodeKeyboard&quot;: False,               // 脚本是否使用原生输入法，如果需要输入中文，这里要选True
-        &quot;appium:newCommandTimeout&quot;: 6000,              // 超过60秒无操作自动断连
-        &quot;appium:automationName&quot;: &quot;UiAutomator2&quot;        // 高版本要指定为‘UiAutomator2’，低版本用‘UiAutomator’
-
-    &#125;
-</code></pre>
-<p>其中appPackage和appActivity是用<code>adb logcat&gt;D:/log.txt</code>获取log之后，搜索<code>Displayed</code>查看。</p>
-<p>由于我要测的app重置后需要手机验证码登录，所以需要<code>noReset</code>参数来防止重置。</p>
-<p>到这应该就能连上了。</p>
-]]></content>
-      <categories>
-        <category>自动化</category>
-        <category>Appium</category>
-      </categories>
-      <tags>
-        <tag>自动化</tag>
-        <tag>Appium</tag>
       </tags>
   </entry>
   <entry>
@@ -1229,23 +1229,6 @@ Input #0, mov,mp4,m4a,3gp,3g2,mj2, from &#39;1.mp4&#39;:
       </tags>
   </entry>
   <entry>
-    <title>FFmpeg | pcm格式音频转换</title>
-    <url>/2023/11/22/ffmpeg14/</url>
-    <content><![CDATA[<p>在对接一个语音服务时，发现他们用的是pcm格式的音频做处理，所以需要把手中的其他格式音频处理成pcm格式。</p>
-<span id="more"></span>
-
-<p>直接上代码：</p>
-<pre><code>ffmpeg -i 1.mp3 -c:a pcm_s16le -f s16le -ac 1 -ar 16000 1.pcm
-</code></pre>
-]]></content>
-      <categories>
-        <category>ffmpeg</category>
-      </categories>
-      <tags>
-        <tag>ffmpeg</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>FFmpeg | 添加空音轨</title>
     <url>/2023/11/30/ffmpeg15/</url>
     <content><![CDATA[<p>有的文件没有音轨，想添加一个空音轨。</p>
@@ -1255,6 +1238,23 @@ Input #0, mov,mp4,m4a,3gp,3g2,mj2, from &#39;1.mp4&#39;:
 <pre><code>ffmpeg -i input.mp4 -f lavfi -t 5 -i anullsrc=cl=stereo:r=48000 -map 0:0 -map 1:0 -c:v copy output.mp4
 </code></pre>
 <p>主要是把<code>anullsrc=cl=stereo:r=48000</code>当做一个正常的输入文件就可以。</p>
+]]></content>
+      <categories>
+        <category>ffmpeg</category>
+      </categories>
+      <tags>
+        <tag>ffmpeg</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>FFmpeg | pcm格式音频转换</title>
+    <url>/2023/11/22/ffmpeg14/</url>
+    <content><![CDATA[<p>在对接一个语音服务时，发现他们用的是pcm格式的音频做处理，所以需要把手中的其他格式音频处理成pcm格式。</p>
+<span id="more"></span>
+
+<p>直接上代码：</p>
+<pre><code>ffmpeg -i 1.mp3 -c:a pcm_s16le -f s16le -ac 1 -ar 16000 1.pcm
+</code></pre>
 ]]></content>
       <categories>
         <category>ffmpeg</category>
@@ -1324,142 +1324,6 @@ copy：复制输入流的编码
       </categories>
       <tags>
         <tag>ffmpeg</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Flask | flask的定时任务</title>
-    <url>/2023/10/22/flask00/</url>
-    <content><![CDATA[<p>记一下flask中执行定时任务的方式</p>
-<span id="more"></span>
-
-<h1 id="安装flask-apscheduler库"><a href="#安装flask-apscheduler库" class="headerlink" title="安装flask-apscheduler库"></a>安装flask-apscheduler库</h1><pre><code>pip install flask-apscheduler
-</code></pre>
-<h1 id="配置定时任务"><a href="#配置定时任务" class="headerlink" title="配置定时任务"></a>配置定时任务</h1><h2 id="interval方式"><a href="#interval方式" class="headerlink" title="interval方式"></a>interval方式</h2><pre><code>from flask import Flask
-import datetime
-from flask_apscheduler import APScheduler
-
-aps = APScheduler()
-
-
-class Config(object):
-    JOBS = [
-        &#123;
-            &#39;id&#39;: &#39;job1&#39;,
-            &#39;func&#39;: &#39;scheduler:task&#39;,
-            &#39;args&#39;: (1, 2),
-            &#39;trigger&#39;: &#39;interval&#39;,
-            &#39;seconds&#39;: 10
-        &#125;
-    ]
-    SCHEDULER_API_ENABLED = True
-
-
-def task(a, b):
-    print(str(datetime.datetime.now()) + &#39; execute task &#39; + &#39;&#123;&#125;+&#123;&#125;=&#123;&#125;&#39;.format(a, b, a + b))
-
-
-if __name__ == &#39;__main__&#39;:
-    app = Flask(__name__)
-    app.config.from_object(Config())
-
-    scheduler = APScheduler()
-    scheduler.init_app(app)
-    scheduler.start()
-
-    app.run(port=8000)
-</code></pre>
-<h2 id="cron方式"><a href="#cron方式" class="headerlink" title="cron方式"></a>cron方式</h2><pre><code>from flask import Flask
-import datetime
-from flask_apscheduler import APScheduler
-
-aps = APScheduler()
-
-
-class Config(object):
-    JOBS = [
-        &#123;
-            &#39;id&#39;: &#39;job1&#39;,
-            &#39;func&#39;: &#39;scheduler:task&#39;,
-            &#39;args&#39;: (1, 2),
-            &#39;trigger&#39;: &#39;cron&#39;,
-            &#39;day&#39;: &#39;*&#39;,
-            &#39;hour&#39;: &#39;13&#39;,
-            &#39;minute&#39;: &#39;16&#39;,
-            &#39;second&#39;: &#39;20&#39;
-        &#125;
-    ]
-    SCHEDULER_API_ENABLED = True
-
-
-def task(a, b):
-    print(str(datetime.datetime.now()) + &#39; execute task &#39; + &#39;&#123;&#125;+&#123;&#125;=&#123;&#125;&#39;.format(a, b, a + b))
-
-
-if __name__ == &#39;__main__&#39;:
-    app = Flask(__name__)
-    app.config.from_object(Config())
-
-    scheduler = APScheduler()
-    scheduler.init_app(app)
-    scheduler.start()
-
-    app.run(port=8000)
-</code></pre>
-<h2 id="装饰器方式"><a href="#装饰器方式" class="headerlink" title="装饰器方式"></a>装饰器方式</h2><p>这种方法需要注意的是，经过测试，被装饰的函数需要被flask管理才行。</p>
-<pre><code>from flask import Flask
-from flask_apscheduler import APScheduler
-import datetime
-
-
-class Config(object):
-    SCHEDULER_API_ENABLED = True
-
-
-scheduler = APScheduler()
-
-
-# interval examples
-@scheduler.task(&#39;interval&#39;, id=&#39;do_job_1&#39;, seconds=30, misfire_grace_time=900)
-def job1():
-    print(str(datetime.datetime.now()) + &#39; Job 1 executed&#39;)
-
-
-# cron examples
-@scheduler.task(&#39;cron&#39;, id=&#39;do_job_2&#39;, minute=&#39;*&#39;)
-def job2():
-    print(str(datetime.datetime.now()) + &#39; Job 2 executed&#39;)
-
-
-@scheduler.task(&#39;cron&#39;, id=&#39;do_job_3&#39;, week=&#39;*&#39;, day_of_week=&#39;sun&#39;)
-def job3():
-    print(str(datetime.datetime.now()) + &#39; Job 3 executed&#39;)
-
-
-@scheduler.task(&#39;cron&#39;, id=&#39;do_job_3&#39;, day=&#39;*&#39;, hour=&#39;13&#39;, minute=&#39;26&#39;, second=&#39;05&#39;)
-def job4():
-    print(str(datetime.datetime.now()) + &#39; Job 4 executed&#39;)
-
-
-if __name__ == &#39;__main__&#39;:
-    app = Flask(__name__)
-    app.config.from_object(Config())
-
-    # it is also possible to enable the API directly
-    # scheduler.api_enabled = True
-    scheduler.init_app(app)
-    scheduler.start()
-
-    app.run(port=8000)
-</code></pre>
-]]></content>
-      <categories>
-        <category>Python</category>
-        <category>常用库</category>
-        <category>flask</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-        <tag>Flask</tag>
       </tags>
   </entry>
   <entry>
@@ -1613,6 +1477,142 @@ table th:nth-of-type(3) {
       </categories>
       <tags>
         <tag>ffmpeg</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Flask | flask的定时任务</title>
+    <url>/2023/10/22/flask00/</url>
+    <content><![CDATA[<p>记一下flask中执行定时任务的方式</p>
+<span id="more"></span>
+
+<h1 id="安装flask-apscheduler库"><a href="#安装flask-apscheduler库" class="headerlink" title="安装flask-apscheduler库"></a>安装flask-apscheduler库</h1><pre><code>pip install flask-apscheduler
+</code></pre>
+<h1 id="配置定时任务"><a href="#配置定时任务" class="headerlink" title="配置定时任务"></a>配置定时任务</h1><h2 id="interval方式"><a href="#interval方式" class="headerlink" title="interval方式"></a>interval方式</h2><pre><code>from flask import Flask
+import datetime
+from flask_apscheduler import APScheduler
+
+aps = APScheduler()
+
+
+class Config(object):
+    JOBS = [
+        &#123;
+            &#39;id&#39;: &#39;job1&#39;,
+            &#39;func&#39;: &#39;scheduler:task&#39;,
+            &#39;args&#39;: (1, 2),
+            &#39;trigger&#39;: &#39;interval&#39;,
+            &#39;seconds&#39;: 10
+        &#125;
+    ]
+    SCHEDULER_API_ENABLED = True
+
+
+def task(a, b):
+    print(str(datetime.datetime.now()) + &#39; execute task &#39; + &#39;&#123;&#125;+&#123;&#125;=&#123;&#125;&#39;.format(a, b, a + b))
+
+
+if __name__ == &#39;__main__&#39;:
+    app = Flask(__name__)
+    app.config.from_object(Config())
+
+    scheduler = APScheduler()
+    scheduler.init_app(app)
+    scheduler.start()
+
+    app.run(port=8000)
+</code></pre>
+<h2 id="cron方式"><a href="#cron方式" class="headerlink" title="cron方式"></a>cron方式</h2><pre><code>from flask import Flask
+import datetime
+from flask_apscheduler import APScheduler
+
+aps = APScheduler()
+
+
+class Config(object):
+    JOBS = [
+        &#123;
+            &#39;id&#39;: &#39;job1&#39;,
+            &#39;func&#39;: &#39;scheduler:task&#39;,
+            &#39;args&#39;: (1, 2),
+            &#39;trigger&#39;: &#39;cron&#39;,
+            &#39;day&#39;: &#39;*&#39;,
+            &#39;hour&#39;: &#39;13&#39;,
+            &#39;minute&#39;: &#39;16&#39;,
+            &#39;second&#39;: &#39;20&#39;
+        &#125;
+    ]
+    SCHEDULER_API_ENABLED = True
+
+
+def task(a, b):
+    print(str(datetime.datetime.now()) + &#39; execute task &#39; + &#39;&#123;&#125;+&#123;&#125;=&#123;&#125;&#39;.format(a, b, a + b))
+
+
+if __name__ == &#39;__main__&#39;:
+    app = Flask(__name__)
+    app.config.from_object(Config())
+
+    scheduler = APScheduler()
+    scheduler.init_app(app)
+    scheduler.start()
+
+    app.run(port=8000)
+</code></pre>
+<h2 id="装饰器方式"><a href="#装饰器方式" class="headerlink" title="装饰器方式"></a>装饰器方式</h2><p>这种方法需要注意的是，经过测试，被装饰的函数需要被flask管理才行。</p>
+<pre><code>from flask import Flask
+from flask_apscheduler import APScheduler
+import datetime
+
+
+class Config(object):
+    SCHEDULER_API_ENABLED = True
+
+
+scheduler = APScheduler()
+
+
+# interval examples
+@scheduler.task(&#39;interval&#39;, id=&#39;do_job_1&#39;, seconds=30, misfire_grace_time=900)
+def job1():
+    print(str(datetime.datetime.now()) + &#39; Job 1 executed&#39;)
+
+
+# cron examples
+@scheduler.task(&#39;cron&#39;, id=&#39;do_job_2&#39;, minute=&#39;*&#39;)
+def job2():
+    print(str(datetime.datetime.now()) + &#39; Job 2 executed&#39;)
+
+
+@scheduler.task(&#39;cron&#39;, id=&#39;do_job_3&#39;, week=&#39;*&#39;, day_of_week=&#39;sun&#39;)
+def job3():
+    print(str(datetime.datetime.now()) + &#39; Job 3 executed&#39;)
+
+
+@scheduler.task(&#39;cron&#39;, id=&#39;do_job_3&#39;, day=&#39;*&#39;, hour=&#39;13&#39;, minute=&#39;26&#39;, second=&#39;05&#39;)
+def job4():
+    print(str(datetime.datetime.now()) + &#39; Job 4 executed&#39;)
+
+
+if __name__ == &#39;__main__&#39;:
+    app = Flask(__name__)
+    app.config.from_object(Config())
+
+    # it is also possible to enable the API directly
+    # scheduler.api_enabled = True
+    scheduler.init_app(app)
+    scheduler.start()
+
+    app.run(port=8000)
+</code></pre>
+]]></content>
+      <categories>
+        <category>Python</category>
+        <category>常用库</category>
+        <category>flask</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>Flask</tag>
       </tags>
   </entry>
   <entry>
@@ -2166,6 +2166,22 @@ singleton = new Singleton() 可以拆解为3步：
       </tags>
   </entry>
   <entry>
+    <title>Java | 文件路径分隔符</title>
+    <url>/2023/07/15/java03/</url>
+    <content><![CDATA[<p>有时用Java有拼接文件路径的需求，就想找一个类似Python里<code>os.path.join()</code>的解决方案。</p>
+<span id="more"></span>
+
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>在拼接路径时，会遇到操作系统问题，比如Windows下的默认路径分隔符是<code>\</code>，而Linux下的默认路径分隔符是<code>/</code>，所以想找一个Java语言的解决方案。</p>
+<h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><p>虽然没找到现成的函数，不过找到了个不错的解决方法<code>File.separator</code>，它在不同的操作系统下是不同方向的斜杠，直接用它代替斜杠做文件路径拼接就好了。</p>
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Java | 怎样用Java获取文件后缀</title>
     <url>/2023/04/11/java02/</url>
     <content><![CDATA[<p>有时用Java有获取文件后缀的需求，就想找一个类似Python里<code>os.path.splitext()</code>的解决方案。</p>
@@ -2182,22 +2198,6 @@ singleton = new Singleton() 可以拆解为3步：
       <tags>
         <tag>Java</tag>
         <tag>正则表达式</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Java | 文件路径分隔符</title>
-    <url>/2023/07/15/java03/</url>
-    <content><![CDATA[<p>有时用Java有拼接文件路径的需求，就想找一个类似Python里<code>os.path.join()</code>的解决方案。</p>
-<span id="more"></span>
-
-<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>在拼接路径时，会遇到操作系统问题，比如Windows下的默认路径分隔符是<code>\</code>，而Linux下的默认路径分隔符是<code>/</code>，所以想找一个Java语言的解决方案。</p>
-<h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><p>虽然没找到现成的函数，不过找到了个不错的解决方法<code>File.separator</code>，它在不同的操作系统下是不同方向的斜杠，直接用它代替斜杠做文件路径拼接就好了。</p>
-]]></content>
-      <categories>
-        <category>Java</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
       </tags>
   </entry>
   <entry>
@@ -2282,27 +2282,6 @@ public class Decompression &#123;
       </tags>
   </entry>
   <entry>
-    <title>杂记 | 每个人都是一本书</title>
-    <url>/2023/07/02/life00/</url>
-    <content><![CDATA[<p>每个人都是一本书，有的厚，有的薄，有的上锁，有的风一吹便翻开了。</p>
-<span id="more"></span>
-
-<p>随着人的成长，书里的内容会发生变化，以我为例，我的书的封面和前边的章节就发生过很大的变化。</p>
-<p>上高中之前，我是一个非常外向的人，喜欢动，喜欢疯跑，喜欢翻跟头。那时我的这本书就很，怎么说呢，表里如一，其他人只看封面就知道书里讲了什么。</p>
-<p>上高一的时候，感觉我的这本书突然就有了层次，好像是在原有的基础上直接在封面前面加了一本书，好像就变了一个人，沉默寡言、不爱动，在陌生人眼里，应该就是突然变成了截然相反的另一个人。</p>
-<p>原因我大致也知道，但我总是不太敢相信，我真的会变化这么大吗？感觉不太真实，总觉得是不是还有什么其他的原因，不过我自己也分析不出来。</p>
-<p>说回书吧，我很乐意去翻别人的书，去了解别人。所以这些年我也看到了很多有意思的东西，很多人的书前后章节是不一样的，举个例子吧，有的人的书从封面看就是单调、生人勿进的，但哪怕只翻开一页，就会发现书页中泼洒的五颜六色的颜料，他们有着自己深爱的领域，你不翻，就永远也不知道。</p>
-<p>但是吧，封面单调也不意味着内容精彩，我也见过其他的两种不同的书。同样是封面单调，还有一种书翻一下就能看出来，不仅封面单调，内容也单调，并且字里行间还打着结；另一种书就更有趣了，翻开之后，里边的书页就让人很难懂，但总是逻辑自恰，就很有趣。</p>
-<p>我的这本书也没上锁，但是感觉书页会很重，不太好翻哈哈哈哈。</p>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>生活</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>LeetCode | 第二题两数相加</title>
     <url>/2021/03/26/leetcode00/</url>
     <content><![CDATA[<p>心血来潮，重新用Java做了下之前用Python做过的题。</p>
@@ -2378,6 +2357,27 @@ public class Decompression &#123;
       <tags>
         <tag>Java</tag>
         <tag>LeetCode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>杂记 | 每个人都是一本书</title>
+    <url>/2023/07/02/life00/</url>
+    <content><![CDATA[<p>每个人都是一本书，有的厚，有的薄，有的上锁，有的风一吹便翻开了。</p>
+<span id="more"></span>
+
+<p>随着人的成长，书里的内容会发生变化，以我为例，我的书的封面和前边的章节就发生过很大的变化。</p>
+<p>上高中之前，我是一个非常外向的人，喜欢动，喜欢疯跑，喜欢翻跟头。那时我的这本书就很，怎么说呢，表里如一，其他人只看封面就知道书里讲了什么。</p>
+<p>上高一的时候，感觉我的这本书突然就有了层次，好像是在原有的基础上直接在封面前面加了一本书，好像就变了一个人，沉默寡言、不爱动，在陌生人眼里，应该就是突然变成了截然相反的另一个人。</p>
+<p>原因我大致也知道，但我总是不太敢相信，我真的会变化这么大吗？感觉不太真实，总觉得是不是还有什么其他的原因，不过我自己也分析不出来。</p>
+<p>说回书吧，我很乐意去翻别人的书，去了解别人。所以这些年我也看到了很多有意思的东西，很多人的书前后章节是不一样的，举个例子吧，有的人的书从封面看就是单调、生人勿进的，但哪怕只翻开一页，就会发现书页中泼洒的五颜六色的颜料，他们有着自己深爱的领域，你不翻，就永远也不知道。</p>
+<p>但是吧，封面单调也不意味着内容精彩，我也见过其他的两种不同的书。同样是封面单调，还有一种书翻一下就能看出来，不仅封面单调，内容也单调，并且字里行间还打着结；另一种书就更有趣了，翻开之后，里边的书页就让人很难懂，但总是逻辑自恰，就很有趣。</p>
+<p>我的这本书也没上锁，但是感觉书页会很重，不太好翻哈哈哈哈。</p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>生活</tag>
       </tags>
   </entry>
   <entry>
