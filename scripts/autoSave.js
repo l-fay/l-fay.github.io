@@ -21,7 +21,7 @@ function run() {
             cd('D:\\blog');
         } else {
             echo(process.env.computername)
-            echo("请修改openNewMD的判断条件")
+            echo("请修改autoSave的判断条件")
         }
 
         if (exec('git add --all').code !== 0) {

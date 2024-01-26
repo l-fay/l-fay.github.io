@@ -4,7 +4,8 @@ date: 2020-09-08 13:24:27
 tags: [开源项目, 代理, Python, 爬虫]
 categories: 
   - [开源项目, Python, proxy_pool]
-  - [爬虫, 代理]
+  - [爬虫, Proxy]
+  - [Proxy]
 ---
 这是一个自动收集网络免费代理的项目
 

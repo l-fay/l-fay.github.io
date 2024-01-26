@@ -55,4 +55,4 @@ trusted-host=pypi.mirrors.ustc.edu.cn
 
 ## 进阶
 
-`pip`命令不止一个配置文件地址，并且配置文件有不同的覆盖范围和加载顺序，可以用`pip -v config list`查看。
+`pip`命令不止一个配置文件地址，并且配置文件有不同的覆盖范围和加载顺序，可以用`pip -v config list`或`pip config debug`查看。

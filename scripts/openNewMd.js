@@ -2,6 +2,7 @@ var spawn = require('child_process').exec;
 
 
 hexo.on('new', function(data){
+echo(process.env.computername);
 if (process.env.computername === "LQNQ"){
   // 台式电脑
   spawn('start  "D:\\Practical_Software\\Notepad++\\notepad++.exe" ' + data.path);

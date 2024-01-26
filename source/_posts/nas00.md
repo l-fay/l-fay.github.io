@@ -1,5 +1,5 @@
 ---
-title: '群晖 | 将Docker的网络模式从`bridge`切换到`host`'
+title: '群晖 | 将Docker的网络模式从bridge切换到host'
 date: 2023-12-09 12:29:36
 tags: [Nas, 群晖, Docker]
 categories:

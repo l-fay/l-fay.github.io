@@ -1,10 +1,10 @@
 ---
 title: Shadowsocks | 在Linux上部署Shadowsocks服务端
 date: 2021-01-09 18:40:37
-tags: [Linux, proxy, Shadowsocks]
+tags: [Linux, Proxy, Shadowsocks]
 categories: 
-  - [Linux, proxy]
-  - [proxy, Shadowsocks]
+  - [Linux, Proxy]
+  - [Proxy, Shadowsocks]
 ---
 
 因为校园网限流，所以想整个代理，让宿舍的网络下载东西的时候走实验室电脑，曲线实现免流。

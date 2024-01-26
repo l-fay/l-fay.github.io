@@ -1,9 +1,9 @@
 ---
 title: 'CMD设置代理'
 date: 2023-12-05 19:10:53
-tags: [proxy]
+tags: [Windows, Proxy]
 categories: 
-  - [proxy]
+  - [Windows, Proxy]
 ---
 
 主要是我的软路由不太稳，所以需要备用的方法。
