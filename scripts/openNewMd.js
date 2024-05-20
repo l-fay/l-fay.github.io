@@ -9,7 +9,7 @@ if (process.env.computername === "LQNQ"){
 }else if (process.env.computername === "LENOVO"){
   // 笔记本
   spawn('start  "D:\\Software\\Notepad++\\notepad++.exe" ' + data.path);
-}else if (process.env.computername === "LENOVO"){
+}else if (process.env.computername === "LAPTOP-V6C8RAO1"){
   // 周晓萌笔记本
   spawn('start  "D:\\npp.8.6.7.portable.x64\\notepad++.exe" ' + data.path);
 }
