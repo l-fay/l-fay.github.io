@@ -40,6 +40,6 @@ categories:
 ```
 git clone git@github.com:gonghs/hexo-theme-next.git themes/next
 ```
-如果有自己的配置文件的话，再将配置文件覆盖掉。
+如果有自己的配置文件，再将配置文件覆盖掉。
 
 到这就大功告成了，试试 `hexo g` 和 `hexo d` 吧！
