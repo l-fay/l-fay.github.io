@@ -88,4 +88,4 @@ hs_err_pid*
 /*/target/*
 
 # hexo
-.deploy_git
+.deploy_git/
