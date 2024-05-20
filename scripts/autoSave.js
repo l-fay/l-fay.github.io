@@ -33,7 +33,7 @@ function run() {
             exit(1);
 
         }
-        if (exec('git commit -am "Form auto backup script\'s commit"').code !== 0) {
+        if (exec('git commit -am "autoSave自动备份"').code !== 0) {
             echo('Error: Git commit failed');
             exit(1);
 
