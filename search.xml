@@ -9853,4 +9853,25 @@ if %isExecuted%==0 (
         <tag>水排序谜题</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Git | 同时提交到两个git地址</title>
+    <url>/2024/05/19/git03/</url>
+    <content><![CDATA[<p>需要给同一个项目设置两个远程git地址，主要是为了灾备。</p>
+<span id="more"></span>
+
+<h2 id="增加一个git地址"><a href="#增加一个git地址" class="headerlink" title="增加一个git地址"></a>增加一个git地址</h2><p>添加地址：</p>
+<pre><code>git remote set-url --add origin xxxxxxxx.git
+</code></pre>
+<p>查看地址：</p>
+<pre><code>git remote -v
+</code></pre>
+<p>然后就OK了。</p>
+]]></content>
+      <categories>
+        <category>Git</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+      </tags>
+  </entry>
 </search>
