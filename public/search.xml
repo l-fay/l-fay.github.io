@@ -47,47 +47,6 @@ trusted-host=pypi.mirrors.ustc.edu.cn
       </tags>
   </entry>
   <entry>
-    <title>Appium | 安装时遇到的一些坑</title>
-    <url>/2022/10/15/appium00/</url>
-    <content><![CDATA[<p>背景是有一个需要自动化操作实机安卓APP的需求，研究了一下，记录一下遇到的一些坑。</p>
-<span id="more"></span>
-
-<h2 id="版本"><a href="#版本" class="headerlink" title="版本"></a>版本</h2><p>首当其冲的就是版本问题，包括实机安卓版本、Appium版本、SDK版本，反倒是JDK版本没遇到什么幺蛾子。</p>
-<h3 id="安卓版本"><a href="#安卓版本" class="headerlink" title="安卓版本"></a>安卓版本</h3><p>这个没得选，自己的手机就是安卓12，只有一点需要注意，我的手机是realme的，需要在开发者模式中打开<code>禁止权限监控</code>才能成功连接Appium。</p>
-<h3 id="SDK版本"><a href="#SDK版本" class="headerlink" title="SDK版本"></a>SDK版本</h3><p>开始的时候缺少经验，死活连不上，就是因为SDK版本和安卓版本不配套。</p>
-<p>后来我选择使用SDK31，跟安卓12配套，这里需要注意的是，SDK31没找到单独下载，所以我装了个Android Studio，用它装SDK。</p>
-<h3 id="Appium版本"><a href="#Appium版本" class="headerlink" title="Appium版本"></a>Appium版本</h3><p>这个我用的是最新的，毕竟SDK和安卓版本都挺新的。</p>
-<h2 id="appium-doctor"><a href="#appium-doctor" class="headerlink" title="appium-doctor"></a>appium-doctor</h2><p>这个东西让我纠结了好久，毕竟到最后我也没过环境检查。</p>
-<p>后来才发现，高版本的SDK文件结构变了，本来就过不了appium-doctor的检查，吐血。</p>
-<h2 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h2><p>我用的参数如下：</p>
-<pre><code>&#123;
-        &quot;platformName&quot;: &quot;Android&quot;,
-        &quot;appium:platformVersion&quot;: &quot;12&quot;,
-        &quot;appium:deviceName&quot;: &quot;ff7c5db6               device&quot;,
-        &quot;appium:appPackage&quot;: &quot;com.abchina.mmspc&quot;,
-        &quot;appium:appActivity&quot;: &quot;.ui.activity.WelcomeActivity&quot;,
-        &quot;appium:noReset&quot;: True,                        // 防止重置
-        &quot;appium:resetKeyboard&quot;: False,                 // 脚本执行完后重置输入法
-        &quot;appium:unicodeKeyboard&quot;: False,               // 脚本是否使用原生输入法，如果需要输入中文，这里要选True
-        &quot;appium:newCommandTimeout&quot;: 6000,              // 超过60秒无操作自动断连
-        &quot;appium:automationName&quot;: &quot;UiAutomator2&quot;        // 高版本要指定为‘UiAutomator2’，低版本用‘UiAutomator’
-
-    &#125;
-</code></pre>
-<p>其中appPackage和appActivity是用<code>adb logcat&gt;D:/log.txt</code>获取log之后，搜索<code>Displayed</code>查看。</p>
-<p>由于我要测的app重置后需要手机验证码登录，所以需要<code>noReset</code>参数来防止重置。</p>
-<p>到这应该就能连上了。</p>
-]]></content>
-      <categories>
-        <category>自动化</category>
-        <category>Appium</category>
-      </categories>
-      <tags>
-        <tag>自动化</tag>
-        <tag>Appium</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>迁移虚拟环境</title>
     <url>/2021/01/07/anaconda01/</url>
     <content><![CDATA[<p>师兄的一篇博客很有帮助，转载一下。</p>
@@ -183,16 +142,16 @@ vim pip
 <p>成功解决。</p>
 ]]></content>
       <categories>
-        <category>自动化</category>
         <category>Python</category>
-        <category>Appium</category>
+        <category>自动化</category>
         <category>常用库</category>
+        <category>Appium</category>
         <category>Appium</category>
       </categories>
       <tags>
+        <tag>Python</tag>
         <tag>自动化</tag>
         <tag>Appium</tag>
-        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -210,16 +169,16 @@ vim pip
 <p>总之就是能用ID不要用XPATH，能用子模块不要用父模块，能少操作就少操作。</p>
 ]]></content>
       <categories>
-        <category>自动化</category>
         <category>Python</category>
-        <category>Appium</category>
+        <category>自动化</category>
         <category>常用库</category>
+        <category>Appium</category>
         <category>Appium</category>
       </categories>
       <tags>
+        <tag>Python</tag>
         <tag>自动化</tag>
         <tag>Appium</tag>
-        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -239,6 +198,47 @@ vim pip
       </categories>
       <tags>
         <tag>Bandizip</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Appium | 安装时遇到的一些坑</title>
+    <url>/2022/10/15/appium00/</url>
+    <content><![CDATA[<p>背景是有一个需要自动化操作实机安卓APP的需求，研究了一下，记录一下遇到的一些坑。</p>
+<span id="more"></span>
+
+<h2 id="版本"><a href="#版本" class="headerlink" title="版本"></a>版本</h2><p>首当其冲的就是版本问题，包括实机安卓版本、Appium版本、SDK版本，反倒是JDK版本没遇到什么幺蛾子。</p>
+<h3 id="安卓版本"><a href="#安卓版本" class="headerlink" title="安卓版本"></a>安卓版本</h3><p>这个没得选，自己的手机就是安卓12，只有一点需要注意，我的手机是realme的，需要在开发者模式中打开<code>禁止权限监控</code>才能成功连接Appium。</p>
+<h3 id="SDK版本"><a href="#SDK版本" class="headerlink" title="SDK版本"></a>SDK版本</h3><p>开始的时候缺少经验，死活连不上，就是因为SDK版本和安卓版本不配套。</p>
+<p>后来我选择使用SDK31，跟安卓12配套，这里需要注意的是，SDK31没找到单独下载，所以我装了个Android Studio，用它装SDK。</p>
+<h3 id="Appium版本"><a href="#Appium版本" class="headerlink" title="Appium版本"></a>Appium版本</h3><p>这个我用的是最新的，毕竟SDK和安卓版本都挺新的。</p>
+<h2 id="appium-doctor"><a href="#appium-doctor" class="headerlink" title="appium-doctor"></a>appium-doctor</h2><p>这个东西让我纠结了好久，毕竟到最后我也没过环境检查。</p>
+<p>后来才发现，高版本的SDK文件结构变了，本来就过不了appium-doctor的检查，吐血。</p>
+<h2 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h2><p>我用的参数如下：</p>
+<pre><code>&#123;
+        &quot;platformName&quot;: &quot;Android&quot;,
+        &quot;appium:platformVersion&quot;: &quot;12&quot;,
+        &quot;appium:deviceName&quot;: &quot;ff7c5db6               device&quot;,
+        &quot;appium:appPackage&quot;: &quot;com.abchina.mmspc&quot;,
+        &quot;appium:appActivity&quot;: &quot;.ui.activity.WelcomeActivity&quot;,
+        &quot;appium:noReset&quot;: True,                        // 防止重置
+        &quot;appium:resetKeyboard&quot;: False,                 // 脚本执行完后重置输入法
+        &quot;appium:unicodeKeyboard&quot;: False,               // 脚本是否使用原生输入法，如果需要输入中文，这里要选True
+        &quot;appium:newCommandTimeout&quot;: 6000,              // 超过60秒无操作自动断连
+        &quot;appium:automationName&quot;: &quot;UiAutomator2&quot;        // 高版本要指定为‘UiAutomator2’，低版本用‘UiAutomator’
+
+    &#125;
+</code></pre>
+<p>其中appPackage和appActivity是用<code>adb logcat&gt;D:/log.txt</code>获取log之后，搜索<code>Displayed</code>查看。</p>
+<p>由于我要测的app重置后需要手机验证码登录，所以需要<code>noReset</code>参数来防止重置。</p>
+<p>到这应该就能连上了。</p>
+]]></content>
+      <categories>
+        <category>自动化</category>
+        <category>Appium</category>
+      </categories>
+      <tags>
+        <tag>自动化</tag>
+        <tag>Appium</tag>
       </tags>
   </entry>
   <entry>
@@ -297,6 +297,33 @@ vim pip
       </tags>
   </entry>
   <entry>
+    <title>Linux创建用户并解决用户进入后命令行只有一个美元符号的问题</title>
+    <url>/2021/01/05/command02/</url>
+    <content><![CDATA[<p>假设我今天要创建一个名为“hello”的新用户。</p>
+<span id="more"></span>
+
+<h2 id="创建用户"><a href="#创建用户" class="headerlink" title="创建用户"></a>创建用户</h2><p>首先使用<code>useradd -m hello</code>创建新用户。</p>
+<p>其中<code>-m</code>参数的作用是自动在&#x2F;home目录下创建相应的用户文件夹。</p>
+<p>使用<code>passwd hello</code>创建密码。</p>
+<h2 id="解决新用户命令行只有一个美元符号的问题"><a href="#解决新用户命令行只有一个美元符号的问题" class="headerlink" title="解决新用户命令行只有一个美元符号的问题"></a>解决新用户命令行只有一个美元符号的问题</h2><h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><p>命令行默认使用sh而不是bash。</p>
+<h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><p>将<code>/etc/skel</code>下的<code>.bash*</code>和<code>.profile</code>复制过来并修改权限及拥有者。（未验证是否可以跳过这一步）。</p>
+<p>然后用<code>sudo vim /etc/passwd</code>将</p>
+<pre><code>hello:x:1001:1001::/home/hello:/bin/sh
+</code></pre>
+<p>改成这样：</p>
+<pre><code>hello:x:1001:1001::/home/hello:/bin/bash
+</code></pre>
+]]></content>
+      <categories>
+        <category>Linux</category>
+        <category>命令</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>命令</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>一些基础符号</title>
     <url>/2020/10/26/command01/</url>
     <content><![CDATA[<p>Linux命令行中一些符号的意义。</p>
@@ -321,33 +348,6 @@ vim pip
 <p>2&gt; error 表示将错误输出到error文件中</p>
 <p>2&gt;&amp;1 也就表示将错误重定向到标准输出上：&amp; 符号可以理解为引用（reference）。&amp;1 就是对标准输出的引用。
  </p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-        <category>命令</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>命令</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Linux创建用户并解决用户进入后命令行只有一个美元符号的问题</title>
-    <url>/2021/01/05/command02/</url>
-    <content><![CDATA[<p>假设我今天要创建一个名为“hello”的新用户。</p>
-<span id="more"></span>
-
-<h2 id="创建用户"><a href="#创建用户" class="headerlink" title="创建用户"></a>创建用户</h2><p>首先使用<code>useradd -m hello</code>创建新用户。</p>
-<p>其中<code>-m</code>参数的作用是自动在&#x2F;home目录下创建相应的用户文件夹。</p>
-<p>使用<code>passwd hello</code>创建密码。</p>
-<h2 id="解决新用户命令行只有一个美元符号的问题"><a href="#解决新用户命令行只有一个美元符号的问题" class="headerlink" title="解决新用户命令行只有一个美元符号的问题"></a>解决新用户命令行只有一个美元符号的问题</h2><h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><p>命令行默认使用sh而不是bash。</p>
-<h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><p>将<code>/etc/skel</code>下的<code>.bash*</code>和<code>.profile</code>复制过来并修改权限及拥有者。（未验证是否可以跳过这一步）。</p>
-<p>然后用<code>sudo vim /etc/passwd</code>将</p>
-<pre><code>hello:x:1001:1001::/home/hello:/bin/sh
-</code></pre>
-<p>改成这样：</p>
-<pre><code>hello:x:1001:1001::/home/hello:/bin/bash
-</code></pre>
 ]]></content>
       <categories>
         <category>Linux</category>
@@ -464,25 +464,6 @@ tail -f 保存的文件名.txt
       </tags>
   </entry>
   <entry>
-    <title>failed with initial frozen solve</title>
-    <url>/2020/12/16/condaError00/</url>
-    <content><![CDATA[<p>记录一下遇到的错误。</p>
-<span id="more"></span>
-
-<p>不知道这个错误是啥原因，解决方法：</p>
-<pre><code>conda config --set channel_priority flexible
-</code></pre>
-]]></content>
-      <categories>
-        <category>Anaconda</category>
-        <category>conda</category>
-      </categories>
-      <tags>
-        <tag>Anaconda</tag>
-        <tag>conda</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>no CUDA-capable device is detected</title>
     <url>/2020/12/16/cuda00/</url>
     <content><![CDATA[<p>这个错误可能由以下几个原因引起：</p>
@@ -504,6 +485,25 @@ tail -f 保存的文件名.txt
         <tag>Python</tag>
         <tag>CUDA</tag>
         <tag>PyTorch</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>failed with initial frozen solve</title>
+    <url>/2020/12/16/condaError00/</url>
+    <content><![CDATA[<p>记录一下遇到的错误。</p>
+<span id="more"></span>
+
+<p>不知道这个错误是啥原因，解决方法：</p>
+<pre><code>conda config --set channel_priority flexible
+</code></pre>
+]]></content>
+      <categories>
+        <category>Anaconda</category>
+        <category>conda</category>
+      </categories>
+      <tags>
+        <tag>Anaconda</tag>
+        <tag>conda</tag>
       </tags>
   </entry>
   <entry>
@@ -529,6 +529,28 @@ sudo yum install cuda
       </tags>
   </entry>
   <entry>
+    <title>Electron | 无网络的服务器怎么下载依赖</title>
+    <url>/2022/09/15/electron00/</url>
+    <content><![CDATA[<p>如题。</p>
+<span id="more"></span>
+
+<p>首先下载想安装的包，可以在<a href="https://npm.taobao.org/mirrors">淘宝源</a>下载。</p>
+<p>下载完放到cache文件夹，以electron包为例，注意分层。</p>
+<p>Linux：$XDG_CACHE_HOME 或 ~&#x2F;.cache&#x2F;electron&#x2F;</p>
+<p>macOS：~&#x2F;Library&#x2F;Caches&#x2F;electron&#x2F;</p>
+<p>Windows：~&#x2F;AppData&#x2F;local&#x2F;electron&#x2F;Cache</p>
+<p>最后重新运行<code>npm install</code>。</p>
+]]></content>
+      <categories>
+        <category>Electron</category>
+        <category>NodeJs</category>
+      </categories>
+      <tags>
+        <tag>Electron</tag>
+        <tag>NodeJs</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>验证码识别 | 开源项目ddddocr</title>
     <url>/2023/10/29/ddddocr00/</url>
     <content><![CDATA[<p>因为爬虫有突破验证码的需求，找到了这个<a href="https://github.com/sml2h3/ddddocr">开源项目</a>。</p>
@@ -548,6 +570,21 @@ sudo yum install cuda
         <tag>开源项目</tag>
         <tag>验证码</tag>
         <tag>爬虫</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Excel | 保持某些变量不变的方法</title>
+    <url>/2023/04/10/excel00/</url>
+    <content><![CDATA[<p>在Excel函数中，涉及到选取范围时，常有类似<code>A2</code>的内容，这些内容在复制单元格内容到新单元格时也会发生变化。</p>
+<span id="more"></span>
+
+<p>若想保持不变，只用加上<code>$</code>即可，例如<code>$A1</code>，这个A列就不会再变化了；<code>B$2</code>则是第二行不会变化。</p>
+]]></content>
+      <categories>
+        <category>Excel</category>
+      </categories>
+      <tags>
+        <tag>Excel</tag>
       </tags>
   </entry>
   <entry>
@@ -580,43 +617,6 @@ sudo yum install cuda
       </categories>
       <tags>
         <tag>Docker</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Electron | 无网络的服务器怎么下载依赖</title>
-    <url>/2022/09/15/electron00/</url>
-    <content><![CDATA[<p>如题。</p>
-<span id="more"></span>
-
-<p>首先下载想安装的包，可以在<a href="https://npm.taobao.org/mirrors">淘宝源</a>下载。</p>
-<p>下载完放到cache文件夹，以electron包为例，注意分层。</p>
-<p>Linux：$XDG_CACHE_HOME 或 ~&#x2F;.cache&#x2F;electron&#x2F;</p>
-<p>macOS：~&#x2F;Library&#x2F;Caches&#x2F;electron&#x2F;</p>
-<p>Windows：~&#x2F;AppData&#x2F;local&#x2F;electron&#x2F;Cache</p>
-<p>最后重新运行<code>npm install</code>。</p>
-]]></content>
-      <categories>
-        <category>Electron</category>
-        <category>NodeJs</category>
-      </categories>
-      <tags>
-        <tag>Electron</tag>
-        <tag>NodeJs</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Excel | 保持某些变量不变的方法</title>
-    <url>/2023/04/10/excel00/</url>
-    <content><![CDATA[<p>在Excel函数中，涉及到选取范围时，常有类似<code>A2</code>的内容，这些内容在复制单元格内容到新单元格时也会发生变化。</p>
-<span id="more"></span>
-
-<p>若想保持不变，只用加上<code>$</code>即可，例如<code>$A1</code>，这个A列就不会再变化了；<code>B$2</code>则是第二行不会变化。</p>
-]]></content>
-      <categories>
-        <category>Excel</category>
-      </categories>
-      <tags>
-        <tag>Excel</tag>
       </tags>
   </entry>
   <entry>
@@ -1183,29 +1183,6 @@ Input #0, mov,mp4,m4a,3gp,3g2,mj2, from &#39;1.mp4&#39;:
       </tags>
   </entry>
   <entry>
-    <title>FFmpeg | 字体文件的抽取</title>
-    <url>/2023/01/17/ffmpeg12/</url>
-    <content><![CDATA[<p>在压字幕的过程中，发现一些mkv中自带了字体文件，于是就找了一下提取字体的方法。毕竟直接从mkv中提取的字幕一是方便，不用在网上到处找；二是不用担心找的不对。</p>
-<span id="more"></span>
-
-<h2 id="存储形式"><a href="#存储形式" class="headerlink" title="存储形式"></a>存储形式</h2><p>字体文件不像视频、音频或字幕那样有自己的分类，字体文件被算作附件。</p>
-<p>所以理论上mkv里可以封装任何东西。</p>
-<h2 id="提取方法"><a href="#提取方法" class="headerlink" title="提取方法"></a>提取方法</h2><p>-attach filename</p>
-<p>将附件添加到输出文件，诸如Matroska之类的几种格式对此提供了支持。 用于呈现字幕的字体。 附件被实现为特定类型的流，因此此选项会将新的流添加到文件中。</p>
-<p>然后可以按通常方式在此流上使用per-stream选项。 使用此选项创建的附件流将在所有其他流（即使用-map或自动映射创建的附件流）之后创建。</p>
-<p>注意，对于Matroska，您还必须设置mimetype元数据标记：</p>
-<pre><code>ffmpeg -i INPUT -attach DejaVuSans.ttf -metadata:s:2 mimetype=application/x-truetype-font out.mkv
-</code></pre>
-<p>假设附件流在输出文件中排在第三位。</p>
-]]></content>
-      <categories>
-        <category>ffmpeg</category>
-      </categories>
-      <tags>
-        <tag>ffmpeg</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>FFmpeg | 如何将视频内封图片字幕压为硬字幕</title>
     <url>/2023/04/11/ffmpeg13/</url>
     <content><![CDATA[<p>作为一个电影仓鼠党，喜欢将字幕压制为硬字幕，这样不管什么设备都能正常播放。</p>
@@ -1229,15 +1206,20 @@ Input #0, mov,mp4,m4a,3gp,3g2,mj2, from &#39;1.mp4&#39;:
       </tags>
   </entry>
   <entry>
-    <title>FFmpeg | 添加空音轨</title>
-    <url>/2023/11/30/ffmpeg15/</url>
-    <content><![CDATA[<p>有的文件没有音轨，想添加一个空音轨。</p>
+    <title>FFmpeg | 字体文件的抽取</title>
+    <url>/2023/01/17/ffmpeg12/</url>
+    <content><![CDATA[<p>在压字幕的过程中，发现一些mkv中自带了字体文件，于是就找了一下提取字体的方法。毕竟直接从mkv中提取的字幕一是方便，不用在网上到处找；二是不用担心找的不对。</p>
 <span id="more"></span>
 
-<p>示例：</p>
-<pre><code>ffmpeg -i input.mp4 -f lavfi -t 5 -i anullsrc=cl=stereo:r=48000 -map 0:0 -map 1:0 -c:v copy output.mp4
+<h2 id="存储形式"><a href="#存储形式" class="headerlink" title="存储形式"></a>存储形式</h2><p>字体文件不像视频、音频或字幕那样有自己的分类，字体文件被算作附件。</p>
+<p>所以理论上mkv里可以封装任何东西。</p>
+<h2 id="提取方法"><a href="#提取方法" class="headerlink" title="提取方法"></a>提取方法</h2><p>-attach filename</p>
+<p>将附件添加到输出文件，诸如Matroska之类的几种格式对此提供了支持。 用于呈现字幕的字体。 附件被实现为特定类型的流，因此此选项会将新的流添加到文件中。</p>
+<p>然后可以按通常方式在此流上使用per-stream选项。 使用此选项创建的附件流将在所有其他流（即使用-map或自动映射创建的附件流）之后创建。</p>
+<p>注意，对于Matroska，您还必须设置mimetype元数据标记：</p>
+<pre><code>ffmpeg -i INPUT -attach DejaVuSans.ttf -metadata:s:2 mimetype=application/x-truetype-font out.mkv
 </code></pre>
-<p>主要是把<code>anullsrc=cl=stereo:r=48000</code>当做一个正常的输入文件就可以。</p>
+<p>假设附件流在输出文件中排在第三位。</p>
 ]]></content>
       <categories>
         <category>ffmpeg</category>
@@ -1255,6 +1237,24 @@ Input #0, mov,mp4,m4a,3gp,3g2,mj2, from &#39;1.mp4&#39;:
 <p>直接上代码：</p>
 <pre><code>ffmpeg -i 1.mp3 -c:a pcm_s16le -f s16le -ac 1 -ar 16000 1.pcm
 </code></pre>
+]]></content>
+      <categories>
+        <category>ffmpeg</category>
+      </categories>
+      <tags>
+        <tag>ffmpeg</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>FFmpeg | 添加空音轨</title>
+    <url>/2023/11/30/ffmpeg15/</url>
+    <content><![CDATA[<p>有的文件没有音轨，想添加一个空音轨。</p>
+<span id="more"></span>
+
+<p>示例：</p>
+<pre><code>ffmpeg -i input.mp4 -f lavfi -t 5 -i anullsrc=cl=stereo:r=48000 -map 0:0 -map 1:0 -c:v copy output.mp4
+</code></pre>
+<p>主要是把<code>anullsrc=cl=stereo:r=48000</code>当做一个正常的输入文件就可以。</p>
 ]]></content>
       <categories>
         <category>ffmpeg</category>
@@ -1324,6 +1324,184 @@ copy：复制输入流的编码
       </categories>
       <tags>
         <tag>ffmpeg</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Flask | flask的定时任务</title>
+    <url>/2023/10/22/flask00/</url>
+    <content><![CDATA[<p>记一下flask中执行定时任务的方式</p>
+<span id="more"></span>
+
+<h1 id="安装flask-apscheduler库"><a href="#安装flask-apscheduler库" class="headerlink" title="安装flask-apscheduler库"></a>安装flask-apscheduler库</h1><pre><code>pip install flask-apscheduler
+</code></pre>
+<h1 id="配置定时任务"><a href="#配置定时任务" class="headerlink" title="配置定时任务"></a>配置定时任务</h1><h2 id="interval方式"><a href="#interval方式" class="headerlink" title="interval方式"></a>interval方式</h2><pre><code>from flask import Flask
+import datetime
+from flask_apscheduler import APScheduler
+
+aps = APScheduler()
+
+
+class Config(object):
+    JOBS = [
+        &#123;
+            &#39;id&#39;: &#39;job1&#39;,
+            &#39;func&#39;: &#39;scheduler:task&#39;,
+            &#39;args&#39;: (1, 2),
+            &#39;trigger&#39;: &#39;interval&#39;,
+            &#39;seconds&#39;: 10
+        &#125;
+    ]
+    SCHEDULER_API_ENABLED = True
+
+
+def task(a, b):
+    print(str(datetime.datetime.now()) + &#39; execute task &#39; + &#39;&#123;&#125;+&#123;&#125;=&#123;&#125;&#39;.format(a, b, a + b))
+
+
+if __name__ == &#39;__main__&#39;:
+    app = Flask(__name__)
+    app.config.from_object(Config())
+
+    scheduler = APScheduler()
+    scheduler.init_app(app)
+    scheduler.start()
+
+    app.run(port=8000)
+</code></pre>
+<h2 id="cron方式"><a href="#cron方式" class="headerlink" title="cron方式"></a>cron方式</h2><pre><code>from flask import Flask
+import datetime
+from flask_apscheduler import APScheduler
+
+aps = APScheduler()
+
+
+class Config(object):
+    JOBS = [
+        &#123;
+            &#39;id&#39;: &#39;job1&#39;,
+            &#39;func&#39;: &#39;scheduler:task&#39;,
+            &#39;args&#39;: (1, 2),
+            &#39;trigger&#39;: &#39;cron&#39;,
+            &#39;day&#39;: &#39;*&#39;,
+            &#39;hour&#39;: &#39;13&#39;,
+            &#39;minute&#39;: &#39;16&#39;,
+            &#39;second&#39;: &#39;20&#39;
+        &#125;
+    ]
+    SCHEDULER_API_ENABLED = True
+
+
+def task(a, b):
+    print(str(datetime.datetime.now()) + &#39; execute task &#39; + &#39;&#123;&#125;+&#123;&#125;=&#123;&#125;&#39;.format(a, b, a + b))
+
+
+if __name__ == &#39;__main__&#39;:
+    app = Flask(__name__)
+    app.config.from_object(Config())
+
+    scheduler = APScheduler()
+    scheduler.init_app(app)
+    scheduler.start()
+
+    app.run(port=8000)
+</code></pre>
+<h2 id="装饰器方式"><a href="#装饰器方式" class="headerlink" title="装饰器方式"></a>装饰器方式</h2><p>这种方法需要注意的是，经过测试，被装饰的函数需要被flask管理才行。</p>
+<pre><code>from flask import Flask
+from flask_apscheduler import APScheduler
+import datetime
+
+
+class Config(object):
+    SCHEDULER_API_ENABLED = True
+
+
+scheduler = APScheduler()
+
+
+# interval examples
+@scheduler.task(&#39;interval&#39;, id=&#39;do_job_1&#39;, seconds=30, misfire_grace_time=900)
+def job1():
+    print(str(datetime.datetime.now()) + &#39; Job 1 executed&#39;)
+
+
+# cron examples
+@scheduler.task(&#39;cron&#39;, id=&#39;do_job_2&#39;, minute=&#39;*&#39;)
+def job2():
+    print(str(datetime.datetime.now()) + &#39; Job 2 executed&#39;)
+
+
+@scheduler.task(&#39;cron&#39;, id=&#39;do_job_3&#39;, week=&#39;*&#39;, day_of_week=&#39;sun&#39;)
+def job3():
+    print(str(datetime.datetime.now()) + &#39; Job 3 executed&#39;)
+
+
+@scheduler.task(&#39;cron&#39;, id=&#39;do_job_3&#39;, day=&#39;*&#39;, hour=&#39;13&#39;, minute=&#39;26&#39;, second=&#39;05&#39;)
+def job4():
+    print(str(datetime.datetime.now()) + &#39; Job 4 executed&#39;)
+
+
+if __name__ == &#39;__main__&#39;:
+    app = Flask(__name__)
+    app.config.from_object(Config())
+
+    # it is also possible to enable the API directly
+    # scheduler.api_enabled = True
+    scheduler.init_app(app)
+    scheduler.start()
+
+    app.run(port=8000)
+</code></pre>
+]]></content>
+      <categories>
+        <category>Python</category>
+        <category>常用库</category>
+        <category>flask</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>Flask</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Flask异常处理</title>
+    <url>/2023/10/29/flask02/</url>
+    <content><![CDATA[<p>在访问过程中，有两种方式可以中断请求，一是抛出错误码，二是抛出异常。</p>
+<span id="more"></span>
+
+<h1 id="abort中断请求"><a href="#abort中断请求" class="headerlink" title="abort中断请求"></a>abort中断请求</h1><pre><code>from flask import  abort
+ 
+@app.route(&#39;/&#39;)
+def index():
+    abort(401)
+</code></pre>
+<h1 id="抛出异常"><a href="#抛出异常" class="headerlink" title="抛出异常"></a>抛出异常</h1><pre><code>raise [exceptionName [(reason)]]
+</code></pre>
+<h1 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h1><p>errorhandler捕捉当前蓝图错误，app_errorhandler捕捉全局错误，下边是例子：</p>
+<pre><code>from flask import Blueprint
+from application.common.classes.Result import Result
+from application.common.constant.HttpCode import HttpCode
+
+handler_blu = Blueprint(&quot;handler_blu&quot;, __name__)
+
+
+@handler_blu.app_errorhandler(HttpCode.UNAUTHORIZED)
+def unauthorized():
+    return Result.error(HttpCode.UNAUTHORIZED, &quot;token已过期或未登陆！&quot;)
+
+
+@handler_blu.app_errorhandler(Exception)
+def exception():
+    return Result.error(500, &quot;未知异常&quot;)
+</code></pre>
+]]></content>
+      <categories>
+        <category>Python</category>
+        <category>常用库</category>
+        <category>flask</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>Flask</tag>
       </tags>
   </entry>
   <entry>
@@ -1480,142 +1658,6 @@ table th:nth-of-type(3) {
       </tags>
   </entry>
   <entry>
-    <title>Flask | flask的定时任务</title>
-    <url>/2023/10/22/flask00/</url>
-    <content><![CDATA[<p>记一下flask中执行定时任务的方式</p>
-<span id="more"></span>
-
-<h1 id="安装flask-apscheduler库"><a href="#安装flask-apscheduler库" class="headerlink" title="安装flask-apscheduler库"></a>安装flask-apscheduler库</h1><pre><code>pip install flask-apscheduler
-</code></pre>
-<h1 id="配置定时任务"><a href="#配置定时任务" class="headerlink" title="配置定时任务"></a>配置定时任务</h1><h2 id="interval方式"><a href="#interval方式" class="headerlink" title="interval方式"></a>interval方式</h2><pre><code>from flask import Flask
-import datetime
-from flask_apscheduler import APScheduler
-
-aps = APScheduler()
-
-
-class Config(object):
-    JOBS = [
-        &#123;
-            &#39;id&#39;: &#39;job1&#39;,
-            &#39;func&#39;: &#39;scheduler:task&#39;,
-            &#39;args&#39;: (1, 2),
-            &#39;trigger&#39;: &#39;interval&#39;,
-            &#39;seconds&#39;: 10
-        &#125;
-    ]
-    SCHEDULER_API_ENABLED = True
-
-
-def task(a, b):
-    print(str(datetime.datetime.now()) + &#39; execute task &#39; + &#39;&#123;&#125;+&#123;&#125;=&#123;&#125;&#39;.format(a, b, a + b))
-
-
-if __name__ == &#39;__main__&#39;:
-    app = Flask(__name__)
-    app.config.from_object(Config())
-
-    scheduler = APScheduler()
-    scheduler.init_app(app)
-    scheduler.start()
-
-    app.run(port=8000)
-</code></pre>
-<h2 id="cron方式"><a href="#cron方式" class="headerlink" title="cron方式"></a>cron方式</h2><pre><code>from flask import Flask
-import datetime
-from flask_apscheduler import APScheduler
-
-aps = APScheduler()
-
-
-class Config(object):
-    JOBS = [
-        &#123;
-            &#39;id&#39;: &#39;job1&#39;,
-            &#39;func&#39;: &#39;scheduler:task&#39;,
-            &#39;args&#39;: (1, 2),
-            &#39;trigger&#39;: &#39;cron&#39;,
-            &#39;day&#39;: &#39;*&#39;,
-            &#39;hour&#39;: &#39;13&#39;,
-            &#39;minute&#39;: &#39;16&#39;,
-            &#39;second&#39;: &#39;20&#39;
-        &#125;
-    ]
-    SCHEDULER_API_ENABLED = True
-
-
-def task(a, b):
-    print(str(datetime.datetime.now()) + &#39; execute task &#39; + &#39;&#123;&#125;+&#123;&#125;=&#123;&#125;&#39;.format(a, b, a + b))
-
-
-if __name__ == &#39;__main__&#39;:
-    app = Flask(__name__)
-    app.config.from_object(Config())
-
-    scheduler = APScheduler()
-    scheduler.init_app(app)
-    scheduler.start()
-
-    app.run(port=8000)
-</code></pre>
-<h2 id="装饰器方式"><a href="#装饰器方式" class="headerlink" title="装饰器方式"></a>装饰器方式</h2><p>这种方法需要注意的是，经过测试，被装饰的函数需要被flask管理才行。</p>
-<pre><code>from flask import Flask
-from flask_apscheduler import APScheduler
-import datetime
-
-
-class Config(object):
-    SCHEDULER_API_ENABLED = True
-
-
-scheduler = APScheduler()
-
-
-# interval examples
-@scheduler.task(&#39;interval&#39;, id=&#39;do_job_1&#39;, seconds=30, misfire_grace_time=900)
-def job1():
-    print(str(datetime.datetime.now()) + &#39; Job 1 executed&#39;)
-
-
-# cron examples
-@scheduler.task(&#39;cron&#39;, id=&#39;do_job_2&#39;, minute=&#39;*&#39;)
-def job2():
-    print(str(datetime.datetime.now()) + &#39; Job 2 executed&#39;)
-
-
-@scheduler.task(&#39;cron&#39;, id=&#39;do_job_3&#39;, week=&#39;*&#39;, day_of_week=&#39;sun&#39;)
-def job3():
-    print(str(datetime.datetime.now()) + &#39; Job 3 executed&#39;)
-
-
-@scheduler.task(&#39;cron&#39;, id=&#39;do_job_3&#39;, day=&#39;*&#39;, hour=&#39;13&#39;, minute=&#39;26&#39;, second=&#39;05&#39;)
-def job4():
-    print(str(datetime.datetime.now()) + &#39; Job 4 executed&#39;)
-
-
-if __name__ == &#39;__main__&#39;:
-    app = Flask(__name__)
-    app.config.from_object(Config())
-
-    # it is also possible to enable the API directly
-    # scheduler.api_enabled = True
-    scheduler.init_app(app)
-    scheduler.start()
-
-    app.run(port=8000)
-</code></pre>
-]]></content>
-      <categories>
-        <category>Python</category>
-        <category>常用库</category>
-        <category>flask</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-        <tag>Flask</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Flask | RuntimeError: No application found. Either work inside a view function or push an application context.</title>
     <url>/2023/10/28/flask01/</url>
     <content><![CDATA[<p>问题在于调用时找不到flask的app，就算用current_app，也会在不被flask管理的模块中调用时遇到此错误。</p>
@@ -1635,48 +1677,6 @@ scheduler = APScheduler()
 app = scheduler.app
 </code></pre>
 <p>其中import的位置自己改。</p>
-]]></content>
-      <categories>
-        <category>Python</category>
-        <category>常用库</category>
-        <category>flask</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-        <tag>Flask</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Flask异常处理</title>
-    <url>/2023/10/29/flask02/</url>
-    <content><![CDATA[<p>在访问过程中，有两种方式可以中断请求，一是抛出错误码，二是抛出异常。</p>
-<span id="more"></span>
-
-<h1 id="abort中断请求"><a href="#abort中断请求" class="headerlink" title="abort中断请求"></a>abort中断请求</h1><pre><code>from flask import  abort
- 
-@app.route(&#39;/&#39;)
-def index():
-    abort(401)
-</code></pre>
-<h1 id="抛出异常"><a href="#抛出异常" class="headerlink" title="抛出异常"></a>抛出异常</h1><pre><code>raise [exceptionName [(reason)]]
-</code></pre>
-<h1 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h1><p>errorhandler捕捉当前蓝图错误，app_errorhandler捕捉全局错误，下边是例子：</p>
-<pre><code>from flask import Blueprint
-from application.common.classes.Result import Result
-from application.common.constant.HttpCode import HttpCode
-
-handler_blu = Blueprint(&quot;handler_blu&quot;, __name__)
-
-
-@handler_blu.app_errorhandler(HttpCode.UNAUTHORIZED)
-def unauthorized():
-    return Result.error(HttpCode.UNAUTHORIZED, &quot;token已过期或未登陆！&quot;)
-
-
-@handler_blu.app_errorhandler(Exception)
-def exception():
-    return Result.error(500, &quot;未知异常&quot;)
-</code></pre>
 ]]></content>
       <categories>
         <category>Python</category>
@@ -1844,34 +1844,6 @@ git pull
       </tags>
   </entry>
   <entry>
-    <title>Hexo | Hexo推送时如何避免每次都要输入账号密码</title>
-    <url>/2020/12/19/hexo02/</url>
-    <content><![CDATA[<p>之前不知道动到哪里的设置了，每次<code>hexo d</code>的时候都要输入完整的账号密码才能发布。</p>
-<span id="more"></span>
-
-<p>之后找了一下不用每次都输入账号密码的方法，转载到这备用。</p>
-<p>首先创建一个名为<code>HOME</code>的系统变量，内容为<code>%USERPROFILE%</code>。</p>
-<p>然后在自己的用户目录下新建一个文件，命名为<code>_netrc</code>（C:\Users\username\_netrc）</p>
-<p>编辑为：</p>
-<pre><code>machine github.com
-login username
-password password
-</code></pre>
-<p>然后重新进命令行，就行了。</p>
-<p>——————————————————————————<br>更新：</p>
-<p><code>HOME</code>系统变量设置为<code>%USERPROFILE%</code>，有的时候会让<code>git</code>命令出问题。</p>
-<p>原因在于有的时候命令行不解析<code>%USERPROFILE%</code>所代表的地址，直接<code>echo</code>又可以解析，就很迷0.0</p>
-<p>解决方法：既然它不解析，那就不让它解析，直接将<code>HOME</code>的内容换成<code>%USERPROFILE%</code>所指向的具体地址。</p>
-<p>这让就在不影响<code>git</code>命令的前提下，依然发挥不输入帐号密码的作用。</p>
-]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hexo | fatal: unable to access</title>
     <url>/2021/03/22/hexo03/</url>
     <content><![CDATA[<p>Hexo的报错处理。</p>
@@ -1896,6 +1868,34 @@ cs/troubleshooting.html
 </code></pre>
 <p>经过排查，发现是我在本地删除了公钥。</p>
 <p>重新设置一下就好了。</p>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo | Hexo推送时如何避免每次都要输入账号密码</title>
+    <url>/2020/12/19/hexo02/</url>
+    <content><![CDATA[<p>之前不知道动到哪里的设置了，每次<code>hexo d</code>的时候都要输入完整的账号密码才能发布。</p>
+<span id="more"></span>
+
+<p>之后找了一下不用每次都输入账号密码的方法，转载到这备用。</p>
+<p>首先创建一个名为<code>HOME</code>的系统变量，内容为<code>%USERPROFILE%</code>。</p>
+<p>然后在自己的用户目录下新建一个文件，命名为<code>_netrc</code>（C:\Users\username\_netrc）</p>
+<p>编辑为：</p>
+<pre><code>machine github.com
+login username
+password password
+</code></pre>
+<p>然后重新进命令行，就行了。</p>
+<p>——————————————————————————<br>更新：</p>
+<p><code>HOME</code>系统变量设置为<code>%USERPROFILE%</code>，有的时候会让<code>git</code>命令出问题。</p>
+<p>原因在于有的时候命令行不解析<code>%USERPROFILE%</code>所代表的地址，直接<code>echo</code>又可以解析，就很迷0.0</p>
+<p>解决方法：既然它不解析，那就不让它解析，直接将<code>HOME</code>的内容换成<code>%USERPROFILE%</code>所指向的具体地址。</p>
+<p>这让就在不影响<code>git</code>命令的前提下，依然发挥不输入帐号密码的作用。</p>
 ]]></content>
       <categories>
         <category>Hexo</category>
@@ -1939,6 +1939,9 @@ hexo new [布局名称] &lt;文档名称&gt;
 <h2 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h2><p>在博客文件夹下运行 <code>npm install hexo-cli -g</code> 。<br><code>hexo -v</code> 验证安装。</p>
 <p>到这一步，之前自己改的scripts啥的都能保留，但是需要修改js文件里的路径配置，自己检查下。</p>
 <h2 id="连接GitHub上的已有仓库"><a href="#连接GitHub上的已有仓库" class="headerlink" title="连接GitHub上的已有仓库"></a>连接GitHub上的已有仓库</h2><p>输入 <code>git config --global user.name &quot;你GitHub账号的名字&quot;</code> 。<br>注：由于我也是小白，不知道这名字有啥用，我输入的是GitHub里 <code>Setting - Public profile - Name</code> 的值。<br>再输入 <code>git config --global user.email &quot;你GitHub账号的邮箱&quot;</code> 。<br>再输入 <code>ssh-keygen -t rsa -C &quot;你GitHub账号的邮箱&quot;</code> 生成SSH Key，什么也不用输入，直接按三次回车确定。<br>看下上一步命令行中提示的路径，进入相应文件夹打开 <code>id_rsa.pub</code> 文件，将里边的内容复制一下。<br>然后在GitHub里 <code>Setting - SSH and GPG keys - SSH keys</code> 点击 <code>new SSH key</code> ，输入名字和刚复制的key，名字主要是为了区分这是哪个电脑的key，自己取一下作区分就好。<br>然后把旧的不用的key清理一下。<br>在博客文件夹下运行 <code>npm install hexo-deployer-git --save</code> 安装GitHub推送插件。</p>
+<h2 id="安装next主题"><a href="#安装next主题" class="headerlink" title="安装next主题"></a>安装next主题</h2><pre><code>git clone git@github.com:gonghs/hexo-theme-next.git themes/next
+</code></pre>
+<p>如果有自己的配置文件的话，再将配置文件覆盖掉。</p>
 <p>到这就大功告成了，试试 <code>hexo g</code> 和 <code>hexo d</code> 吧！</p>
 ]]></content>
       <categories>
@@ -1990,6 +1993,84 @@ hexo new [布局名称] &lt;文档名称&gt;
       </categories>
       <tags>
         <tag>IDE</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java | 用HttpServletResponse实现浏览器的文件下载</title>
+    <url>/2022/07/01/java01/</url>
+    <content><![CDATA[<p>java中用HttpServletResponse实现浏览器的文件下载</p>
+<p>搬运自<a href="https://blog.csdn.net/kelekele111/article/details/123681813">这篇</a>博客。</p>
+<span id="more"></span>
+
+<h2 id="实现效果"><a href="#实现效果" class="headerlink" title="实现效果"></a>实现效果</h2><img src="/images/java01/img01.png" width="100%">
+
+<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><p><strong>1. 将文件放在resources文件包下</strong></p>
+<img src="/images/java01/img02.png" width="60%">
+
+<p><strong>2. FileServlet类实现代码</strong></p>
+<pre><code>public class FileServlet extends HttpServlet &#123;
+
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException &#123;
+        //1.要获取下载文件的路径
+        String realPath = &quot;E:\\开源项目\\demo\\javaweb-02-servlet\\response\\src\\main\\resources\\123.png&quot;;
+        System.out.println(&quot;下载文件的位置&quot;+realPath);
+        //2.下载的文件名是啥,截取文件名
+        String fileName = realPath.substring(realPath.lastIndexOf(&quot;\\&quot;) + 1);
+        //3.设置让浏览器支持(Content-Disposition)下载我们需要的东西,如果文件名字为中文，需要转码，URLEncoder.encode设置文件名编码
+        resp.setHeader(&quot;Content-Disposition&quot;,&quot;attachment;filename=&quot;+ URLEncoder.encode(fileName,&quot;utf-8&quot;));
+        //4.获取下载文件的输入流
+        FileInputStream in = new FileInputStream(realPath);
+        //5.创建缓冲区
+        int len = 0;
+        byte[] buffer = new byte[1024];
+        //6.获取OutputStream对象
+        ServletOutputStream out = resp.getOutputStream();
+        //7.将FileOutputStream流写入到buffer缓冲区，使用OutputStream将缓冲区的数据输出到客户端
+        while ((len = in.read(buffer)) &gt; 0)&#123;
+            out.write(buffer,0,len);
+        &#125;
+
+        //关闭流
+        in.close();
+        out.close();
+
+    &#125;
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException &#123;
+        doGet(req, resp);
+    &#125;
+&#125;
+</code></pre>
+<p><strong>3. web.xml设置</strong></p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;web-app xmlns=&quot;http://xmlns.jcp.org/xml/ns/javaee&quot;
+         xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+         xsi:schemaLocation=&quot;http://xmlns.jcp.org/xml/ns/javaee
+                             http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd&quot;
+         version=&quot;4.0&quot;
+         metadata-complete=&quot;true&quot;&gt;
+  
+&lt;!--  Servlet注册，下载文件--&gt;
+  &lt;servlet&gt;
+    &lt;servlet-name&gt;fileDown&lt;/servlet-name&gt;
+    &lt;servlet-class&gt;com.hwh.servlet.FileServlet&lt;/servlet-class&gt;
+  &lt;/servlet&gt;
+  &lt;servlet-mapping&gt;
+    &lt;servlet-name&gt;fileDown&lt;/servlet-name&gt;
+    &lt;url-pattern&gt;/fileDown&lt;/url-pattern&gt;
+  &lt;/servlet-mapping&gt;
+  
+&lt;/web-app&gt;
+</code></pre>
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
       </tags>
   </entry>
   <entry>
@@ -2088,84 +2169,6 @@ singleton = new Singleton() 可以拆解为3步：
       </tags>
   </entry>
   <entry>
-    <title>Java | 用HttpServletResponse实现浏览器的文件下载</title>
-    <url>/2022/07/01/java01/</url>
-    <content><![CDATA[<p>java中用HttpServletResponse实现浏览器的文件下载</p>
-<p>搬运自<a href="https://blog.csdn.net/kelekele111/article/details/123681813">这篇</a>博客。</p>
-<span id="more"></span>
-
-<h2 id="实现效果"><a href="#实现效果" class="headerlink" title="实现效果"></a>实现效果</h2><img src="/images/java01/img01.png" width="100%">
-
-<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><p><strong>1. 将文件放在resources文件包下</strong></p>
-<img src="/images/java01/img02.png" width="60%">
-
-<p><strong>2. FileServlet类实现代码</strong></p>
-<pre><code>public class FileServlet extends HttpServlet &#123;
-
-
-    @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException &#123;
-        //1.要获取下载文件的路径
-        String realPath = &quot;E:\\开源项目\\demo\\javaweb-02-servlet\\response\\src\\main\\resources\\123.png&quot;;
-        System.out.println(&quot;下载文件的位置&quot;+realPath);
-        //2.下载的文件名是啥,截取文件名
-        String fileName = realPath.substring(realPath.lastIndexOf(&quot;\\&quot;) + 1);
-        //3.设置让浏览器支持(Content-Disposition)下载我们需要的东西,如果文件名字为中文，需要转码，URLEncoder.encode设置文件名编码
-        resp.setHeader(&quot;Content-Disposition&quot;,&quot;attachment;filename=&quot;+ URLEncoder.encode(fileName,&quot;utf-8&quot;));
-        //4.获取下载文件的输入流
-        FileInputStream in = new FileInputStream(realPath);
-        //5.创建缓冲区
-        int len = 0;
-        byte[] buffer = new byte[1024];
-        //6.获取OutputStream对象
-        ServletOutputStream out = resp.getOutputStream();
-        //7.将FileOutputStream流写入到buffer缓冲区，使用OutputStream将缓冲区的数据输出到客户端
-        while ((len = in.read(buffer)) &gt; 0)&#123;
-            out.write(buffer,0,len);
-        &#125;
-
-        //关闭流
-        in.close();
-        out.close();
-
-    &#125;
-
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException &#123;
-        doGet(req, resp);
-    &#125;
-&#125;
-</code></pre>
-<p><strong>3. web.xml设置</strong></p>
-<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;web-app xmlns=&quot;http://xmlns.jcp.org/xml/ns/javaee&quot;
-         xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
-         xsi:schemaLocation=&quot;http://xmlns.jcp.org/xml/ns/javaee
-                             http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd&quot;
-         version=&quot;4.0&quot;
-         metadata-complete=&quot;true&quot;&gt;
-  
-&lt;!--  Servlet注册，下载文件--&gt;
-  &lt;servlet&gt;
-    &lt;servlet-name&gt;fileDown&lt;/servlet-name&gt;
-    &lt;servlet-class&gt;com.hwh.servlet.FileServlet&lt;/servlet-class&gt;
-  &lt;/servlet&gt;
-  &lt;servlet-mapping&gt;
-    &lt;servlet-name&gt;fileDown&lt;/servlet-name&gt;
-    &lt;url-pattern&gt;/fileDown&lt;/url-pattern&gt;
-  &lt;/servlet-mapping&gt;
-  
-&lt;/web-app&gt;
-</code></pre>
-]]></content>
-      <categories>
-        <category>Java</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Java | 文件路径分隔符</title>
     <url>/2023/07/15/java03/</url>
     <content><![CDATA[<p>有时用Java有拼接文件路径的需求，就想找一个类似Python里<code>os.path.join()</code>的解决方案。</p>
@@ -2179,6 +2182,29 @@ singleton = new Singleton() 可以拆解为3步：
       </categories>
       <tags>
         <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Excel | 用EasyExcel库读Excel表格</title>
+    <url>/2022/08/26/javaLibrary01/</url>
+    <content><![CDATA[<p>照着<a href="https://blog.csdn.net/m0_67403076/article/details/126099460">这篇博客</a>写的，码一下。</p>
+<span id="more"></span>
+
+<p>亲测能用。</p>
+<p><a href="https://www.cjavapy.com/article/509/">另一篇博客</a>介绍了不用实体类的读取方法。</p>
+<p>总结下，读表格需要监听器，没有深入研究，还不知道为啥，以后需要了再研究。</p>
+]]></content>
+      <categories>
+        <category>Python</category>
+        <category>常用库</category>
+        <category>openpyxl</category>
+        <category>Office</category>
+        <category>Excel</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>办公</tag>
+        <tag>Office</tag>
       </tags>
   </entry>
   <entry>
@@ -2236,29 +2262,6 @@ public class Decompression &#123;
       </categories>
       <tags>
         <tag>Java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Excel | 用EasyExcel库读Excel表格</title>
-    <url>/2022/08/26/javaLibrary01/</url>
-    <content><![CDATA[<p>照着<a href="https://blog.csdn.net/m0_67403076/article/details/126099460">这篇博客</a>写的，码一下。</p>
-<span id="more"></span>
-
-<p>亲测能用。</p>
-<p><a href="https://www.cjavapy.com/article/509/">另一篇博客</a>介绍了不用实体类的读取方法。</p>
-<p>总结下，读表格需要监听器，没有深入研究，还不知道为啥，以后需要了再研究。</p>
-]]></content>
-      <categories>
-        <category>Python</category>
-        <category>常用库</category>
-        <category>openpyxl</category>
-        <category>Office</category>
-        <category>Excel</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-        <tag>办公</tag>
-        <tag>Office</tag>
       </tags>
   </entry>
   <entry>
@@ -2360,27 +2363,6 @@ public class Decompression &#123;
       </tags>
   </entry>
   <entry>
-    <title>杂记 | 每个人都是一本书</title>
-    <url>/2023/07/02/life00/</url>
-    <content><![CDATA[<p>每个人都是一本书，有的厚，有的薄，有的上锁，有的风一吹便翻开了。</p>
-<span id="more"></span>
-
-<p>随着人的成长，书里的内容会发生变化，以我为例，我的书的封面和前边的章节就发生过很大的变化。</p>
-<p>上高中之前，我是一个非常外向的人，喜欢动，喜欢疯跑，喜欢翻跟头。那时我的这本书就很，怎么说呢，表里如一，其他人只看封面就知道书里讲了什么。</p>
-<p>上高一的时候，感觉我的这本书突然就有了层次，好像是在原有的基础上直接在封面前面加了一本书，好像就变了一个人，沉默寡言、不爱动，在陌生人眼里，应该就是突然变成了截然相反的另一个人。</p>
-<p>原因我大致也知道，但我总是不太敢相信，我真的会变化这么大吗？感觉不太真实，总觉得是不是还有什么其他的原因，不过我自己也分析不出来。</p>
-<p>说回书吧，我很乐意去翻别人的书，去了解别人。所以这些年我也看到了很多有意思的东西，很多人的书前后章节是不一样的，举个例子吧，有的人的书从封面看就是单调、生人勿进的，但哪怕只翻开一页，就会发现书页中泼洒的五颜六色的颜料，他们有着自己深爱的领域，你不翻，就永远也不知道。</p>
-<p>但是吧，封面单调也不意味着内容精彩，我也见过其他的两种不同的书。同样是封面单调，还有一种书翻一下就能看出来，不仅封面单调，内容也单调，并且字里行间还打着结；另一种书就更有趣了，翻开之后，里边的书页就让人很难懂，但总是逻辑自恰，就很有趣。</p>
-<p>我的这本书也没上锁，但是感觉书页会很重，不太好翻哈哈哈哈。</p>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>生活</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>梦 | 噩梦</title>
     <url>/2023/07/07/life01/</url>
     <content><![CDATA[<p>没有什么引申意义，就是昨晚做了个噩梦，记一下，说不定以后有啥用处。</p>
@@ -2396,6 +2378,27 @@ public class Decompression &#123;
 <p>但不知道为啥，我也没有害怕的情绪，只是一心想溜走。正当我屏住呼吸准备远离路中间的重装少女，不知道从哪传来了声音，让我一定要拿“汤”（我忘记具体是让我拿啥了，反正是一种能喝的汤类物品），视线中没有看到是谁在说话，脑子里却有了形象，说话的是一群毛绒玩具熊。</p>
 <p>也不知道为啥，我就听了这群玩具熊的话，放弃了开溜，准备回去拿“汤”，也就是经过前边的那个生化7老人，去厨房拿“汤”。</p>
 <p>正准备往回走，梦就结束了，就醒了。</p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>生活</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>杂记 | 每个人都是一本书</title>
+    <url>/2023/07/02/life00/</url>
+    <content><![CDATA[<p>每个人都是一本书，有的厚，有的薄，有的上锁，有的风一吹便翻开了。</p>
+<span id="more"></span>
+
+<p>随着人的成长，书里的内容会发生变化，以我为例，我的书的封面和前边的章节就发生过很大的变化。</p>
+<p>上高中之前，我是一个非常外向的人，喜欢动，喜欢疯跑，喜欢翻跟头。那时我的这本书就很，怎么说呢，表里如一，其他人只看封面就知道书里讲了什么。</p>
+<p>上高一的时候，感觉我的这本书突然就有了层次，好像是在原有的基础上直接在封面前面加了一本书，好像就变了一个人，沉默寡言、不爱动，在陌生人眼里，应该就是突然变成了截然相反的另一个人。</p>
+<p>原因我大致也知道，但我总是不太敢相信，我真的会变化这么大吗？感觉不太真实，总觉得是不是还有什么其他的原因，不过我自己也分析不出来。</p>
+<p>说回书吧，我很乐意去翻别人的书，去了解别人。所以这些年我也看到了很多有意思的东西，很多人的书前后章节是不一样的，举个例子吧，有的人的书从封面看就是单调、生人勿进的，但哪怕只翻开一页，就会发现书页中泼洒的五颜六色的颜料，他们有着自己深爱的领域，你不翻，就永远也不知道。</p>
+<p>但是吧，封面单调也不意味着内容精彩，我也见过其他的两种不同的书。同样是封面单调，还有一种书翻一下就能看出来，不仅封面单调，内容也单调，并且字里行间还打着结；另一种书就更有趣了，翻开之后，里边的书页就让人很难懂，但总是逻辑自恰，就很有趣。</p>
+<p>我的这本书也没上锁，但是感觉书页会很重，不太好翻哈哈哈哈。</p>
 ]]></content>
       <categories>
         <category>生活</category>
@@ -2549,34 +2552,6 @@ sudo usermod -a -G anaconda hello
       </tags>
   </entry>
   <entry>
-    <title>Ubuntu下开启远程桌面</title>
-    <url>/2021/01/09/linux04/</url>
-    <content><![CDATA[<blockquote><p><a href="https://blog.csdn.net/cxn304/article/details/99733711">https://blog.csdn.net/cxn304/article/details/99733711</a></p>
-</blockquote>
-
-<p>首先在图形界面中system-share中把远程打开。</p>
-<span id="more"></span>
-
-<p>sudo apt-get install xrdp后用远程桌面连接，会蓝屏。以下是解决办法</p>
-<pre><code>wget http://www.c-nergy.be/downloads/install-xrdp-3.0.zip
-unzip install-xrdp-3.0.zip
-chmod 777 Install-xrdp-3.0.sh
-./Install-xrdp-3.0.sh
-最后重启机器 reboot
-</code></pre>
-<p>上边这是一个大佬写的一键配置的脚本，用起来就行。</p>
-<p>有一个需要注意的点，当使用的是中文语言的时候，在<code>~</code>目录下没有<code>Downloads</code>文件夹，需要手动新建一个。</p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-        <category>Ubuntu</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>Ubuntu</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>sudo权限的问题</title>
     <url>/2021/01/09/linux05/</url>
     <content><![CDATA[<p>使用sudo的时候会报：</p>
@@ -2609,6 +2584,34 @@ xxxx    ALL=(ALL:ALL) NOPASSWD: ALL
       </categories>
       <tags>
         <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Ubuntu下开启远程桌面</title>
+    <url>/2021/01/09/linux04/</url>
+    <content><![CDATA[<blockquote><p><a href="https://blog.csdn.net/cxn304/article/details/99733711">https://blog.csdn.net/cxn304/article/details/99733711</a></p>
+</blockquote>
+
+<p>首先在图形界面中system-share中把远程打开。</p>
+<span id="more"></span>
+
+<p>sudo apt-get install xrdp后用远程桌面连接，会蓝屏。以下是解决办法</p>
+<pre><code>wget http://www.c-nergy.be/downloads/install-xrdp-3.0.zip
+unzip install-xrdp-3.0.zip
+chmod 777 Install-xrdp-3.0.sh
+./Install-xrdp-3.0.sh
+最后重启机器 reboot
+</code></pre>
+<p>上边这是一个大佬写的一键配置的脚本，用起来就行。</p>
+<p>有一个需要注意的点，当使用的是中文语言的时候，在<code>~</code>目录下没有<code>Downloads</code>文件夹，需要手动新建一个。</p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+        <category>Ubuntu</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>Ubuntu</tag>
       </tags>
   </entry>
   <entry>
@@ -3042,16 +3045,15 @@ To use aggregations to sort the result set, the aggregation must be included in 
       </tags>
   </entry>
   <entry>
-    <title>neo4j | 单属性模糊查询</title>
-    <url>/2022/08/26/neo4j01/</url>
-    <content><![CDATA[<p>Cypher的查询条件中支持正则表达式。</p>
+    <title>neo4j | 全属性模糊查询</title>
+    <url>/2022/08/26/neo4j02/</url>
+    <content><![CDATA[<p>不指定属性名的情况下进行模糊查询。</p>
 <span id="more"></span>
 
-<p>假如想查询名字中带有“李”字的人，可以用如下语句。</p>
-<pre><code>MATCH (r) where r.name=~&#39;.*李.*&#39; RETURN r
+<p>直接上代码</p>
+<pre><code>MATCH p=(r) WHERE ANY(k in keys(r) WHERE ANY(nn in r[k] WHERE nn =~&#39;.*李.*&#39;)) RETURN p
 </code></pre>
-<p>其中<code>.*李.*</code>是正则，这个很熟悉就不多说，<code>~</code>应该就是表示后边的表达式使用了正则，去掉确实就不行了。</p>
-<p>PS：由于前后都用了正则，所以并不是匹配姓李的人，“李元霸”和“铁拐李”都能匹配到。</p>
+<p>逻辑就是先遍历所有节点，每个节点遍历所有key值，再根据key值遍历属性。</p>
 ]]></content>
       <categories>
         <category>数据库</category>
@@ -3064,15 +3066,16 @@ To use aggregations to sort the result set, the aggregation must be included in 
       </tags>
   </entry>
   <entry>
-    <title>neo4j | 全属性模糊查询</title>
-    <url>/2022/08/26/neo4j02/</url>
-    <content><![CDATA[<p>不指定属性名的情况下进行模糊查询。</p>
+    <title>neo4j | 单属性模糊查询</title>
+    <url>/2022/08/26/neo4j01/</url>
+    <content><![CDATA[<p>Cypher的查询条件中支持正则表达式。</p>
 <span id="more"></span>
 
-<p>直接上代码</p>
-<pre><code>MATCH p=(r) WHERE ANY(k in keys(r) WHERE ANY(nn in r[k] WHERE nn =~&#39;.*李.*&#39;)) RETURN p
+<p>假如想查询名字中带有“李”字的人，可以用如下语句。</p>
+<pre><code>MATCH (r) where r.name=~&#39;.*李.*&#39; RETURN r
 </code></pre>
-<p>逻辑就是先遍历所有节点，每个节点遍历所有key值，再根据key值遍历属性。</p>
+<p>其中<code>.*李.*</code>是正则，这个很熟悉就不多说，<code>~</code>应该就是表示后边的表达式使用了正则，去掉确实就不行了。</p>
+<p>PS：由于前后都用了正则，所以并不是匹配姓李的人，“李元霸”和“铁拐李”都能匹配到。</p>
 ]]></content>
       <categories>
         <category>数据库</category>
@@ -3155,8 +3158,8 @@ root   hard    nofile  40000
         <category>NodeJs</category>
       </categories>
       <tags>
-        <tag>开源项目</tag>
         <tag>NodeJs</tag>
+        <tag>开源项目</tag>
       </tags>
   </entry>
   <entry>
@@ -3268,6 +3271,159 @@ http &#123;
       </categories>
       <tags>
         <tag>Nginx</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Shadowsocks | AttributeError: /usr/lib/x86_64-linux-gnu/libcrypto.so.1.1: undefined symbol: EVP_CIPHER_CTX_cleanup</title>
+    <url>/2021/01/09/proxy00/</url>
+    <content><![CDATA[<p>在Linux上部署Shadowsocks的时候遇到的问题：</p>
+<p>错误：</p>
+<pre><code>AttributeError: /usr/lib/x86_64-linux-gnu/libcrypto.so.1.1: undefined symbol: EVP_CIPHER_CTX_cleanup
+</code></pre>
+<span id="more"></span>
+
+<p>转载：<br><a href="https://www.idcyunwei.org/post/220.html">解决方法</a></p>
+<p>本文适用于解决openssl升级到1.1.0以上版本，导致shadowsocks2.8.2启动报undefined symbol: EVP_CIPHER_CTX_cleanup错误。<br>最近将kali升级到了最新版本，编译之后shadowsocks无法启动，报错如下：</p>
+<p>INFO: loading config from ss.json<br>2016-12-14 22:47:50 INFO loading libcrypto from libcrypto.so.1.1<br>Traceback (most recent call last):<br>File “&#x2F;usr&#x2F;local&#x2F;bin&#x2F;sslocal”, line 11, in<br>sys.exit(main())<br>File “&#x2F;usr&#x2F;local&#x2F;lib&#x2F;python2.7&#x2F;dist-packages&#x2F;shadowsocks&#x2F;local.py”, line 39, in main<br>config &#x3D; shell.get_config(True)<br>File “&#x2F;usr&#x2F;local&#x2F;lib&#x2F;python2.7&#x2F;dist-packages&#x2F;shadowsocks&#x2F;shell.py”, line 262, in get_config<br>check_config(config, is_local)<br>File “&#x2F;usr&#x2F;local&#x2F;lib&#x2F;python2.7&#x2F;dist-packages&#x2F;shadowsocks&#x2F;shell.py”, line 124, in check_config<br>encrypt.try_cipher(config[‘password’], config[‘method’])<br>File “&#x2F;usr&#x2F;local&#x2F;lib&#x2F;python2.7&#x2F;dist-packages&#x2F;shadowsocks&#x2F;encrypt.py”, line 44, in try_cipher<br>Encryptor(key, method)<br>File “&#x2F;usr&#x2F;local&#x2F;lib&#x2F;python2.7&#x2F;dist-packages&#x2F;shadowsocks&#x2F;encrypt.py”, line 83, in init<br>random_string(self._method_info[1]))<br>File “&#x2F;usr&#x2F;local&#x2F;lib&#x2F;python2.7&#x2F;dist-packages&#x2F;shadowsocks&#x2F;encrypt.py”, line 109, in get_cipher<br>return m[2](method, key, iv, op)<br>File “&#x2F;usr&#x2F;local&#x2F;lib&#x2F;python2.7&#x2F;dist-packages&#x2F;shadowsocks&#x2F;crypto&#x2F;openssl.py”, line 76, in init<br>load_openssl()<br>File “&#x2F;usr&#x2F;local&#x2F;lib&#x2F;python2.7&#x2F;dist-packages&#x2F;shadowsocks&#x2F;crypto&#x2F;openssl.py”, line 52, in load_openssl<br>libcrypto.EVP_CIPHER_CTX_cleanup.argtypes &#x3D; (c_void_p,)<br>File “&#x2F;usr&#x2F;lib&#x2F;python2.7&#x2F;ctypes&#x2F;init.py”, line 375, in getattr<br>func &#x3D; self.getitem(name)<br>File “&#x2F;usr&#x2F;lib&#x2F;python2.7&#x2F;ctypes&#x2F;init.py”, line 380, in getitem<br>func &#x3D; self._FuncPtr((name_or_ordinal, self))<br>AttributeError: &#x2F;usr&#x2F;lib&#x2F;x86_64-Linux-gnu&#x2F;libcrypto.so.1.1: undefined symbol: EVP_CIPHER_CTX_cleanup</p>
+<p>这个问题是由于在openssl1.1.0版本中，废弃了EVP_CIPHER_CTX_cleanup函数，如官网中所说：</p>
+<p>EVP_CIPHER_CTX was made opaque in OpenSSL 1.1.0. As a result, EVP_CIPHER_CTX_reset() appeared and EVP_CIPHER_CTX_cleanup() disappeared.<br>EVP_CIPHER_CTX_init() remains as an alias for EVP_CIPHER_CTX_reset().</p>
+<p>修改方法：</p>
+<p>用vim打开文件：vim &#x2F;usr&#x2F;local&#x2F;lib&#x2F;python2.7&#x2F;dist-packages&#x2F;shadowsocks&#x2F;crypto&#x2F;openssl.py (该路径请根据自己的系统情况自行修改，如果不知道该文件在哪里的话，可以使用find命令查找文件位置)<br>跳转到52行（shadowsocks2.8.2版本，其他版本搜索一下cleanup 全替换成 reset）<br>进入编辑模式<br>将第52行libcrypto.EVP_CIPHER_CTX_cleanup.argtypes &#x3D; (c_void_p,)<br>改为libcrypto.EVP_CIPHER_CTX_reset.argtypes &#x3D; (c_void_p,)<br>再次搜索cleanup（全文件共2处，此处位于111行），将libcrypto.EVP_CIPHER_CTX_cleanup(self._ctx)<br>改为libcrypto.EVP_CIPHER_CTX_reset(self._ctx)<br>保存并退出<br>启动shadowsocks服务：service shadowsocks start 或 sslocal -c ss配置文件目录<br>问题解决</p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+        <category>Proxy</category>
+        <category>Proxy</category>
+        <category>Shadowsocks</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>Proxy</tag>
+        <tag>Shadowsocks</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Shadowsocks | 在Linux上部署Shadowsocks服务端</title>
+    <url>/2021/01/09/proxy01/</url>
+    <content><![CDATA[<p>因为校园网限流，所以想整个代理，让宿舍的网络下载东西的时候走实验室电脑，曲线实现免流。</p>
+<span id="more"></span>
+<blockquote><p>主要参考：<a href="https://www.zlxian.com/index.php/archives/170/">https://www.zlxian.com/index.php/archives/170/</a></p>
+</blockquote>
+
+<p>由于实验室有个刚买的服务器，就想在这个服务器上搭一下。</p>
+<p>前几天刚把服务器装了Ubuntu 18.04 LTS。</p>
+<p>所以后边的全都是基于这个环境。</p>
+<h2 id="安装Shadowsocks"><a href="#安装Shadowsocks" class="headerlink" title="安装Shadowsocks"></a>安装Shadowsocks</h2><pre><code>pip install shadowsocks
+</code></pre>
+<h2 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a>启动服务</h2><p>两种启动方式，分别记录一下。</p>
+<p>不管哪种方式运行，都可能会出现这个错误：</p>
+<pre><code>AttributeError: /usr/lib/x86_64-linux-gnu/libcrypto.so.1.1: undefined symbol: EVP_CIPHER_CTX_cleanup
+</code></pre>
+<p>原因在于Shadowsocks函数名的改动。</p>
+<p>解决方法：<a href="/2021/01/09/proxy00/" title="Shadowsocks | AttributeError: &#x2F;usr&#x2F;lib&#x2F;x86_64-linux-gnu&#x2F;libcrypto.so.1.1: undefined symbol: EVP_CIPHER_CTX_cleanup">解决方法</a></p>
+<h3 id="命令配置运行"><a href="#命令配置运行" class="headerlink" title="命令配置运行"></a>命令配置运行</h3><pre><code>ssserver -p 443 -k password -m aes-256-cfb  // ssserver -p 服务器端口 -k 密码 -m 加密方法
+ssserver -p 443 -k password -m aes-256-cfb -d start // -d start 代表后台运行
+</code></pre>
+<h3 id="配置文件运行"><a href="#配置文件运行" class="headerlink" title="配置文件运行"></a>配置文件运行</h3><p>一、首先创建&#x2F;etc&#x2F;shadowsocks&#x2F;目录。</p>
+<p>二、然后在&#x2F;etc&#x2F;shadowsocks&#x2F;目录下创建配置文件：</p>
+<pre><code>vim /etc/shadowsocks/conf.json
+</code></pre>
+<p>如果是用当前服务器做vpn，<code>your_server_ip</code>填写<code>0.0.0.0</code></p>
+<p>单用户配置：</p>
+<pre><code>/ 单用户配置
+&#123; 
+  &quot;server&quot;:&quot;your_server_ip&quot;,     // 你的服务器ip
+  &quot;server_port&quot;:8388,            // 端口号（每一个账号都不能重复）
+  &quot;local_address&quot;: &quot;127.0.0.1&quot;,  // 本地地址，一般不变
+  &quot;local_port&quot;:1080,             // 本地端口，一般不变
+  &quot;password&quot;:&quot;*********&quot;,        // 连接密码
+  &quot;timeout&quot;:300,                 // 相应超时时间
+  &quot;method&quot;:&quot;aes-256-cfb&quot;,        // 加密方式
+  &quot;fast_open&quot;: false             //  使用TCP_FASTOPEN, 参数选项true   false，一般保持默认即可
+&#125;
+</code></pre>
+<p>多用户配置：</p>
+<pre><code>// 多用户配置  
+&#123; 
+    &quot;server&quot;:&quot;your_server_ip&quot;, 
+    &quot;local_address&quot;: &quot;127.0.0.1&quot;, 
+    &quot;local_port&quot;:&quot;1080&quot;, 
+    &quot;port_password&quot;:&#123;      
+         &quot;8989&quot;:&quot;password0&quot;,           
+         &quot;9001&quot;:&quot;password1&quot;,      
+         &quot;9002&quot;:&quot;password2&quot;,      
+         &quot;9003&quot;:&quot;password3&quot;,      
+         &quot;9004&quot;:&quot;password4&quot;
+     &#125;, 
+     &quot;timeout&quot;:&quot;300&quot;, 
+     &quot;method&quot;:&quot;aes-256-cfb&quot;, 
+     &quot;fast_open&quot;: false
+&#125;
+</code></pre>
+<p>如果手机连接 配置如下</p>
+<p>加密方法 aes-256-cfb</p>
+<p>协议origin</p>
+<p>混淆方式</p>
+<p>plain</p>
+<pre><code>配置说明：
+ 
+字段  说明
+server          ss服务监听地址
+server_port     ss服务监听端口
+local_address   本地的监听地址
+local_port      本地的监听端口
+password        密码
+timeout         超时时间，单位秒
+method          加密方法，默认是aes-256-cfb
+fast_open       使用TCP_FASTOPEN, true / false
+workers         workers数，只支持Unix/Linux系统
+</code></pre>
+<p>三、根据配置文件启动</p>
+<pre><code>ssserver -c /etc/shadowsocks/conf.json start // 前台运行
+ssserver -c /etc/shadowsocks/conf.json -d start // 后台运行
+ssserver -c /etc/shadowsocks/conf.json -d stop // 停止服务
+</code></pre>
+<p>ps：如果出现错误的话，就先杀死进程，重新启动就可以了。</p>
+<pre><code>pkill ssserver
+</code></pre>
+<p>客户端安装</p>
+<p>windows下载</p>
+<p><a href="https://github.com/shadowsocks/shadowsocks-windows">https://github.com/shadowsocks/shadowsocks-windows</a></p>
+<p>安卓版下载</p>
+<p><a href="https://github.com/shadowsocks/shadowsocks-android">https://github.com/shadowsocks/shadowsocks-android</a></p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+        <category>Proxy</category>
+        <category>Proxy</category>
+        <category>Shadowsocks</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>Proxy</tag>
+        <tag>Shadowsocks</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CMD设置代理</title>
+    <url>/2023/12/05/proxy02/</url>
+    <content><![CDATA[<p>主要是我的软路由不太稳，所以需要备用的方法。</p>
+<span id="more"></span>
+
+<pre><code>set http_proxy=http://127.0.0.1:7890
+set https_proxy=http://127.0.0.1:7890
+curl http://www.google.com
+</code></pre>
+<p>测试的时候用<code>ping</code>不太行，要用<code>curl</code>。</p>
+<p>这个不是永久性的，只在当前终端生效。</p>
+]]></content>
+      <categories>
+        <category>Windows</category>
+        <category>Proxy</category>
+      </categories>
+      <tags>
+        <tag>Windows</tag>
+        <tag>Proxy</tag>
       </tags>
   </entry>
   <entry>
@@ -4990,156 +5146,47 @@ final class NTLMEngineImpl implements NTLMEngine &#123;
       </tags>
   </entry>
   <entry>
-    <title>Shadowsocks | AttributeError: /usr/lib/x86_64-linux-gnu/libcrypto.so.1.1: undefined symbol: EVP_CIPHER_CTX_cleanup</title>
-    <url>/2021/01/09/proxy00/</url>
-    <content><![CDATA[<p>在Linux上部署Shadowsocks的时候遇到的问题：</p>
-<p>错误：</p>
-<pre><code>AttributeError: /usr/lib/x86_64-linux-gnu/libcrypto.so.1.1: undefined symbol: EVP_CIPHER_CTX_cleanup
-</code></pre>
+    <title>Proxy | 代理分类</title>
+    <url>/2024/01/20/proxy03/</url>
+    <content><![CDATA[<p>记一下代理的几种分类。</p>
 <span id="more"></span>
 
-<p>转载：<br><a href="https://www.idcyunwei.org/post/220.html">解决方法</a></p>
-<p>本文适用于解决openssl升级到1.1.0以上版本，导致shadowsocks2.8.2启动报undefined symbol: EVP_CIPHER_CTX_cleanup错误。<br>最近将kali升级到了最新版本，编译之后shadowsocks无法启动，报错如下：</p>
-<p>INFO: loading config from ss.json<br>2016-12-14 22:47:50 INFO loading libcrypto from libcrypto.so.1.1<br>Traceback (most recent call last):<br>File “&#x2F;usr&#x2F;local&#x2F;bin&#x2F;sslocal”, line 11, in<br>sys.exit(main())<br>File “&#x2F;usr&#x2F;local&#x2F;lib&#x2F;python2.7&#x2F;dist-packages&#x2F;shadowsocks&#x2F;local.py”, line 39, in main<br>config &#x3D; shell.get_config(True)<br>File “&#x2F;usr&#x2F;local&#x2F;lib&#x2F;python2.7&#x2F;dist-packages&#x2F;shadowsocks&#x2F;shell.py”, line 262, in get_config<br>check_config(config, is_local)<br>File “&#x2F;usr&#x2F;local&#x2F;lib&#x2F;python2.7&#x2F;dist-packages&#x2F;shadowsocks&#x2F;shell.py”, line 124, in check_config<br>encrypt.try_cipher(config[‘password’], config[‘method’])<br>File “&#x2F;usr&#x2F;local&#x2F;lib&#x2F;python2.7&#x2F;dist-packages&#x2F;shadowsocks&#x2F;encrypt.py”, line 44, in try_cipher<br>Encryptor(key, method)<br>File “&#x2F;usr&#x2F;local&#x2F;lib&#x2F;python2.7&#x2F;dist-packages&#x2F;shadowsocks&#x2F;encrypt.py”, line 83, in init<br>random_string(self._method_info[1]))<br>File “&#x2F;usr&#x2F;local&#x2F;lib&#x2F;python2.7&#x2F;dist-packages&#x2F;shadowsocks&#x2F;encrypt.py”, line 109, in get_cipher<br>return m[2](method, key, iv, op)<br>File “&#x2F;usr&#x2F;local&#x2F;lib&#x2F;python2.7&#x2F;dist-packages&#x2F;shadowsocks&#x2F;crypto&#x2F;openssl.py”, line 76, in init<br>load_openssl()<br>File “&#x2F;usr&#x2F;local&#x2F;lib&#x2F;python2.7&#x2F;dist-packages&#x2F;shadowsocks&#x2F;crypto&#x2F;openssl.py”, line 52, in load_openssl<br>libcrypto.EVP_CIPHER_CTX_cleanup.argtypes &#x3D; (c_void_p,)<br>File “&#x2F;usr&#x2F;lib&#x2F;python2.7&#x2F;ctypes&#x2F;init.py”, line 375, in getattr<br>func &#x3D; self.getitem(name)<br>File “&#x2F;usr&#x2F;lib&#x2F;python2.7&#x2F;ctypes&#x2F;init.py”, line 380, in getitem<br>func &#x3D; self._FuncPtr((name_or_ordinal, self))<br>AttributeError: &#x2F;usr&#x2F;lib&#x2F;x86_64-Linux-gnu&#x2F;libcrypto.so.1.1: undefined symbol: EVP_CIPHER_CTX_cleanup</p>
-<p>这个问题是由于在openssl1.1.0版本中，废弃了EVP_CIPHER_CTX_cleanup函数，如官网中所说：</p>
-<p>EVP_CIPHER_CTX was made opaque in OpenSSL 1.1.0. As a result, EVP_CIPHER_CTX_reset() appeared and EVP_CIPHER_CTX_cleanup() disappeared.<br>EVP_CIPHER_CTX_init() remains as an alias for EVP_CIPHER_CTX_reset().</p>
-<p>修改方法：</p>
-<p>用vim打开文件：vim &#x2F;usr&#x2F;local&#x2F;lib&#x2F;python2.7&#x2F;dist-packages&#x2F;shadowsocks&#x2F;crypto&#x2F;openssl.py (该路径请根据自己的系统情况自行修改，如果不知道该文件在哪里的话，可以使用find命令查找文件位置)<br>跳转到52行（shadowsocks2.8.2版本，其他版本搜索一下cleanup 全替换成 reset）<br>进入编辑模式<br>将第52行libcrypto.EVP_CIPHER_CTX_cleanup.argtypes &#x3D; (c_void_p,)<br>改为libcrypto.EVP_CIPHER_CTX_reset.argtypes &#x3D; (c_void_p,)<br>再次搜索cleanup（全文件共2处，此处位于111行），将libcrypto.EVP_CIPHER_CTX_cleanup(self._ctx)<br>改为libcrypto.EVP_CIPHER_CTX_reset(self._ctx)<br>保存并退出<br>启动shadowsocks服务：service shadowsocks start 或 sslocal -c ss配置文件目录<br>问题解决</p>
+<p>首先放一个检测网站<a href="http://httpbin.org/ip">网址</a>，可以在这个网站上检测代理的分类，下文细说。</p>
+<h2 id="透明代理"><a href="#透明代理" class="headerlink" title="透明代理"></a>透明代理</h2><p>透明代理仅仅是对原始的网络请求做了转发，请求IP没变。<br>应用范围很小，约等于掩耳盗铃。<br>透明代理在检测网站里显示的还是你的原始IP。</p>
+<h2 id="普匿代理"><a href="#普匿代理" class="headerlink" title="普匿代理"></a>普匿代理</h2><p>又叫匿名代理、普通代理。<br>普匿代理可以将请求IP换成代理IP，但是服务端仍然能从请求中获知真实IP。<br>应用范围是需要简单的IP替换行为，例如简单访问有网络限制的站点、登录海外社媒平台等，只是解决“能不能用”的问题，对于隐藏IP没啥用。<br>普匿代理在检测网站里显示的是原始IP+代理IP。</p>
+<h2 id="高匿代理"><a href="#高匿代理" class="headerlink" title="高匿代理"></a>高匿代理</h2><p>高匿代理是将请求IP换成代理IP，并且服务端无法从请求中获知真实IP。<br>应用范围就比较广了，所有有代理需求的场景都能用高匿代理。<br>高匿代理在检测网站里显示的是代理IP。</p>
+<h2 id="住宅代理（存疑）"><a href="#住宅代理（存疑）" class="headerlink" title="住宅代理（存疑）"></a>住宅代理（存疑）</h2><p>又叫真人代理、高匿真人代理、高匿住宅代理。是一个新兴概念，不是一种严格分类，也有可能是炒作的商业概念。<br>住宅代理本质上也是高匿代理，区别在于来源不同。高匿代理可能被网站识别为机房或已经在黑名单中。住宅代理来源于运行商，遵循运营商的IP分配逻辑。<br>反正我感觉是卖代理的人编的。</p>
 ]]></content>
       <categories>
-        <category>Linux</category>
         <category>Proxy</category>
-        <category>Proxy</category>
-        <category>Shadowsocks</category>
       </categories>
       <tags>
-        <tag>Linux</tag>
         <tag>Proxy</tag>
-        <tag>Shadowsocks</tag>
       </tags>
   </entry>
   <entry>
-    <title>Shadowsocks | 在Linux上部署Shadowsocks服务端</title>
-    <url>/2021/01/09/proxy01/</url>
-    <content><![CDATA[<p>因为校园网限流，所以想整个代理，让宿舍的网络下载东西的时候走实验室电脑，曲线实现免流。</p>
-<span id="more"></span>
-<blockquote><p>主要参考：<a href="https://www.zlxian.com/index.php/archives/170/">https://www.zlxian.com/index.php/archives/170/</a></p>
-</blockquote>
-
-<p>由于实验室有个刚买的服务器，就想在这个服务器上搭一下。</p>
-<p>前几天刚把服务器装了Ubuntu 18.04 LTS。</p>
-<p>所以后边的全都是基于这个环境。</p>
-<h2 id="安装Shadowsocks"><a href="#安装Shadowsocks" class="headerlink" title="安装Shadowsocks"></a>安装Shadowsocks</h2><pre><code>pip install shadowsocks
-</code></pre>
-<h2 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a>启动服务</h2><p>两种启动方式，分别记录一下。</p>
-<p>不管哪种方式运行，都可能会出现这个错误：</p>
-<pre><code>AttributeError: /usr/lib/x86_64-linux-gnu/libcrypto.so.1.1: undefined symbol: EVP_CIPHER_CTX_cleanup
-</code></pre>
-<p>原因在于Shadowsocks函数名的改动。</p>
-<p>解决方法：<a href="/2021/01/09/proxy00/" title="Shadowsocks | AttributeError: &#x2F;usr&#x2F;lib&#x2F;x86_64-linux-gnu&#x2F;libcrypto.so.1.1: undefined symbol: EVP_CIPHER_CTX_cleanup">解决方法</a></p>
-<h3 id="命令配置运行"><a href="#命令配置运行" class="headerlink" title="命令配置运行"></a>命令配置运行</h3><pre><code>ssserver -p 443 -k password -m aes-256-cfb  // ssserver -p 服务器端口 -k 密码 -m 加密方法
-ssserver -p 443 -k password -m aes-256-cfb -d start // -d start 代表后台运行
-</code></pre>
-<h3 id="配置文件运行"><a href="#配置文件运行" class="headerlink" title="配置文件运行"></a>配置文件运行</h3><p>一、首先创建&#x2F;etc&#x2F;shadowsocks&#x2F;目录。</p>
-<p>二、然后在&#x2F;etc&#x2F;shadowsocks&#x2F;目录下创建配置文件：</p>
-<pre><code>vim /etc/shadowsocks/conf.json
-</code></pre>
-<p>如果是用当前服务器做vpn，<code>your_server_ip</code>填写<code>0.0.0.0</code></p>
-<p>单用户配置：</p>
-<pre><code>/ 单用户配置
-&#123; 
-  &quot;server&quot;:&quot;your_server_ip&quot;,     // 你的服务器ip
-  &quot;server_port&quot;:8388,            // 端口号（每一个账号都不能重复）
-  &quot;local_address&quot;: &quot;127.0.0.1&quot;,  // 本地地址，一般不变
-  &quot;local_port&quot;:1080,             // 本地端口，一般不变
-  &quot;password&quot;:&quot;*********&quot;,        // 连接密码
-  &quot;timeout&quot;:300,                 // 相应超时时间
-  &quot;method&quot;:&quot;aes-256-cfb&quot;,        // 加密方式
-  &quot;fast_open&quot;: false             //  使用TCP_FASTOPEN, 参数选项true   false，一般保持默认即可
-&#125;
-</code></pre>
-<p>多用户配置：</p>
-<pre><code>// 多用户配置  
-&#123; 
-    &quot;server&quot;:&quot;your_server_ip&quot;, 
-    &quot;local_address&quot;: &quot;127.0.0.1&quot;, 
-    &quot;local_port&quot;:&quot;1080&quot;, 
-    &quot;port_password&quot;:&#123;      
-         &quot;8989&quot;:&quot;password0&quot;,           
-         &quot;9001&quot;:&quot;password1&quot;,      
-         &quot;9002&quot;:&quot;password2&quot;,      
-         &quot;9003&quot;:&quot;password3&quot;,      
-         &quot;9004&quot;:&quot;password4&quot;
-     &#125;, 
-     &quot;timeout&quot;:&quot;300&quot;, 
-     &quot;method&quot;:&quot;aes-256-cfb&quot;, 
-     &quot;fast_open&quot;: false
-&#125;
-</code></pre>
-<p>如果手机连接 配置如下</p>
-<p>加密方法 aes-256-cfb</p>
-<p>协议origin</p>
-<p>混淆方式</p>
-<p>plain</p>
-<pre><code>配置说明：
- 
-字段  说明
-server          ss服务监听地址
-server_port     ss服务监听端口
-local_address   本地的监听地址
-local_port      本地的监听端口
-password        密码
-timeout         超时时间，单位秒
-method          加密方法，默认是aes-256-cfb
-fast_open       使用TCP_FASTOPEN, true / false
-workers         workers数，只支持Unix/Linux系统
-</code></pre>
-<p>三、根据配置文件启动</p>
-<pre><code>ssserver -c /etc/shadowsocks/conf.json start // 前台运行
-ssserver -c /etc/shadowsocks/conf.json -d start // 后台运行
-ssserver -c /etc/shadowsocks/conf.json -d stop // 停止服务
-</code></pre>
-<p>ps：如果出现错误的话，就先杀死进程，重新启动就可以了。</p>
-<pre><code>pkill ssserver
-</code></pre>
-<p>客户端安装</p>
-<p>windows下载</p>
-<p><a href="https://github.com/shadowsocks/shadowsocks-windows">https://github.com/shadowsocks/shadowsocks-windows</a></p>
-<p>安卓版下载</p>
-<p><a href="https://github.com/shadowsocks/shadowsocks-android">https://github.com/shadowsocks/shadowsocks-android</a></p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-        <category>Proxy</category>
-        <category>Proxy</category>
-        <category>Shadowsocks</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>Proxy</tag>
-        <tag>Shadowsocks</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>CMD设置代理</title>
-    <url>/2023/12/05/proxy02/</url>
-    <content><![CDATA[<p>主要是我的软路由不太稳，所以需要备用的方法。</p>
+    <title>Python静默执行命令行语句</title>
+    <url>/2021/01/27/python00/</url>
+    <content><![CDATA[<p>大多数情况，用Python执行cmd命令的时候是用<code>os.system(command)</code>。</p>
 <span id="more"></span>
 
-<pre><code>set http_proxy=http://127.0.0.1:7890
-set https_proxy=http://127.0.0.1:7890
-curl http://www.google.com
+<p>但有的时候，不想让控制台输出日志。</p>
+<p>这时我会用<code>subprocess</code>的<code>run</code>函数。</p>
+<pre><code>from subprocess import run, DEVNULL
+run(command, stdout=DEVNULL, stderr=DEVNULL, shell=True)
 </code></pre>
-<p>测试的时候用<code>ping</code>不太行，要用<code>curl</code>。</p>
-<p>这个不是永久性的，只在当前终端生效。</p>
+<p>用的时候设置好<code>command</code>就行了。</p>
+<p><code>stdout</code>和<code>stderr</code>分别是标准输出和标准错误。</p>
+<p>这俩参数和DEVNULL可以看我之前的这篇博客：</p>
+<a href="/2020/10/26/command01/" title="一些基础符号">一些基础符号</a>
+
+<p>如果想保存日志，将<code>stdout</code>和<code>stderr</code>的值分别设置好：<code>open(file,&quot;w&quot;)</code>。</p>
 ]]></content>
       <categories>
-        <category>Windows</category>
-        <category>Proxy</category>
+        <category>Python</category>
       </categories>
       <tags>
-        <tag>Windows</tag>
-        <tag>Proxy</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -5236,8 +5283,8 @@ python proxyPool.py server
       <categories>
         <category>开源项目</category>
         <category>Python</category>
-        <category>爬虫</category>
         <category>Proxy</category>
+        <category>爬虫</category>
         <category>proxy_pool</category>
         <category>Proxy</category>
       </categories>
@@ -5246,31 +5293,6 @@ python proxyPool.py server
         <tag>开源项目</tag>
         <tag>爬虫</tag>
         <tag>代理</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Python静默执行命令行语句</title>
-    <url>/2021/01/27/python00/</url>
-    <content><![CDATA[<p>大多数情况，用Python执行cmd命令的时候是用<code>os.system(command)</code>。</p>
-<span id="more"></span>
-
-<p>但有的时候，不想让控制台输出日志。</p>
-<p>这时我会用<code>subprocess</code>的<code>run</code>函数。</p>
-<pre><code>from subprocess import run, DEVNULL
-run(command, stdout=DEVNULL, stderr=DEVNULL, shell=True)
-</code></pre>
-<p>用的时候设置好<code>command</code>就行了。</p>
-<p><code>stdout</code>和<code>stderr</code>分别是标准输出和标准错误。</p>
-<p>这俩参数和DEVNULL可以看我之前的这篇博客：</p>
-<a href="/2020/10/26/command01/" title="一些基础符号">一些基础符号</a>
-
-<p>如果想保存日志，将<code>stdout</code>和<code>stderr</code>的值分别设置好：<code>open(file,&quot;w&quot;)</code>。</p>
-]]></content>
-      <categories>
-        <category>Python</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -5505,6 +5527,92 @@ os.environ[&#39;HTTPS_PROXY&#39;] = &quot;&quot;
       </tags>
   </entry>
   <entry>
+    <title>ReportLab | 生成表格</title>
+    <url>/2023/07/11/pythonLibrary03/</url>
+    <content><![CDATA[<p>在用ReportLab生成PDF时有加入表格的需求。</p>
+<span id="more"></span>
+
+<p><a href="https://blog.csdn.net/cloveses/article/details/79667247">参考文章</a></p>
+<p>具体的见上文，这里就写下我自己用到的部分代码。</p>
+<pre><code>from reportlab.platypus import Table
+
+    def append_table(self, table_data_list, style=&quot;&quot;):
+        if style == &quot;&quot;:
+            style_list = [
+                (&#39;TEXTCOLOR&#39;, (0, 0), (-1, -1), colors.black),  # 字的颜色
+                (&#39;ALIGN&#39;, (0, 0), (-1, -1), &#39;CENTER&#39;),  # 水平对齐
+                (&#39;VALIGN&#39;, (0, 0), (-1, -1), &#39;MIDDLE&#39;),  # 垂直对齐
+                (&#39;GRID&#39;, (0, 0), (-1, -1), 1, colors.black),  # 边框颜色
+                (&#39;FONTSIZE&#39;, (0, 0), (-1, -1), 23),  # 字体大小
+                (&#39;FONT&#39;, (0, 0), (-1, -1), &#39;汉语&#39;),  # 字体
+                (&#39;BOTTOMPADDING&#39;, (0, 0), (-1, -1), 20),  # 单元格下方距离
+                (&#39;TOPPADDING&#39;, (0, 0), (-1, -1), 2)  # 单元格上方距离
+            ]
+            style = TableStyle(style_list)
+        # lishu.alignment = 1
+        table = Table(table_data_list)
+        table.setStyle(style)
+        self.elements.append(table)
+</code></pre>
+]]></content>
+      <categories>
+        <category>Python</category>
+        <category>常用库</category>
+        <category>ReportLab</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>ReportLab</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>re库处理正则表达式</title>
+    <url>/2021/01/10/pythonLibrary04/</url>
+    <content><![CDATA[<p>记录一下我用的比较多的re库中的函数。</p>
+<span id="more"></span>
+
+<p>pattern是正则表达式，string是待处理的字符串。</p>
+<h1 id="re-match-pattern-string"><a href="#re-match-pattern-string" class="headerlink" title="re.match(pattern,string)"></a>re.match(pattern,string)</h1><p>从第一个字符开始匹配模式，如果第一个字符匹配失败，就结束运行。</p>
+<p>总体上，这个函数用的不多。</p>
+<h1 id="re-search-pattern-string"><a href="#re-search-pattern-string" class="headerlink" title="re.search(pattern,string)"></a>re.search(pattern,string)</h1><p>搜索第一个满足条件的字符串，查找到第一个停止。</p>
+<p>返回值是re对象，需要用group(0)来获取匹配结果。</p>
+<p>没有匹配到返回值就是None。</p>
+<h1 id="re-findall-pattern-string"><a href="#re-findall-pattern-string" class="headerlink" title="re.findall(pattern,string)"></a>re.findall(pattern,string)</h1><p>搜索所有满足条件的字符串。</p>
+<p>返回值是所有符合要求的匹配结果的列表。</p>
+<p>没有匹配到返回值就是空列表。</p>
+<p>这个我用的最多。</p>
+<h1 id="re-sub-pattern-repl-string-count-0"><a href="#re-sub-pattern-repl-string-count-0" class="headerlink" title="re.sub(pattern, repl, string, count&#x3D;0)"></a>re.sub(pattern, repl, string, count&#x3D;0)</h1><p>类似于str.replace()，用来替换字符串中的一部分。</p>
+<p>repl是替换结果，一般是字符串或者是返回字符串的方法。</p>
+<p>string是待操作的字符串。</p>
+<p>count是替换执行次数，默认为0，也就是不限次数。</p>
+<h1 id="re-split-pattern-string"><a href="#re-split-pattern-string" class="headerlink" title="re.split(pattern,string)"></a>re.split(pattern,string)</h1><p>在这个方法中，pattern是分割标识符，以满足这个正则表达式的字符串做分割符。</p>
+<p>返回值是个列表。</p>
+<h1 id="re-compile-pattern"><a href="#re-compile-pattern" class="headerlink" title="re.compile(pattern)"></a>re.compile(pattern)</h1><p>该函数根据包含的正则表达式的字符串创建模式对象。可以实现更有效率的匹配。在直接使用字符串表示的正则表达式进行search,match和findall操作时，python会将字符串转换为正则表达式对象。而使用compile完成一次转换之后，在每次使用模式的时候就不用重复转换。当然，使用re.compile()函数进行转换后，re.search(pattern, string)的调用方式就转换为 pattern.search(string)的调用方式。</p>
+<pre><code>import re
+some_text = &#39;a,b,,,,c d&#39;
+reObj = re.compile(&#39;[, ]+&#39;)
+reObj.split(some_text)
+[&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;]
+</code></pre>
+<p>当然，不使用re.compile()的好处也是有的，就是理解起来更加直观。</p>
+<pre><code>import re
+some_text = &#39;a,b,,,,c d&#39;
+re.split(&#39;[, ]+&#39;,some_text)
+[&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;]
+</code></pre>
+<p>总之，re.compile()的作用表现在，使用同一正则表达式做重复匹配的时候，re.compile()可以提高匹配效率。</p>
+]]></content>
+      <categories>
+        <category>Python</category>
+        <category>常用库</category>
+        <category>re</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>正则表达式</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Python路径处理用到的库</title>
     <url>/2021/01/06/pythonLibrary01/</url>
     <content><![CDATA[<p>文件路径很多时候不能写死，否则移植的时候会很麻烦，尤其是跨平台的时候。</p>
@@ -5637,92 +5745,6 @@ print(music_dir)
       </categories>
       <tags>
         <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>ReportLab | 生成表格</title>
-    <url>/2023/07/11/pythonLibrary03/</url>
-    <content><![CDATA[<p>在用ReportLab生成PDF时有加入表格的需求。</p>
-<span id="more"></span>
-
-<p><a href="https://blog.csdn.net/cloveses/article/details/79667247">参考文章</a></p>
-<p>具体的见上文，这里就写下我自己用到的部分代码。</p>
-<pre><code>from reportlab.platypus import Table
-
-    def append_table(self, table_data_list, style=&quot;&quot;):
-        if style == &quot;&quot;:
-            style_list = [
-                (&#39;TEXTCOLOR&#39;, (0, 0), (-1, -1), colors.black),  # 字的颜色
-                (&#39;ALIGN&#39;, (0, 0), (-1, -1), &#39;CENTER&#39;),  # 水平对齐
-                (&#39;VALIGN&#39;, (0, 0), (-1, -1), &#39;MIDDLE&#39;),  # 垂直对齐
-                (&#39;GRID&#39;, (0, 0), (-1, -1), 1, colors.black),  # 边框颜色
-                (&#39;FONTSIZE&#39;, (0, 0), (-1, -1), 23),  # 字体大小
-                (&#39;FONT&#39;, (0, 0), (-1, -1), &#39;汉语&#39;),  # 字体
-                (&#39;BOTTOMPADDING&#39;, (0, 0), (-1, -1), 20),  # 单元格下方距离
-                (&#39;TOPPADDING&#39;, (0, 0), (-1, -1), 2)  # 单元格上方距离
-            ]
-            style = TableStyle(style_list)
-        # lishu.alignment = 1
-        table = Table(table_data_list)
-        table.setStyle(style)
-        self.elements.append(table)
-</code></pre>
-]]></content>
-      <categories>
-        <category>Python</category>
-        <category>常用库</category>
-        <category>ReportLab</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-        <tag>ReportLab</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>re库处理正则表达式</title>
-    <url>/2021/01/10/pythonLibrary04/</url>
-    <content><![CDATA[<p>记录一下我用的比较多的re库中的函数。</p>
-<span id="more"></span>
-
-<p>pattern是正则表达式，string是待处理的字符串。</p>
-<h1 id="re-match-pattern-string"><a href="#re-match-pattern-string" class="headerlink" title="re.match(pattern,string)"></a>re.match(pattern,string)</h1><p>从第一个字符开始匹配模式，如果第一个字符匹配失败，就结束运行。</p>
-<p>总体上，这个函数用的不多。</p>
-<h1 id="re-search-pattern-string"><a href="#re-search-pattern-string" class="headerlink" title="re.search(pattern,string)"></a>re.search(pattern,string)</h1><p>搜索第一个满足条件的字符串，查找到第一个停止。</p>
-<p>返回值是re对象，需要用group(0)来获取匹配结果。</p>
-<p>没有匹配到返回值就是None。</p>
-<h1 id="re-findall-pattern-string"><a href="#re-findall-pattern-string" class="headerlink" title="re.findall(pattern,string)"></a>re.findall(pattern,string)</h1><p>搜索所有满足条件的字符串。</p>
-<p>返回值是所有符合要求的匹配结果的列表。</p>
-<p>没有匹配到返回值就是空列表。</p>
-<p>这个我用的最多。</p>
-<h1 id="re-sub-pattern-repl-string-count-0"><a href="#re-sub-pattern-repl-string-count-0" class="headerlink" title="re.sub(pattern, repl, string, count&#x3D;0)"></a>re.sub(pattern, repl, string, count&#x3D;0)</h1><p>类似于str.replace()，用来替换字符串中的一部分。</p>
-<p>repl是替换结果，一般是字符串或者是返回字符串的方法。</p>
-<p>string是待操作的字符串。</p>
-<p>count是替换执行次数，默认为0，也就是不限次数。</p>
-<h1 id="re-split-pattern-string"><a href="#re-split-pattern-string" class="headerlink" title="re.split(pattern,string)"></a>re.split(pattern,string)</h1><p>在这个方法中，pattern是分割标识符，以满足这个正则表达式的字符串做分割符。</p>
-<p>返回值是个列表。</p>
-<h1 id="re-compile-pattern"><a href="#re-compile-pattern" class="headerlink" title="re.compile(pattern)"></a>re.compile(pattern)</h1><p>该函数根据包含的正则表达式的字符串创建模式对象。可以实现更有效率的匹配。在直接使用字符串表示的正则表达式进行search,match和findall操作时，python会将字符串转换为正则表达式对象。而使用compile完成一次转换之后，在每次使用模式的时候就不用重复转换。当然，使用re.compile()函数进行转换后，re.search(pattern, string)的调用方式就转换为 pattern.search(string)的调用方式。</p>
-<pre><code>import re
-some_text = &#39;a,b,,,,c d&#39;
-reObj = re.compile(&#39;[, ]+&#39;)
-reObj.split(some_text)
-[&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;]
-</code></pre>
-<p>当然，不使用re.compile()的好处也是有的，就是理解起来更加直观。</p>
-<pre><code>import re
-some_text = &#39;a,b,,,,c d&#39;
-re.split(&#39;[, ]+&#39;,some_text)
-[&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;]
-</code></pre>
-<p>总之，re.compile()的作用表现在，使用同一正则表达式做重复匹配的时候，re.compile()可以提高匹配效率。</p>
-]]></content>
-      <categories>
-        <category>Python</category>
-        <category>常用库</category>
-        <category>re</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-        <tag>正则表达式</tag>
       </tags>
   </entry>
   <entry>
@@ -5887,13 +5909,36 @@ bp.list() # or whatever instance methods of ByPy class
         <category>Linux</category>
         <category>常用库</category>
         <category>bypy</category>
-        <category>命令行工具</category>
         <category>百度云</category>
+        <category>命令行工具</category>
       </categories>
       <tags>
         <tag>Linux</tag>
         <tag>Python</tag>
         <tag>命令行工具</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Pytesseract | 简介</title>
+    <url>/2021/04/19/pythonLibrary12/</url>
+    <content><![CDATA[<p>这是一个本地OCR的库。</p>
+<span id="more"></span>
+
+<p>项目初期用到了OCR，但现在不用了，就简单记录一下。</p>
+<p>这个库需要配合本地软件运行，我只找到了exe版的，所以目前只能运行在Windows下。</p>
+<p>这个库需要在三个位置配置软件位置，分别是</p>
+<p>1、pytesseract库的init文件中；</p>
+<p>2、环境变量PATH；</p>
+<p>3、这个库的专用环境变量，叫啥我忘了，太长了，注意下报错就行了。</p>
+]]></content>
+      <categories>
+        <category>Python</category>
+        <category>常用库</category>
+        <category>pytesseract</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>OCR</tag>
       </tags>
   </entry>
   <entry>
@@ -5960,29 +6005,6 @@ chown(path,uid ,gid)
       </tags>
   </entry>
   <entry>
-    <title>Pytesseract | 简介</title>
-    <url>/2021/04/19/pythonLibrary12/</url>
-    <content><![CDATA[<p>这是一个本地OCR的库。</p>
-<span id="more"></span>
-
-<p>项目初期用到了OCR，但现在不用了，就简单记录一下。</p>
-<p>这个库需要配合本地软件运行，我只找到了exe版的，所以目前只能运行在Windows下。</p>
-<p>这个库需要在三个位置配置软件位置，分别是</p>
-<p>1、pytesseract库的init文件中；</p>
-<p>2、环境变量PATH；</p>
-<p>3、这个库的专用环境变量，叫啥我忘了，太长了，注意下报错就行了。</p>
-]]></content>
-      <categories>
-        <category>Python</category>
-        <category>常用库</category>
-        <category>pytesseract</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-        <tag>OCR</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>mutagen | 添加mp4封面</title>
     <url>/2021/06/07/pythonLibrary14/</url>
     <content><![CDATA[<p>主要用来添加封面。</p>
@@ -6038,6 +6060,28 @@ if cover:
       </tags>
   </entry>
   <entry>
+    <title>ReportLab | 文本排列问题</title>
+    <url>/2023/07/11/pythonLibrary18/</url>
+    <content><![CDATA[<p>在使用ReportLab生成PDF时，遇到了大字号的文本段在换行后，上下行相互覆盖的问题。</p>
+<span id="more"></span>
+
+<p>最后解决方法是</p>
+<pre><code>p = ParagraphStyle(&#39;test&#39;)
+p.leading = 120
+</code></pre>
+<p>简单理解就是行间距。</p>
+]]></content>
+      <categories>
+        <category>Python</category>
+        <category>常用库</category>
+        <category>ReportLab</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>ReportLab</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>mutagen | 删除元数据</title>
     <url>/2021/06/07/pythonLibrary16/</url>
     <content><![CDATA[<p>解决了<a href="/2021/06/07/ffmpeg05/" title="FFmpeg | 删除视频中的元数据">ffmpeg | 删除视频中的元数据</a>中的不能在源文件上直接修改的问题。</p>
@@ -6076,62 +6120,25 @@ audio.save()
       </tags>
   </entry>
   <entry>
-    <title>Python | datetime库计算时间差</title>
-    <url>/2021/07/09/pythonLibrary17/</url>
-    <content><![CDATA[<p>在做爬虫的时候，需要计算网页上的发布时间和本地时间的时间差。</p>
+    <title>matplotlib | NotImplementedError: It is not currently possible to manually set the aspect on 3D axes</title>
+    <url>/2021/01/11/pythonLibraryError00/</url>
+    <content><![CDATA[<p>今天跑项目的时候报错：“NotImplementedError: It is not currently possible to manually set the aspect on 3D axes”</p>
 <span id="more"></span>
 
-<p>主要思想是现在爬虫的时候用正则把发布时间抓取下来，再用datetime库将其转化为datetime.datetime对象，计算时间差。</p>
-<p>代码：</p>
-<pre><code>def timeConversion(s: str):
-    if re.match(r&quot;^\d&#123;4&#125;-\d&#123;2&#125;-\d&#123;2&#125; \d&#123;2&#125;:\d&#123;2&#125;:\d&#123;2&#125;$&quot;, s):
-        d = datetime.strptime(s, &#39;%Y-%m-%d %H:%M:%S&#39;)
-    elif re.match(r&quot;^\d&#123;4&#125;-\d&#123;2&#125;-\d&#123;2&#125; \d&#123;2&#125;:\d&#123;2&#125;$&quot;, s):
-        d = datetime.strptime(s, &#39;%Y-%m-%d %H:%M&#39;)
-    elif re.match(r&quot;^\d&#123;4&#125;-\d&#123;2&#125;-\d&#123;2&#125;$&quot;, s):
-        d = datetime.strptime(s, &#39;%Y-%m-%d&#39;)
-    else:
-        return s
-    a = datetime.now()
-    durn = (a - d)
-    days = durn.days
-    if days == 0:
-        hours = (durn.total_seconds() % 86400) // 3600
-        return str(int(hours)) + &quot;小时前&quot;
-    else:
-        return str(days) + &quot;天前&quot;
+<p>matplotlib在19年2月的时候加入了Raise NotImplementedError，目的是是为了告诉人们3D图中尚不能更改轴纵横比的事实。</p>
+<p>有个不是很好的解决方法</p>
+<pre><code>conda install matplotlib=2.2.3
 </code></pre>
+<p>但据说它可能导致画出的图变形，先用用看吧，等遇到问题了再看那时候matplotlib有没有修复这个问题，实在不行就用其他方法重构这部分。</p>
 ]]></content>
       <categories>
         <category>Python</category>
         <category>常用库</category>
-        <category>datetime</category>
+        <category>matplotlib</category>
       </categories>
       <tags>
         <tag>Python</tag>
-        <tag>时间</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>ReportLab | 文本排列问题</title>
-    <url>/2023/07/11/pythonLibrary18/</url>
-    <content><![CDATA[<p>在使用ReportLab生成PDF时，遇到了大字号的文本段在换行后，上下行相互覆盖的问题。</p>
-<span id="more"></span>
-
-<p>最后解决方法是</p>
-<pre><code>p = ParagraphStyle(&#39;test&#39;)
-p.leading = 120
-</code></pre>
-<p>简单理解就是行间距。</p>
-]]></content>
-      <categories>
-        <category>Python</category>
-        <category>常用库</category>
-        <category>ReportLab</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-        <tag>ReportLab</tag>
+        <tag>Error</tag>
       </tags>
   </entry>
   <entry>
@@ -6178,25 +6185,40 @@ for i in range(10):
       </tags>
   </entry>
   <entry>
-    <title>matplotlib | NotImplementedError: It is not currently possible to manually set the aspect on 3D axes</title>
-    <url>/2021/01/11/pythonLibraryError00/</url>
-    <content><![CDATA[<p>今天跑项目的时候报错：“NotImplementedError: It is not currently possible to manually set the aspect on 3D axes”</p>
+    <title>Python | datetime库计算时间差</title>
+    <url>/2021/07/09/pythonLibrary17/</url>
+    <content><![CDATA[<p>在做爬虫的时候，需要计算网页上的发布时间和本地时间的时间差。</p>
 <span id="more"></span>
 
-<p>matplotlib在19年2月的时候加入了Raise NotImplementedError，目的是是为了告诉人们3D图中尚不能更改轴纵横比的事实。</p>
-<p>有个不是很好的解决方法</p>
-<pre><code>conda install matplotlib=2.2.3
+<p>主要思想是现在爬虫的时候用正则把发布时间抓取下来，再用datetime库将其转化为datetime.datetime对象，计算时间差。</p>
+<p>代码：</p>
+<pre><code>def timeConversion(s: str):
+    if re.match(r&quot;^\d&#123;4&#125;-\d&#123;2&#125;-\d&#123;2&#125; \d&#123;2&#125;:\d&#123;2&#125;:\d&#123;2&#125;$&quot;, s):
+        d = datetime.strptime(s, &#39;%Y-%m-%d %H:%M:%S&#39;)
+    elif re.match(r&quot;^\d&#123;4&#125;-\d&#123;2&#125;-\d&#123;2&#125; \d&#123;2&#125;:\d&#123;2&#125;$&quot;, s):
+        d = datetime.strptime(s, &#39;%Y-%m-%d %H:%M&#39;)
+    elif re.match(r&quot;^\d&#123;4&#125;-\d&#123;2&#125;-\d&#123;2&#125;$&quot;, s):
+        d = datetime.strptime(s, &#39;%Y-%m-%d&#39;)
+    else:
+        return s
+    a = datetime.now()
+    durn = (a - d)
+    days = durn.days
+    if days == 0:
+        hours = (durn.total_seconds() % 86400) // 3600
+        return str(int(hours)) + &quot;小时前&quot;
+    else:
+        return str(days) + &quot;天前&quot;
 </code></pre>
-<p>但据说它可能导致画出的图变形，先用用看吧，等遇到问题了再看那时候matplotlib有没有修复这个问题，实在不行就用其他方法重构这部分。</p>
 ]]></content>
       <categories>
         <category>Python</category>
         <category>常用库</category>
-        <category>matplotlib</category>
+        <category>datetime</category>
       </categories>
       <tags>
         <tag>Python</tag>
-        <tag>Error</tag>
+        <tag>时间</tag>
       </tags>
   </entry>
   <entry>
@@ -6235,26 +6257,6 @@ for i in range(10):
       </tags>
   </entry>
   <entry>
-    <title>Pytorch和Python的版本对应关系</title>
-    <url>/2022/03/01/pytorch00/</url>
-    <content><![CDATA[<p>截止到2022年3月1日，版本对应关系如图：</p>
-<span id="more"></span>
-
-<img src="/images/pytorch00/img1.png">
-
-<p>最新的版本在这：<a href="https://github.com/pytorch/vision">torchvision</a></p>
-]]></content>
-      <categories>
-        <category>Python</category>
-        <category>PyTorch</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-        <tag>PyTorch</tag>
-        <tag>TorchVision</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>RuntimeError: No such operator torchvision::nms</title>
     <url>/2020/09/09/pytorchError00/</url>
     <content><![CDATA[<p>今天遇到了如题目所示的问题</p>
@@ -6289,8 +6291,8 @@ for i in range(10):
       <tags>
         <tag>Python</tag>
         <tag>PyTorch</tag>
-        <tag>TorchVision</tag>
         <tag>报错</tag>
+        <tag>TorchVision</tag>
       </tags>
   </entry>
   <entry>
@@ -6347,6 +6349,26 @@ apt-get --purge remove redis-tools
       <tags>
         <tag>数据库</tag>
         <tag>Redis</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Pytorch和Python的版本对应关系</title>
+    <url>/2022/03/01/pytorch00/</url>
+    <content><![CDATA[<p>截止到2022年3月1日，版本对应关系如图：</p>
+<span id="more"></span>
+
+<img src="/images/pytorch00/img1.png">
+
+<p>最新的版本在这：<a href="https://github.com/pytorch/vision">torchvision</a></p>
+]]></content>
+      <categories>
+        <category>Python</category>
+        <category>PyTorch</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>PyTorch</tag>
+        <tag>TorchVision</tag>
       </tags>
   </entry>
   <entry>
@@ -6548,6 +6570,63 @@ class RedisCluster:
       </tags>
   </entry>
   <entry>
+    <title>Selenium | canvas元素的点击问题</title>
+    <url>/2021/04/19/selenium00/</url>
+    <content><![CDATA[<p>用<code>Selenium</code>写自动化脚本的时候遇到的一个有趣的细节。</p>
+<span id="more"></span>
+
+<p>因为要操作的对象是<code>canvas</code>元素，所以不能直接用点击element的办法操作，只能通过坐标来操作。</p>
+<p>但是在具体操作的过程中，发现有的点击没有触发。</p>
+<p>经过排查，是因为<code>canvas</code>的点击有延时，而鼠标焦点在点击之后立即移开，所以点击有时没有生效。</p>
+<p>解决方法是点击之后焦点悬停一会，示例如下：</p>
+<pre><code>action = ActionChains(driver)
+size = driver.find_element_by_id(&#39;xxxx&#39;).size
+print(&quot;canvas:&quot; + str(size))
+forthHeight = size[&#39;height&#39;] * 0.25
+forthWidth = size[&#39;width&#39;] * 0.76
+action.move_by_offset(forthWidth, forthHeight).pause(0.5)
+action.click()
+action.click().pause(0.5)
+action.move_by_offset(-forthWidth, -forthHeight).perform()
+</code></pre>
+]]></content>
+      <categories>
+        <category>Python</category>
+        <category>自动化</category>
+        <category>常用库</category>
+        <category>Selenium</category>
+        <category>Selenium</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>自动化</tag>
+        <tag>Selenium</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Selenium | 窗口的句柄问题</title>
+    <url>/2021/04/19/selenium01/</url>
+    <content><![CDATA[<p>自动化脚本处理弹出窗口及异常处理的方法。</p>
+<span id="more"></span>
+
+<h2 id="操作思路"><a href="#操作思路" class="headerlink" title="操作思路"></a>操作思路</h2><p>弹出窗口-&gt;检测弹窗-&gt;处理弹窗\异常处理</p>
+<h2 id="基本思想"><a href="#基本思想" class="headerlink" title="基本思想"></a>基本思想</h2><p>通过监听现有句柄的数量来检测弹窗。</p>
+<p>异常处理主要是在处理弹窗过程中发生异常的时候，及时切回主窗口，否则会造成窗口焦点丢失。</p>
+]]></content>
+      <categories>
+        <category>Python</category>
+        <category>自动化</category>
+        <category>常用库</category>
+        <category>Selenium</category>
+        <category>Selenium</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>自动化</tag>
+        <tag>Selenium</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Python连接Redis连接池</title>
     <url>/2021/10/22/redis04/</url>
     <content><![CDATA[<p>记录一下怎么用python连接Redis连接池。</p>
@@ -6647,63 +6726,6 @@ class Redis:
       </tags>
   </entry>
   <entry>
-    <title>Selenium | canvas元素的点击问题</title>
-    <url>/2021/04/19/selenium00/</url>
-    <content><![CDATA[<p>用<code>Selenium</code>写自动化脚本的时候遇到的一个有趣的细节。</p>
-<span id="more"></span>
-
-<p>因为要操作的对象是<code>canvas</code>元素，所以不能直接用点击element的办法操作，只能通过坐标来操作。</p>
-<p>但是在具体操作的过程中，发现有的点击没有触发。</p>
-<p>经过排查，是因为<code>canvas</code>的点击有延时，而鼠标焦点在点击之后立即移开，所以点击有时没有生效。</p>
-<p>解决方法是点击之后焦点悬停一会，示例如下：</p>
-<pre><code>action = ActionChains(driver)
-size = driver.find_element_by_id(&#39;xxxx&#39;).size
-print(&quot;canvas:&quot; + str(size))
-forthHeight = size[&#39;height&#39;] * 0.25
-forthWidth = size[&#39;width&#39;] * 0.76
-action.move_by_offset(forthWidth, forthHeight).pause(0.5)
-action.click()
-action.click().pause(0.5)
-action.move_by_offset(-forthWidth, -forthHeight).perform()
-</code></pre>
-]]></content>
-      <categories>
-        <category>自动化</category>
-        <category>Python</category>
-        <category>常用库</category>
-        <category>Selenium</category>
-        <category>Selenium</category>
-      </categories>
-      <tags>
-        <tag>自动化</tag>
-        <tag>Python</tag>
-        <tag>Selenium</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Selenium | 窗口的句柄问题</title>
-    <url>/2021/04/19/selenium01/</url>
-    <content><![CDATA[<p>自动化脚本处理弹出窗口及异常处理的方法。</p>
-<span id="more"></span>
-
-<h2 id="操作思路"><a href="#操作思路" class="headerlink" title="操作思路"></a>操作思路</h2><p>弹出窗口-&gt;检测弹窗-&gt;处理弹窗\异常处理</p>
-<h2 id="基本思想"><a href="#基本思想" class="headerlink" title="基本思想"></a>基本思想</h2><p>通过监听现有句柄的数量来检测弹窗。</p>
-<p>异常处理主要是在处理弹窗过程中发生异常的时候，及时切回主窗口，否则会造成窗口焦点丢失。</p>
-]]></content>
-      <categories>
-        <category>自动化</category>
-        <category>Python</category>
-        <category>常用库</category>
-        <category>Selenium</category>
-        <category>Selenium</category>
-      </categories>
-      <tags>
-        <tag>自动化</tag>
-        <tag>Python</tag>
-        <tag>Selenium</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Selenium | 配置Chrome的option</title>
     <url>/2021/04/19/selenium02/</url>
     <content><![CDATA[<p>有的网站会检测Chrome配置，所以为了规避检测，大抵有两种方法。</p>
@@ -6725,15 +6747,15 @@ drive.execute_cdp_cmd(&quot;Page.addScriptToEvaluateOnNewDocument&quot;, &#123;&
 <p>至于这个文件怎么获得，我这也不贴现成的了，因为它一直在更新，就自己百度文件名<code>stealth.min.js</code>找吧。</p>
 ]]></content>
       <categories>
-        <category>自动化</category>
         <category>Python</category>
+        <category>自动化</category>
         <category>常用库</category>
         <category>Selenium</category>
         <category>Selenium</category>
       </categories>
       <tags>
-        <tag>自动化</tag>
         <tag>Python</tag>
+        <tag>自动化</tag>
         <tag>Selenium</tag>
       </tags>
   </entry>
@@ -6753,15 +6775,15 @@ driver.switch_to.frame(iframe)
 </code></pre>
 ]]></content>
       <categories>
-        <category>自动化</category>
         <category>Python</category>
+        <category>自动化</category>
         <category>常用库</category>
         <category>Selenium</category>
         <category>Selenium</category>
       </categories>
       <tags>
-        <tag>自动化</tag>
         <tag>Python</tag>
+        <tag>自动化</tag>
         <tag>Selenium</tag>
       </tags>
   </entry>
@@ -6779,53 +6801,15 @@ browser.execute_script(&quot;arguments[0].innerHTML = &#39;新的文本&#39;&quo
 <p>可以先在浏览器控制台里测试好js代码，再用<code>execute_script()</code>方法加载进去。</p>
 ]]></content>
       <categories>
-        <category>自动化</category>
         <category>Python</category>
+        <category>自动化</category>
         <category>常用库</category>
         <category>Selenium</category>
         <category>Selenium</category>
       </categories>
       <tags>
-        <tag>自动化</tag>
         <tag>Python</tag>
-        <tag>Selenium</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Selenium | 操作Docker里的Chrome浏览器</title>
-    <url>/2023/11/22/selenium05/</url>
-    <content><![CDATA[<p>主要是在Nas里用Docker布了一个Chrome，用来执行爬虫。</p>
-<span id="more"></span>
-
-<h2 id="镜像选择"><a href="#镜像选择" class="headerlink" title="镜像选择"></a>镜像选择</h2><p>能用Selenium调用的Chrome镜像有两个，<code>selenium/standalone-chrome</code>和<code>selenium/standalone-chrome-debug</code>，后者能在执行Selenium代码的时候启动一个VNC服务，能用VNC看看执行过程是否符合预期。VNC的默认端口是5900，默认密码是secret。</p>
-<p>具体镜像怎么怎么启动就不展开了，我是用Nas的图形界面启动的，没用命令行，所以不太了解。</p>
-<h2 id="连接"><a href="#连接" class="headerlink" title="连接"></a>连接</h2><p>使用Selenium连接的时候和Appium比较像，使用远程地址进行连接。</p>
-<pre><code>from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
-
-chrome_options = Options()
-###
-# 在这添加各种配置
-###
-
-# 普通的浏览器调用方式
-# browser = webdriver.Chrome(chrome_options=chrome_options)
-
-# 远程浏览器调用方式，后边的/wd/hub不能省略
-browser = webdriver.Remote(&quot;http://192.168.50.150:9516/wd/hub&quot;, options=chrome_options)
-</code></pre>
-<p>连接起来之后就和正常调用没区别了，正常Selenium代码就行。</p>
-]]></content>
-      <categories>
-        <category>自动化</category>
-        <category>Python</category>
-        <category>常用库</category>
-        <category>Selenium</category>
-        <category>Selenium</category>
-      </categories>
-      <tags>
         <tag>自动化</tag>
-        <tag>Python</tag>
         <tag>Selenium</tag>
       </tags>
   </entry>
@@ -6858,15 +6842,53 @@ execute_cdp_cmd(browser, &quot;Page.addScriptToEvaluateOnNewDocument&quot;, &#12
 <p>结构还是比较相似的。</p>
 ]]></content>
       <categories>
-        <category>自动化</category>
         <category>Python</category>
+        <category>自动化</category>
         <category>常用库</category>
         <category>Selenium</category>
         <category>Selenium</category>
       </categories>
       <tags>
-        <tag>自动化</tag>
         <tag>Python</tag>
+        <tag>自动化</tag>
+        <tag>Selenium</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Selenium | 操作Docker里的Chrome浏览器</title>
+    <url>/2023/11/22/selenium05/</url>
+    <content><![CDATA[<p>主要是在Nas里用Docker布了一个Chrome，用来执行爬虫。</p>
+<span id="more"></span>
+
+<h2 id="镜像选择"><a href="#镜像选择" class="headerlink" title="镜像选择"></a>镜像选择</h2><p>能用Selenium调用的Chrome镜像有两个，<code>selenium/standalone-chrome</code>和<code>selenium/standalone-chrome-debug</code>，后者能在执行Selenium代码的时候启动一个VNC服务，能用VNC看看执行过程是否符合预期。VNC的默认端口是5900，默认密码是secret。</p>
+<p>具体镜像怎么怎么启动就不展开了，我是用Nas的图形界面启动的，没用命令行，所以不太了解。</p>
+<h2 id="连接"><a href="#连接" class="headerlink" title="连接"></a>连接</h2><p>使用Selenium连接的时候和Appium比较像，使用远程地址进行连接。</p>
+<pre><code>from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+
+chrome_options = Options()
+###
+# 在这添加各种配置
+###
+
+# 普通的浏览器调用方式
+# browser = webdriver.Chrome(chrome_options=chrome_options)
+
+# 远程浏览器调用方式，后边的/wd/hub不能省略
+browser = webdriver.Remote(&quot;http://192.168.50.150:9516/wd/hub&quot;, options=chrome_options)
+</code></pre>
+<p>连接起来之后就和正常调用没区别了，正常Selenium代码就行。</p>
+]]></content>
+      <categories>
+        <category>Python</category>
+        <category>自动化</category>
+        <category>常用库</category>
+        <category>Selenium</category>
+        <category>Selenium</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>自动化</tag>
         <tag>Selenium</tag>
       </tags>
   </entry>
@@ -6893,44 +6915,6 @@ execute_cdp_cmd(browser, &quot;Page.addScriptToEvaluateOnNewDocument&quot;, &#12
       <tags>
         <tag>Python</tag>
         <tag>爬虫</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>异步 | @Async注解配置线程池</title>
-    <url>/2023/07/08/spring00/</url>
-    <content><![CDATA[<p><a href="https://blog.csdn.net/dyc87112/article/details/120326353">参考文档</a></p>
-<span id="more"></span>
-
-<p>省流版：</p>
-<h2 id="配置默认线程池"><a href="#配置默认线程池" class="headerlink" title="配置默认线程池"></a>配置默认线程池</h2><p>默认线程池的配置很简单，只需要在配置文件中完成即可，主要有以下这些参数：</p>
-<pre><code>spring.task.execution.pool.core-size=2
-spring.task.execution.pool.max-size=5
-spring.task.execution.pool.queue-capacity=10
-spring.task.execution.pool.keep-alive=60s
-spring.task.execution.pool.allow-core-thread-timeout=true
-spring.task.execution.shutdown.await-termination=false
-spring.task.execution.shutdown.await-termination-period=
-spring.task.execution.thread-name-prefix=task-
-</code></pre>
-<p>具体配置含义如下：</p>
-<pre><code>spring.task.execution.pool.core-size：线程池创建时的初始化线程数，默认为8
-spring.task.execution.pool.max-size：线程池的最大线程数，默认为int最大值
-spring.task.execution.pool.queue-capacity：用来缓冲执行任务的队列，默认为int最大值
-spring.task.execution.pool.keep-alive：线程终止前允许保持空闲的时间
-spring.task.execution.pool.allow-core-thread-timeout：是否允许核心线程超时
-spring.task.execution.shutdown.await-termination：是否等待剩余任务完成后才关闭应用
-spring.task.execution.shutdown.await-termination-period：等待剩余任务完成的最大时间
-spring.task.execution.thread-name-prefix：线程名的前缀，设置好了之后可以方便我们在日志中查看处理任务所在的线程池
-</code></pre>
-<p>亲测可用</p>
-]]></content>
-      <categories>
-        <category>Java</category>
-        <category>Spring</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>Spring</tag>
       </tags>
   </entry>
   <entry>
@@ -6999,6 +6983,44 @@ public class TestService &#123;
 &#125;
 </code></pre>
 <h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://blog.csdn.net/qq_36990177/article/details/109755106">Springboot Cache @Cacheable 类内部调用时不生效，解决办法</a></p>
+]]></content>
+      <categories>
+        <category>Java</category>
+        <category>Spring</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>Spring</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>异步 | @Async注解配置线程池</title>
+    <url>/2023/07/08/spring00/</url>
+    <content><![CDATA[<p><a href="https://blog.csdn.net/dyc87112/article/details/120326353">参考文档</a></p>
+<span id="more"></span>
+
+<p>省流版：</p>
+<h2 id="配置默认线程池"><a href="#配置默认线程池" class="headerlink" title="配置默认线程池"></a>配置默认线程池</h2><p>默认线程池的配置很简单，只需要在配置文件中完成即可，主要有以下这些参数：</p>
+<pre><code>spring.task.execution.pool.core-size=2
+spring.task.execution.pool.max-size=5
+spring.task.execution.pool.queue-capacity=10
+spring.task.execution.pool.keep-alive=60s
+spring.task.execution.pool.allow-core-thread-timeout=true
+spring.task.execution.shutdown.await-termination=false
+spring.task.execution.shutdown.await-termination-period=
+spring.task.execution.thread-name-prefix=task-
+</code></pre>
+<p>具体配置含义如下：</p>
+<pre><code>spring.task.execution.pool.core-size：线程池创建时的初始化线程数，默认为8
+spring.task.execution.pool.max-size：线程池的最大线程数，默认为int最大值
+spring.task.execution.pool.queue-capacity：用来缓冲执行任务的队列，默认为int最大值
+spring.task.execution.pool.keep-alive：线程终止前允许保持空闲的时间
+spring.task.execution.pool.allow-core-thread-timeout：是否允许核心线程超时
+spring.task.execution.shutdown.await-termination：是否等待剩余任务完成后才关闭应用
+spring.task.execution.shutdown.await-termination-period：等待剩余任务完成的最大时间
+spring.task.execution.thread-name-prefix：线程名的前缀，设置好了之后可以方便我们在日志中查看处理任务所在的线程池
+</code></pre>
+<p>亲测可用</p>
 ]]></content>
       <categories>
         <category>Java</category>
@@ -7326,95 +7348,6 @@ source /xxx/virtualenvwrapper.sh
       </tags>
   </entry>
   <entry>
-    <title>Tkinter | 初学Tkinter</title>
-    <url>/2021/03/22/visualization00/</url>
-    <content><![CDATA[<p>起因是我写了一些自己用的小工具，不想每次调用的时候改里边的文件路径，也不想每次都调出命令行打一堆参数。所以就想自己做个一可视化界面，把操作封装进去，多省事。</p>
-<span id="more"></span>
-
-<p><code>tkinter</code>的框架：</p>
-<pre><code>import tkinter as tk  # 使用Tkinter前需要先导入
-from tkinter import filedialog
-
-# 实例化object，建立窗口window
-window = tk.Tk()
-
-# 给窗口的可视化起名字
-window.title(&#39;示例&#39;)
-
-# 设定窗口的大小(长 * 宽)
-window.geometry(&#39;500x300&#39;)
-
-# 主窗口循环显示
-window.mainloop()
-</code></pre>
-<p>在这个框架中加东西就好了：</p>
-<table>
-<thead>
-<tr>
-<th align="center">方法</th>
-<th align="center">子方法</th>
-<th align="center">说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">tk.StringVar()</td>
-<td align="center"></td>
-<td align="center">创建一个存储string类型对象的变量。</td>
-</tr>
-<tr>
-<td align="center"></td>
-<td align="center">.set(string)</td>
-<td align="center">tk.StringVar()的set方法。</td>
-</tr>
-<tr>
-<td align="center"></td>
-<td align="center">.get(string)</td>
-<td align="center">tk.StringVar()的get方法。</td>
-</tr>
-<tr>
-<td align="center">tk.Label(window, textvariable&#x3D;video_path, bg&#x3D;’white’, fg&#x3D;’black’, font&#x3D;(‘Arial’, 18), height&#x3D;2)</td>
-<td align="center"></td>
-<td align="center">创建一个存储string类型对象的变量。</td>
-</tr>
-</tbody></table>
-<p>控件：</p>
-<pre><code>from tkinter import filedialog
-# Label控件，主要用来显示文字。
-# 说明： bg为背景，fg为字体颜色，font为字体，width为长，height为高，这里的长和高是字符的长和高，比如height=2,就是标签有2个字符这么高。
-l1 = tk.Label(window, textvariable=video_path, bg=&#39;white&#39;, fg=&#39;black&#39;, font=(&#39;Arial&#39;, 18), height=2)
-# 控件要摆放后才能使用。
-l1.pack() 
-
-
-# 定义一个函数功能（内容自己自由编写），供点击Button按键时调用，调用命令参数command=函数名
-def select_video():
-    default_dir = r&quot;F:\Downloads&quot;
-    # 获取选择到的文件的路径
-    file_path = filedialog.askopenfilename(title=u&#39;选择文件&#39;, initialdir=(os.path.expanduser(default_dir)))
-    video_path.set(file_path)
-
-
-b1 = tk.Button(window, text=&#39;选择视频文件&#39;, font=(&#39;Arial&#39;, 12), width=10, height=1, command=select_video)
-b1.pack()
-
-# 输入框，&#39;show&#39;的值为默认替换显示，值为&#39;*&#39;时，效果就像输密码一样。
-entry = tk.Entry(window, show=None)
-#对文本框内容进行打包
-entry.pack()
-</code></pre>
-]]></content>
-      <categories>
-        <category>Python</category>
-        <category>常用库</category>
-        <category>可视化</category>
-        <category>tkinter</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-        <tag>可视化</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Tkinter | 控件摆放</title>
     <url>/2021/03/22/visualization01/</url>
     <content><![CDATA[<p>控件永远都是一行一个，不好看，所以想稍微摆一摆。</p>
@@ -7630,6 +7563,95 @@ entry.pack()
       </tags>
   </entry>
   <entry>
+    <title>Tkinter | 初学Tkinter</title>
+    <url>/2021/03/22/visualization00/</url>
+    <content><![CDATA[<p>起因是我写了一些自己用的小工具，不想每次调用的时候改里边的文件路径，也不想每次都调出命令行打一堆参数。所以就想自己做个一可视化界面，把操作封装进去，多省事。</p>
+<span id="more"></span>
+
+<p><code>tkinter</code>的框架：</p>
+<pre><code>import tkinter as tk  # 使用Tkinter前需要先导入
+from tkinter import filedialog
+
+# 实例化object，建立窗口window
+window = tk.Tk()
+
+# 给窗口的可视化起名字
+window.title(&#39;示例&#39;)
+
+# 设定窗口的大小(长 * 宽)
+window.geometry(&#39;500x300&#39;)
+
+# 主窗口循环显示
+window.mainloop()
+</code></pre>
+<p>在这个框架中加东西就好了：</p>
+<table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">子方法</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">tk.StringVar()</td>
+<td align="center"></td>
+<td align="center">创建一个存储string类型对象的变量。</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">.set(string)</td>
+<td align="center">tk.StringVar()的set方法。</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">.get(string)</td>
+<td align="center">tk.StringVar()的get方法。</td>
+</tr>
+<tr>
+<td align="center">tk.Label(window, textvariable&#x3D;video_path, bg&#x3D;’white’, fg&#x3D;’black’, font&#x3D;(‘Arial’, 18), height&#x3D;2)</td>
+<td align="center"></td>
+<td align="center">创建一个存储string类型对象的变量。</td>
+</tr>
+</tbody></table>
+<p>控件：</p>
+<pre><code>from tkinter import filedialog
+# Label控件，主要用来显示文字。
+# 说明： bg为背景，fg为字体颜色，font为字体，width为长，height为高，这里的长和高是字符的长和高，比如height=2,就是标签有2个字符这么高。
+l1 = tk.Label(window, textvariable=video_path, bg=&#39;white&#39;, fg=&#39;black&#39;, font=(&#39;Arial&#39;, 18), height=2)
+# 控件要摆放后才能使用。
+l1.pack() 
+
+
+# 定义一个函数功能（内容自己自由编写），供点击Button按键时调用，调用命令参数command=函数名
+def select_video():
+    default_dir = r&quot;F:\Downloads&quot;
+    # 获取选择到的文件的路径
+    file_path = filedialog.askopenfilename(title=u&#39;选择文件&#39;, initialdir=(os.path.expanduser(default_dir)))
+    video_path.set(file_path)
+
+
+b1 = tk.Button(window, text=&#39;选择视频文件&#39;, font=(&#39;Arial&#39;, 12), width=10, height=1, command=select_video)
+b1.pack()
+
+# 输入框，&#39;show&#39;的值为默认替换显示，值为&#39;*&#39;时，效果就像输密码一样。
+entry = tk.Entry(window, show=None)
+#对文本框内容进行打包
+entry.pack()
+</code></pre>
+]]></content>
+      <categories>
+        <category>Python</category>
+        <category>常用库</category>
+        <category>可视化</category>
+        <category>tkinter</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>可视化</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Tkinter | 循环产生控件时函数的执行逻辑</title>
     <url>/2021/03/23/visualization02/</url>
     <content><![CDATA[<p>我用控件循环产生控件时，发现这些控件绑定的函数跟预想的不太一样。</p>
@@ -7663,6 +7685,31 @@ entry.pack()
       </tags>
   </entry>
   <entry>
+    <title>Windows系统安装</title>
+    <url>/2020/08/20/windows01/</url>
+    <content><![CDATA[<p>Windows系统还是比用的比较多的。</p>
+<span id="more"></span>
+
+<h2 id="启动盘"><a href="#启动盘" class="headerlink" title="启动盘"></a>启动盘</h2><p>首先，需要一个系统盘。</p>
+<h3 id="系统文件"><a href="#系统文件" class="headerlink" title="系统文件"></a>系统文件</h3><p>这个我就不指路了，毕竟指路盗版网站不太好，别问，问就是我用的正版。</p>
+<h3 id="软件选择"><a href="#软件选择" class="headerlink" title="软件选择"></a>软件选择</h3><p>之前用的微pe，但是出现过兼容性问题，也不知道是我的问题还是软件的问题，也没想继续研究，于是用了老毛桃这种简单粗暴的工具。</p>
+<p>后来因为制作Linux启动盘的关系，接触到了UltraISO这个工具，但是目前老毛桃的用的还挺好，就不想研究了，之后出问题了再说。</p>
+<h3 id="制作流程"><a href="#制作流程" class="headerlink" title="制作流程"></a>制作流程</h3><p>制作流程也是简单粗暴，就不多说了。</p>
+<p>嫌麻烦的话，就最后把.GHO文件放进去就行了。</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>进入BIOS之后从U盘启动。</p>
+<p>先用老毛桃自集成的工具分区。</p>
+<p>如果是已经分过区的，想要重装系统的话，要注意从硬盘中的文件夹来分辨出哪个是C盘，因为重装过程中的盘符不太对，这一点要注意。</p>
+<p>选择.GHO做系统还原，目标是C盘。</p>
+<p>等着就行了，重装之后结束。</p>
+]]></content>
+      <categories>
+        <category>Windows</category>
+      </categories>
+      <tags>
+        <tag>Windows</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Windows一些快捷键</title>
     <url>/2022/03/01/windows00/</url>
     <content><![CDATA[<p>Windows一些快捷键。</p>
@@ -7688,31 +7735,6 @@ entry.pack()
       <tags>
         <tag>Windows</tag>
         <tag>快捷键</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Windows系统安装</title>
-    <url>/2020/08/20/windows01/</url>
-    <content><![CDATA[<p>Windows系统还是比用的比较多的。</p>
-<span id="more"></span>
-
-<h2 id="启动盘"><a href="#启动盘" class="headerlink" title="启动盘"></a>启动盘</h2><p>首先，需要一个系统盘。</p>
-<h3 id="系统文件"><a href="#系统文件" class="headerlink" title="系统文件"></a>系统文件</h3><p>这个我就不指路了，毕竟指路盗版网站不太好，别问，问就是我用的正版。</p>
-<h3 id="软件选择"><a href="#软件选择" class="headerlink" title="软件选择"></a>软件选择</h3><p>之前用的微pe，但是出现过兼容性问题，也不知道是我的问题还是软件的问题，也没想继续研究，于是用了老毛桃这种简单粗暴的工具。</p>
-<p>后来因为制作Linux启动盘的关系，接触到了UltraISO这个工具，但是目前老毛桃的用的还挺好，就不想研究了，之后出问题了再说。</p>
-<h3 id="制作流程"><a href="#制作流程" class="headerlink" title="制作流程"></a>制作流程</h3><p>制作流程也是简单粗暴，就不多说了。</p>
-<p>嫌麻烦的话，就最后把.GHO文件放进去就行了。</p>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>进入BIOS之后从U盘启动。</p>
-<p>先用老毛桃自集成的工具分区。</p>
-<p>如果是已经分过区的，想要重装系统的话，要注意从硬盘中的文件夹来分辨出哪个是C盘，因为重装过程中的盘符不太对，这一点要注意。</p>
-<p>选择.GHO做系统还原，目标是C盘。</p>
-<p>等着就行了，重装之后结束。</p>
-]]></content>
-      <categories>
-        <category>Windows</category>
-      </categories>
-      <tags>
-        <tag>Windows</tag>
       </tags>
   </entry>
   <entry>
@@ -9829,25 +9851,6 @@ if %isExecuted%==0 (
       <tags>
         <tag>游戏</tag>
         <tag>水排序谜题</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Proxy | 代理分类</title>
-    <url>/2024/01/20/proxy03/</url>
-    <content><![CDATA[<p>记一下代理的几种分类。</p>
-<span id="more"></span>
-
-<p>首先放一个检测网站<a href="http://httpbin.org/ip">网址</a>，可以在这个网站上检测代理的分类，下文细说。</p>
-<h2 id="透明代理"><a href="#透明代理" class="headerlink" title="透明代理"></a>透明代理</h2><p>透明代理仅仅是对原始的网络请求做了转发，请求IP没变。<br>应用范围很小，约等于掩耳盗铃。<br>透明代理在检测网站里显示的还是你的原始IP。</p>
-<h2 id="普匿代理"><a href="#普匿代理" class="headerlink" title="普匿代理"></a>普匿代理</h2><p>又叫匿名代理、普通代理。<br>普匿代理可以将请求IP换成代理IP，但是服务端仍然能从请求中获知真实IP。<br>应用范围是需要简单的IP替换行为，例如简单访问有网络限制的站点、登录海外社媒平台等，只是解决“能不能用”的问题，对于隐藏IP没啥用。<br>普匿代理在检测网站里显示的是原始IP+代理IP。</p>
-<h2 id="高匿代理"><a href="#高匿代理" class="headerlink" title="高匿代理"></a>高匿代理</h2><p>高匿代理是将请求IP换成代理IP，并且服务端无法从请求中获知真实IP。<br>应用范围就比较广了，所有有代理需求的场景都能用高匿代理。<br>高匿代理在检测网站里显示的是代理IP。</p>
-<h2 id="住宅代理（存疑）"><a href="#住宅代理（存疑）" class="headerlink" title="住宅代理（存疑）"></a>住宅代理（存疑）</h2><p>又叫真人代理、高匿真人代理、高匿住宅代理。是一个新兴概念，不是一种严格分类，也有可能是炒作的商业概念。<br>住宅代理本质上也是高匿代理，区别在于来源不同。高匿代理可能被网站识别为机房或已经在黑名单中。住宅代理来源于运行商，遵循运营商的IP分配逻辑。<br>反正我感觉是卖代理的人编的。</p>
-]]></content>
-      <categories>
-        <category>Proxy</category>
-      </categories>
-      <tags>
-        <tag>Proxy</tag>
       </tags>
   </entry>
 </search>

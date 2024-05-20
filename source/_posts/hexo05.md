@@ -36,4 +36,10 @@ categories:
 然后把旧的不用的key清理一下。
 在博客文件夹下运行 `npm install hexo-deployer-git --save` 安装GitHub推送插件。
 
+## 安装next主题
+```
+git clone git@github.com:gonghs/hexo-theme-next.git themes/next
+```
+如果有自己的配置文件的话，再将配置文件覆盖掉。
+
 到这就大功告成了，试试 `hexo g` 和 `hexo d` 吧！

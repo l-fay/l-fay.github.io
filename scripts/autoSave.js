@@ -18,7 +18,11 @@ function run() {
             // 台式电脑
             cd('F:\\blog');    //此处修改为Hexo根目录路径
         } else if (process.env.computername === "LENOVO") {
+            // 笔记本电脑
             cd('D:\\blog');
+        } else if (process.env.computername === "LAPTOP-V6C8RAO1") {
+            // 周晓萌笔记本电脑
+            cd('D:\\project\\blog');
         } else {
             echo(process.env.computername)
             echo("请修改autoSave的判断条件")

@@ -86,3 +86,6 @@ hs_err_pid*
 .idea/*
 /*.iml
 /*/target/*
+
+# hexo
+.deploy_git/*
