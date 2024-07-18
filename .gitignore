@@ -78,10 +78,6 @@ Thumbs.db
 *.ppt
 *.pptx
 
-# smart-doc文档
-*.html
-*.js
-
 hs_err_pid*
 .idea/*
 /*.iml
