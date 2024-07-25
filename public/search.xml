@@ -9874,4 +9874,22 @@ if %isExecuted%==0 (
         <tag>Git</tag>
       </tags>
   </entry>
+  <entry>
+    <title>群晖管理端web页docker面板排版混乱的问题</title>
+    <url>/2024/07/24/chrome00/</url>
+    <content><![CDATA[<p>问题如题，留个记录。</p>
+<span id="more"></span>
+
+<p>排查过程就不具体说了，试了很多种方案才确定下来问题所在。</p>
+<p>最后发现是一个Chrome插件的问题，叫做“Google Chrome™ 的 XPath 助手”，禁用了就好了。</p>
+]]></content>
+      <categories>
+        <category>群晖</category>
+        <category>Chrome</category>
+      </categories>
+      <tags>
+        <tag>群晖</tag>
+        <tag>Chrome</tag>
+      </tags>
+  </entry>
 </search>
