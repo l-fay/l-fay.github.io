@@ -9892,4 +9892,25 @@ if %isExecuted%==0 (
         <tag>Chrome</tag>
       </tags>
   </entry>
+  <entry>
+    <title>解决天猫精灵连接Windows10蓝牙时，语音控制会中断媒体播放的问题</title>
+    <url>/2024/08/03/windows05/</url>
+    <content><![CDATA[<p>用天猫精灵当蓝牙音响的时候，遇到个很困扰的问题，每次天猫精灵语音控制的过程中，都会启动&#x2F;暂停电脑中的媒体播放。</p>
+<span id="more"></span>
+
+<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>1.首先蓝牙连接天猫精灵，保持在线状态</p>
+<p>2.打开右键蓝牙设置，在弹出的窗口中选择设备和打印机</p>
+<p>3.在弹出的窗口中，找到天猫精灵，右键打开属性</p>
+<p>4.切换到服务选项卡，把可远程控制的设备和遥控器的勾选去掉</p>
+<p>搬运自<a href="https://www.cnblogs.com/wingsziye/p/13121226.html">这里</a></p>
+]]></content>
+      <categories>
+        <category>Windows</category>
+        <category>蓝牙</category>
+      </categories>
+      <tags>
+        <tag>Windows</tag>
+        <tag>蓝牙</tag>
+      </tags>
+  </entry>
 </search>
