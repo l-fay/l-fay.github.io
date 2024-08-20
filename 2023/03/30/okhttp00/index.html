@@ -1,0 +1,2122 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"l-fay.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="找到了一个用OKhttp进行NTML鉴权的方法。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用OKhttp进行NTLM鉴权">
+<meta property="og:url" content="https://l-fay.github.io/2023/03/30/okhttp00/index.html">
+<meta property="og:site_name" content="兰秋廿柒的博客">
+<meta property="og:description" content="找到了一个用OKhttp进行NTML鉴权的方法。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-03-30T10:20:26.000Z">
+<meta property="article:modified_time" content="2024-08-16T02:31:46.261Z">
+<meta property="article:author" content="兰秋廿柒">
+<meta property="article:tag" content="Java">
+<meta property="article:tag" content="OKhttp">
+<meta property="article:tag" content="NTLM">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://l-fay.github.io/2023/03/30/okhttp00/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>使用OKhttp进行NTLM鉴权 | 兰秋廿柒的博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">兰秋廿柒的博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://l-fay.github.io/2023/03/30/okhttp00/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="兰秋廿柒">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="兰秋廿柒的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          使用OKhttp进行NTLM鉴权
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-03-30 18:20:26" itemprop="dateCreated datePublished" datetime="2023-03-30T18:20:26+08:00">2023-03-30</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-08-16 10:31:46" itemprop="dateModified" datetime="2024-08-16T10:31:46+08:00">2024-08-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/OKhttp/" itemprop="url" rel="index"><span itemprop="name">OKhttp</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%9D%83%E9%99%90%E6%8E%A7%E5%88%B6/" itemprop="url" rel="index"><span itemprop="name">权限控制</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%9D%83%E9%99%90%E6%8E%A7%E5%88%B6/NTLM/" itemprop="url" rel="index"><span itemprop="name">NTLM</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>找到了一个用OKhttp进行NTML鉴权的方法。</p>
+<span id="more"></span>
+
+<p>来自<a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/35620415/how-create-ntlm-authentification-with-retrofit">Stack Overflow</a>。</p>
+<p>总结一下只需要在项目中增加两个文件。</p>
+<p>注意，package不能变，我的理解是这相当于给OKhttp打补丁。</p>
+<p>可以在项目中建一个与java同级的文件夹patch，这样不影响原有结构，也不会报错。</p>
+<h2 id="NTLMAuthenticator-java"><a href="#NTLMAuthenticator-java" class="headerlink" title="NTLMAuthenticator.java"></a>NTLMAuthenticator.java</h2><pre><code>package org.apache.http.impl.auth;
+
+private static class NTLMAuthenticator implements Authenticator &#123;
+    final NTLMEngineImpl engine = new NTLMEngineImpl();
+    private final String domain;
+    private final String username;
+    private final String password;
+    private final String ntlmMsg1;
+
+    private NTLMAuthenticator(String username, String password, String domain) &#123;
+        this.domain = domain;
+        this.username = username;
+        this.password = password;
+        String localNtlmMsg1 = null;
+        try &#123;
+            localNtlmMsg1 = engine.generateType1Msg(null, null);
+        &#125; catch (Exception e) &#123;
+            e.printStackTrace();
+        &#125;
+        ntlmMsg1 = localNtlmMsg1;
+    &#125;
+
+    @Override
+    public Request authenticate(Route route, Response response) throws IOException &#123;
+        final List&lt;String&gt; WWWAuthenticate = response.headers().values(&quot;WWW-Authenticate&quot;);
+        if (WWWAuthenticate.contains(&quot;NTLM&quot;)) &#123;
+            return response.request().newBuilder().header(&quot;Authorization&quot;, &quot;NTLM &quot; + ntlmMsg1).build();
+        &#125;
+        String ntlmMsg3 = null;
+        try &#123;
+            ntlmMsg3 = engine.generateType3Msg(username, password, domain, &quot;android-device&quot;, WWWAuthenticate.get(0).substring(5));
+        &#125; catch (Exception e) &#123;
+            e.printStackTrace();
+        &#125;
+        return response.request().newBuilder().header(&quot;Authorization&quot;, &quot;NTLM &quot; + ntlmMsg3).build();
+    &#125;
+&#125;
+</code></pre>
+<h2 id="NTLMEngineImpl-java"><a href="#NTLMEngineImpl-java" class="headerlink" title="NTLMEngineImpl.java"></a>NTLMEngineImpl.java</h2><pre><code>/*
+ * ====================================================================
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * &quot;License&quot;); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ * ====================================================================
+ *
+ * This software consists of voluntary contributions made by many
+ * individuals on behalf of the Apache Software Foundation.  For more
+ * information on the Apache Software Foundation, please see
+ * &lt;http://www.apache.org/&gt;.
+ *
+ */
+package org.apache.http.impl.auth;
+
+import java.io.UnsupportedEncodingException;
+import java.nio.charset.Charset;
+import java.security.Key;
+import java.security.MessageDigest;
+import java.util.Arrays;
+import java.util.Locale;
+
+import javax.crypto.Cipher;
+import javax.crypto.spec.SecretKeySpec;
+
+import org.apache.commons.codec.binary.Base64;
+import org.apache.http.Consts;
+import org.apache.http.annotation.NotThreadSafe;
+import org.apache.http.util.CharsetUtils;
+import org.apache.http.util.EncodingUtils;
+
+/**
+ * Provides an implementation for NTLMv1, NTLMv2, and NTLM2 Session forms of the NTLM
+ * authentication protocol.
+ *
+ * @since 4.1
+ */
+@NotThreadSafe
+final class NTLMEngineImpl implements NTLMEngine &#123;
+
+    /** Unicode encoding */
+    private static final Charset UNICODE_LITTLE_UNMARKED = CharsetUtils.lookup(&quot;UnicodeLittleUnmarked&quot;);
+    /** Character encoding */
+    private static final Charset DEFAULT_CHARSET = Consts.ASCII;
+
+    // Flags we use; descriptions according to:
+    // http://davenport.sourceforge.net/ntlm.html
+    // and
+    // http://msdn.microsoft.com/en-us/library/cc236650%28v=prot.20%29.aspx
+    protected static final int FLAG_REQUEST_UNICODE_ENCODING = 0x00000001;      // Unicode string encoding requested
+    protected static final int FLAG_REQUEST_TARGET = 0x00000004;                      // Requests target field
+    protected static final int FLAG_REQUEST_SIGN = 0x00000010;  // Requests all messages have a signature attached, in NEGOTIATE message.
+    protected static final int FLAG_REQUEST_SEAL = 0x00000020;  // Request key exchange for message confidentiality in NEGOTIATE message.  MUST be used in conjunction with 56BIT.
+    protected static final int FLAG_REQUEST_LAN_MANAGER_KEY = 0x00000080;    // Request Lan Manager key instead of user session key
+    protected static final int FLAG_REQUEST_NTLMv1 = 0x00000200; // Request NTLMv1 security.  MUST be set in NEGOTIATE and CHALLENGE both
+    protected static final int FLAG_DOMAIN_PRESENT = 0x00001000;        // Domain is present in message
+    protected static final int FLAG_WORKSTATION_PRESENT = 0x00002000;   // Workstation is present in message
+    protected static final int FLAG_REQUEST_ALWAYS_SIGN = 0x00008000;   // Requests a signature block on all messages.  Overridden by REQUEST_SIGN and REQUEST_SEAL.
+    protected static final int FLAG_REQUEST_NTLM2_SESSION = 0x00080000; // From server in challenge, requesting NTLM2 session security
+    protected static final int FLAG_REQUEST_VERSION = 0x02000000;       // Request protocol version
+    protected static final int FLAG_TARGETINFO_PRESENT = 0x00800000;    // From server in challenge message, indicating targetinfo is present
+    protected static final int FLAG_REQUEST_128BIT_KEY_EXCH = 0x20000000; // Request explicit 128-bit key exchange
+    protected static final int FLAG_REQUEST_EXPLICIT_KEY_EXCH = 0x40000000;     // Request explicit key exchange
+    protected static final int FLAG_REQUEST_56BIT_ENCRYPTION = 0x80000000;      // Must be used in conjunction with SEAL
+
+
+    /** Secure random generator */
+    private static final java.security.SecureRandom RND_GEN;
+    static &#123;
+        java.security.SecureRandom rnd = null;
+        try &#123;
+            rnd = java.security.SecureRandom.getInstance(&quot;SHA1PRNG&quot;);
+        &#125; catch (final Exception ignore) &#123;
+        &#125;
+        RND_GEN = rnd;
+    &#125;
+
+    /** The signature string as bytes in the default encoding */
+    private static final byte[] SIGNATURE;
+
+    static &#123;
+        final byte[] bytesWithoutNull = &quot;NTLMSSP&quot;.getBytes(Consts.ASCII);
+        SIGNATURE = new byte[bytesWithoutNull.length + 1];
+        System.arraycopy(bytesWithoutNull, 0, SIGNATURE, 0, bytesWithoutNull.length);
+        SIGNATURE[bytesWithoutNull.length] = (byte) 0x00;
+    &#125;
+
+    private static final String TYPE_1_MESSAGE = new Type1Message().getResponse();
+
+    /**
+     * Returns the response for the given message.
+     *
+     * @param message
+     *            the message that was received from the server.
+     * @param username
+     *            the username to authenticate with.
+     * @param password
+     *            the password to authenticate with.
+     * @param host
+     *            The host.
+     * @param domain
+     *            the NT domain to authenticate in.
+     * @return The response.
+     * @throws org.apache.http.HttpException
+     *             If the messages cannot be retrieved.
+     */
+    static String getResponseFor(final String message, final String username, final String password,
+            final String host, final String domain) throws NTLMEngineException &#123;
+
+        final String response;
+        if (message == null || message.trim().equals(&quot;&quot;)) &#123;
+            response = getType1Message(host, domain);
+        &#125; else &#123;
+            final Type2Message t2m = new Type2Message(message);
+            response = getType3Message(username, password, host, domain, t2m.getChallenge(), t2m
+                    .getFlags(), t2m.getTarget(), t2m.getTargetInfo());
+        &#125;
+        return response;
+    &#125;
+
+    /**
+     * Creates the first message (type 1 message) in the NTLM authentication
+     * sequence. This message includes the user name, domain and host for the
+     * authentication session.
+     *
+     * @param host
+     *            the computer name of the host requesting authentication.
+     * @param domain
+     *            The domain to authenticate with.
+     * @return String the message to add to the HTTP request header.
+     */
+    static String getType1Message(final String host, final String domain) throws NTLMEngineException &#123;
+        // For compatibility reason do not include domain and host in type 1 message
+        //return new Type1Message(domain, host).getResponse();
+        return TYPE_1_MESSAGE;
+    &#125;
+
+    /**
+     * Creates the type 3 message using the given server nonce. The type 3
+     * message includes all the information for authentication, host, domain,
+     * username and the result of encrypting the nonce sent by the server using
+     * the user&#39;s password as the key.
+     *
+     * @param user
+     *            The user name. This should not include the domain name.
+     * @param password
+     *            The password.
+     * @param host
+     *            The host that is originating the authentication request.
+     * @param domain
+     *            The domain to authenticate within.
+     * @param nonce
+     *            the 8 byte array the server sent.
+     * @return The type 3 message.
+     * @throws NTLMEngineException
+     *             If &#123;@encrypt(byte[],byte[])&#125; fails.
+     */
+    static String getType3Message(final String user, final String password, final String host, final String domain,
+            final byte[] nonce, final int type2Flags, final String target, final byte[] targetInformation)
+            throws NTLMEngineException &#123;
+        return new Type3Message(domain, host, user, password, nonce, type2Flags, target,
+                targetInformation).getResponse();
+    &#125;
+
+    /** Strip dot suffix from a name */
+    private static String stripDotSuffix(final String value) &#123;
+        if (value == null) &#123;
+            return null;
+        &#125;
+        final int index = value.indexOf(&quot;.&quot;);
+        if (index != -1) &#123;
+            return value.substring(0, index);
+        &#125;
+        return value;
+    &#125;
+
+    /** Convert host to standard form */
+    private static String convertHost(final String host) &#123;
+        return stripDotSuffix(host);
+    &#125;
+
+    /** Convert domain to standard form */
+    private static String convertDomain(final String domain) &#123;
+        return stripDotSuffix(domain);
+    &#125;
+
+    private static int readULong(final byte[] src, final int index) throws NTLMEngineException &#123;
+        if (src.length &lt; index + 4) &#123;
+            throw new NTLMEngineException(&quot;NTLM authentication - buffer too small for DWORD&quot;);
+        &#125;
+        return (src[index] &amp; 0xff) | ((src[index + 1] &amp; 0xff) &lt;&lt; 8)
+                | ((src[index + 2] &amp; 0xff) &lt;&lt; 16) | ((src[index + 3] &amp; 0xff) &lt;&lt; 24);
+    &#125;
+
+    private static int readUShort(final byte[] src, final int index) throws NTLMEngineException &#123;
+        if (src.length &lt; index + 2) &#123;
+            throw new NTLMEngineException(&quot;NTLM authentication - buffer too small for WORD&quot;);
+        &#125;
+        return (src[index] &amp; 0xff) | ((src[index + 1] &amp; 0xff) &lt;&lt; 8);
+    &#125;
+
+    private static byte[] readSecurityBuffer(final byte[] src, final int index) throws NTLMEngineException &#123;
+        final int length = readUShort(src, index);
+        final int offset = readULong(src, index + 4);
+        if (src.length &lt; offset + length) &#123;
+            throw new NTLMEngineException(
+                    &quot;NTLM authentication - buffer too small for data item&quot;);
+        &#125;
+        final byte[] buffer = new byte[length];
+        System.arraycopy(src, offset, buffer, 0, length);
+        return buffer;
+    &#125;
+
+    /** Calculate a challenge block */
+    private static byte[] makeRandomChallenge() throws NTLMEngineException &#123;
+        if (RND_GEN == null) &#123;
+            throw new NTLMEngineException(&quot;Random generator not available&quot;);
+        &#125;
+        final byte[] rval = new byte[8];
+        synchronized (RND_GEN) &#123;
+            RND_GEN.nextBytes(rval);
+        &#125;
+        return rval;
+    &#125;
+
+    /** Calculate a 16-byte secondary key */
+    private static byte[] makeSecondaryKey() throws NTLMEngineException &#123;
+        if (RND_GEN == null) &#123;
+            throw new NTLMEngineException(&quot;Random generator not available&quot;);
+        &#125;
+        final byte[] rval = new byte[16];
+        synchronized (RND_GEN) &#123;
+            RND_GEN.nextBytes(rval);
+        &#125;
+        return rval;
+    &#125;
+
+    protected static class CipherGen &#123;
+
+        protected final String domain;
+        protected final String user;
+        protected final String password;
+        protected final byte[] challenge;
+        protected final String target;
+        protected final byte[] targetInformation;
+
+        // Information we can generate but may be passed in (for testing)
+        protected byte[] clientChallenge;
+        protected byte[] clientChallenge2;
+        protected byte[] secondaryKey;
+        protected byte[] timestamp;
+
+        // Stuff we always generate
+        protected byte[] lmHash = null;
+        protected byte[] lmResponse = null;
+        protected byte[] ntlmHash = null;
+        protected byte[] ntlmResponse = null;
+        protected byte[] ntlmv2Hash = null;
+        protected byte[] lmv2Hash = null;
+        protected byte[] lmv2Response = null;
+        protected byte[] ntlmv2Blob = null;
+        protected byte[] ntlmv2Response = null;
+        protected byte[] ntlm2SessionResponse = null;
+        protected byte[] lm2SessionResponse = null;
+        protected byte[] lmUserSessionKey = null;
+        protected byte[] ntlmUserSessionKey = null;
+        protected byte[] ntlmv2UserSessionKey = null;
+        protected byte[] ntlm2SessionResponseUserSessionKey = null;
+        protected byte[] lanManagerSessionKey = null;
+
+        public CipherGen(final String domain, final String user, final String password,
+            final byte[] challenge, final String target, final byte[] targetInformation,
+            final byte[] clientChallenge, final byte[] clientChallenge2,
+            final byte[] secondaryKey, final byte[] timestamp) &#123;
+            this.domain = domain;
+            this.target = target;
+            this.user = user;
+            this.password = password;
+            this.challenge = challenge;
+            this.targetInformation = targetInformation;
+            this.clientChallenge = clientChallenge;
+            this.clientChallenge2 = clientChallenge2;
+            this.secondaryKey = secondaryKey;
+            this.timestamp = timestamp;
+        &#125;
+
+        public CipherGen(final String domain, final String user, final String password,
+            final byte[] challenge, final String target, final byte[] targetInformation) &#123;
+            this(domain, user, password, challenge, target, targetInformation, null, null, null, null);
+        &#125;
+
+        /** Calculate and return client challenge */
+        public byte[] getClientChallenge()
+            throws NTLMEngineException &#123;
+            if (clientChallenge == null) &#123;
+                clientChallenge = makeRandomChallenge();
+            &#125;
+            return clientChallenge;
+        &#125;
+
+        /** Calculate and return second client challenge */
+        public byte[] getClientChallenge2()
+            throws NTLMEngineException &#123;
+            if (clientChallenge2 == null) &#123;
+                clientChallenge2 = makeRandomChallenge();
+            &#125;
+            return clientChallenge2;
+        &#125;
+
+        /** Calculate and return random secondary key */
+        public byte[] getSecondaryKey()
+            throws NTLMEngineException &#123;
+            if (secondaryKey == null) &#123;
+                secondaryKey = makeSecondaryKey();
+            &#125;
+            return secondaryKey;
+        &#125;
+
+        /** Calculate and return the LMHash */
+        public byte[] getLMHash()
+            throws NTLMEngineException &#123;
+            if (lmHash == null) &#123;
+                lmHash = lmHash(password);
+            &#125;
+            return lmHash;
+        &#125;
+
+        /** Calculate and return the LMResponse */
+        public byte[] getLMResponse()
+            throws NTLMEngineException &#123;
+            if (lmResponse == null) &#123;
+                lmResponse = lmResponse(getLMHash(),challenge);
+            &#125;
+            return lmResponse;
+        &#125;
+
+        /** Calculate and return the NTLMHash */
+        public byte[] getNTLMHash()
+            throws NTLMEngineException &#123;
+            if (ntlmHash == null) &#123;
+                ntlmHash = ntlmHash(password);
+            &#125;
+            return ntlmHash;
+        &#125;
+
+        /** Calculate and return the NTLMResponse */
+        public byte[] getNTLMResponse()
+            throws NTLMEngineException &#123;
+            if (ntlmResponse == null) &#123;
+                ntlmResponse = lmResponse(getNTLMHash(),challenge);
+            &#125;
+            return ntlmResponse;
+        &#125;
+
+        /** Calculate the LMv2 hash */
+        public byte[] getLMv2Hash()
+            throws NTLMEngineException &#123;
+            if (lmv2Hash == null) &#123;
+                lmv2Hash = lmv2Hash(domain, user, getNTLMHash());
+            &#125;
+            return lmv2Hash;
+        &#125;
+
+        /** Calculate the NTLMv2 hash */
+        public byte[] getNTLMv2Hash()
+            throws NTLMEngineException &#123;
+            if (ntlmv2Hash == null) &#123;
+                ntlmv2Hash = ntlmv2Hash(domain, user, getNTLMHash());
+            &#125;
+            return ntlmv2Hash;
+        &#125;
+
+        /** Calculate a timestamp */
+        public byte[] getTimestamp() &#123;
+            if (timestamp == null) &#123;
+                long time = System.currentTimeMillis();
+                time += 11644473600000l; // milliseconds from January 1, 1601 -&gt; epoch.
+                time *= 10000; // tenths of a microsecond.
+                // convert to little-endian byte array.
+                timestamp = new byte[8];
+                for (int i = 0; i &lt; 8; i++) &#123;
+                    timestamp[i] = (byte) time;
+                    time &gt;&gt;&gt;= 8;
+                &#125;
+            &#125;
+            return timestamp;
+        &#125;
+
+        /** Calculate the NTLMv2Blob */
+        public byte[] getNTLMv2Blob()
+            throws NTLMEngineException &#123;
+            if (ntlmv2Blob == null) &#123;
+                ntlmv2Blob = createBlob(getClientChallenge2(), targetInformation, getTimestamp());
+            &#125;
+            return ntlmv2Blob;
+        &#125;
+
+        /** Calculate the NTLMv2Response */
+        public byte[] getNTLMv2Response()
+            throws NTLMEngineException &#123;
+            if (ntlmv2Response == null) &#123;
+                ntlmv2Response = lmv2Response(getNTLMv2Hash(),challenge,getNTLMv2Blob());
+            &#125;
+            return ntlmv2Response;
+        &#125;
+
+        /** Calculate the LMv2Response */
+        public byte[] getLMv2Response()
+            throws NTLMEngineException &#123;
+            if (lmv2Response == null) &#123;
+                lmv2Response = lmv2Response(getLMv2Hash(),challenge,getClientChallenge());
+            &#125;
+            return lmv2Response;
+        &#125;
+
+        /** Get NTLM2SessionResponse */
+        public byte[] getNTLM2SessionResponse()
+            throws NTLMEngineException &#123;
+            if (ntlm2SessionResponse == null) &#123;
+                ntlm2SessionResponse = ntlm2SessionResponse(getNTLMHash(),challenge,getClientChallenge());
+            &#125;
+            return ntlm2SessionResponse;
+        &#125;
+
+        /** Calculate and return LM2 session response */
+        public byte[] getLM2SessionResponse()
+            throws NTLMEngineException &#123;
+            if (lm2SessionResponse == null) &#123;
+                final byte[] clntChallenge = getClientChallenge();
+                lm2SessionResponse = new byte[24];
+                System.arraycopy(clntChallenge, 0, lm2SessionResponse, 0, clntChallenge.length);
+                Arrays.fill(lm2SessionResponse, clntChallenge.length, lm2SessionResponse.length, (byte) 0x00);
+            &#125;
+            return lm2SessionResponse;
+        &#125;
+
+        /** Get LMUserSessionKey */
+        public byte[] getLMUserSessionKey()
+            throws NTLMEngineException &#123;
+            if (lmUserSessionKey == null) &#123;
+                lmUserSessionKey = new byte[16];
+                System.arraycopy(getLMHash(), 0, lmUserSessionKey, 0, 8);
+                Arrays.fill(lmUserSessionKey, 8, 16, (byte) 0x00);
+            &#125;
+            return lmUserSessionKey;
+        &#125;
+
+        /** Get NTLMUserSessionKey */
+        public byte[] getNTLMUserSessionKey()
+            throws NTLMEngineException &#123;
+            if (ntlmUserSessionKey == null) &#123;
+                final MD4 md4 = new MD4();
+                md4.update(getNTLMHash());
+                ntlmUserSessionKey = md4.getOutput();
+            &#125;
+            return ntlmUserSessionKey;
+        &#125;
+
+        /** GetNTLMv2UserSessionKey */
+        public byte[] getNTLMv2UserSessionKey()
+            throws NTLMEngineException &#123;
+            if (ntlmv2UserSessionKey == null) &#123;
+                final byte[] ntlmv2hash = getNTLMv2Hash();
+                final byte[] truncatedResponse = new byte[16];
+                System.arraycopy(getNTLMv2Response(), 0, truncatedResponse, 0, 16);
+                ntlmv2UserSessionKey = hmacMD5(truncatedResponse, ntlmv2hash);
+            &#125;
+            return ntlmv2UserSessionKey;
+        &#125;
+
+        /** Get NTLM2SessionResponseUserSessionKey */
+        public byte[] getNTLM2SessionResponseUserSessionKey()
+            throws NTLMEngineException &#123;
+            if (ntlm2SessionResponseUserSessionKey == null) &#123;
+                final byte[] ntlm2SessionResponseNonce = getLM2SessionResponse();
+                final byte[] sessionNonce = new byte[challenge.length + ntlm2SessionResponseNonce.length];
+                System.arraycopy(challenge, 0, sessionNonce, 0, challenge.length);
+                System.arraycopy(ntlm2SessionResponseNonce, 0, sessionNonce, challenge.length, ntlm2SessionResponseNonce.length);
+                ntlm2SessionResponseUserSessionKey = hmacMD5(sessionNonce,getNTLMUserSessionKey());
+            &#125;
+            return ntlm2SessionResponseUserSessionKey;
+        &#125;
+
+        /** Get LAN Manager session key */
+        public byte[] getLanManagerSessionKey()
+            throws NTLMEngineException &#123;
+            if (lanManagerSessionKey == null) &#123;
+                try &#123;
+                    final byte[] keyBytes = new byte[14];
+                    System.arraycopy(getLMHash(), 0, keyBytes, 0, 8);
+                    Arrays.fill(keyBytes, 8, keyBytes.length, (byte)0xbd);
+                    final Key lowKey = createDESKey(keyBytes, 0);
+                    final Key highKey = createDESKey(keyBytes, 7);
+                    final byte[] truncatedResponse = new byte[8];
+                    System.arraycopy(getLMResponse(), 0, truncatedResponse, 0, truncatedResponse.length);
+                    Cipher des = Cipher.getInstance(&quot;DES/ECB/NoPadding&quot;);
+                    des.init(Cipher.ENCRYPT_MODE, lowKey);
+                    final byte[] lowPart = des.doFinal(truncatedResponse);
+                    des = Cipher.getInstance(&quot;DES/ECB/NoPadding&quot;);
+                    des.init(Cipher.ENCRYPT_MODE, highKey);
+                    final byte[] highPart = des.doFinal(truncatedResponse);
+                    lanManagerSessionKey = new byte[16];
+                    System.arraycopy(lowPart, 0, lanManagerSessionKey, 0, lowPart.length);
+                    System.arraycopy(highPart, 0, lanManagerSessionKey, lowPart.length, highPart.length);
+                &#125; catch (final Exception e) &#123;
+                    throw new NTLMEngineException(e.getMessage(), e);
+                &#125;
+            &#125;
+            return lanManagerSessionKey;
+        &#125;
+    &#125;
+
+    /** Calculates HMAC-MD5 */
+    static byte[] hmacMD5(final byte[] value, final byte[] key)
+        throws NTLMEngineException &#123;
+        final HMACMD5 hmacMD5 = new HMACMD5(key);
+        hmacMD5.update(value);
+        return hmacMD5.getOutput();
+    &#125;
+
+    /** Calculates RC4 */
+    static byte[] RC4(final byte[] value, final byte[] key)
+        throws NTLMEngineException &#123;
+        try &#123;
+            final Cipher rc4 = Cipher.getInstance(&quot;RC4&quot;);
+            rc4.init(Cipher.ENCRYPT_MODE, new SecretKeySpec(key, &quot;RC4&quot;));
+            return rc4.doFinal(value);
+        &#125; catch (final Exception e) &#123;
+            throw new NTLMEngineException(e.getMessage(), e);
+        &#125;
+    &#125;
+
+    /**
+     * Calculates the NTLM2 Session Response for the given challenge, using the
+     * specified password and client challenge.
+     *
+     * @return The NTLM2 Session Response. This is placed in the NTLM response
+     *         field of the Type 3 message; the LM response field contains the
+     *         client challenge, null-padded to 24 bytes.
+     */
+    static byte[] ntlm2SessionResponse(final byte[] ntlmHash, final byte[] challenge,
+            final byte[] clientChallenge) throws NTLMEngineException &#123;
+        try &#123;
+            final MessageDigest md5 = MessageDigest.getInstance(&quot;MD5&quot;);
+            md5.update(challenge);
+            md5.update(clientChallenge);
+            final byte[] digest = md5.digest();
+
+            final byte[] sessionHash = new byte[8];
+            System.arraycopy(digest, 0, sessionHash, 0, 8);
+            return lmResponse(ntlmHash, sessionHash);
+        &#125; catch (final Exception e) &#123;
+            if (e instanceof NTLMEngineException) &#123;
+                throw (NTLMEngineException) e;
+            &#125;
+            throw new NTLMEngineException(e.getMessage(), e);
+        &#125;
+    &#125;
+
+    /**
+     * Creates the LM Hash of the user&#39;s password.
+     *
+     * @param password
+     *            The password.
+     *
+     * @return The LM Hash of the given password, used in the calculation of the
+     *         LM Response.
+     */
+    private static byte[] lmHash(final String password) throws NTLMEngineException &#123;
+        try &#123;
+            final byte[] oemPassword = password.toUpperCase(Locale.ROOT).getBytes(Consts.ASCII);
+            final int length = Math.min(oemPassword.length, 14);
+            final byte[] keyBytes = new byte[14];
+            System.arraycopy(oemPassword, 0, keyBytes, 0, length);
+            final Key lowKey = createDESKey(keyBytes, 0);
+            final Key highKey = createDESKey(keyBytes, 7);
+            final byte[] magicConstant = &quot;KGS!@#$%&quot;.getBytes(Consts.ASCII);
+            final Cipher des = Cipher.getInstance(&quot;DES/ECB/NoPadding&quot;);
+            des.init(Cipher.ENCRYPT_MODE, lowKey);
+            final byte[] lowHash = des.doFinal(magicConstant);
+            des.init(Cipher.ENCRYPT_MODE, highKey);
+            final byte[] highHash = des.doFinal(magicConstant);
+            final byte[] lmHash = new byte[16];
+            System.arraycopy(lowHash, 0, lmHash, 0, 8);
+            System.arraycopy(highHash, 0, lmHash, 8, 8);
+            return lmHash;
+        &#125; catch (final Exception e) &#123;
+            throw new NTLMEngineException(e.getMessage(), e);
+        &#125;
+    &#125;
+
+    /**
+     * Creates the NTLM Hash of the user&#39;s password.
+     *
+     * @param password
+     *            The password.
+     *
+     * @return The NTLM Hash of the given password, used in the calculation of
+     *         the NTLM Response and the NTLMv2 and LMv2 Hashes.
+     */
+    private static byte[] ntlmHash(final String password) throws NTLMEngineException &#123;
+        if (UNICODE_LITTLE_UNMARKED == null) &#123;
+            throw new NTLMEngineException(&quot;Unicode not supported&quot;);
+        &#125;
+        final byte[] unicodePassword = password.getBytes(UNICODE_LITTLE_UNMARKED);
+        final MD4 md4 = new MD4();
+        md4.update(unicodePassword);
+        return md4.getOutput();
+    &#125;
+
+    /**
+     * Creates the LMv2 Hash of the user&#39;s password.
+     *
+     * @return The LMv2 Hash, used in the calculation of the NTLMv2 and LMv2
+     *         Responses.
+     */
+    private static byte[] lmv2Hash(final String domain, final String user, final byte[] ntlmHash)
+            throws NTLMEngineException &#123;
+        if (UNICODE_LITTLE_UNMARKED == null) &#123;
+            throw new NTLMEngineException(&quot;Unicode not supported&quot;);
+        &#125;
+        final HMACMD5 hmacMD5 = new HMACMD5(ntlmHash);
+        // Upper case username, upper case domain!
+        hmacMD5.update(user.toUpperCase(Locale.ROOT).getBytes(UNICODE_LITTLE_UNMARKED));
+        if (domain != null) &#123;
+            hmacMD5.update(domain.toUpperCase(Locale.ROOT).getBytes(UNICODE_LITTLE_UNMARKED));
+        &#125;
+        return hmacMD5.getOutput();
+    &#125;
+
+    /**
+     * Creates the NTLMv2 Hash of the user&#39;s password.
+     *
+     * @return The NTLMv2 Hash, used in the calculation of the NTLMv2 and LMv2
+     *         Responses.
+     */
+    private static byte[] ntlmv2Hash(final String domain, final String user, final byte[] ntlmHash)
+            throws NTLMEngineException &#123;
+        if (UNICODE_LITTLE_UNMARKED == null) &#123;
+            throw new NTLMEngineException(&quot;Unicode not supported&quot;);
+        &#125;
+        final HMACMD5 hmacMD5 = new HMACMD5(ntlmHash);
+        // Upper case username, mixed case target!!
+        hmacMD5.update(user.toUpperCase(Locale.ROOT).getBytes(UNICODE_LITTLE_UNMARKED));
+        if (domain != null) &#123;
+            hmacMD5.update(domain.getBytes(UNICODE_LITTLE_UNMARKED));
+        &#125;
+        return hmacMD5.getOutput();
+    &#125;
+
+    /**
+     * Creates the LM Response from the given hash and Type 2 challenge.
+     *
+     * @param hash
+     *            The LM or NTLM Hash.
+     * @param challenge
+     *            The server challenge from the Type 2 message.
+     *
+     * @return The response (either LM or NTLM, depending on the provided hash).
+     */
+    private static byte[] lmResponse(final byte[] hash, final byte[] challenge) throws NTLMEngineException &#123;
+        try &#123;
+            final byte[] keyBytes = new byte[21];
+            System.arraycopy(hash, 0, keyBytes, 0, 16);
+            final Key lowKey = createDESKey(keyBytes, 0);
+            final Key middleKey = createDESKey(keyBytes, 7);
+            final Key highKey = createDESKey(keyBytes, 14);
+            final Cipher des = Cipher.getInstance(&quot;DES/ECB/NoPadding&quot;);
+            des.init(Cipher.ENCRYPT_MODE, lowKey);
+            final byte[] lowResponse = des.doFinal(challenge);
+            des.init(Cipher.ENCRYPT_MODE, middleKey);
+            final byte[] middleResponse = des.doFinal(challenge);
+            des.init(Cipher.ENCRYPT_MODE, highKey);
+            final byte[] highResponse = des.doFinal(challenge);
+            final byte[] lmResponse = new byte[24];
+            System.arraycopy(lowResponse, 0, lmResponse, 0, 8);
+            System.arraycopy(middleResponse, 0, lmResponse, 8, 8);
+            System.arraycopy(highResponse, 0, lmResponse, 16, 8);
+            return lmResponse;
+        &#125; catch (final Exception e) &#123;
+            throw new NTLMEngineException(e.getMessage(), e);
+        &#125;
+    &#125;
+
+    /**
+     * Creates the LMv2 Response from the given hash, client data, and Type 2
+     * challenge.
+     *
+     * @param hash
+     *            The NTLMv2 Hash.
+     * @param clientData
+     *            The client data (blob or client challenge).
+     * @param challenge
+     *            The server challenge from the Type 2 message.
+     *
+     * @return The response (either NTLMv2 or LMv2, depending on the client
+     *         data).
+     */
+    private static byte[] lmv2Response(final byte[] hash, final byte[] challenge, final byte[] clientData)
+            throws NTLMEngineException &#123;
+        final HMACMD5 hmacMD5 = new HMACMD5(hash);
+        hmacMD5.update(challenge);
+        hmacMD5.update(clientData);
+        final byte[] mac = hmacMD5.getOutput();
+        final byte[] lmv2Response = new byte[mac.length + clientData.length];
+        System.arraycopy(mac, 0, lmv2Response, 0, mac.length);
+        System.arraycopy(clientData, 0, lmv2Response, mac.length, clientData.length);
+        return lmv2Response;
+    &#125;
+
+    /**
+     * Creates the NTLMv2 blob from the given target information block and
+     * client challenge.
+     *
+     * @param targetInformation
+     *            The target information block from the Type 2 message.
+     * @param clientChallenge
+     *            The random 8-byte client challenge.
+     *
+     * @return The blob, used in the calculation of the NTLMv2 Response.
+     */
+    private static byte[] createBlob(final byte[] clientChallenge, final byte[] targetInformation, final byte[] timestamp) &#123;
+        final byte[] blobSignature = new byte[] &#123; (byte) 0x01, (byte) 0x01, (byte) 0x00, (byte) 0x00 &#125;;
+        final byte[] reserved = new byte[] &#123; (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00 &#125;;
+        final byte[] unknown1 = new byte[] &#123; (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00 &#125;;
+        final byte[] unknown2 = new byte[] &#123; (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00 &#125;;
+        final byte[] blob = new byte[blobSignature.length + reserved.length + timestamp.length + 8
+                + unknown1.length + targetInformation.length + unknown2.length];
+        int offset = 0;
+        System.arraycopy(blobSignature, 0, blob, offset, blobSignature.length);
+        offset += blobSignature.length;
+        System.arraycopy(reserved, 0, blob, offset, reserved.length);
+        offset += reserved.length;
+        System.arraycopy(timestamp, 0, blob, offset, timestamp.length);
+        offset += timestamp.length;
+        System.arraycopy(clientChallenge, 0, blob, offset, 8);
+        offset += 8;
+        System.arraycopy(unknown1, 0, blob, offset, unknown1.length);
+        offset += unknown1.length;
+        System.arraycopy(targetInformation, 0, blob, offset, targetInformation.length);
+        offset += targetInformation.length;
+        System.arraycopy(unknown2, 0, blob, offset, unknown2.length);
+        offset += unknown2.length;
+        return blob;
+    &#125;
+
+    /**
+     * Creates a DES encryption key from the given key material.
+     *
+     * @param bytes
+     *            A byte array containing the DES key material.
+     * @param offset
+     *            The offset in the given byte array at which the 7-byte key
+     *            material starts.
+     *
+     * @return A DES encryption key created from the key material starting at
+     *         the specified offset in the given byte array.
+     */
+    private static Key createDESKey(final byte[] bytes, final int offset) &#123;
+        final byte[] keyBytes = new byte[7];
+        System.arraycopy(bytes, offset, keyBytes, 0, 7);
+        final byte[] material = new byte[8];
+        material[0] = keyBytes[0];
+        material[1] = (byte) (keyBytes[0] &lt;&lt; 7 | (keyBytes[1] &amp; 0xff) &gt;&gt;&gt; 1);
+        material[2] = (byte) (keyBytes[1] &lt;&lt; 6 | (keyBytes[2] &amp; 0xff) &gt;&gt;&gt; 2);
+        material[3] = (byte) (keyBytes[2] &lt;&lt; 5 | (keyBytes[3] &amp; 0xff) &gt;&gt;&gt; 3);
+        material[4] = (byte) (keyBytes[3] &lt;&lt; 4 | (keyBytes[4] &amp; 0xff) &gt;&gt;&gt; 4);
+        material[5] = (byte) (keyBytes[4] &lt;&lt; 3 | (keyBytes[5] &amp; 0xff) &gt;&gt;&gt; 5);
+        material[6] = (byte) (keyBytes[5] &lt;&lt; 2 | (keyBytes[6] &amp; 0xff) &gt;&gt;&gt; 6);
+        material[7] = (byte) (keyBytes[6] &lt;&lt; 1);
+        oddParity(material);
+        return new SecretKeySpec(material, &quot;DES&quot;);
+    &#125;
+
+    /**
+     * Applies odd parity to the given byte array.
+     *
+     * @param bytes
+     *            The data whose parity bits are to be adjusted for odd parity.
+     */
+    private static void oddParity(final byte[] bytes) &#123;
+        for (int i = 0; i &lt; bytes.length; i++) &#123;
+            final byte b = bytes[i];
+            final boolean needsParity = (((b &gt;&gt;&gt; 7) ^ (b &gt;&gt;&gt; 6) ^ (b &gt;&gt;&gt; 5) ^ (b &gt;&gt;&gt; 4) ^ (b &gt;&gt;&gt; 3)
+                    ^ (b &gt;&gt;&gt; 2) ^ (b &gt;&gt;&gt; 1)) &amp; 0x01) == 0;
+            if (needsParity) &#123;
+                bytes[i] |= (byte) 0x01;
+            &#125; else &#123;
+                bytes[i] &amp;= (byte) 0xfe;
+            &#125;
+        &#125;
+    &#125;
+
+    /** NTLM message generation, base class */
+    static class NTLMMessage &#123;
+        /** The current response */
+        private byte[] messageContents = null;
+
+        /** The current output position */
+        private int currentOutputPosition = 0;
+
+        /** Constructor to use when message contents are not yet known */
+        NTLMMessage() &#123;
+        &#125;
+
+        /** Constructor to use when message contents are known */
+        NTLMMessage(final String messageBody, final int expectedType) throws NTLMEngineException &#123;
+            messageContents = Base64.decodeBase64(messageBody.getBytes(DEFAULT_CHARSET));
+            // Look for NTLM message
+            if (messageContents.length &lt; SIGNATURE.length) &#123;
+                throw new NTLMEngineException(&quot;NTLM message decoding error - packet too short&quot;);
+            &#125;
+            int i = 0;
+            while (i &lt; SIGNATURE.length) &#123;
+                if (messageContents[i] != SIGNATURE[i]) &#123;
+                    throw new NTLMEngineException(
+                            &quot;NTLM message expected - instead got unrecognized bytes&quot;);
+                &#125;
+                i++;
+            &#125;
+
+            // Check to be sure there&#39;s a type 2 message indicator next
+            final int type = readULong(SIGNATURE.length);
+            if (type != expectedType) &#123;
+                throw new NTLMEngineException(&quot;NTLM type &quot; + Integer.toString(expectedType)
+                        + &quot; message expected - instead got type &quot; + Integer.toString(type));
+            &#125;
+
+            currentOutputPosition = messageContents.length;
+        &#125;
+
+        /**
+         * Get the length of the signature and flags, so calculations can adjust
+         * offsets accordingly.
+         */
+        protected int getPreambleLength() &#123;
+            return SIGNATURE.length + 4;
+        &#125;
+
+        /** Get the message length */
+        protected int getMessageLength() &#123;
+            return currentOutputPosition;
+        &#125;
+
+        /** Read a byte from a position within the message buffer */
+        protected byte readByte(final int position) throws NTLMEngineException &#123;
+            if (messageContents.length &lt; position + 1) &#123;
+                throw new NTLMEngineException(&quot;NTLM: Message too short&quot;);
+            &#125;
+            return messageContents[position];
+        &#125;
+
+        /** Read a bunch of bytes from a position in the message buffer */
+        protected void readBytes(final byte[] buffer, final int position) throws NTLMEngineException &#123;
+            if (messageContents.length &lt; position + buffer.length) &#123;
+                throw new NTLMEngineException(&quot;NTLM: Message too short&quot;);
+            &#125;
+            System.arraycopy(messageContents, position, buffer, 0, buffer.length);
+        &#125;
+
+        /** Read a ushort from a position within the message buffer */
+        protected int readUShort(final int position) throws NTLMEngineException &#123;
+            return NTLMEngineImpl.readUShort(messageContents, position);
+        &#125;
+
+        /** Read a ulong from a position within the message buffer */
+        protected int readULong(final int position) throws NTLMEngineException &#123;
+            return NTLMEngineImpl.readULong(messageContents, position);
+        &#125;
+
+        /** Read a security buffer from a position within the message buffer */
+        protected byte[] readSecurityBuffer(final int position) throws NTLMEngineException &#123;
+            return NTLMEngineImpl.readSecurityBuffer(messageContents, position);
+        &#125;
+
+        /**
+         * Prepares the object to create a response of the given length.
+         *
+         * @param maxlength
+         *            the maximum length of the response to prepare, not
+         *            including the type and the signature (which this method
+         *            adds).
+         */
+        protected void prepareResponse(final int maxlength, final int messageType) &#123;
+            messageContents = new byte[maxlength];
+            currentOutputPosition = 0;
+            addBytes(SIGNATURE);
+            addULong(messageType);
+        &#125;
+
+        /**
+         * Adds the given byte to the response.
+         *
+         * @param b
+         *            the byte to add.
+         */
+        protected void addByte(final byte b) &#123;
+            messageContents[currentOutputPosition] = b;
+            currentOutputPosition++;
+        &#125;
+
+        /**
+         * Adds the given bytes to the response.
+         *
+         * @param bytes
+         *            the bytes to add.
+         */
+        protected void addBytes(final byte[] bytes) &#123;
+            if (bytes == null) &#123;
+                return;
+            &#125;
+            for (final byte b : bytes) &#123;
+                messageContents[currentOutputPosition] = b;
+                currentOutputPosition++;
+            &#125;
+        &#125;
+
+        /** Adds a USHORT to the response */
+        protected void addUShort(final int value) &#123;
+            addByte((byte) (value &amp; 0xff));
+            addByte((byte) (value &gt;&gt; 8 &amp; 0xff));
+        &#125;
+
+        /** Adds a ULong to the response */
+        protected void addULong(final int value) &#123;
+            addByte((byte) (value &amp; 0xff));
+            addByte((byte) (value &gt;&gt; 8 &amp; 0xff));
+            addByte((byte) (value &gt;&gt; 16 &amp; 0xff));
+            addByte((byte) (value &gt;&gt; 24 &amp; 0xff));
+        &#125;
+
+        /**
+         * Returns the response that has been generated after shrinking the
+         * array if required and base64 encodes the response.
+         *
+         * @return The response as above.
+         */
+        String getResponse() &#123;
+            final byte[] resp;
+            if (messageContents.length &gt; currentOutputPosition) &#123;
+                final byte[] tmp = new byte[currentOutputPosition];
+                System.arraycopy(messageContents, 0, tmp, 0, currentOutputPosition);
+                resp = tmp;
+            &#125; else &#123;
+                resp = messageContents;
+            &#125;
+            return EncodingUtils.getAsciiString(Base64.encodeBase64(resp));
+        &#125;
+
+    &#125;
+
+    /** Type 1 message assembly class */
+    static class Type1Message extends NTLMMessage &#123;
+
+        private final byte[] hostBytes;
+        private final byte[] domainBytes;
+
+        Type1Message(final String domain, final String host) throws NTLMEngineException &#123;
+            super();
+            if (UNICODE_LITTLE_UNMARKED == null) &#123;
+                throw new NTLMEngineException(&quot;Unicode not supported&quot;);
+            &#125;
+            // Strip off domain name from the host!
+            final String unqualifiedHost = convertHost(host);
+            // Use only the base domain name!
+            final String unqualifiedDomain = convertDomain(domain);
+
+            hostBytes = unqualifiedHost != null ?
+                    unqualifiedHost.getBytes(UNICODE_LITTLE_UNMARKED) : null;
+            domainBytes = unqualifiedDomain != null ?
+                    unqualifiedDomain.toUpperCase(Locale.ROOT).getBytes(UNICODE_LITTLE_UNMARKED) : null;
+        &#125;
+
+        Type1Message() &#123;
+            super();
+            hostBytes = null;
+            domainBytes = null;
+        &#125;
+        /**
+         * Getting the response involves building the message before returning
+         * it
+         */
+        @Override
+        String getResponse() &#123;
+            // Now, build the message. Calculate its length first, including
+            // signature or type.
+            final int finalLength = 32 + 8 /*+ hostBytes.length + domainBytes.length */;
+
+            // Set up the response. This will initialize the signature, message
+            // type, and flags.
+            prepareResponse(finalLength, 1);
+
+            // Flags. These are the complete set of flags we support.
+            addULong(
+                    //FLAG_WORKSTATION_PRESENT |
+                    //FLAG_DOMAIN_PRESENT |
+
+                    // Required flags
+                    //FLAG_REQUEST_LAN_MANAGER_KEY |
+                    FLAG_REQUEST_NTLMv1 |
+                    FLAG_REQUEST_NTLM2_SESSION |
+
+                    // Protocol version request
+                    FLAG_REQUEST_VERSION |
+
+                    // Recommended privacy settings
+                    FLAG_REQUEST_ALWAYS_SIGN |
+                    //FLAG_REQUEST_SEAL |
+                    //FLAG_REQUEST_SIGN |
+
+                    // These must be set according to documentation, based on use of SEAL above
+                    FLAG_REQUEST_128BIT_KEY_EXCH |
+                    FLAG_REQUEST_56BIT_ENCRYPTION |
+                    //FLAG_REQUEST_EXPLICIT_KEY_EXCH |
+
+                    FLAG_REQUEST_UNICODE_ENCODING);
+
+            // Domain length (two times).
+            addUShort(/*domainBytes.length*/0);
+            addUShort(/*domainBytes.length*/0);
+
+            // Domain offset.
+            addULong(/*hostBytes.length +*/ 32 + 8);
+
+            // Host length (two times).
+            addUShort(/*hostBytes.length*/0);
+            addUShort(/*hostBytes.length*/0);
+
+            // Host offset (always 32 + 8).
+            addULong(32 + 8);
+
+            // Version
+            addUShort(0x0105);
+            // Build
+            addULong(2600);
+            // NTLM revision
+            addUShort(0x0f00);
+
+            // Host (workstation) String.
+            if (hostBytes != null) &#123;
+                addBytes(hostBytes);
+            &#125;
+            // Domain String.
+            if (domainBytes != null) &#123;
+                addBytes(domainBytes);
+            &#125;
+
+            return super.getResponse();
+        &#125;
+
+    &#125;
+
+    /** Type 2 message class */
+    static class Type2Message extends NTLMMessage &#123;
+        protected byte[] challenge;
+        protected String target;
+        protected byte[] targetInfo;
+        protected int flags;
+
+        Type2Message(final String message) throws NTLMEngineException &#123;
+            super(message, 2);
+
+            // Type 2 message is laid out as follows:
+            // First 8 bytes: NTLMSSP[0]
+            // Next 4 bytes: Ulong, value 2
+            // Next 8 bytes, starting at offset 12: target field (2 ushort lengths, 1 ulong offset)
+            // Next 4 bytes, starting at offset 20: Flags, e.g. 0x22890235
+            // Next 8 bytes, starting at offset 24: Challenge
+            // Next 8 bytes, starting at offset 32: ??? (8 bytes of zeros)
+            // Next 8 bytes, starting at offset 40: targetinfo field (2 ushort lengths, 1 ulong offset)
+            // Next 2 bytes, major/minor version number (e.g. 0x05 0x02)
+            // Next 8 bytes, build number
+            // Next 2 bytes, protocol version number (e.g. 0x00 0x0f)
+            // Next, various text fields, and a ushort of value 0 at the end
+
+            // Parse out the rest of the info we need from the message
+            // The nonce is the 8 bytes starting from the byte in position 24.
+            challenge = new byte[8];
+            readBytes(challenge, 24);
+
+            flags = readULong(20);
+
+            if ((flags &amp; FLAG_REQUEST_UNICODE_ENCODING) == 0) &#123;
+                throw new NTLMEngineException(
+                        &quot;NTLM type 2 message indicates no support for Unicode. Flags are: &quot;
+                                + Integer.toString(flags));
+            &#125;
+
+            // Do the target!
+            target = null;
+            // The TARGET_DESIRED flag is said to not have understood semantics
+            // in Type2 messages, so use the length of the packet to decide
+            // how to proceed instead
+            if (getMessageLength() &gt;= 12 + 8) &#123;
+                final byte[] bytes = readSecurityBuffer(12);
+                if (bytes.length != 0) &#123;
+                    try &#123;
+                        target = new String(bytes, &quot;UnicodeLittleUnmarked&quot;);
+                    &#125; catch (final UnsupportedEncodingException e) &#123;
+                        throw new NTLMEngineException(e.getMessage(), e);
+                    &#125;
+                &#125;
+            &#125;
+
+            // Do the target info!
+            targetInfo = null;
+            // TARGET_DESIRED flag cannot be relied on, so use packet length
+            if (getMessageLength() &gt;= 40 + 8) &#123;
+                final byte[] bytes = readSecurityBuffer(40);
+                if (bytes.length != 0) &#123;
+                    targetInfo = bytes;
+                &#125;
+            &#125;
+        &#125;
+
+        /** Retrieve the challenge */
+        byte[] getChallenge() &#123;
+            return challenge;
+        &#125;
+
+        /** Retrieve the target */
+        String getTarget() &#123;
+            return target;
+        &#125;
+
+        /** Retrieve the target info */
+        byte[] getTargetInfo() &#123;
+            return targetInfo;
+        &#125;
+
+        /** Retrieve the response flags */
+        int getFlags() &#123;
+            return flags;
+        &#125;
+
+    &#125;
+
+    /** Type 3 message assembly class */
+    static class Type3Message extends NTLMMessage &#123;
+        // Response flags from the type2 message
+        protected int type2Flags;
+
+        protected byte[] domainBytes;
+        protected byte[] hostBytes;
+        protected byte[] userBytes;
+
+        protected byte[] lmResp;
+        protected byte[] ntResp;
+        protected byte[] sessionKey;
+
+
+        /** Constructor. Pass the arguments we will need */
+        Type3Message(final String domain, final String host, final String user, final String password, final byte[] nonce,
+                final int type2Flags, final String target, final byte[] targetInformation)
+                throws NTLMEngineException &#123;
+            // Save the flags
+            this.type2Flags = type2Flags;
+
+            // Strip off domain name from the host!
+            final String unqualifiedHost = convertHost(host);
+            // Use only the base domain name!
+            final String unqualifiedDomain = convertDomain(domain);
+
+            // Create a cipher generator class.  Use domain BEFORE it gets modified!
+            final CipherGen gen = new CipherGen(unqualifiedDomain, user, password, nonce, target, targetInformation);
+
+            // Use the new code to calculate the responses, including v2 if that
+            // seems warranted.
+            byte[] userSessionKey;
+            try &#123;
+                // This conditional may not work on Windows Server 2008 R2 and above, where it has not yet
+                // been tested
+                if (((type2Flags &amp; FLAG_TARGETINFO_PRESENT) != 0) &amp;&amp;
+                    targetInformation != null &amp;&amp; target != null) &#123;
+                    // NTLMv2
+                    ntResp = gen.getNTLMv2Response();
+                    lmResp = gen.getLMv2Response();
+                    if ((type2Flags &amp; FLAG_REQUEST_LAN_MANAGER_KEY) != 0) &#123;
+                        userSessionKey = gen.getLanManagerSessionKey();
+                    &#125; else &#123;
+                        userSessionKey = gen.getNTLMv2UserSessionKey();
+                    &#125;
+                &#125; else &#123;
+                    // NTLMv1
+                    if ((type2Flags &amp; FLAG_REQUEST_NTLM2_SESSION) != 0) &#123;
+                        // NTLM2 session stuff is requested
+                        ntResp = gen.getNTLM2SessionResponse();
+                        lmResp = gen.getLM2SessionResponse();
+                        if ((type2Flags &amp; FLAG_REQUEST_LAN_MANAGER_KEY) != 0) &#123;
+                            userSessionKey = gen.getLanManagerSessionKey();
+                        &#125; else &#123;
+                            userSessionKey = gen.getNTLM2SessionResponseUserSessionKey();
+                        &#125;
+                    &#125; else &#123;
+                        ntResp = gen.getNTLMResponse();
+                        lmResp = gen.getLMResponse();
+                        if ((type2Flags &amp; FLAG_REQUEST_LAN_MANAGER_KEY) != 0) &#123;
+                            userSessionKey = gen.getLanManagerSessionKey();
+                        &#125; else &#123;
+                            userSessionKey = gen.getNTLMUserSessionKey();
+                        &#125;
+                    &#125;
+                &#125;
+            &#125; catch (final NTLMEngineException e) &#123;
+                // This likely means we couldn&#39;t find the MD4 hash algorithm -
+                // fail back to just using LM
+                ntResp = new byte[0];
+                lmResp = gen.getLMResponse();
+                if ((type2Flags &amp; FLAG_REQUEST_LAN_MANAGER_KEY) != 0) &#123;
+                    userSessionKey = gen.getLanManagerSessionKey();
+                &#125; else &#123;
+                    userSessionKey = gen.getLMUserSessionKey();
+                &#125;
+            &#125;
+
+            if ((type2Flags &amp; FLAG_REQUEST_SIGN) != 0) &#123;
+                if ((type2Flags &amp; FLAG_REQUEST_EXPLICIT_KEY_EXCH) != 0) &#123;
+                    sessionKey = RC4(gen.getSecondaryKey(), userSessionKey);
+                &#125; else &#123;
+                    sessionKey = userSessionKey;
+                &#125;
+            &#125; else &#123;
+                sessionKey = null;
+            &#125;
+            if (UNICODE_LITTLE_UNMARKED == null) &#123;
+                throw new NTLMEngineException(&quot;Unicode not supported&quot;);
+            &#125;
+            hostBytes = unqualifiedHost != null ? unqualifiedHost.getBytes(UNICODE_LITTLE_UNMARKED) : null;
+            domainBytes = unqualifiedDomain != null ? unqualifiedDomain
+                    .toUpperCase(Locale.ROOT).getBytes(UNICODE_LITTLE_UNMARKED) : null;
+            userBytes = user.getBytes(UNICODE_LITTLE_UNMARKED);
+        &#125;
+
+        /** Assemble the response */
+        @Override
+        String getResponse() &#123;
+            final int ntRespLen = ntResp.length;
+            final int lmRespLen = lmResp.length;
+
+            final int domainLen = domainBytes != null ? domainBytes.length : 0;
+            final int hostLen = hostBytes != null ? hostBytes.length: 0;
+            final int userLen = userBytes.length;
+            final int sessionKeyLen;
+            if (sessionKey != null) &#123;
+                sessionKeyLen = sessionKey.length;
+            &#125; else &#123;
+                sessionKeyLen = 0;
+            &#125;
+
+            // Calculate the layout within the packet
+            final int lmRespOffset = 72;  // allocate space for the version
+            final int ntRespOffset = lmRespOffset + lmRespLen;
+            final int domainOffset = ntRespOffset + ntRespLen;
+            final int userOffset = domainOffset + domainLen;
+            final int hostOffset = userOffset + userLen;
+            final int sessionKeyOffset = hostOffset + hostLen;
+            final int finalLength = sessionKeyOffset + sessionKeyLen;
+
+            // Start the response. Length includes signature and type
+            prepareResponse(finalLength, 3);
+
+            // LM Resp Length (twice)
+            addUShort(lmRespLen);
+            addUShort(lmRespLen);
+
+            // LM Resp Offset
+            addULong(lmRespOffset);
+
+            // NT Resp Length (twice)
+            addUShort(ntRespLen);
+            addUShort(ntRespLen);
+
+            // NT Resp Offset
+            addULong(ntRespOffset);
+
+            // Domain length (twice)
+            addUShort(domainLen);
+            addUShort(domainLen);
+
+            // Domain offset.
+            addULong(domainOffset);
+
+            // User Length (twice)
+            addUShort(userLen);
+            addUShort(userLen);
+
+            // User offset
+            addULong(userOffset);
+
+            // Host length (twice)
+            addUShort(hostLen);
+            addUShort(hostLen);
+
+            // Host offset
+            addULong(hostOffset);
+
+            // Session key length (twice)
+            addUShort(sessionKeyLen);
+            addUShort(sessionKeyLen);
+
+            // Session key offset
+            addULong(sessionKeyOffset);
+
+            // Flags.
+            addULong(
+                    //FLAG_WORKSTATION_PRESENT |
+                    //FLAG_DOMAIN_PRESENT |
+
+                    // Required flags
+                    (type2Flags &amp; FLAG_REQUEST_LAN_MANAGER_KEY) |
+                    (type2Flags &amp; FLAG_REQUEST_NTLMv1) |
+                    (type2Flags &amp; FLAG_REQUEST_NTLM2_SESSION) |
+
+                    // Protocol version request
+                    FLAG_REQUEST_VERSION |
+
+                    // Recommended privacy settings
+                    (type2Flags &amp; FLAG_REQUEST_ALWAYS_SIGN) |
+                    (type2Flags &amp; FLAG_REQUEST_SEAL) |
+                    (type2Flags &amp; FLAG_REQUEST_SIGN) |
+
+                    // These must be set according to documentation, based on use of SEAL above
+                    (type2Flags &amp; FLAG_REQUEST_128BIT_KEY_EXCH) |
+                    (type2Flags &amp; FLAG_REQUEST_56BIT_ENCRYPTION) |
+                    (type2Flags &amp; FLAG_REQUEST_EXPLICIT_KEY_EXCH) |
+
+                    (type2Flags &amp; FLAG_TARGETINFO_PRESENT) |
+                    (type2Flags &amp; FLAG_REQUEST_UNICODE_ENCODING) |
+                    (type2Flags &amp; FLAG_REQUEST_TARGET)
+            );
+
+            // Version
+            addUShort(0x0105);
+            // Build
+            addULong(2600);
+            // NTLM revision
+            addUShort(0x0f00);
+
+            // Add the actual data
+            addBytes(lmResp);
+            addBytes(ntResp);
+            addBytes(domainBytes);
+            addBytes(userBytes);
+            addBytes(hostBytes);
+            if (sessionKey != null) &#123;
+                addBytes(sessionKey);
+            &#125;
+
+            return super.getResponse();
+        &#125;
+    &#125;
+
+    static void writeULong(final byte[] buffer, final int value, final int offset) &#123;
+        buffer[offset] = (byte) (value &amp; 0xff);
+        buffer[offset + 1] = (byte) (value &gt;&gt; 8 &amp; 0xff);
+        buffer[offset + 2] = (byte) (value &gt;&gt; 16 &amp; 0xff);
+        buffer[offset + 3] = (byte) (value &gt;&gt; 24 &amp; 0xff);
+    &#125;
+
+    static int F(final int x, final int y, final int z) &#123;
+        return ((x &amp; y) | (~x &amp; z));
+    &#125;
+
+    static int G(final int x, final int y, final int z) &#123;
+        return ((x &amp; y) | (x &amp; z) | (y &amp; z));
+    &#125;
+
+    static int H(final int x, final int y, final int z) &#123;
+        return (x ^ y ^ z);
+    &#125;
+
+    static int rotintlft(final int val, final int numbits) &#123;
+        return ((val &lt;&lt; numbits) | (val &gt;&gt;&gt; (32 - numbits)));
+    &#125;
+
+    /**
+     * Cryptography support - MD4. The following class was based loosely on the
+     * RFC and on code found at http://www.cs.umd.edu/~harry/jotp/src/md.java.
+     * Code correctness was verified by looking at MD4.java from the jcifs
+     * library (http://jcifs.samba.org). It was massaged extensively to the
+     * final form found here by Karl Wright (kwright@metacarta.com).
+     */
+    static class MD4 &#123;
+        protected int A = 0x67452301;
+        protected int B = 0xefcdab89;
+        protected int C = 0x98badcfe;
+        protected int D = 0x10325476;
+        protected long count = 0L;
+        protected byte[] dataBuffer = new byte[64];
+
+        MD4() &#123;
+        &#125;
+
+        void update(final byte[] input) &#123;
+            // We always deal with 512 bits at a time. Correspondingly, there is
+            // a buffer 64 bytes long that we write data into until it gets
+            // full.
+            int curBufferPos = (int) (count &amp; 63L);
+            int inputIndex = 0;
+            while (input.length - inputIndex + curBufferPos &gt;= dataBuffer.length) &#123;
+                // We have enough data to do the next step. Do a partial copy
+                // and a transform, updating inputIndex and curBufferPos
+                // accordingly
+                final int transferAmt = dataBuffer.length - curBufferPos;
+                System.arraycopy(input, inputIndex, dataBuffer, curBufferPos, transferAmt);
+                count += transferAmt;
+                curBufferPos = 0;
+                inputIndex += transferAmt;
+                processBuffer();
+            &#125;
+
+            // If there&#39;s anything left, copy it into the buffer and leave it.
+            // We know there&#39;s not enough left to process.
+            if (inputIndex &lt; input.length) &#123;
+                final int transferAmt = input.length - inputIndex;
+                System.arraycopy(input, inputIndex, dataBuffer, curBufferPos, transferAmt);
+                count += transferAmt;
+                curBufferPos += transferAmt;
+            &#125;
+        &#125;
+
+        byte[] getOutput() &#123;
+            // Feed pad/length data into engine. This must round out the input
+            // to a multiple of 512 bits.
+            final int bufferIndex = (int) (count &amp; 63L);
+            final int padLen = (bufferIndex &lt; 56) ? (56 - bufferIndex) : (120 - bufferIndex);
+            final byte[] postBytes = new byte[padLen + 8];
+            // Leading 0x80, specified amount of zero padding, then length in
+            // bits.
+            postBytes[0] = (byte) 0x80;
+            // Fill out the last 8 bytes with the length
+            for (int i = 0; i &lt; 8; i++) &#123;
+                postBytes[padLen + i] = (byte) ((count * 8) &gt;&gt;&gt; (8 * i));
+            &#125;
+
+            // Update the engine
+            update(postBytes);
+
+            // Calculate final result
+            final byte[] result = new byte[16];
+            writeULong(result, A, 0);
+            writeULong(result, B, 4);
+            writeULong(result, C, 8);
+            writeULong(result, D, 12);
+            return result;
+        &#125;
+
+        protected void processBuffer() &#123;
+            // Convert current buffer to 16 ulongs
+            final int[] d = new int[16];
+
+            for (int i = 0; i &lt; 16; i++) &#123;
+                d[i] = (dataBuffer[i * 4] &amp; 0xff) + ((dataBuffer[i * 4 + 1] &amp; 0xff) &lt;&lt; 8)
+                        + ((dataBuffer[i * 4 + 2] &amp; 0xff) &lt;&lt; 16)
+                        + ((dataBuffer[i * 4 + 3] &amp; 0xff) &lt;&lt; 24);
+            &#125;
+
+            // Do a round of processing
+            final int AA = A;
+            final int BB = B;
+            final int CC = C;
+            final int DD = D;
+            round1(d);
+            round2(d);
+            round3(d);
+            A += AA;
+            B += BB;
+            C += CC;
+            D += DD;
+
+        &#125;
+
+        protected void round1(final int[] d) &#123;
+            A = rotintlft((A + F(B, C, D) + d[0]), 3);
+            D = rotintlft((D + F(A, B, C) + d[1]), 7);
+            C = rotintlft((C + F(D, A, B) + d[2]), 11);
+            B = rotintlft((B + F(C, D, A) + d[3]), 19);
+
+            A = rotintlft((A + F(B, C, D) + d[4]), 3);
+            D = rotintlft((D + F(A, B, C) + d[5]), 7);
+            C = rotintlft((C + F(D, A, B) + d[6]), 11);
+            B = rotintlft((B + F(C, D, A) + d[7]), 19);
+
+            A = rotintlft((A + F(B, C, D) + d[8]), 3);
+            D = rotintlft((D + F(A, B, C) + d[9]), 7);
+            C = rotintlft((C + F(D, A, B) + d[10]), 11);
+            B = rotintlft((B + F(C, D, A) + d[11]), 19);
+
+            A = rotintlft((A + F(B, C, D) + d[12]), 3);
+            D = rotintlft((D + F(A, B, C) + d[13]), 7);
+            C = rotintlft((C + F(D, A, B) + d[14]), 11);
+            B = rotintlft((B + F(C, D, A) + d[15]), 19);
+        &#125;
+
+        protected void round2(final int[] d) &#123;
+            A = rotintlft((A + G(B, C, D) + d[0] + 0x5a827999), 3);
+            D = rotintlft((D + G(A, B, C) + d[4] + 0x5a827999), 5);
+            C = rotintlft((C + G(D, A, B) + d[8] + 0x5a827999), 9);
+            B = rotintlft((B + G(C, D, A) + d[12] + 0x5a827999), 13);
+
+            A = rotintlft((A + G(B, C, D) + d[1] + 0x5a827999), 3);
+            D = rotintlft((D + G(A, B, C) + d[5] + 0x5a827999), 5);
+            C = rotintlft((C + G(D, A, B) + d[9] + 0x5a827999), 9);
+            B = rotintlft((B + G(C, D, A) + d[13] + 0x5a827999), 13);
+
+            A = rotintlft((A + G(B, C, D) + d[2] + 0x5a827999), 3);
+            D = rotintlft((D + G(A, B, C) + d[6] + 0x5a827999), 5);
+            C = rotintlft((C + G(D, A, B) + d[10] + 0x5a827999), 9);
+            B = rotintlft((B + G(C, D, A) + d[14] + 0x5a827999), 13);
+
+            A = rotintlft((A + G(B, C, D) + d[3] + 0x5a827999), 3);
+            D = rotintlft((D + G(A, B, C) + d[7] + 0x5a827999), 5);
+            C = rotintlft((C + G(D, A, B) + d[11] + 0x5a827999), 9);
+            B = rotintlft((B + G(C, D, A) + d[15] + 0x5a827999), 13);
+
+        &#125;
+
+        protected void round3(final int[] d) &#123;
+            A = rotintlft((A + H(B, C, D) + d[0] + 0x6ed9eba1), 3);
+            D = rotintlft((D + H(A, B, C) + d[8] + 0x6ed9eba1), 9);
+            C = rotintlft((C + H(D, A, B) + d[4] + 0x6ed9eba1), 11);
+            B = rotintlft((B + H(C, D, A) + d[12] + 0x6ed9eba1), 15);
+
+            A = rotintlft((A + H(B, C, D) + d[2] + 0x6ed9eba1), 3);
+            D = rotintlft((D + H(A, B, C) + d[10] + 0x6ed9eba1), 9);
+            C = rotintlft((C + H(D, A, B) + d[6] + 0x6ed9eba1), 11);
+            B = rotintlft((B + H(C, D, A) + d[14] + 0x6ed9eba1), 15);
+
+            A = rotintlft((A + H(B, C, D) + d[1] + 0x6ed9eba1), 3);
+            D = rotintlft((D + H(A, B, C) + d[9] + 0x6ed9eba1), 9);
+            C = rotintlft((C + H(D, A, B) + d[5] + 0x6ed9eba1), 11);
+            B = rotintlft((B + H(C, D, A) + d[13] + 0x6ed9eba1), 15);
+
+            A = rotintlft((A + H(B, C, D) + d[3] + 0x6ed9eba1), 3);
+            D = rotintlft((D + H(A, B, C) + d[11] + 0x6ed9eba1), 9);
+            C = rotintlft((C + H(D, A, B) + d[7] + 0x6ed9eba1), 11);
+            B = rotintlft((B + H(C, D, A) + d[15] + 0x6ed9eba1), 15);
+
+        &#125;
+
+    &#125;
+
+    /**
+     * Cryptography support - HMACMD5 - algorithmically based on various web
+     * resources by Karl Wright
+     */
+    static class HMACMD5 &#123;
+        protected byte[] ipad;
+        protected byte[] opad;
+        protected MessageDigest md5;
+
+        HMACMD5(final byte[] input) throws NTLMEngineException &#123;
+            byte[] key = input;
+            try &#123;
+                md5 = MessageDigest.getInstance(&quot;MD5&quot;);
+            &#125; catch (final Exception ex) &#123;
+                // Umm, the algorithm doesn&#39;t exist - throw an
+                // NTLMEngineException!
+                throw new NTLMEngineException(
+                        &quot;Error getting md5 message digest implementation: &quot; + ex.getMessage(), ex);
+            &#125;
+
+            // Initialize the pad buffers with the key
+            ipad = new byte[64];
+            opad = new byte[64];
+
+            int keyLength = key.length;
+            if (keyLength &gt; 64) &#123;
+                // Use MD5 of the key instead, as described in RFC 2104
+                md5.update(key);
+                key = md5.digest();
+                keyLength = key.length;
+            &#125;
+            int i = 0;
+            while (i &lt; keyLength) &#123;
+                ipad[i] = (byte) (key[i] ^ (byte) 0x36);
+                opad[i] = (byte) (key[i] ^ (byte) 0x5c);
+                i++;
+            &#125;
+            while (i &lt; 64) &#123;
+                ipad[i] = (byte) 0x36;
+                opad[i] = (byte) 0x5c;
+                i++;
+            &#125;
+
+            // Very important: update the digest with the ipad buffer
+            md5.reset();
+            md5.update(ipad);
+
+        &#125;
+
+        /** Grab the current digest. This is the &quot;answer&quot;. */
+        byte[] getOutput() &#123;
+            final byte[] digest = md5.digest();
+            md5.update(opad);
+            return md5.digest(digest);
+        &#125;
+
+        /** Update by adding a complete array */
+        void update(final byte[] input) &#123;
+            md5.update(input);
+        &#125;
+
+        /** Update the algorithm */
+        void update(final byte[] input, final int offset, final int length) &#123;
+            md5.update(input, offset, length);
+        &#125;
+
+    &#125;
+
+    @Override
+    public String generateType1Msg(
+            final String domain,
+            final String workstation) throws NTLMEngineException &#123;
+        return getType1Message(workstation, domain);
+    &#125;
+
+    @Override
+    public String generateType3Msg(
+            final String username,
+            final String password,
+            final String domain,
+            final String workstation,
+            final String challenge) throws NTLMEngineException &#123;
+        final Type2Message t2m = new Type2Message(challenge);
+        return getType3Message(
+                username,
+                password,
+                workstation,
+                domain,
+                t2m.getChallenge(),
+                t2m.getFlags(),
+                t2m.getTarget(),
+                t2m.getTargetInfo());
+    &#125;
+
+&#125;
+</code></pre>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><pre><code>OkHttpClient httpClient = new OkHttpClient.Builder()
+                .connectTimeout(30, TimeUnit.SECONDS)
+                .writeTimeout(10, TimeUnit.SECONDS)
+                .readTimeout(30, TimeUnit.SECONDS)
+                .authenticator(new NTLMAuthenticator(username, password, domainOrComputerName))
+                .build();
+</code></pre>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Java/" rel="tag"># Java</a>
+              <a href="/tags/OKhttp/" rel="tag"># OKhttp</a>
+              <a href="/tags/NTLM/" rel="tag"># NTLM</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2023/01/17/ffmpeg12/" rel="prev" title="FFmpeg | 字体文件的抽取">
+      <i class="fa fa-chevron-left"></i> FFmpeg | 字体文件的抽取
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2023/04/10/excel00/" rel="next" title="Excel | 保持某些变量不变的方法">
+      Excel | 保持某些变量不变的方法 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#NTLMAuthenticator-java"><span class="nav-number">1.</span> <span class="nav-text">NTLMAuthenticator.java</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NTLMEngineImpl-java"><span class="nav-number">2.</span> <span class="nav-text">NTLMEngineImpl.java</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8"><span class="nav-number">3.</span> <span class="nav-text">使用</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">兰秋廿柒</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">161</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">102</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">75</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">兰秋廿柒</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

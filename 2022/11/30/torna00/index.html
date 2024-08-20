@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"l-fay.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="在开发spring项目的时候，接口文档承担着向其他开发人员说明接口相关信息的重要任务，因此，一份清晰而又相近的接口文档至关重要。 但是，写接口文档的痛苦想必各位开发人员都体验过，明明写接口的时候那么丝滑，写接口文档的时候像要老命一样各种核对数据格式、文档格式，最后还有可能漏掉那么一些示例导致调用不成功，继续和其他开发沟通……还有接口文档的更新问题，一旦要更新接口文档，就意味着要给所有用着接口文档的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用Smart-Doc + Torna生成和管理接口文档">
+<meta property="og:url" content="https://l-fay.github.io/2022/11/30/torna00/index.html">
+<meta property="og:site_name" content="兰秋廿柒的博客">
+<meta property="og:description" content="在开发spring项目的时候，接口文档承担着向其他开发人员说明接口相关信息的重要任务，因此，一份清晰而又相近的接口文档至关重要。 但是，写接口文档的痛苦想必各位开发人员都体验过，明明写接口的时候那么丝滑，写接口文档的时候像要老命一样各种核对数据格式、文档格式，最后还有可能漏掉那么一些示例导致调用不成功，继续和其他开发沟通……还有接口文档的更新问题，一旦要更新接口文档，就意味着要给所有用着接口文档的">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://l-fay.github.io/images/torna00/img00.jpg">
+<meta property="article:published_time" content="2022-11-30T11:32:10.000Z">
+<meta property="article:modified_time" content="2024-08-19T11:55:07.217Z">
+<meta property="article:author" content="兰秋廿柒">
+<meta property="article:tag" content="Java">
+<meta property="article:tag" content="Torna">
+<meta property="article:tag" content="smart-doc">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://l-fay.github.io/images/torna00/img00.jpg">
+
+<link rel="canonical" href="https://l-fay.github.io/2022/11/30/torna00/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>使用Smart-Doc + Torna生成和管理接口文档 | 兰秋廿柒的博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">兰秋廿柒的博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://l-fay.github.io/2022/11/30/torna00/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="兰秋廿柒">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="兰秋廿柒的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          使用Smart-Doc + Torna生成和管理接口文档
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-11-30 19:32:10" itemprop="dateCreated datePublished" datetime="2022-11-30T19:32:10+08:00">2022-11-30</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-08-19 19:55:07" itemprop="dateModified" datetime="2024-08-19T19:55:07+08:00">2024-08-19</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/%E5%B8%B8%E7%94%A8%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">常用库</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/%E5%B8%B8%E7%94%A8%E5%BA%93/smart-doc/" itemprop="url" rel="index"><span itemprop="name">smart-doc</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/%E5%B7%A5%E5%85%B7/Torna/" itemprop="url" rel="index"><span itemprop="name">Torna</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>在开发spring项目的时候，接口文档承担着向其他开发人员说明接口相关信息的重要任务，因此，一份清晰而又相近的接口文档至关重要。</p>
+<p>但是，写接口文档的痛苦想必各位开发人员都体验过，明明写接口的时候那么丝滑，写接口文档的时候像要老命一样各种核对数据格式、文档格式，最后还有可能漏掉那么一些示例导致调用不成功，继续和其他开发沟通……还有接口文档的更新问题，一旦要更新接口文档，就意味着要给所有用着接口文档的同事一一联系，想想就令人摸不着头发……</p>
+<span id="more"></span>
+
+<p>以上这些让人头秃的痛点驱使着我寻找一个可以自动生成文档，并且可以将文档展示在线上的工具。一来可以省去大量编写接口文档的时间，在不受折磨的情况下生成高可靠性的文档；二来在更新接口文档之后，使用的还是同一个链接，不用再一一通知，对于我这样的社恐来说简直再好不过。</p>
+<p>那么闲言少叙，进入今天的正题，Smart-Doc + Torna的生成和管理接口文档解决方案。</p>
+<h2 id="Smart-Doc"><a href="#Smart-Doc" class="headerlink" title="Smart-Doc"></a>Smart-Doc</h2><p>首先放<a target="_blank" rel="noopener" href="https://gitee.com/smart-doc-team/smart-doc">项目地址</a>和<a target="_blank" rel="noopener" href="https://smart-doc-group.github.io/#/zh-cn/?id=smart-doc">文档</a>。</p>
+<p>smart-doc是一款同时支持JAVA REST API和Apache Dubbo RPC接口文档生成的工具，smart-doc在业内率先提出基于JAVA泛型定义推导的理念， 完全基于接口源码来分析生成接口文档，不采用任何注解侵入到业务代码中。你只需要按照java-doc标准编写注释， smart-doc就能帮你生成一个简易明了的Markdown、HTML5、Postman Collection2.0+、OpenAPI 3.0+的文档。</p>
+<p>简单来说，在简单配置之后，只要代码写的规范、注释写的够全，就能自动生成文档，无需对项目逻辑做修改、也不用添加额外注解。</p>
+<p>配置方法<a target="_blank" rel="noopener" href="https://smart-doc-group.github.io/#/zh-cn/start/quickstart">在这</a>。</p>
+<h2 id="Torna"><a href="#Torna" class="headerlink" title="Torna"></a>Torna</h2><p>还是先放<a target="_blank" rel="noopener" href="https://gitee.com/durcframework/torna">项目地址</a>和<a target="_blank" rel="noopener" href="https://torna.cn/dev/">文档</a>。</p>
+<p>接口文档解决方案，目标是让接口文档管理变得更加方便、快捷。Torna采用团队协作的方式管理和维护接口文档，将不同形式的文档纳入进来统一维护。</p>
+<p>Torna弥补了传统文档生成工具（如swagger）的不如之处，在保持原有功能的前提下丰富并增强了一些实用的功能。</p>
+<p>使用方法和配置方法<a target="_blank" rel="noopener" href="https://gitee.com/durcframework/torna#%E4%BD%BF%E7%94%A8%E6%AD%A5%E9%AA%A4">在这</a>。</p>
+<h2 id="Smart-Doc和Torna配合使用"><a href="#Smart-Doc和Torna配合使用" class="headerlink" title="Smart-Doc和Torna配合使用"></a>Smart-Doc和Torna配合使用</h2><h3 id="前置条件"><a href="#前置条件" class="headerlink" title="前置条件"></a>前置条件</h3><p>配合使用的基础是：</p>
+<p>1、Smart-Doc已经配置好了，至少成功生成本地文档。</p>
+<p>2、Torna配置好了，成功登录服务端。</p>
+<p>满足以上两点，就可以着手将两个模块接一起了，Torna在官方文档中也给出了详细的方法步骤，<a target="_blank" rel="noopener" href="https://torna.cn/dev/smart-doc.html#%E6%95%B4%E5%90%88smart-doc">点这</a>。</p>
+<h3 id="踩过的坑"><a href="#踩过的坑" class="headerlink" title="踩过的坑"></a>踩过的坑</h3><p>文档上的东西还是很细的，但是在配置和使用过程中仍然会踩坑，这里说一下踩过的每一个坑。</p>
+<h4 id="appKey"><a href="#appKey" class="headerlink" title="appKey"></a>appKey</h4><p>在Smart-Doc的<a target="_blank" rel="noopener" href="https://smart-doc-group.github.io/#/zh-cn/torna/tornaIntegration">文档</a>中提到<code>Torna从1.11.0版本开始，使用smart-doc推送文档数据已经不再需要配置appKey和secret， 仅需要配置appToken即可，因此建议升级Torna版本。</code>。我用的版本组合是Smart-Doc:2.5.3+Torna:1.16.3，按文档的说法是不需要配置appKey的，但是在实际使用中发现文档生成后网Torna上推送的时候怎么都不成功。</p>
+<p>后来在调试的时候发现，推送还是验证了appKey，不过只要不是null就能通过验证，所以在每个模块的<code>smart-doc.json</code>中都配置了<code>&quot;appKey&quot;:&quot;xxx&quot;</code>，然后就推送成功了。</p>
+<h4 id="appToken"><a href="#appToken" class="headerlink" title="appToken"></a>appToken</h4><p>这个倒不是跟文档描述不一致，只是理解出现了偏差。</p>
+<p>当子模块有多个的时候，需要在torna中新建对应的模块，每个模块有一个单独的appToken，然后给不同的子模块配置不同的appToken。</p>
+<p>我刚开始不知道需要给每个子模块单独配appToken，导致我的文档推送的时候，后一个子模块就把前一个子模块的文档覆盖了，只有最后一个子模块的文档能看到。</p>
+<h2 id="效果展示"><a href="#效果展示" class="headerlink" title="效果展示"></a>效果展示</h2><p>最终的效果就和Torna文档里展示的一样，为了方便起见，我直接用文档的示例做说明。</p>
+<p>比如有一个接口定义如下：</p>
+<pre><code>/**
+ * 产品模块
+ *
+ * @author thc
+ */
+@RestController
+@RequestMapping(&quot;shop/product&quot;)
+public class ProductController &#123;
+
+    /**
+     * 查询产品
+     *
+     * @param productNo 产品id|123
+     * @return
+     */
+    @GetMapping
+    public Result&lt;ProductVO&gt; get(@RequestParam Integer productNo) &#123;
+        ProductVO productVO = new ProductVO();
+        productVO.setProductNo(String.valueOf(productNo));
+        return Result.ok(productVO);
+    &#125;
+
+&#125;
+</code></pre>
+<p>其中ProductVO的结构是：</p>
+<pre><code>public class ProductVO &#123;
+    /**
+     * 产品id
+     *
+     * @mock aa
+     */
+    private String productNo;
+
+    /**
+     * 备注
+     *
+     * @mock xxx
+     */
+    private String remark;
+
+    /**
+     * 产品详情
+     *
+     * @mock
+     */
+    private ProductDetailVO productDetailVO;
+    
+    ... 省略getter setter   
+&#125;
+</code></pre>
+<p>那么生成的接口文档效果如下：</p>
+<img src="/images/torna00/img00.jpg" width="100%">
+
+<p>对照着看一下，可以发现Smart-Doc + Torna的方案生成的接口文档，请求参数和响应参数的描述和示例都非常详尽，在方便接口对接的同时，也大大减轻了开发人员的负担。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>Smart-Doc + Torna的生成和管理接口文档解决方案只需写好注释、规范代码，就能通过对注释和实体类的解析来生成示例详尽的接口文档，适用范围很大；由于其对代码零侵入的特性，不用改动业务代码就能使用，对旧代码也很友好。</p>
+<p>并且根据我这俩月的使用体验来说，非常丝滑，还能鞭策我在写代码的时候注意代码规范、好好写注释，使我的代码质量有了提升。</p>
+<p>总之就是非常不错，嗯。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Java/" rel="tag"># Java</a>
+              <a href="/tags/Torna/" rel="tag"># Torna</a>
+              <a href="/tags/smart-doc/" rel="tag"># smart-doc</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/10/21/linux09/" rel="prev" title="Linux | Linux服务器上配置域和DNS">
+      <i class="fa fa-chevron-left"></i> Linux | Linux服务器上配置域和DNS
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2023/01/17/ffmpeg12/" rel="next" title="FFmpeg | 字体文件的抽取">
+      FFmpeg | 字体文件的抽取 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Smart-Doc"><span class="nav-number">1.</span> <span class="nav-text">Smart-Doc</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Torna"><span class="nav-number">2.</span> <span class="nav-text">Torna</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Smart-Doc%E5%92%8CTorna%E9%85%8D%E5%90%88%E4%BD%BF%E7%94%A8"><span class="nav-number">3.</span> <span class="nav-text">Smart-Doc和Torna配合使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%8D%E7%BD%AE%E6%9D%A1%E4%BB%B6"><span class="nav-number">3.1.</span> <span class="nav-text">前置条件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B8%A9%E8%BF%87%E7%9A%84%E5%9D%91"><span class="nav-number">3.2.</span> <span class="nav-text">踩过的坑</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#appKey"><span class="nav-number">3.2.1.</span> <span class="nav-text">appKey</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#appToken"><span class="nav-number">3.2.2.</span> <span class="nav-text">appToken</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%88%E6%9E%9C%E5%B1%95%E7%A4%BA"><span class="nav-number">4.</span> <span class="nav-text">效果展示</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">兰秋廿柒</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">161</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">102</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">75</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">兰秋廿柒</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

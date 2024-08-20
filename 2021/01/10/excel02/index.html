@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"l-fay.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="首先这个库只支持xlsx格式的文件操作，其他的8行。 xlsx是EXCEL 2007以上版本的扩展名。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Excel | 用openpyxl库操作Excel表格">
+<meta property="og:url" content="https://l-fay.github.io/2021/01/10/excel02/index.html">
+<meta property="og:site_name" content="兰秋廿柒的博客">
+<meta property="og:description" content="首先这个库只支持xlsx格式的文件操作，其他的8行。 xlsx是EXCEL 2007以上版本的扩展名。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-01-10T08:26:55.000Z">
+<meta property="article:modified_time" content="2024-08-16T02:31:46.207Z">
+<meta property="article:author" content="兰秋廿柒">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="办公">
+<meta property="article:tag" content="Office">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://l-fay.github.io/2021/01/10/excel02/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Excel | 用openpyxl库操作Excel表格 | 兰秋廿柒的博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">兰秋廿柒的博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://l-fay.github.io/2021/01/10/excel02/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="兰秋廿柒">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="兰秋廿柒的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Excel | 用openpyxl库操作Excel表格
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-01-10 16:26:55" itemprop="dateCreated datePublished" datetime="2021-01-10T16:26:55+08:00">2021-01-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-08-16 10:31:46" itemprop="dateModified" datetime="2024-08-16T10:31:46+08:00">2024-08-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/%E5%B8%B8%E7%94%A8%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">常用库</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/%E5%B8%B8%E7%94%A8%E5%BA%93/openpyxl/" itemprop="url" rel="index"><span itemprop="name">openpyxl</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Office/" itemprop="url" rel="index"><span itemprop="name">Office</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Office/Excel/" itemprop="url" rel="index"><span itemprop="name">Excel</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>首先这个库只支持xlsx格式的文件操作，其他的8行。</p>
+<p>xlsx是EXCEL 2007以上版本的扩展名。</p>
+<span id="more"></span>
+
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><pre><code>pip install openpyxl
+</code></pre>
+<h1 id="创建对象"><a href="#创建对象" class="headerlink" title="创建对象"></a>创建对象</h1><h2 id="新建"><a href="#新建" class="headerlink" title="新建"></a>新建</h2><pre><code>from openpyxl import Workbook 
+# 实例化
+wb = Workbook()
+# 激活 worksheet
+sheet = wb.active
+</code></pre>
+<h2 id="打开已有文件"><a href="#打开已有文件" class="headerlink" title="打开已有文件"></a>打开已有文件</h2><pre><code>from openpyxl import load_workbook
+wb = load_workbook(&#39;文件名称.xlsx&#39;)
+</code></pre>
+<h1 id="访问表"><a href="#访问表" class="headerlink" title="访问表"></a>访问表</h1><h2 id="新建表"><a href="#新建表" class="headerlink" title="新建表"></a>新建表</h2><pre><code># 方式一：插入到最后(default)
+sheet1 = wb.create_sheet(&quot;Mysheet&quot;) 
+# 方式二：插入到最开始的位置
+sheet2 = wb.create_sheet(&quot;Mysheet&quot;, 0)
+</code></pre>
+<h2 id="选择已有的表"><a href="#选择已有的表" class="headerlink" title="选择已有的表"></a>选择已有的表</h2><pre><code># sheet 名称可以作为 key 进行索引
+sheet3 = wb[&quot;工具表1&quot;]
+sheet4 = wb.get_sheet_by_name(&quot;工具表1&quot;)
+</code></pre>
+<p>这俩是一样的</p>
+<h2 id="查看表名"><a href="#查看表名" class="headerlink" title="查看表名"></a>查看表名</h2><pre><code># 显示所有表名
+print(wb.sheetnames)
+# 遍历所有表
+for sheet in wb:
+</code></pre>
+<h2 id="删除表"><a href="#删除表" class="headerlink" title="删除表"></a>删除表</h2><pre><code># 方式一
+wb.remove(sheet)
+# 方式二
+del wb[sheet]
+</code></pre>
+<h1 id="单元格操作"><a href="#单元格操作" class="headerlink" title="单元格操作"></a>单元格操作</h1><h2 id="访问单元格"><a href="#访问单元格" class="headerlink" title="访问单元格"></a>访问单元格</h2><pre><code># 方法一
+c = sheet[&#39;A4&#39;]
+# 方法二：row 行；column 列
+d = sheet.cell(row=4, column=2)
+d = sheet.cell(4, 2)
+# 方法三：只要访问就创建
+min_row = 3
+max_row = 43
+min_column = 1
+max_column = 9
+for i in range(min_row, max_row + 1):
+   for j in range(min_column, max_column + 1):
+      sheet.cell(row=i, column=j)
+</code></pre>
+<p>从我个人体验来说，访问单一单元格用方法一最舒服，循环访问单元格用方法三最舒服。</p>
+<h2 id="修改单元格数据"><a href="#修改单元格数据" class="headerlink" title="修改单元格数据"></a>修改单元格数据</h2><pre><code># 方法一，返回值为cell对象
+sheet.cell(row=4, column=2, value=10)
+# 方法二
+sheet[&#39;A1&#39;] = 42
+# 方法三
+sheet.cell(6, 7).value = &quot;哈哈&quot;
+</code></pre>
+<p>方法二适合单一单元格赋值，方法一三适合循环赋值。</p>
+<h1 id="保存文件"><a href="#保存文件" class="headerlink" title="保存文件"></a>保存文件</h1><pre><code>wb.save(&#39;文件名称.xlsx&#39;)
+</code></pre>
+<h1 id="其他命令"><a href="#其他命令" class="headerlink" title="其他命令"></a>其他命令</h1><h2 id="获取最大列和最大行"><a href="#获取最大列和最大行" class="headerlink" title="获取最大列和最大行"></a>获取最大列和最大行</h2><pre><code>print(sheet.max_row)
+print(sheet.max_column)
+</code></pre>
+<p>不太准，可能是我的数据规模太小了。</p>
+<h2 id="遍历单元格"><a href="#遍历单元格" class="headerlink" title="遍历单元格"></a>遍历单元格</h2><pre><code>sheet.rows为生成器, 里面是每一行的数据，每一行又由一个tuple包裹。
+sheet.columns类似，不过里面是每个tuple是每一列的单元格。
+# 因为按行，所以返回A1, B1, C1这样的顺序
+for row in sheet.rows:
+  for cell in row:
+    print(cell.value)
+ 
+# A1, A2, A3这样的顺序
+for column in sheet.columns:
+  for cell in column:
+    print(cell.value)
+</code></pre>
+<p>还是上边的问题，因为行列最大值不准，所以会有很多None单元格。</p>
+<h2 id="根据数字得到字母，根据字母得到数字"><a href="#根据数字得到字母，根据字母得到数字" class="headerlink" title="根据数字得到字母，根据字母得到数字"></a>根据数字得到字母，根据字母得到数字</h2><pre><code>from openpyxl.utils import get_column_letter, column_index_from_string
+ 
+# 根据列的数字返回字母
+print(get_column_letter(2)) # B
+# 根据字母返回列的数字
+print(column_index_from_string(&#39;D&#39;)) # 4
+</code></pre>
+<p>至此都是数据操作，风格操作我还没用上，之后用上再说。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Python/" rel="tag"># Python</a>
+              <a href="/tags/%E5%8A%9E%E5%85%AC/" rel="tag"># 办公</a>
+              <a href="/tags/Office/" rel="tag"># Office</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/01/09/proxy01/" rel="prev" title="Shadowsocks | 在Linux上部署Shadowsocks服务端">
+      <i class="fa fa-chevron-left"></i> Shadowsocks | 在Linux上部署Shadowsocks服务端
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/01/10/pythonLibrary04/" rel="next" title="re库处理正则表达式">
+      re库处理正则表达式 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-number">1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1"><span class="nav-number">2.</span> <span class="nav-text">创建对象</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B0%E5%BB%BA"><span class="nav-number">2.1.</span> <span class="nav-text">新建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%93%E5%BC%80%E5%B7%B2%E6%9C%89%E6%96%87%E4%BB%B6"><span class="nav-number">2.2.</span> <span class="nav-text">打开已有文件</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AE%BF%E9%97%AE%E8%A1%A8"><span class="nav-number">3.</span> <span class="nav-text">访问表</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B0%E5%BB%BA%E8%A1%A8"><span class="nav-number">3.1.</span> <span class="nav-text">新建表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%89%E6%8B%A9%E5%B7%B2%E6%9C%89%E7%9A%84%E8%A1%A8"><span class="nav-number">3.2.</span> <span class="nav-text">选择已有的表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E8%A1%A8%E5%90%8D"><span class="nav-number">3.3.</span> <span class="nav-text">查看表名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E8%A1%A8"><span class="nav-number">3.4.</span> <span class="nav-text">删除表</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8D%95%E5%85%83%E6%A0%BC%E6%93%8D%E4%BD%9C"><span class="nav-number">4.</span> <span class="nav-text">单元格操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%BF%E9%97%AE%E5%8D%95%E5%85%83%E6%A0%BC"><span class="nav-number">4.1.</span> <span class="nav-text">访问单元格</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E5%8D%95%E5%85%83%E6%A0%BC%E6%95%B0%E6%8D%AE"><span class="nav-number">4.2.</span> <span class="nav-text">修改单元格数据</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BF%9D%E5%AD%98%E6%96%87%E4%BB%B6"><span class="nav-number">5.</span> <span class="nav-text">保存文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E5%91%BD%E4%BB%A4"><span class="nav-number">6.</span> <span class="nav-text">其他命令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E6%9C%80%E5%A4%A7%E5%88%97%E5%92%8C%E6%9C%80%E5%A4%A7%E8%A1%8C"><span class="nav-number">6.1.</span> <span class="nav-text">获取最大列和最大行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%81%8D%E5%8E%86%E5%8D%95%E5%85%83%E6%A0%BC"><span class="nav-number">6.2.</span> <span class="nav-text">遍历单元格</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%B9%E6%8D%AE%E6%95%B0%E5%AD%97%E5%BE%97%E5%88%B0%E5%AD%97%E6%AF%8D%EF%BC%8C%E6%A0%B9%E6%8D%AE%E5%AD%97%E6%AF%8D%E5%BE%97%E5%88%B0%E6%95%B0%E5%AD%97"><span class="nav-number">6.3.</span> <span class="nav-text">根据数字得到字母，根据字母得到数字</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">兰秋廿柒</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">161</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">102</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">75</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">兰秋廿柒</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

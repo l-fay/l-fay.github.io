@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"l-fay.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="neo4j基本用法。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="neo4j | 基本用法">
+<meta property="og:url" content="https://l-fay.github.io/2022/08/11/neo4j00/index.html">
+<meta property="og:site_name" content="兰秋廿柒的博客">
+<meta property="og:description" content="neo4j基本用法。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-08-11T12:37:36.000Z">
+<meta property="article:modified_time" content="2024-08-20T11:21:55.447Z">
+<meta property="article:author" content="兰秋廿柒">
+<meta property="article:tag" content="数据库">
+<meta property="article:tag" content="neo4j">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://l-fay.github.io/2022/08/11/neo4j00/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>neo4j | 基本用法 | 兰秋廿柒的博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">兰秋廿柒的博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://l-fay.github.io/2022/08/11/neo4j00/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="兰秋廿柒">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="兰秋廿柒的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          neo4j | 基本用法
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-08-11 20:37:36" itemprop="dateCreated datePublished" datetime="2022-08-11T20:37:36+08:00">2022-08-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-08-20 19:21:55" itemprop="dateModified" datetime="2024-08-20T19:21:55+08:00">2024-08-20</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/neo4j/" itemprop="url" rel="index"><span itemprop="name">neo4j</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>neo4j基本用法。</p>
+<span id="more"></span>
+<h2 id="一、安装"><a href="#一、安装" class="headerlink" title="一、安装"></a>一、安装</h2><p>安装包：<a target="_blank" rel="noopener" href="https://neo4j.com/download/?ref=get-started-dropdown-cta">官网下载</a>，<a target="_blank" rel="noopener" href="https://we-yun.com/index.php/blog/releases-56.html">简中（代理商）</a></p>
+<h2 id="二、创建"><a href="#二、创建" class="headerlink" title="二、创建"></a>二、创建</h2><p>（重要）首先创建约束，按我目前的理解，目的是使约束属性唯一。并且根据我在创建索引时的报错信息，被约束的属性会自动创建索引。下边第一句的意思是，给Movie标签的title属性创建约束。</p>
+<pre><code>CREATE CONSTRAINT ON (n:Movie) ASSERT (n.title) IS UNIQUE
+CREATE CONSTRAINT ON (n:Person) ASSERT (n.name) IS UNIQUE
+</code></pre>
+<p>（重要）然后是创建索引，目的是提高查询速度。下边命令的意思是给Movie标签的released属性创建索引。</p>
+<pre><code>CREATE INDEX ON :Movie(released)
+</code></pre>
+<p>这里需要注意，官方给出的示例为：</p>
+<pre><code>CREATE INDEX FOR (m:Movie) ON (m.released)
+</code></pre>
+<p>这条命令运行会报错，原因是版问问题。<br>官方说明：</p>
+<pre><code>On neo4j version 4.X
+CREATE INDEX [optionalName] FOR (p:Person) ON (p.name)
+
+On neo4j version 3.X
+CREATE INDEX ON :Person(name)
+</code></pre>
+<h2 id="三、查询"><a href="#三、查询" class="headerlink" title="三、查询"></a>三、查询</h2><h3 id="1、简单查询"><a href="#1、简单查询" class="headerlink" title="1、简单查询"></a>1、简单查询</h3><p>查询名为”Tom Hanks”的演员。</p>
+<pre><code>MATCH (tom:Person &#123;name: &quot;Tom Hanks&quot;&#125;) 
+RETURN tom
+</code></pre>
+<p><code>MATCH</code>是关键字，表示这是个查询语句，相当于SQL语句中的<code>SELECT</code>。<br><code>tom</code>是变量名，自己随便定义，将冒号后边的查询结果暂存。<br><code>Person&#123;name:&quot;Tom Hanks&quot;&#125;</code>表示在Person标签下寻找name属性为Tom Hanks的节点。<br><code>RETURN</code>返回查询结果。</p>
+<p>查询10个人并返回他们的名字。</p>
+<pre><code>MATCH (people:Person) 
+RETURN people.name LIMIT 10
+</code></pre>
+<p><code>LIMIT</code>限制查询结果数量。</p>
+<p>查找上世纪90年代的电影并返回电影名。</p>
+<pre><code>MATCH (nineties:Movie) 
+WHERE nineties.released &gt;= 1990 AND nineties.released &lt; 2000 
+RETURN nineties.title
+</code></pre>
+<p><code>WHERE</code>是条件语句，限制<code>MATCH</code>的查询结果。</p>
+<h3 id="2、复合查询"><a href="#2、复合查询" class="headerlink" title="2、复合查询"></a>2、复合查询</h3><p>Tom Hanks演过什么电影？<br>由于示例是英文版，“参演”这个关系标签在数据库中是“ACTED_IN”。</p>
+<pre><code>MATCH (tom:Person &#123;name: &quot;Tom Hanks&quot;&#125;)-[:ACTED_IN]-&gt;(tomHanksMovies) 
+RETURN tom,tomHanksMovies
+</code></pre>
+<p>首先在Person标签中查找name属性为Tom Hanks的节点，然后顺着ACTED_IN关系查找另一头的节点。<br>这里需要注意的是，关系是有方向的<code>-[:ACTED_IN]-&gt;</code>表示了关系的指向，如果不加箭头，只用两个减号，就表示查询的时候不限定方向。</p>
+<p>谁和Tom Hanks合作过？</p>
+<pre><code>MATCH (tom:Person &#123;name:&quot;Tom Hanks&quot;&#125;)-[:ACTED_IN]-&gt;(m)&lt;-[:ACTED_IN]-(coActors) 
+RETURN DISTINCT coActors.name
+</code></pre>
+<p><code>DISTINCT</code>限定结果只返回一次，即使有重复，也只返回第一个。</p>
+<p>哪些人和Cloud Atlas有关？</p>
+<pre><code>MATCH (people:Person)-[relatedTo]-(:Movie &#123;title: &quot;Cloud Atlas&quot;&#125;) 
+RETURN people.name, Type(relatedTo), relatedTo.roles
+</code></pre>
+<p>这里边的<code>relatedTo</code>是个局部变量，改成<code>a</code>也是一样的。</p>
+<h3 id="3、距离查询"><a href="#3、距离查询" class="headerlink" title="3、距离查询"></a>3、距离查询</h3><p>查找和Kevin Bacon距离4跳以内的电影和演员。</p>
+<pre><code>MATCH (bacon:Person &#123;name:&quot;Kevin Bacon&quot;&#125;)-[*1..4]-(hollywood)
+RETURN DISTINCT hollywood
+</code></pre>
+<p><code>[*1..4]</code>表示不定长的路径，最小为1，最大为4。</p>
+<p>使用自带函数shortestPath()寻找从Bacon Path到Meg Ryan的最短路径。</p>
+<pre><code>MATCH p=shortestPath(
+(bacon:Person &#123;name:&quot;Kevin Bacon&quot;&#125;)-[*]-(meg:Person &#123;name:&quot;Meg Ryan&quot;&#125;)
+)
+RETURN p
+</code></pre>
+<p>这个就没啥好说的，记录一下shortestPath()函数。</p>
+<h3 id="4、查询并计数"><a href="#4、查询并计数" class="headerlink" title="4、查询并计数"></a>4、查询并计数</h3><p>寻找没和Tom Hanks合作过、但和Tom Hanks合作者合作过的演员。</p>
+<pre><code>MATCH (tom:Person &#123;name:&quot;Tom Hanks&quot;&#125;)-[:ACTED_IN]-&gt;(m)&lt;-[:ACTED_IN]-(coActors),
+(coActors)-[:ACTED_IN]-&gt;(m2)&lt;-[:ACTED_IN]-(cocoActors)
+WHERE NOT (tom)-[:ACTED_IN]-&gt;()&lt;-[:ACTED_IN]-(cocoActors) AND tom &lt;&gt; cocoActors
+RETURN cocoActors.name AS Recommended, count(*) AS Strength ORDER BY Strength DESC
+</code></pre>
+<p>这里有两点需要注意，一是<code>&lt;&gt;</code>表示不等，二是count(*)表示对所有变量进行计算。<br>关于count()函数，原文如下：</p>
+<pre><code>Assume we have the following return statement:
+RETURN n, count(*)
+We have two return expressions: n, and count(). The first, n, is not an aggregate function, and so it will be the grouping key. The latter, count() is an aggregate expression. The matching subgraphs will be divided into different buckets, depending on the grouping key. The aggregate function will then be run on these buckets, calculating an aggregate value per bucket.
+To use aggregations to sort the result set, the aggregation must be included in the RETURN to be used in the ORDER BY.
+</code></pre>
+<h2 id="四、删除"><a href="#四、删除" class="headerlink" title="四、删除"></a>四、删除</h2><p>删除所有节点和关系：</p>
+<pre><code>MATCH (n) DETACH DELETE n
+</code></pre>
+<p>其中<code>DETACH DELETE</code>代表删除节点及关系</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag"># 数据库</a>
+              <a href="/tags/neo4j/" rel="tag"># neo4j</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/07/10/windows04/" rel="prev" title="Windows 每天第一次开机执行的批处理脚本模板">
+      <i class="fa fa-chevron-left"></i> Windows 每天第一次开机执行的批处理脚本模板
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2022/08/26/javaLibrary01/" rel="next" title="Excel | 用EasyExcel库读Excel表格">
+      Excel | 用EasyExcel库读Excel表格 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%AE%89%E8%A3%85"><span class="nav-number">1.</span> <span class="nav-text">一、安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E5%88%9B%E5%BB%BA"><span class="nav-number">2.</span> <span class="nav-text">二、创建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E6%9F%A5%E8%AF%A2"><span class="nav-number">3.</span> <span class="nav-text">三、查询</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81%E7%AE%80%E5%8D%95%E6%9F%A5%E8%AF%A2"><span class="nav-number">3.1.</span> <span class="nav-text">1、简单查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81%E5%A4%8D%E5%90%88%E6%9F%A5%E8%AF%A2"><span class="nav-number">3.2.</span> <span class="nav-text">2、复合查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%E3%80%81%E8%B7%9D%E7%A6%BB%E6%9F%A5%E8%AF%A2"><span class="nav-number">3.3.</span> <span class="nav-text">3、距离查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4%E3%80%81%E6%9F%A5%E8%AF%A2%E5%B9%B6%E8%AE%A1%E6%95%B0"><span class="nav-number">3.4.</span> <span class="nav-text">4、查询并计数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E5%88%A0%E9%99%A4"><span class="nav-number">4.</span> <span class="nav-text">四、删除</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">兰秋廿柒</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">161</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">102</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">75</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">兰秋廿柒</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"l-fay.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="在Linux上部署Shadowsocks的时候遇到的问题： 错误： AttributeError: &#x2F;usr&#x2F;lib&#x2F;x86_64-linux-gnu&#x2F;libcrypto.so.1.1: undefined symbol: EVP_CIPHER_CTX_cleanup">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Shadowsocks | AttributeError: &#x2F;usr&#x2F;lib&#x2F;x86_64-linux-gnu&#x2F;libcrypto.so.1.1: undefined symbol: EVP_CIPHER_CTX_cleanup">
+<meta property="og:url" content="https://l-fay.github.io/2021/01/09/proxy00/index.html">
+<meta property="og:site_name" content="兰秋廿柒的博客">
+<meta property="og:description" content="在Linux上部署Shadowsocks的时候遇到的问题： 错误： AttributeError: &#x2F;usr&#x2F;lib&#x2F;x86_64-linux-gnu&#x2F;libcrypto.so.1.1: undefined symbol: EVP_CIPHER_CTX_cleanup">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-01-09T10:32:32.000Z">
+<meta property="article:modified_time" content="2024-08-16T02:31:46.261Z">
+<meta property="article:author" content="兰秋廿柒">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="Proxy">
+<meta property="article:tag" content="Shadowsocks">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://l-fay.github.io/2021/01/09/proxy00/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Shadowsocks | AttributeError: /usr/lib/x86_64-linux-gnu/libcrypto.so.1.1: undefined symbol: EVP_CIPHER_CTX_cleanup | 兰秋廿柒的博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">兰秋廿柒的博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://l-fay.github.io/2021/01/09/proxy00/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="兰秋廿柒">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="兰秋廿柒的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Shadowsocks | AttributeError: /usr/lib/x86_64-linux-gnu/libcrypto.so.1.1: undefined symbol: EVP_CIPHER_CTX_cleanup
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-01-09 18:32:32" itemprop="dateCreated datePublished" datetime="2021-01-09T18:32:32+08:00">2021-01-09</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-08-16 10:31:46" itemprop="dateModified" datetime="2024-08-16T10:31:46+08:00">2024-08-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/Proxy/" itemprop="url" rel="index"><span itemprop="name">Proxy</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Proxy/" itemprop="url" rel="index"><span itemprop="name">Proxy</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Proxy/Shadowsocks/" itemprop="url" rel="index"><span itemprop="name">Shadowsocks</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>在Linux上部署Shadowsocks的时候遇到的问题：</p>
+<p>错误：</p>
+<pre><code>AttributeError: /usr/lib/x86_64-linux-gnu/libcrypto.so.1.1: undefined symbol: EVP_CIPHER_CTX_cleanup
+</code></pre>
+<span id="more"></span>
+
+<p>转载：<br><a target="_blank" rel="noopener" href="https://www.idcyunwei.org/post/220.html">解决方法</a></p>
+<p>本文适用于解决openssl升级到1.1.0以上版本，导致shadowsocks2.8.2启动报undefined symbol: EVP_CIPHER_CTX_cleanup错误。<br>最近将kali升级到了最新版本，编译之后shadowsocks无法启动，报错如下：</p>
+<p>INFO: loading config from ss.json<br>2016-12-14 22:47:50 INFO loading libcrypto from libcrypto.so.1.1<br>Traceback (most recent call last):<br>File “&#x2F;usr&#x2F;local&#x2F;bin&#x2F;sslocal”, line 11, in<br>sys.exit(main())<br>File “&#x2F;usr&#x2F;local&#x2F;lib&#x2F;python2.7&#x2F;dist-packages&#x2F;shadowsocks&#x2F;local.py”, line 39, in main<br>config &#x3D; shell.get_config(True)<br>File “&#x2F;usr&#x2F;local&#x2F;lib&#x2F;python2.7&#x2F;dist-packages&#x2F;shadowsocks&#x2F;shell.py”, line 262, in get_config<br>check_config(config, is_local)<br>File “&#x2F;usr&#x2F;local&#x2F;lib&#x2F;python2.7&#x2F;dist-packages&#x2F;shadowsocks&#x2F;shell.py”, line 124, in check_config<br>encrypt.try_cipher(config[‘password’], config[‘method’])<br>File “&#x2F;usr&#x2F;local&#x2F;lib&#x2F;python2.7&#x2F;dist-packages&#x2F;shadowsocks&#x2F;encrypt.py”, line 44, in try_cipher<br>Encryptor(key, method)<br>File “&#x2F;usr&#x2F;local&#x2F;lib&#x2F;python2.7&#x2F;dist-packages&#x2F;shadowsocks&#x2F;encrypt.py”, line 83, in init<br>random_string(self._method_info[1]))<br>File “&#x2F;usr&#x2F;local&#x2F;lib&#x2F;python2.7&#x2F;dist-packages&#x2F;shadowsocks&#x2F;encrypt.py”, line 109, in get_cipher<br>return m[2](method, key, iv, op)<br>File “&#x2F;usr&#x2F;local&#x2F;lib&#x2F;python2.7&#x2F;dist-packages&#x2F;shadowsocks&#x2F;crypto&#x2F;openssl.py”, line 76, in init<br>load_openssl()<br>File “&#x2F;usr&#x2F;local&#x2F;lib&#x2F;python2.7&#x2F;dist-packages&#x2F;shadowsocks&#x2F;crypto&#x2F;openssl.py”, line 52, in load_openssl<br>libcrypto.EVP_CIPHER_CTX_cleanup.argtypes &#x3D; (c_void_p,)<br>File “&#x2F;usr&#x2F;lib&#x2F;python2.7&#x2F;ctypes&#x2F;init.py”, line 375, in getattr<br>func &#x3D; self.getitem(name)<br>File “&#x2F;usr&#x2F;lib&#x2F;python2.7&#x2F;ctypes&#x2F;init.py”, line 380, in getitem<br>func &#x3D; self._FuncPtr((name_or_ordinal, self))<br>AttributeError: &#x2F;usr&#x2F;lib&#x2F;x86_64-Linux-gnu&#x2F;libcrypto.so.1.1: undefined symbol: EVP_CIPHER_CTX_cleanup</p>
+<p>这个问题是由于在openssl1.1.0版本中，废弃了EVP_CIPHER_CTX_cleanup函数，如官网中所说：</p>
+<p>EVP_CIPHER_CTX was made opaque in OpenSSL 1.1.0. As a result, EVP_CIPHER_CTX_reset() appeared and EVP_CIPHER_CTX_cleanup() disappeared.<br>EVP_CIPHER_CTX_init() remains as an alias for EVP_CIPHER_CTX_reset().</p>
+<p>修改方法：</p>
+<p>用vim打开文件：vim &#x2F;usr&#x2F;local&#x2F;lib&#x2F;python2.7&#x2F;dist-packages&#x2F;shadowsocks&#x2F;crypto&#x2F;openssl.py (该路径请根据自己的系统情况自行修改，如果不知道该文件在哪里的话，可以使用find命令查找文件位置)<br>跳转到52行（shadowsocks2.8.2版本，其他版本搜索一下cleanup 全替换成 reset）<br>进入编辑模式<br>将第52行libcrypto.EVP_CIPHER_CTX_cleanup.argtypes &#x3D; (c_void_p,)<br>改为libcrypto.EVP_CIPHER_CTX_reset.argtypes &#x3D; (c_void_p,)<br>再次搜索cleanup（全文件共2处，此处位于111行），将libcrypto.EVP_CIPHER_CTX_cleanup(self._ctx)<br>改为libcrypto.EVP_CIPHER_CTX_reset(self._ctx)<br>保存并退出<br>启动shadowsocks服务：service shadowsocks start 或 sslocal -c ss配置文件目录<br>问题解决</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Linux/" rel="tag"># Linux</a>
+              <a href="/tags/Proxy/" rel="tag"># Proxy</a>
+              <a href="/tags/Shadowsocks/" rel="tag"># Shadowsocks</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/01/09/command03/" rel="prev" title="vim的使用方法">
+      <i class="fa fa-chevron-left"></i> vim的使用方法
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/01/09/proxy01/" rel="next" title="Shadowsocks | 在Linux上部署Shadowsocks服务端">
+      Shadowsocks | 在Linux上部署Shadowsocks服务端 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">兰秋廿柒</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">161</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">102</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">75</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">兰秋廿柒</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
