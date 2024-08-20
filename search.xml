@@ -3786,7 +3786,7 @@ python proxyPool.py server
       </tags>
   </entry>
   <entry>
-    <title>Selenium | 获取canvas画布中的图片</title>
+    <title>Selenium | 获取canvas画布中的图片a</title>
     <url>/2024/08/19/selenium07/</url>
     <content><![CDATA[<p>搬运自<a href="https://blog.csdn.net/weixin_39726347/article/details/87632561">这里</a>。</p>
 <p>没办法直接获取，但是JS有获取的方法，详见<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLCanvasElement/toDataURL">canvas文档</a>。</p>
