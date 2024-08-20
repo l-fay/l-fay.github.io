@@ -2,9 +2,9 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 6.3.0">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -13,14 +13,13 @@
 <link rel="stylesheet" href="/css/main.css">
 
 
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 
-<script id="hexo-configurations">
-    var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"l-fay.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
-  </script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-  <meta name="description" content="记录一下怎么用python连接MySQL连接池。">
+<script class="next-config" data-name="main" type="application/json">{"hostname":"l-fay.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="记录一下怎么用python连接MySQL连接池。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python连接MySQL连接池">
 <meta property="og:url" content="https://l-fay.github.io/2021/10/21/mysql00/index.html">
@@ -28,28 +27,25 @@
 <meta property="og:description" content="记录一下怎么用python连接MySQL连接池。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-10-21T12:53:30.000Z">
-<meta property="article:modified_time" content="2024-08-16T02:31:46.238Z">
+<meta property="article:modified_time" content="2024-08-20T11:21:55.446Z">
 <meta property="article:author" content="兰秋廿柒">
 <meta property="article:tag" content="Python">
 <meta property="article:tag" content="数据库">
 <meta property="article:tag" content="MySQL">
 <meta name="twitter:card" content="summary">
 
+
 <link rel="canonical" href="https://l-fay.github.io/2021/10/21/mysql00/">
 
 
-<script id="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome : false,
-    isPost : true,
-    lang   : 'zh-CN'
-  };
-</script>
 
-  <title>Python连接MySQL连接池 | 兰秋廿柒的博客</title>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://l-fay.github.io/2021/10/21/mysql00/","path":"2021/10/21/mysql00/","title":"Python连接MySQL连接池"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Python连接MySQL连接池 | 兰秋廿柒的博客</title>
   
+
+
 
 
 
@@ -57,55 +53,32 @@
 
 
   <noscript>
-  <style>
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
-
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
-
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
-    <div class="headband"></div>
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
 
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
+    <div class="toggle" aria-label="切换导航栏" role="button">
     </div>
   </div>
 
   <div class="site-meta">
 
     <a href="/" class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">兰秋廿柒的博客</h1>
-      <span class="logo-line-after"><i></i></span>
+      <i class="logo-line"></i>
+      <p class="site-title">兰秋廿柒的博客</p>
+      <i class="logo-line"></i>
     </a>
   </div>
 
   <div class="site-nav-right">
-    <div class="toggle popup-trigger">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
     </div>
   </div>
 </div>
@@ -113,309 +86,16 @@
 
 
 
-<nav class="site-nav">
-  <ul id="menu" class="menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
-
-  </li>
-  </ul>
-</nav>
 
 
 
-
-</div>
-    </header>
-
-    
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
-
-
-    <main class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
-
-          <div class="content post posts-expand">
-            
-
-    
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://l-fay.github.io/2021/10/21/mysql00/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="兰秋廿柒">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="兰秋廿柒的博客">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          Python连接MySQL连接池
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-10-21 20:53:30" itemprop="dateCreated datePublished" datetime="2021-10-21T20:53:30+08:00">2021-10-21</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-08-16 10:31:46" itemprop="dateModified" datetime="2024-08-16T10:31:46+08:00">2024-08-16</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python/%E5%B8%B8%E7%94%A8%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">常用库</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/" itemprop="url" rel="index"><span itemprop="name">MySQL</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python/%E5%B8%B8%E7%94%A8%E5%BA%93/mysql-connector-python/" itemprop="url" rel="index"><span itemprop="name">mysql-connector-python</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-        <p>记录一下怎么用python连接MySQL连接池。</p>
-<span id="more"></span>
-
-<h2 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h2><pre><code>pip install mysql-connector-python
-</code></pre>
-<h2 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h2><p>直接上demo。</p>
-<pre><code>import time
-from mysql.connector.pooling import MySQLConnectionPool
-
-class MySql:
-
-    def __init__(self, config):
-        self.expire = 1800
-        self.mysql_pool = MySQLConnectionPool(
-            host=config.MYSQL_HOST,
-            port=config.MYSQL_PORT,
-            user=config.MYSQL_USER,
-            passwd=config.MYSQL_PASSWORD,
-            database=config.MYSQL_DATABASE,
-            ssl_disabled=config.SSL_DISABLED,
-            pool_size=config.MYSQL_MAX_CONNECTIONS
-        )
-
-    def __get_connection(self):
-        try:
-            conn = self.mysql_pool.get_connection()
-            return conn
-        except:
-            time.sleep(5)
-
-    def select(self, sql: str, arg=None):
-        if not arg == None and not isinstance(arg, tuple):
-            arg = (arg,)
-        with self.__get_connection() as conn:
-            with conn.cursor() as cur:
-                cur.execute(sql, arg)
-                result = cur.fetchall()
-                return result
-
-    def insert(self, sql: str, arg=None):
-        if not arg == None and not isinstance(arg, tuple):
-            arg = (arg,)
-        with self.__get_connection() as conn:
-            with conn.cursor() as cur:
-                try:
-                    cur.execute(sql, arg)
-                    conn.commit()
-                    return True
-                except Exception as e:
-                    print(e)
-                    conn.rollback()
-                    return False
-
-    def update(self, sql: str, arg=None):
-        if not arg == None and not isinstance(arg, tuple):
-            arg = (arg,)
-        with self.__get_connection() as conn:
-            with conn.cursor() as cur:
-                try:
-                    cur.execute(sql, arg)
-                    conn.commit()
-                    return True
-                except Exception as e:
-                    print(e)
-                    conn.rollback()
-                    return False
-
-    def alter(self, sql: str, arg=None):
-        if not arg == None and not isinstance(arg, tuple):
-            arg = (arg,)
-        with self.__get_connection() as conn:
-            with conn.cursor() as cur:
-                try:
-                    cur.execute(sql, arg)
-                    conn.commit()
-                    return True
-                except Exception as e:
-                    print(e)
-                    conn.rollback()
-                    return False
-
-    def get_index(self, table: str):
-        sql = &quot;&quot;&quot;
-        show 
-        INDEX 
-        from 
-        &quot;&quot;&quot; + table + &quot;&quot;&quot;
-         
-        where 
-        not Key_name = &#39;PRIMARY&#39;
-        &quot;&quot;&quot;
-        with self.__get_connection() as conn:
-            with conn.cursor() as cur:
-                try:
-                    cur.execute(sql)
-                    result = cur.fetchall()
-                    index_names = []
-                    for i in result:
-                        index_names.append(i[2])
-                    return index_names
-                except Exception as e:
-                    print(e)
-                    conn.rollback()
-                    return []
-
-    def truncate(self, sql: str, arg=None):
-        if not arg == None and not isinstance(arg, tuple):
-            arg = (arg,)
-        with self.__get_connection() as conn:
-            with conn.cursor() as cur:
-                try:
-                    cur.execute(sql, arg)
-                    conn.commit()
-                    return True
-                except Exception as e:
-                    print(e)
-                    conn.rollback()
-                    return False
-</code></pre>
-
-    </div>
-
-    
-    
-    
-
-      <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/Python/" rel="tag"># Python</a>
-              <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag"># 数据库</a>
-              <a href="/tags/MySQL/" rel="tag"># MySQL</a>
-          </div>
-
+</header>
         
-
-
-        
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/2021/10/21/redis03/" rel="prev" title="Python连接Redis集群">
-      <i class="fa fa-chevron-left"></i> Python连接Redis集群
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/2021/10/22/redis04/" rel="next" title="Python连接Redis连接池">
-      Python连接Redis连接池 <i class="fa fa-chevron-right"></i>
-    </a></div>
-    </div>
-      </footer>
-    
-  </article>
   
-  
-  
-
-
-
-          </div>
-          
-
-<script>
-  window.addEventListener('tabs:register', () => {
-    let { activeClass } = CONFIG.comments;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
-    }
-    if (activeClass) {
-      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
-      }
-    }
-  });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      let commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
-  }
-</script>
-
-        </div>
-          
-  
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
-  </div>
-
   <aside class="sidebar">
-    <div class="sidebar-inner">
 
-      <ul class="sidebar-nav motion-element">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
         </li>
@@ -424,110 +104,218 @@ class MySql:
         </li>
       </ul>
 
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96"><span class="nav-number">1.</span> <span class="nav-text">安装依赖</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Demo"><span class="nav-number">2.</span> <span class="nav-text">Demo</span></a></li></ol></div>
-      </div>
-      <!--/noindex-->
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96"><span class="nav-number">1.</span> <span class="nav-text">安装依赖</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Demo"><span class="nav-number">2.</span> <span class="nav-text">Demo</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
 
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <p class="site-author-name" itemprop="name">兰秋廿柒</p>
   <div class="site-description" itemprop="description"></div>
 </div>
-<div class="site-state-wrap motion-element">
+<div class="site-state-wrap animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
-          <a href="/archives/">
-        
+        <a href="/archives/">
           <span class="site-state-item-count">161</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-            <a href="/categories/">
+          <a href="/categories/">
         <span class="site-state-item-count">102</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
-            <a href="/tags/">
+          <a href="/tags/">
         <span class="site-state-item-count">75</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
 </div>
 
-
-
+        </div>
       </div>
+    </div>
+
+    
+  </aside>
+
 
     </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
+
+    <div class="main-inner post posts-expand">
 
 
-      </div>
-    </main>
-
-    <footer class="footer">
-      <div class="footer-inner">
-        
-
-        
-
-<div class="copyright">
   
-  &copy; 
-  <span itemprop="copyrightYear">2024</span>
-  <span class="with-love">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">兰秋廿柒</span>
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://l-fay.github.io/2021/10/21/mysql00/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="兰秋廿柒">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="兰秋廿柒的博客">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Python连接MySQL连接池 | 兰秋廿柒的博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Python连接MySQL连接池
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-10-21 20:53:30" itemprop="dateCreated datePublished" datetime="2021-10-21T20:53:30+08:00">2021-10-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-08-20 19:21:55" itemprop="dateModified" datetime="2024-08-20T19:21:55+08:00">2024-08-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Python/%E5%B8%B8%E7%94%A8%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">常用库</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/" itemprop="url" rel="index"><span itemprop="name">MySQL</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Python/%E5%B8%B8%E7%94%A8%E5%BA%93/mysql-connector-python/" itemprop="url" rel="index"><span itemprop="name">mysql-connector-python</span></a>
+        </span>
+    </span>
+
+  
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
-  </div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>记录一下怎么用python连接MySQL连接池。</p>
+<span id="more"></span>
+
+<h2 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install mysql-connector-python</span><br></pre></td></tr></table></figure>
+
+<h2 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h2><p>直接上demo。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br></pre></td><td class="code"><pre><span class="line">import time</span><br><span class="line">from mysql.connector.pooling import MySQLConnectionPool</span><br><span class="line"></span><br><span class="line">class MySql:</span><br><span class="line"></span><br><span class="line">    def __init__(self, config):</span><br><span class="line">        self.expire = 1800</span><br><span class="line">        self.mysql_pool = MySQLConnectionPool(</span><br><span class="line">            host=config.MYSQL_HOST,</span><br><span class="line">            port=config.MYSQL_PORT,</span><br><span class="line">            user=config.MYSQL_USER,</span><br><span class="line">            passwd=config.MYSQL_PASSWORD,</span><br><span class="line">            database=config.MYSQL_DATABASE,</span><br><span class="line">            ssl_disabled=config.SSL_DISABLED,</span><br><span class="line">            pool_size=config.MYSQL_MAX_CONNECTIONS</span><br><span class="line">        )</span><br><span class="line"></span><br><span class="line">    def __get_connection(self):</span><br><span class="line">        try:</span><br><span class="line">            conn = self.mysql_pool.get_connection()</span><br><span class="line">            return conn</span><br><span class="line">        except:</span><br><span class="line">            time.sleep(5)</span><br><span class="line"></span><br><span class="line">    def select(self, sql: str, arg=None):</span><br><span class="line">        if not arg == None and not isinstance(arg, tuple):</span><br><span class="line">            arg = (arg,)</span><br><span class="line">        with self.__get_connection() as conn:</span><br><span class="line">            with conn.cursor() as cur:</span><br><span class="line">                cur.execute(sql, arg)</span><br><span class="line">                result = cur.fetchall()</span><br><span class="line">                return result</span><br><span class="line"></span><br><span class="line">    def insert(self, sql: str, arg=None):</span><br><span class="line">        if not arg == None and not isinstance(arg, tuple):</span><br><span class="line">            arg = (arg,)</span><br><span class="line">        with self.__get_connection() as conn:</span><br><span class="line">            with conn.cursor() as cur:</span><br><span class="line">                try:</span><br><span class="line">                    cur.execute(sql, arg)</span><br><span class="line">                    conn.commit()</span><br><span class="line">                    return True</span><br><span class="line">                except Exception as e:</span><br><span class="line">                    print(e)</span><br><span class="line">                    conn.rollback()</span><br><span class="line">                    return False</span><br><span class="line"></span><br><span class="line">    def update(self, sql: str, arg=None):</span><br><span class="line">        if not arg == None and not isinstance(arg, tuple):</span><br><span class="line">            arg = (arg,)</span><br><span class="line">        with self.__get_connection() as conn:</span><br><span class="line">            with conn.cursor() as cur:</span><br><span class="line">                try:</span><br><span class="line">                    cur.execute(sql, arg)</span><br><span class="line">                    conn.commit()</span><br><span class="line">                    return True</span><br><span class="line">                except Exception as e:</span><br><span class="line">                    print(e)</span><br><span class="line">                    conn.rollback()</span><br><span class="line">                    return False</span><br><span class="line"></span><br><span class="line">    def alter(self, sql: str, arg=None):</span><br><span class="line">        if not arg == None and not isinstance(arg, tuple):</span><br><span class="line">            arg = (arg,)</span><br><span class="line">        with self.__get_connection() as conn:</span><br><span class="line">            with conn.cursor() as cur:</span><br><span class="line">                try:</span><br><span class="line">                    cur.execute(sql, arg)</span><br><span class="line">                    conn.commit()</span><br><span class="line">                    return True</span><br><span class="line">                except Exception as e:</span><br><span class="line">                    print(e)</span><br><span class="line">                    conn.rollback()</span><br><span class="line">                    return False</span><br><span class="line"></span><br><span class="line">    def get_index(self, table: str):</span><br><span class="line">        sql = &quot;&quot;&quot;</span><br><span class="line">        show </span><br><span class="line">        INDEX </span><br><span class="line">        from </span><br><span class="line">        &quot;&quot;&quot; + table + &quot;&quot;&quot;</span><br><span class="line">         </span><br><span class="line">        where </span><br><span class="line">        not Key_name = &#x27;PRIMARY&#x27;</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        with self.__get_connection() as conn:</span><br><span class="line">            with conn.cursor() as cur:</span><br><span class="line">                try:</span><br><span class="line">                    cur.execute(sql)</span><br><span class="line">                    result = cur.fetchall()</span><br><span class="line">                    index_names = []</span><br><span class="line">                    for i in result:</span><br><span class="line">                        index_names.append(i[2])</span><br><span class="line">                    return index_names</span><br><span class="line">                except Exception as e:</span><br><span class="line">                    print(e)</span><br><span class="line">                    conn.rollback()</span><br><span class="line">                    return []</span><br><span class="line"></span><br><span class="line">    def truncate(self, sql: str, arg=None):</span><br><span class="line">        if not arg == None and not isinstance(arg, tuple):</span><br><span class="line">            arg = (arg,)</span><br><span class="line">        with self.__get_connection() as conn:</span><br><span class="line">            with conn.cursor() as cur:</span><br><span class="line">                try:</span><br><span class="line">                    cur.execute(sql, arg)</span><br><span class="line">                    conn.commit()</span><br><span class="line">                    return True</span><br><span class="line">                except Exception as e:</span><br><span class="line">                    print(e)</span><br><span class="line">                    conn.rollback()</span><br><span class="line">                    return False</span><br></pre></td></tr></table></figure>
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Python/" rel="tag"># Python</a>
+              <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag"># 数据库</a>
+              <a href="/tags/MySQL/" rel="tag"># MySQL</a>
+          </div>
 
         
 
-
-
-
-
-
-
-
-      </div>
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/10/21/redis03/" rel="prev" title="Python连接Redis集群">
+                  <i class="fa fa-angle-left"></i> Python连接Redis集群
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2021/10/22/redis04/" rel="next" title="Python连接Redis连接池">
+                  Python连接Redis连接池 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
     </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">兰秋廿柒</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
   </div>
 
-  
-  <script src="/lib/anime.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
-
-<script src="/js/utils.js"></script>
-
-<script src="/js/motion.js"></script>
-
-
-<script src="/js/schemes/muse.js"></script>
-
-
-<script src="/js/next-boot.js"></script>
-
-
-
+    </div>
+  </footer>
 
   
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
 
 
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
 
-
-
-
-
-
-
+  
 
 
 
@@ -536,7 +324,9 @@ class MySql:
 
   
 
-  
+
+
+
 
 </body>
 </html>

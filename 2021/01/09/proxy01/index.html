@@ -2,9 +2,9 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 6.3.0">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -13,14 +13,13 @@
 <link rel="stylesheet" href="/css/main.css">
 
 
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 
-<script id="hexo-configurations">
-    var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"l-fay.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
-  </script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-  <meta name="description" content="因为校园网限流，所以想整个代理，让宿舍的网络下载东西的时候走实验室电脑，曲线实现免流。">
+<script class="next-config" data-name="main" type="application/json">{"hostname":"l-fay.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="因为校园网限流，所以想整个代理，让宿舍的网络下载东西的时候走实验室电脑，曲线实现免流。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Shadowsocks | 在Linux上部署Shadowsocks服务端">
 <meta property="og:url" content="https://l-fay.github.io/2021/01/09/proxy01/index.html">
@@ -28,28 +27,25 @@
 <meta property="og:description" content="因为校园网限流，所以想整个代理，让宿舍的网络下载东西的时候走实验室电脑，曲线实现免流。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-01-09T10:40:37.000Z">
-<meta property="article:modified_time" content="2024-08-16T02:31:46.262Z">
+<meta property="article:modified_time" content="2024-08-20T11:21:55.464Z">
 <meta property="article:author" content="兰秋廿柒">
 <meta property="article:tag" content="Linux">
 <meta property="article:tag" content="Proxy">
 <meta property="article:tag" content="Shadowsocks">
 <meta name="twitter:card" content="summary">
 
+
 <link rel="canonical" href="https://l-fay.github.io/2021/01/09/proxy01/">
 
 
-<script id="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome : false,
-    isPost : true,
-    lang   : 'zh-CN'
-  };
-</script>
 
-  <title>Shadowsocks | 在Linux上部署Shadowsocks服务端 | 兰秋廿柒的博客</title>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://l-fay.github.io/2021/01/09/proxy01/","path":"2021/01/09/proxy01/","title":"Shadowsocks | 在Linux上部署Shadowsocks服务端"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Shadowsocks | 在Linux上部署Shadowsocks服务端 | 兰秋廿柒的博客</title>
   
+
+
 
 
 
@@ -57,55 +53,32 @@
 
 
   <noscript>
-  <style>
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
-
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
-
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
-    <div class="headband"></div>
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
 
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
+    <div class="toggle" aria-label="切换导航栏" role="button">
     </div>
   </div>
 
   <div class="site-meta">
 
     <a href="/" class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">兰秋廿柒的博客</h1>
-      <span class="logo-line-after"><i></i></span>
+      <i class="logo-line"></i>
+      <p class="site-title">兰秋廿柒的博客</p>
+      <i class="logo-line"></i>
     </a>
   </div>
 
   <div class="site-nav-right">
-    <div class="toggle popup-trigger">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
     </div>
   </div>
 </div>
@@ -113,101 +86,140 @@
 
 
 
-<nav class="site-nav">
-  <ul id="menu" class="menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
-
-  </li>
-  </ul>
-</nav>
 
 
 
+</header>
+        
+  
+  <aside class="sidebar">
 
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85Shadowsocks"><span class="nav-number">1.</span> <span class="nav-text">安装Shadowsocks</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8%E6%9C%8D%E5%8A%A1"><span class="nav-number">2.</span> <span class="nav-text">启动服务</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%91%BD%E4%BB%A4%E9%85%8D%E7%BD%AE%E8%BF%90%E8%A1%8C"><span class="nav-number">2.1.</span> <span class="nav-text">命令配置运行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%BF%90%E8%A1%8C"><span class="nav-number">2.2.</span> <span class="nav-text">配置文件运行</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">兰秋廿柒</p>
+  <div class="site-description" itemprop="description"></div>
 </div>
-    </header>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">161</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">102</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">75</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
 
     
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
+  </aside>
 
 
-    <main class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
+    </div>
 
-          <div class="content post posts-expand">
-            
+    <div class="main-inner post posts-expand">
 
-    
+
+  
+
+
+<div class="post-block">
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://l-fay.github.io/2021/01/09/proxy01/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="兰秋廿柒">
-      <meta itemprop="description" content="">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="兰秋廿柒的博客">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Shadowsocks | 在Linux上部署Shadowsocks服务端 | 兰秋廿柒的博客">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           Shadowsocks | 在Linux上部署Shadowsocks服务端
         </h1>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-01-09 18:40:37" itemprop="dateCreated datePublished" datetime="2021-01-09T18:40:37+08:00">2021-01-09</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-08-16 10:31:46" itemprop="dateModified" datetime="2024-08-16T10:31:46+08:00">2024-08-16</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/Proxy/" itemprop="url" rel="index"><span itemprop="name">Proxy</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Proxy/" itemprop="url" rel="index"><span itemprop="name">Proxy</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Proxy/Shadowsocks/" itemprop="url" rel="index"><span itemprop="name">Shadowsocks</span></a>
-                </span>
-            </span>
+      <time title="创建时间：2021-01-09 18:40:37" itemprop="dateCreated datePublished" datetime="2021-01-09T18:40:37+08:00">2021-01-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-08-20 19:21:55" itemprop="dateModified" datetime="2024-08-20T19:21:55+08:00">2024-08-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Linux/Proxy/" itemprop="url" rel="index"><span itemprop="name">Proxy</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Proxy/" itemprop="url" rel="index"><span itemprop="name">Proxy</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Proxy/Shadowsocks/" itemprop="url" rel="index"><span itemprop="name">Shadowsocks</span></a>
+        </span>
+    </span>
 
-          
+  
+</div>
 
         </div>
       </header>
@@ -215,10 +227,7 @@
     
     
     
-    <div class="post-body" itemprop="articleBody">
-
-      
-        <p>因为校园网限流，所以想整个代理，让宿舍的网络下载东西的时候走实验室电脑，曲线实现免流。</p>
+    <div class="post-body" itemprop="articleBody"><p>因为校园网限流，所以想整个代理，让宿舍的网络下载东西的时候走实验室电脑，曲线实现免流。</p>
 <span id="more"></span>
 <blockquote><p>主要参考：<a target="_blank" rel="noopener" href="https://www.zlxian.com/index.php/archives/170/">https://www.zlxian.com/index.php/archives/170/</a></p>
 </blockquote>
@@ -226,79 +235,40 @@
 <p>由于实验室有个刚买的服务器，就想在这个服务器上搭一下。</p>
 <p>前几天刚把服务器装了Ubuntu 18.04 LTS。</p>
 <p>所以后边的全都是基于这个环境。</p>
-<h2 id="安装Shadowsocks"><a href="#安装Shadowsocks" class="headerlink" title="安装Shadowsocks"></a>安装Shadowsocks</h2><pre><code>pip install shadowsocks
-</code></pre>
+<h2 id="安装Shadowsocks"><a href="#安装Shadowsocks" class="headerlink" title="安装Shadowsocks"></a>安装Shadowsocks</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install shadowsocks</span><br></pre></td></tr></table></figure>
+
 <h2 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a>启动服务</h2><p>两种启动方式，分别记录一下。</p>
 <p>不管哪种方式运行，都可能会出现这个错误：</p>
-<pre><code>AttributeError: /usr/lib/x86_64-linux-gnu/libcrypto.so.1.1: undefined symbol: EVP_CIPHER_CTX_cleanup
-</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">AttributeError: /usr/lib/x86_64-linux-gnu/libcrypto.so.1.1: undefined symbol: EVP_CIPHER_CTX_cleanup</span><br></pre></td></tr></table></figure>
+
 <p>原因在于Shadowsocks函数名的改动。</p>
 <p>解决方法：<a href="/2021/01/09/proxy00/" title="Shadowsocks | AttributeError: &#x2F;usr&#x2F;lib&#x2F;x86_64-linux-gnu&#x2F;libcrypto.so.1.1: undefined symbol: EVP_CIPHER_CTX_cleanup">解决方法</a></p>
-<h3 id="命令配置运行"><a href="#命令配置运行" class="headerlink" title="命令配置运行"></a>命令配置运行</h3><pre><code>ssserver -p 443 -k password -m aes-256-cfb  // ssserver -p 服务器端口 -k 密码 -m 加密方法
-ssserver -p 443 -k password -m aes-256-cfb -d start // -d start 代表后台运行
-</code></pre>
+<h3 id="命令配置运行"><a href="#命令配置运行" class="headerlink" title="命令配置运行"></a>命令配置运行</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ssserver -p 443 -k password -m aes-256-cfb  // ssserver -p 服务器端口 -k 密码 -m 加密方法</span><br><span class="line">ssserver -p 443 -k password -m aes-256-cfb -d start // -d start 代表后台运行</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <h3 id="配置文件运行"><a href="#配置文件运行" class="headerlink" title="配置文件运行"></a>配置文件运行</h3><p>一、首先创建&#x2F;etc&#x2F;shadowsocks&#x2F;目录。</p>
 <p>二、然后在&#x2F;etc&#x2F;shadowsocks&#x2F;目录下创建配置文件：</p>
-<pre><code>vim /etc/shadowsocks/conf.json
-</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/shadowsocks/conf.json</span><br></pre></td></tr></table></figure>
+
 <p>如果是用当前服务器做vpn，<code>your_server_ip</code>填写<code>0.0.0.0</code></p>
 <p>单用户配置：</p>
-<pre><code>/ 单用户配置
-&#123; 
-  &quot;server&quot;:&quot;your_server_ip&quot;,     // 你的服务器ip
-  &quot;server_port&quot;:8388,            // 端口号（每一个账号都不能重复）
-  &quot;local_address&quot;: &quot;127.0.0.1&quot;,  // 本地地址，一般不变
-  &quot;local_port&quot;:1080,             // 本地端口，一般不变
-  &quot;password&quot;:&quot;*********&quot;,        // 连接密码
-  &quot;timeout&quot;:300,                 // 相应超时时间
-  &quot;method&quot;:&quot;aes-256-cfb&quot;,        // 加密方式
-  &quot;fast_open&quot;: false             //  使用TCP_FASTOPEN, 参数选项true   false，一般保持默认即可
-&#125;
-</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">/ 单用户配置</span><br><span class="line">&#123; </span><br><span class="line">  &quot;server&quot;:&quot;your_server_ip&quot;,     // 你的服务器ip</span><br><span class="line">  &quot;server_port&quot;:8388,            // 端口号（每一个账号都不能重复）</span><br><span class="line">  &quot;local_address&quot;: &quot;127.0.0.1&quot;,  // 本地地址，一般不变</span><br><span class="line">  &quot;local_port&quot;:1080,             // 本地端口，一般不变</span><br><span class="line">  &quot;password&quot;:&quot;*********&quot;,        // 连接密码</span><br><span class="line">  &quot;timeout&quot;:300,                 // 相应超时时间</span><br><span class="line">  &quot;method&quot;:&quot;aes-256-cfb&quot;,        // 加密方式</span><br><span class="line">  &quot;fast_open&quot;: false             //  使用TCP_FASTOPEN, 参数选项true   false，一般保持默认即可</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>多用户配置：</p>
-<pre><code>// 多用户配置  
-&#123; 
-    &quot;server&quot;:&quot;your_server_ip&quot;, 
-    &quot;local_address&quot;: &quot;127.0.0.1&quot;, 
-    &quot;local_port&quot;:&quot;1080&quot;, 
-    &quot;port_password&quot;:&#123;      
-         &quot;8989&quot;:&quot;password0&quot;,           
-         &quot;9001&quot;:&quot;password1&quot;,      
-         &quot;9002&quot;:&quot;password2&quot;,      
-         &quot;9003&quot;:&quot;password3&quot;,      
-         &quot;9004&quot;:&quot;password4&quot;
-     &#125;, 
-     &quot;timeout&quot;:&quot;300&quot;, 
-     &quot;method&quot;:&quot;aes-256-cfb&quot;, 
-     &quot;fast_open&quot;: false
-&#125;
-</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">// 多用户配置  </span><br><span class="line">&#123; </span><br><span class="line">    &quot;server&quot;:&quot;your_server_ip&quot;, </span><br><span class="line">    &quot;local_address&quot;: &quot;127.0.0.1&quot;, </span><br><span class="line">    &quot;local_port&quot;:&quot;1080&quot;, </span><br><span class="line">    &quot;port_password&quot;:&#123;      </span><br><span class="line">         &quot;8989&quot;:&quot;password0&quot;,           </span><br><span class="line">         &quot;9001&quot;:&quot;password1&quot;,      </span><br><span class="line">         &quot;9002&quot;:&quot;password2&quot;,      </span><br><span class="line">         &quot;9003&quot;:&quot;password3&quot;,      </span><br><span class="line">         &quot;9004&quot;:&quot;password4&quot;</span><br><span class="line">     &#125;, </span><br><span class="line">     &quot;timeout&quot;:&quot;300&quot;, </span><br><span class="line">     &quot;method&quot;:&quot;aes-256-cfb&quot;, </span><br><span class="line">     &quot;fast_open&quot;: false</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>如果手机连接 配置如下</p>
 <p>加密方法 aes-256-cfb</p>
 <p>协议origin</p>
 <p>混淆方式</p>
 <p>plain</p>
-<pre><code>配置说明：
- 
-字段  说明
-server          ss服务监听地址
-server_port     ss服务监听端口
-local_address   本地的监听地址
-local_port      本地的监听端口
-password        密码
-timeout         超时时间，单位秒
-method          加密方法，默认是aes-256-cfb
-fast_open       使用TCP_FASTOPEN, true / false
-workers         workers数，只支持Unix/Linux系统
-</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">配置说明：</span><br><span class="line"> </span><br><span class="line">字段  说明</span><br><span class="line">server          ss服务监听地址</span><br><span class="line">server_port     ss服务监听端口</span><br><span class="line">local_address   本地的监听地址</span><br><span class="line">local_port      本地的监听端口</span><br><span class="line">password        密码</span><br><span class="line">timeout         超时时间，单位秒</span><br><span class="line">method          加密方法，默认是aes-256-cfb</span><br><span class="line">fast_open       使用TCP_FASTOPEN, true / false</span><br><span class="line">workers         workers数，只支持Unix/Linux系统</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <p>三、根据配置文件启动</p>
-<pre><code>ssserver -c /etc/shadowsocks/conf.json start // 前台运行
-ssserver -c /etc/shadowsocks/conf.json -d start // 后台运行
-ssserver -c /etc/shadowsocks/conf.json -d stop // 停止服务
-</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ssserver -c /etc/shadowsocks/conf.json start // 前台运行</span><br><span class="line">ssserver -c /etc/shadowsocks/conf.json -d start // 后台运行</span><br><span class="line">ssserver -c /etc/shadowsocks/conf.json -d stop // 停止服务</span><br></pre></td></tr></table></figure>
+
 <p>ps：如果出现错误的话，就先杀死进程，重新启动就可以了。</p>
-<pre><code>pkill ssserver
-</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pkill ssserver</span><br></pre></td></tr></table></figure>
+
 <p>客户端安装</p>
 <p>windows下载</p>
 <p><a target="_blank" rel="noopener" href="https://github.com/shadowsocks/shadowsocks-windows">https://github.com/shadowsocks/shadowsocks-windows</a></p>
@@ -311,7 +281,7 @@ ssserver -c /etc/shadowsocks/conf.json -d stop // 停止服务
     
     
 
-      <footer class="post-footer">
+    <footer class="post-footer">
           <div class="post-tags">
               <a href="/tags/Linux/" rel="tag"># Linux</a>
               <a href="/tags/Proxy/" rel="tag"># Proxy</a>
@@ -320,163 +290,71 @@ ssserver -c /etc/shadowsocks/conf.json -d stop // 停止服务
 
         
 
-
-        
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/2021/01/09/proxy00/" rel="prev" title="Shadowsocks | AttributeError: /usr/lib/x86_64-linux-gnu/libcrypto.so.1.1: undefined symbol: EVP_CIPHER_CTX_cleanup">
-      <i class="fa fa-chevron-left"></i> Shadowsocks | AttributeError: /usr/lib/x86_64-linux-gnu/libcrypto.so.1.1: undefined symbol: EVP_CIPHER_CTX_cleanup
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/2021/01/10/excel02/" rel="next" title="Excel | 用openpyxl库操作Excel表格">
-      Excel | 用openpyxl库操作Excel表格 <i class="fa fa-chevron-right"></i>
-    </a></div>
-    </div>
-      </footer>
-    
-  </article>
-  
-  
-  
-
-
-
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/01/09/proxy00/" rel="prev" title="Shadowsocks | AttributeError: /usr/lib/x86_64-linux-gnu/libcrypto.so.1.1: undefined symbol: EVP_CIPHER_CTX_cleanup">
+                  <i class="fa fa-angle-left"></i> Shadowsocks | AttributeError: /usr/lib/x86_64-linux-gnu/libcrypto.so.1.1: undefined symbol: EVP_CIPHER_CTX_cleanup
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2021/01/10/excel02/" rel="next" title="Excel | 用openpyxl库操作Excel表格">
+                  Excel | 用openpyxl库操作Excel表格 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
           </div>
-          
+    </footer>
+  </article>
+</div>
 
-<script>
-  window.addEventListener('tabs:register', () => {
-    let { activeClass } = CONFIG.comments;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
-    }
-    if (activeClass) {
-      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
-      }
-    }
-  });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      let commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
-  }
-</script>
 
-        </div>
-          
-  
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">兰秋廿柒</span>
   </div>
-
-  <aside class="sidebar">
-    <div class="sidebar-inner">
-
-      <ul class="sidebar-nav motion-element">
-        <li class="sidebar-nav-toc">
-          文章目录
-        </li>
-        <li class="sidebar-nav-overview">
-          站点概览
-        </li>
-      </ul>
-
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85Shadowsocks"><span class="nav-number">1.</span> <span class="nav-text">安装Shadowsocks</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8%E6%9C%8D%E5%8A%A1"><span class="nav-number">2.</span> <span class="nav-text">启动服务</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%91%BD%E4%BB%A4%E9%85%8D%E7%BD%AE%E8%BF%90%E8%A1%8C"><span class="nav-number">2.1.</span> <span class="nav-text">命令配置运行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%BF%90%E8%A1%8C"><span class="nav-number">2.2.</span> <span class="nav-text">配置文件运行</span></a></li></ol></li></ol></div>
-      </div>
-      <!--/noindex-->
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <p class="site-author-name" itemprop="name">兰秋廿柒</p>
-  <div class="site-description" itemprop="description"></div>
-</div>
-<div class="site-state-wrap motion-element">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/archives/">
-        
-          <span class="site-state-item-count">161</span>
-          <span class="site-state-item-name">日志</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-categories">
-            <a href="/categories/">
-        <span class="site-state-item-count">102</span>
-        <span class="site-state-item-name">分类</span></a>
-      </div>
-      <div class="site-state-item site-state-tags">
-            <a href="/tags/">
-        <span class="site-state-item-count">75</span>
-        <span class="site-state-item-name">标签</span></a>
-      </div>
-  </nav>
-</div>
-
-
-
-      </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
 
     </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
+  </footer>
 
-
-      </div>
-    </main>
-
-    <footer class="footer">
-      <div class="footer-inner">
-        
-
-        
-
-<div class="copyright">
   
-  &copy; 
-  <span itemprop="copyrightYear">2024</span>
-  <span class="with-love">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">兰秋廿柒</span>
-</div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
   </div>
 
-        
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
 
-
-
-
-
-
-
-
-      </div>
-    </footer>
-  </div>
 
   
-  <script src="/lib/anime.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
 
-<script src="/js/utils.js"></script>
-
-<script src="/js/motion.js"></script>
+  
 
 
-<script src="/js/schemes/muse.js"></script>
-
-
-<script src="/js/next-boot.js"></script>
 
 
 
@@ -486,20 +364,6 @@ ssserver -c /etc/shadowsocks/conf.json -d stop // 停止服务
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-  
-
-  
 
 </body>
 </html>

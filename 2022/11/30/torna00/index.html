@@ -2,9 +2,9 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 6.3.0">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -13,14 +13,13 @@
 <link rel="stylesheet" href="/css/main.css">
 
 
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 
-<script id="hexo-configurations">
-    var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"l-fay.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
-  </script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-  <meta name="description" content="在开发spring项目的时候，接口文档承担着向其他开发人员说明接口相关信息的重要任务，因此，一份清晰而又相近的接口文档至关重要。 但是，写接口文档的痛苦想必各位开发人员都体验过，明明写接口的时候那么丝滑，写接口文档的时候像要老命一样各种核对数据格式、文档格式，最后还有可能漏掉那么一些示例导致调用不成功，继续和其他开发沟通……还有接口文档的更新问题，一旦要更新接口文档，就意味着要给所有用着接口文档的">
+<script class="next-config" data-name="main" type="application/json">{"hostname":"l-fay.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="在开发spring项目的时候，接口文档承担着向其他开发人员说明接口相关信息的重要任务，因此，一份清晰而又相近的接口文档至关重要。 但是，写接口文档的痛苦想必各位开发人员都体验过，明明写接口的时候那么丝滑，写接口文档的时候像要老命一样各种核对数据格式、文档格式，最后还有可能漏掉那么一些示例导致调用不成功，继续和其他开发沟通……还有接口文档的更新问题，一旦要更新接口文档，就意味着要给所有用着接口文档的">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用Smart-Doc + Torna生成和管理接口文档">
 <meta property="og:url" content="https://l-fay.github.io/2022/11/30/torna00/index.html">
@@ -29,7 +28,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://l-fay.github.io/images/torna00/img00.jpg">
 <meta property="article:published_time" content="2022-11-30T11:32:10.000Z">
-<meta property="article:modified_time" content="2024-08-19T11:55:07.217Z">
+<meta property="article:modified_time" content="2024-08-20T11:21:55.483Z">
 <meta property="article:author" content="兰秋廿柒">
 <meta property="article:tag" content="Java">
 <meta property="article:tag" content="Torna">
@@ -37,21 +36,18 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://l-fay.github.io/images/torna00/img00.jpg">
 
+
 <link rel="canonical" href="https://l-fay.github.io/2022/11/30/torna00/">
 
 
-<script id="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome : false,
-    isPost : true,
-    lang   : 'zh-CN'
-  };
-</script>
 
-  <title>使用Smart-Doc + Torna生成和管理接口文档 | 兰秋廿柒的博客</title>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://l-fay.github.io/2022/11/30/torna00/","path":"2022/11/30/torna00/","title":"使用Smart-Doc + Torna生成和管理接口文档"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>使用Smart-Doc + Torna生成和管理接口文档 | 兰秋廿柒的博客</title>
   
+
+
 
 
 
@@ -59,55 +55,32 @@
 
 
   <noscript>
-  <style>
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
-
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
-
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
-    <div class="headband"></div>
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
 
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
+    <div class="toggle" aria-label="切换导航栏" role="button">
     </div>
   </div>
 
   <div class="site-meta">
 
     <a href="/" class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">兰秋廿柒的博客</h1>
-      <span class="logo-line-after"><i></i></span>
+      <i class="logo-line"></i>
+      <p class="site-title">兰秋廿柒的博客</p>
+      <i class="logo-line"></i>
     </a>
   </div>
 
   <div class="site-nav-right">
-    <div class="toggle popup-trigger">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
     </div>
   </div>
 </div>
@@ -115,105 +88,144 @@
 
 
 
-<nav class="site-nav">
-  <ul id="menu" class="menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
-
-  </li>
-  </ul>
-</nav>
 
 
 
+</header>
+        
+  
+  <aside class="sidebar">
 
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Smart-Doc"><span class="nav-number">1.</span> <span class="nav-text">Smart-Doc</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Torna"><span class="nav-number">2.</span> <span class="nav-text">Torna</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Smart-Doc%E5%92%8CTorna%E9%85%8D%E5%90%88%E4%BD%BF%E7%94%A8"><span class="nav-number">3.</span> <span class="nav-text">Smart-Doc和Torna配合使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%8D%E7%BD%AE%E6%9D%A1%E4%BB%B6"><span class="nav-number">3.1.</span> <span class="nav-text">前置条件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B8%A9%E8%BF%87%E7%9A%84%E5%9D%91"><span class="nav-number">3.2.</span> <span class="nav-text">踩过的坑</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#appKey"><span class="nav-number">3.2.1.</span> <span class="nav-text">appKey</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#appToken"><span class="nav-number">3.2.2.</span> <span class="nav-text">appToken</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%88%E6%9E%9C%E5%B1%95%E7%A4%BA"><span class="nav-number">4.</span> <span class="nav-text">效果展示</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">兰秋廿柒</p>
+  <div class="site-description" itemprop="description"></div>
 </div>
-    </header>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">161</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">102</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">75</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
 
     
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
+  </aside>
 
 
-    <main class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
+    </div>
 
-          <div class="content post posts-expand">
-            
+    <div class="main-inner post posts-expand">
 
-    
+
+  
+
+
+<div class="post-block">
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://l-fay.github.io/2022/11/30/torna00/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="兰秋廿柒">
-      <meta itemprop="description" content="">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="兰秋廿柒的博客">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="使用Smart-Doc + Torna生成和管理接口文档 | 兰秋廿柒的博客">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           使用Smart-Doc + Torna生成和管理接口文档
         </h1>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2022-11-30 19:32:10" itemprop="dateCreated datePublished" datetime="2022-11-30T19:32:10+08:00">2022-11-30</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-08-19 19:55:07" itemprop="dateModified" datetime="2024-08-19T19:55:07+08:00">2024-08-19</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/%E5%B8%B8%E7%94%A8%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">常用库</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/%E5%B8%B8%E7%94%A8%E5%BA%93/smart-doc/" itemprop="url" rel="index"><span itemprop="name">smart-doc</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/%E5%B7%A5%E5%85%B7/Torna/" itemprop="url" rel="index"><span itemprop="name">Torna</span></a>
-                </span>
-            </span>
+      <time title="创建时间：2022-11-30 19:32:10" itemprop="dateCreated datePublished" datetime="2022-11-30T19:32:10+08:00">2022-11-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-08-20 19:21:55" itemprop="dateModified" datetime="2024-08-20T19:21:55+08:00">2024-08-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Java/%E5%B8%B8%E7%94%A8%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">常用库</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Java/%E5%B8%B8%E7%94%A8%E5%BA%93/smart-doc/" itemprop="url" rel="index"><span itemprop="name">smart-doc</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Java/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Java/%E5%B7%A5%E5%85%B7/Torna/" itemprop="url" rel="index"><span itemprop="name">Torna</span></a>
+        </span>
+    </span>
 
-          
+  
+</div>
 
         </div>
       </header>
@@ -221,10 +233,7 @@
     
     
     
-    <div class="post-body" itemprop="articleBody">
-
-      
-        <p>在开发spring项目的时候，接口文档承担着向其他开发人员说明接口相关信息的重要任务，因此，一份清晰而又相近的接口文档至关重要。</p>
+    <div class="post-body" itemprop="articleBody"><p>在开发spring项目的时候，接口文档承担着向其他开发人员说明接口相关信息的重要任务，因此，一份清晰而又相近的接口文档至关重要。</p>
 <p>但是，写接口文档的痛苦想必各位开发人员都体验过，明明写接口的时候那么丝滑，写接口文档的时候像要老命一样各种核对数据格式、文档格式，最后还有可能漏掉那么一些示例导致调用不成功，继续和其他开发沟通……还有接口文档的更新问题，一旦要更新接口文档，就意味着要给所有用着接口文档的同事一一联系，想想就令人摸不着头发……</p>
 <span id="more"></span>
 
@@ -250,56 +259,11 @@
 <p>我刚开始不知道需要给每个子模块单独配appToken，导致我的文档推送的时候，后一个子模块就把前一个子模块的文档覆盖了，只有最后一个子模块的文档能看到。</p>
 <h2 id="效果展示"><a href="#效果展示" class="headerlink" title="效果展示"></a>效果展示</h2><p>最终的效果就和Torna文档里展示的一样，为了方便起见，我直接用文档的示例做说明。</p>
 <p>比如有一个接口定义如下：</p>
-<pre><code>/**
- * 产品模块
- *
- * @author thc
- */
-@RestController
-@RequestMapping(&quot;shop/product&quot;)
-public class ProductController &#123;
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 产品模块</span><br><span class="line"> *</span><br><span class="line"> * @author thc</span><br><span class="line"> */</span><br><span class="line">@RestController</span><br><span class="line">@RequestMapping(&quot;shop/product&quot;)</span><br><span class="line">public class ProductController &#123;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 查询产品</span><br><span class="line">     *</span><br><span class="line">     * @param productNo 产品id|123</span><br><span class="line">     * @return</span><br><span class="line">     */</span><br><span class="line">    @GetMapping</span><br><span class="line">    public Result&lt;ProductVO&gt; get(@RequestParam Integer productNo) &#123;</span><br><span class="line">        ProductVO productVO = new ProductVO();</span><br><span class="line">        productVO.setProductNo(String.valueOf(productNo));</span><br><span class="line">        return Result.ok(productVO);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-    /**
-     * 查询产品
-     *
-     * @param productNo 产品id|123
-     * @return
-     */
-    @GetMapping
-    public Result&lt;ProductVO&gt; get(@RequestParam Integer productNo) &#123;
-        ProductVO productVO = new ProductVO();
-        productVO.setProductNo(String.valueOf(productNo));
-        return Result.ok(productVO);
-    &#125;
-
-&#125;
-</code></pre>
 <p>其中ProductVO的结构是：</p>
-<pre><code>public class ProductVO &#123;
-    /**
-     * 产品id
-     *
-     * @mock aa
-     */
-    private String productNo;
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">public class ProductVO &#123;</span><br><span class="line">    /**</span><br><span class="line">     * 产品id</span><br><span class="line">     *</span><br><span class="line">     * @mock aa</span><br><span class="line">     */</span><br><span class="line">    private String productNo;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 备注</span><br><span class="line">     *</span><br><span class="line">     * @mock xxx</span><br><span class="line">     */</span><br><span class="line">    private String remark;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 产品详情</span><br><span class="line">     *</span><br><span class="line">     * @mock</span><br><span class="line">     */</span><br><span class="line">    private ProductDetailVO productDetailVO;</span><br><span class="line">    </span><br><span class="line">    ... 省略getter setter   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-    /**
-     * 备注
-     *
-     * @mock xxx
-     */
-    private String remark;
-
-    /**
-     * 产品详情
-     *
-     * @mock
-     */
-    private ProductDetailVO productDetailVO;
-    
-    ... 省略getter setter   
-&#125;
-</code></pre>
 <p>那么生成的接口文档效果如下：</p>
 <img src="/images/torna00/img00.jpg" width="100%">
 
@@ -314,7 +278,7 @@ public class ProductController &#123;
     
     
 
-      <footer class="post-footer">
+    <footer class="post-footer">
           <div class="post-tags">
               <a href="/tags/Java/" rel="tag"># Java</a>
               <a href="/tags/Torna/" rel="tag"># Torna</a>
@@ -323,163 +287,71 @@ public class ProductController &#123;
 
         
 
-
-        
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/2022/10/21/linux09/" rel="prev" title="Linux | Linux服务器上配置域和DNS">
-      <i class="fa fa-chevron-left"></i> Linux | Linux服务器上配置域和DNS
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/2023/01/17/ffmpeg12/" rel="next" title="FFmpeg | 字体文件的抽取">
-      FFmpeg | 字体文件的抽取 <i class="fa fa-chevron-right"></i>
-    </a></div>
-    </div>
-      </footer>
-    
-  </article>
-  
-  
-  
-
-
-
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/10/21/linux09/" rel="prev" title="Linux | Linux服务器上配置域和DNS">
+                  <i class="fa fa-angle-left"></i> Linux | Linux服务器上配置域和DNS
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2023/01/17/ffmpeg12/" rel="next" title="FFmpeg | 字体文件的抽取">
+                  FFmpeg | 字体文件的抽取 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
           </div>
-          
+    </footer>
+  </article>
+</div>
 
-<script>
-  window.addEventListener('tabs:register', () => {
-    let { activeClass } = CONFIG.comments;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
-    }
-    if (activeClass) {
-      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
-      }
-    }
-  });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      let commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
-  }
-</script>
 
-        </div>
-          
-  
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">兰秋廿柒</span>
   </div>
-
-  <aside class="sidebar">
-    <div class="sidebar-inner">
-
-      <ul class="sidebar-nav motion-element">
-        <li class="sidebar-nav-toc">
-          文章目录
-        </li>
-        <li class="sidebar-nav-overview">
-          站点概览
-        </li>
-      </ul>
-
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Smart-Doc"><span class="nav-number">1.</span> <span class="nav-text">Smart-Doc</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Torna"><span class="nav-number">2.</span> <span class="nav-text">Torna</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Smart-Doc%E5%92%8CTorna%E9%85%8D%E5%90%88%E4%BD%BF%E7%94%A8"><span class="nav-number">3.</span> <span class="nav-text">Smart-Doc和Torna配合使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%8D%E7%BD%AE%E6%9D%A1%E4%BB%B6"><span class="nav-number">3.1.</span> <span class="nav-text">前置条件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B8%A9%E8%BF%87%E7%9A%84%E5%9D%91"><span class="nav-number">3.2.</span> <span class="nav-text">踩过的坑</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#appKey"><span class="nav-number">3.2.1.</span> <span class="nav-text">appKey</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#appToken"><span class="nav-number">3.2.2.</span> <span class="nav-text">appToken</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%88%E6%9E%9C%E5%B1%95%E7%A4%BA"><span class="nav-number">4.</span> <span class="nav-text">效果展示</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li></ol></div>
-      </div>
-      <!--/noindex-->
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <p class="site-author-name" itemprop="name">兰秋廿柒</p>
-  <div class="site-description" itemprop="description"></div>
-</div>
-<div class="site-state-wrap motion-element">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/archives/">
-        
-          <span class="site-state-item-count">161</span>
-          <span class="site-state-item-name">日志</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-categories">
-            <a href="/categories/">
-        <span class="site-state-item-count">102</span>
-        <span class="site-state-item-name">分类</span></a>
-      </div>
-      <div class="site-state-item site-state-tags">
-            <a href="/tags/">
-        <span class="site-state-item-count">75</span>
-        <span class="site-state-item-name">标签</span></a>
-      </div>
-  </nav>
-</div>
-
-
-
-      </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
 
     </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
+  </footer>
 
-
-      </div>
-    </main>
-
-    <footer class="footer">
-      <div class="footer-inner">
-        
-
-        
-
-<div class="copyright">
   
-  &copy; 
-  <span itemprop="copyrightYear">2024</span>
-  <span class="with-love">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">兰秋廿柒</span>
-</div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
   </div>
 
-        
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
 
-
-
-
-
-
-
-
-      </div>
-    </footer>
-  </div>
 
   
-  <script src="/lib/anime.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
 
-<script src="/js/utils.js"></script>
-
-<script src="/js/motion.js"></script>
+  
 
 
-<script src="/js/schemes/muse.js"></script>
-
-
-<script src="/js/next-boot.js"></script>
 
 
 
@@ -489,20 +361,6 @@ public class ProductController &#123;
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-  
-
-  
 
 </body>
 </html>
