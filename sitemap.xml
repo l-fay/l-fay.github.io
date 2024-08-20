@@ -56,6 +56,15 @@
   </url>
   
   <url>
+    <loc>https://l-fay.github.io/2024/08/03/windows05/</loc>
+    
+    <lastmod>2024-08-20</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://l-fay.github.io/2022/07/10/windows03/</loc>
     
     <lastmod>2024-08-20</lastmod>
@@ -66,15 +75,6 @@
   
   <url>
     <loc>https://l-fay.github.io/2022/07/10/windows04/</loc>
-    
-    <lastmod>2024-08-20</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://l-fay.github.io/2024/08/03/windows05/</loc>
     
     <lastmod>2024-08-20</lastmod>
     
@@ -191,7 +191,7 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/2023/04/11/sql00/</loc>
+    <loc>https://l-fay.github.io/2023/10/28/sql01/</loc>
     
     <lastmod>2024-08-20</lastmod>
     
@@ -200,7 +200,7 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/2023/10/28/sql01/</loc>
+    <loc>https://l-fay.github.io/2023/04/11/sql00/</loc>
     
     <lastmod>2024-08-20</lastmod>
     
@@ -218,7 +218,7 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/2023/10/28/spring01/</loc>
+    <loc>https://l-fay.github.io/2020/08/21/spider00/</loc>
     
     <lastmod>2024-08-20</lastmod>
     
@@ -236,25 +236,7 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/2020/08/21/spider00/</loc>
-    
-    <lastmod>2024-08-20</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://l-fay.github.io/2023/11/05/selenium04/</loc>
-    
-    <lastmod>2024-08-20</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://l-fay.github.io/2023/11/22/selenium05/</loc>
+    <loc>https://l-fay.github.io/2023/10/28/spring01/</loc>
     
     <lastmod>2024-08-20</lastmod>
     
@@ -272,7 +254,25 @@
   </url>
   
   <url>
+    <loc>https://l-fay.github.io/2023/11/22/selenium05/</loc>
+    
+    <lastmod>2024-08-20</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://l-fay.github.io/2023/11/22/selenium06/</loc>
+    
+    <lastmod>2024-08-20</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2023/11/05/selenium04/</loc>
     
     <lastmod>2024-08-20</lastmod>
     
@@ -290,7 +290,7 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/2021/04/19/selenium02/</loc>
+    <loc>https://l-fay.github.io/2021/04/19/selenium00/</loc>
     
     <lastmod>2024-08-20</lastmod>
     
@@ -299,7 +299,7 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/2021/04/19/selenium00/</loc>
+    <loc>https://l-fay.github.io/2021/04/19/selenium02/</loc>
     
     <lastmod>2024-08-20</lastmod>
     
@@ -434,15 +434,6 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/2021/06/07/pythonLibrary16/</loc>
-    
-    <lastmod>2024-08-20</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://l-fay.github.io/2021/07/09/pythonLibrary17/</loc>
     
     <lastmod>2024-08-20</lastmod>
@@ -453,6 +444,15 @@
   
   <url>
     <loc>https://l-fay.github.io/2021/06/07/pythonLibrary15/</loc>
+    
+    <lastmod>2024-08-20</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2021/06/07/pythonLibrary16/</loc>
     
     <lastmod>2024-08-20</lastmod>
     
@@ -479,7 +479,7 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/2021/01/27/pythonLibrary05/</loc>
+    <loc>https://l-fay.github.io/2021/01/27/pythonLibrary06/</loc>
     
     <lastmod>2024-08-20</lastmod>
     
@@ -488,7 +488,7 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/2021/01/27/pythonLibrary06/</loc>
+    <loc>https://l-fay.github.io/2021/01/27/pythonLibrary05/</loc>
     
     <lastmod>2024-08-20</lastmod>
     
@@ -533,15 +533,6 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/2024/08/18/python07/</loc>
-    
-    <lastmod>2024-08-20</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://l-fay.github.io/2020/12/04/pythonLibrary00/</loc>
     
     <lastmod>2024-08-20</lastmod>
@@ -552,6 +543,15 @@
   
   <url>
     <loc>https://l-fay.github.io/2021/01/06/pythonLibrary01/</loc>
+    
+    <lastmod>2024-08-20</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2024/08/18/python07/</loc>
     
     <lastmod>2024-08-20</lastmod>
     
@@ -596,15 +596,6 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/2021/03/22/python01/</loc>
-    
-    <lastmod>2024-08-20</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://l-fay.github.io/2021/03/22/python02/</loc>
     
     <lastmod>2024-08-20</lastmod>
@@ -614,7 +605,7 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/2021/01/27/python00/</loc>
+    <loc>https://l-fay.github.io/2021/03/22/python01/</loc>
     
     <lastmod>2024-08-20</lastmod>
     
@@ -632,7 +623,7 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/2021/01/09/proxy00/</loc>
+    <loc>https://l-fay.github.io/2021/01/27/python00/</loc>
     
     <lastmod>2024-08-20</lastmod>
     
@@ -651,6 +642,15 @@
   
   <url>
     <loc>https://l-fay.github.io/2023/12/05/proxy02/</loc>
+    
+    <lastmod>2024-08-20</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2021/01/09/proxy00/</loc>
     
     <lastmod>2024-08-20</lastmod>
     
@@ -686,7 +686,7 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/2023/10/28/nexus00/</loc>
+    <loc>https://l-fay.github.io/2023/05/20/nginx00/</loc>
     
     <lastmod>2024-08-20</lastmod>
     
@@ -695,7 +695,7 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/2023/05/20/nginx00/</loc>
+    <loc>https://l-fay.github.io/2023/10/28/nexus00/</loc>
     
     <lastmod>2024-08-20</lastmod>
     
@@ -740,15 +740,6 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/2022/08/11/neo4j00/</loc>
-    
-    <lastmod>2024-08-20</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://l-fay.github.io/2022/08/26/neo4j01/</loc>
     
     <lastmod>2024-08-20</lastmod>
@@ -758,7 +749,7 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/2023/07/09/linux10/</loc>
+    <loc>https://l-fay.github.io/2022/08/11/neo4j00/</loc>
     
     <lastmod>2024-08-20</lastmod>
     
@@ -776,7 +767,7 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/2021/10/21/mysql00/</loc>
+    <loc>https://l-fay.github.io/2023/07/09/linux10/</loc>
     
     <lastmod>2024-08-20</lastmod>
     
@@ -785,7 +776,7 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/2022/01/07/linux07/</loc>
+    <loc>https://l-fay.github.io/2021/10/21/mysql00/</loc>
     
     <lastmod>2024-08-20</lastmod>
     
@@ -803,6 +794,15 @@
   </url>
   
   <url>
+    <loc>https://l-fay.github.io/2022/01/07/linux07/</loc>
+    
+    <lastmod>2024-08-20</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://l-fay.github.io/2022/10/21/linux09/</loc>
     
     <lastmod>2024-08-20</lastmod>
@@ -812,7 +812,7 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/2021/01/09/linux04/</loc>
+    <loc>https://l-fay.github.io/2021/01/09/linux05/</loc>
     
     <lastmod>2024-08-20</lastmod>
     
@@ -821,7 +821,7 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/2021/01/09/linux05/</loc>
+    <loc>https://l-fay.github.io/2021/01/09/linux04/</loc>
     
     <lastmod>2024-08-20</lastmod>
     
@@ -875,7 +875,7 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/2023/05/16/kylin00/</loc>
+    <loc>https://l-fay.github.io/2022/08/26/javaLibrary01/</loc>
     
     <lastmod>2024-08-20</lastmod>
     
@@ -884,7 +884,7 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/2022/08/26/javaLibrary01/</loc>
+    <loc>https://l-fay.github.io/2023/05/16/kylin00/</loc>
     
     <lastmod>2024-08-20</lastmod>
     
@@ -911,15 +911,6 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/2022/07/01/java01/</loc>
-    
-    <lastmod>2024-08-20</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://l-fay.github.io/2023/07/15/java03/</loc>
     
     <lastmod>2024-08-20</lastmod>
@@ -930,6 +921,15 @@
   
   <url>
     <loc>https://l-fay.github.io/2021/06/01/javaLibrary00/</loc>
+    
+    <lastmod>2024-08-20</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2022/07/01/java01/</loc>
     
     <lastmod>2024-08-20</lastmod>
     
@@ -965,7 +965,7 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/2020/12/19/hexo02/</loc>
+    <loc>https://l-fay.github.io/2021/04/05/hexo04/</loc>
     
     <lastmod>2024-08-20</lastmod>
     
@@ -974,7 +974,7 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/2021/03/22/hexo03/</loc>
+    <loc>https://l-fay.github.io/2020/12/19/hexo02/</loc>
     
     <lastmod>2024-08-20</lastmod>
     
@@ -992,7 +992,7 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/2021/04/05/hexo04/</loc>
+    <loc>https://l-fay.github.io/2021/03/22/hexo03/</loc>
     
     <lastmod>2024-08-20</lastmod>
     
@@ -1010,6 +1010,15 @@
   </url>
   
   <url>
+    <loc>https://l-fay.github.io/2020/08/03/hexo01/</loc>
+    
+    <lastmod>2024-08-20</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://l-fay.github.io/2020/08/01/hexo00/</loc>
     
     <lastmod>2024-08-20</lastmod>
@@ -1019,7 +1028,7 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/2020/08/03/hexo01/</loc>
+    <loc>https://l-fay.github.io/2021/04/05/git01/</loc>
     
     <lastmod>2024-08-20</lastmod>
     
@@ -1038,15 +1047,6 @@
   
   <url>
     <loc>https://l-fay.github.io/2023/12/06/git02/</loc>
-    
-    <lastmod>2024-08-20</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://l-fay.github.io/2021/04/05/git01/</loc>
     
     <lastmod>2024-08-20</lastmod>
     
@@ -1100,6 +1100,15 @@
   </url>
   
   <url>
+    <loc>https://l-fay.github.io/2023/11/30/ffmpeg16/</loc>
+    
+    <lastmod>2024-08-20</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://l-fay.github.io/2023/11/30/ffmpeg15/</loc>
     
     <lastmod>2024-08-20</lastmod>
@@ -1110,15 +1119,6 @@
   
   <url>
     <loc>https://l-fay.github.io/2021/01/27/ffmpegParameter00/</loc>
-    
-    <lastmod>2024-08-20</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://l-fay.github.io/2023/11/30/ffmpeg16/</loc>
     
     <lastmod>2024-08-20</lastmod>
     
@@ -1154,7 +1154,7 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/2021/09/08/ffmpeg09/</loc>
+    <loc>https://l-fay.github.io/2021/11/25/ffmpeg10/</loc>
     
     <lastmod>2024-08-20</lastmod>
     
@@ -1163,7 +1163,7 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/2021/11/25/ffmpeg10/</loc>
+    <loc>https://l-fay.github.io/2021/09/08/ffmpeg09/</loc>
     
     <lastmod>2024-08-20</lastmod>
     
@@ -1226,7 +1226,7 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/2020/12/19/ffmpeg00/</loc>
+    <loc>https://l-fay.github.io/2021/01/20/ffmpeg01/</loc>
     
     <lastmod>2024-08-20</lastmod>
     
@@ -1235,7 +1235,7 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/2021/01/20/ffmpeg01/</loc>
+    <loc>https://l-fay.github.io/2020/12/19/ffmpeg00/</loc>
     
     <lastmod>2024-08-20</lastmod>
     
@@ -1262,7 +1262,7 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/2023/07/14/excel01/</loc>
+    <loc>https://l-fay.github.io/2021/01/10/excel02/</loc>
     
     <lastmod>2024-08-20</lastmod>
     
@@ -1271,7 +1271,7 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/2021/01/10/excel02/</loc>
+    <loc>https://l-fay.github.io/2023/07/14/excel01/</loc>
     
     <lastmod>2024-08-20</lastmod>
     
@@ -1316,15 +1316,6 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/2020/12/16/cuda00/</loc>
-    
-    <lastmod>2024-08-20</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://l-fay.github.io/2020/12/16/condaError00/</loc>
     
     <lastmod>2024-08-20</lastmod>
@@ -1334,7 +1325,25 @@
   </url>
   
   <url>
+    <loc>https://l-fay.github.io/2020/12/16/cuda00/</loc>
+    
+    <lastmod>2024-08-20</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://l-fay.github.io/2023/07/12/cuda01/</loc>
+    
+    <lastmod>2024-08-20</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2022/01/07/compressedFile00/</loc>
     
     <lastmod>2024-08-20</lastmod>
     
@@ -1361,7 +1370,7 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/2022/01/07/compressedFile00/</loc>
+    <loc>https://l-fay.github.io/2021/01/05/command02/</loc>
     
     <lastmod>2024-08-20</lastmod>
     
@@ -1379,25 +1388,7 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/2021/01/05/command02/</loc>
-    
-    <lastmod>2024-08-20</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://l-fay.github.io/2021/01/24/bios00/</loc>
-    
-    <lastmod>2024-08-20</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://l-fay.github.io/2020/10/26/command00/</loc>
     
     <lastmod>2024-08-20</lastmod>
     
@@ -1415,7 +1406,7 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/2022/10/15/appium01/</loc>
+    <loc>https://l-fay.github.io/2020/10/26/command00/</loc>
     
     <lastmod>2024-08-20</lastmod>
     
@@ -1424,7 +1415,7 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/2022/10/15/appium02/</loc>
+    <loc>https://l-fay.github.io/2022/10/15/appium01/</loc>
     
     <lastmod>2024-08-20</lastmod>
     
@@ -1442,7 +1433,16 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/2020/11/27/anaconda00/</loc>
+    <loc>https://l-fay.github.io/2022/10/15/appium02/</loc>
+    
+    <lastmod>2024-08-20</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2022/10/15/appium00/</loc>
     
     <lastmod>2024-08-20</lastmod>
     
@@ -1460,7 +1460,7 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/2022/10/15/appium00/</loc>
+    <loc>https://l-fay.github.io/2020/11/27/anaconda00/</loc>
     
     <lastmod>2024-08-20</lastmod>
     
@@ -1478,14 +1478,21 @@
 
   
   <url>
-    <loc>https://l-fay.github.io/tags/Anaconda/</loc>
+    <loc>https://l-fay.github.io/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/</loc>
     <lastmod>2024-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/tags/pip/</loc>
+    <loc>https://l-fay.github.io/tags/Appium/</loc>
+    <lastmod>2024-08-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/tags/Anaconda/</loc>
     <lastmod>2024-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1499,14 +1506,7 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/</loc>
-    <lastmod>2024-08-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://l-fay.github.io/tags/Appium/</loc>
+    <loc>https://l-fay.github.io/tags/pip/</loc>
     <lastmod>2024-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1541,28 +1541,21 @@
   </url>
   
   <url>
+    <loc>https://l-fay.github.io/tags/%E7%BE%A4%E6%99%96/</loc>
+    <lastmod>2024-08-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/tags/Chrome/</loc>
+    <lastmod>2024-08-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://l-fay.github.io/tags/%E5%91%BD%E4%BB%A4/</loc>
-    <lastmod>2024-08-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://l-fay.github.io/tags/CUDA/</loc>
-    <lastmod>2024-08-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://l-fay.github.io/tags/PyTorch/</loc>
-    <lastmod>2024-08-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://l-fay.github.io/tags/conda/</loc>
     <lastmod>2024-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1590,6 +1583,13 @@
   </url>
   
   <url>
+    <loc>https://l-fay.github.io/tags/conda/</loc>
+    <lastmod>2024-08-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://l-fay.github.io/tags/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/</loc>
     <lastmod>2024-08-20</lastmod>
     <changefreq>weekly</changefreq>
@@ -1605,6 +1605,20 @@
   
   <url>
     <loc>https://l-fay.github.io/tags/%E7%88%AC%E8%99%AB/</loc>
+    <lastmod>2024-08-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/tags/CUDA/</loc>
+    <lastmod>2024-08-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/tags/PyTorch/</loc>
     <lastmod>2024-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1632,13 +1646,6 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/tags/Excel/</loc>
-    <lastmod>2024-08-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://l-fay.github.io/tags/%E5%8A%9E%E5%85%AC/</loc>
     <lastmod>2024-08-20</lastmod>
     <changefreq>weekly</changefreq>
@@ -1660,14 +1667,7 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/tags/%E7%BE%A4%E6%99%96/</loc>
-    <lastmod>2024-08-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://l-fay.github.io/tags/Chrome/</loc>
+    <loc>https://l-fay.github.io/tags/Excel/</loc>
     <lastmod>2024-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1688,14 +1688,14 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/tags/proxy/</loc>
+    <loc>https://l-fay.github.io/tags/Hexo/</loc>
     <lastmod>2024-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/tags/Hexo/</loc>
+    <loc>https://l-fay.github.io/tags/proxy/</loc>
     <lastmod>2024-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1737,14 +1737,14 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/tags/LeetCode/</loc>
+    <loc>https://l-fay.github.io/tags/%E7%94%9F%E6%B4%BB/</loc>
     <lastmod>2024-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/tags/%E7%94%9F%E6%B4%BB/</loc>
+    <loc>https://l-fay.github.io/tags/LeetCode/</loc>
     <lastmod>2024-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1786,13 +1786,6 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/tags/Nas/</loc>
-    <lastmod>2024-08-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://l-fay.github.io/tags/neo4j/</loc>
     <lastmod>2024-08-20</lastmod>
     <changefreq>weekly</changefreq>
@@ -1800,7 +1793,7 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/tags/Nexus/</loc>
+    <loc>https://l-fay.github.io/tags/Nas/</loc>
     <lastmod>2024-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1808,6 +1801,20 @@
   
   <url>
     <loc>https://l-fay.github.io/tags/Nginx/</loc>
+    <lastmod>2024-08-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/tags/OKhttp/</loc>
+    <lastmod>2024-08-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/tags/NTLM/</loc>
     <lastmod>2024-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1828,14 +1835,7 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/tags/OKhttp/</loc>
-    <lastmod>2024-08-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://l-fay.github.io/tags/NTLM/</loc>
+    <loc>https://l-fay.github.io/tags/Nexus/</loc>
     <lastmod>2024-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1877,13 +1877,6 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/tags/Faker/</loc>
-    <lastmod>2024-08-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://l-fay.github.io/tags/Error/</loc>
     <lastmod>2024-08-20</lastmod>
     <changefreq>weekly</changefreq>
@@ -1891,7 +1884,7 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/tags/%E6%8A%A5%E9%94%99/</loc>
+    <loc>https://l-fay.github.io/tags/Faker/</loc>
     <lastmod>2024-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1899,6 +1892,13 @@
   
   <url>
     <loc>https://l-fay.github.io/tags/TorchVision/</loc>
+    <lastmod>2024-08-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/tags/%E6%8A%A5%E9%94%99/</loc>
     <lastmod>2024-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1940,6 +1940,13 @@
   </url>
   
   <url>
+    <loc>https://l-fay.github.io/tags/Virtualenv/</loc>
+    <lastmod>2024-08-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://l-fay.github.io/tags/Torna/</loc>
     <lastmod>2024-08-20</lastmod>
     <changefreq>weekly</changefreq>
@@ -1948,13 +1955,6 @@
   
   <url>
     <loc>https://l-fay.github.io/tags/smart-doc/</loc>
-    <lastmod>2024-08-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://l-fay.github.io/tags/Virtualenv/</loc>
     <lastmod>2024-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1975,14 +1975,14 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/tags/%E6%89%B9%E5%A4%84%E7%90%86/</loc>
+    <loc>https://l-fay.github.io/tags/%E8%93%9D%E7%89%99/</loc>
     <lastmod>2024-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/tags/%E8%93%9D%E7%89%99/</loc>
+    <loc>https://l-fay.github.io/tags/%E6%89%B9%E5%A4%84%E7%90%86/</loc>
     <lastmod>2024-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2005,14 +2005,14 @@
 
   
   <url>
-    <loc>https://l-fay.github.io/categories/Anaconda/</loc>
+    <loc>https://l-fay.github.io/categories/%E8%87%AA%E5%8A%A8%E5%8C%96/</loc>
     <lastmod>2024-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/categories/%E8%87%AA%E5%8A%A8%E5%8C%96/</loc>
+    <loc>https://l-fay.github.io/categories/Anaconda/</loc>
     <lastmod>2024-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2026,7 +2026,7 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/categories/Anaconda/pip/</loc>
+    <loc>https://l-fay.github.io/categories/%E8%87%AA%E5%8A%A8%E5%8C%96/Appium/</loc>
     <lastmod>2024-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2047,6 +2047,13 @@
   </url>
   
   <url>
+    <loc>https://l-fay.github.io/categories/%E7%BE%A4%E6%99%96/</loc>
+    <lastmod>2024-08-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://l-fay.github.io/categories/Linux/</loc>
     <lastmod>2024-08-20</lastmod>
     <changefreq>weekly</changefreq>
@@ -2054,7 +2061,7 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/categories/%E8%87%AA%E5%8A%A8%E5%8C%96/Appium/</loc>
+    <loc>https://l-fay.github.io/categories/Anaconda/pip/</loc>
     <lastmod>2024-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2068,7 +2075,7 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/categories/CUDA/</loc>
+    <loc>https://l-fay.github.io/categories/%E5%8E%8B%E7%BC%A9%E6%96%87%E4%BB%B6/</loc>
     <lastmod>2024-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2082,14 +2089,21 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/categories/%E5%8E%8B%E7%BC%A9%E6%96%87%E4%BB%B6/</loc>
+    <loc>https://l-fay.github.io/categories/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/</loc>
     <lastmod>2024-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/categories/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/</loc>
+    <loc>https://l-fay.github.io/categories/CUDA/</loc>
+    <lastmod>2024-08-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/categories/Windows/Bios/</loc>
     <lastmod>2024-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2110,14 +2124,7 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/categories/Windows/Bios/</loc>
-    <lastmod>2024-08-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://l-fay.github.io/categories/Excel/</loc>
+    <loc>https://l-fay.github.io/categories/Chrome/</loc>
     <lastmod>2024-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2125,6 +2132,13 @@
   
   <url>
     <loc>https://l-fay.github.io/categories/ffmpeg/</loc>
+    <lastmod>2024-08-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/categories/Excel/</loc>
     <lastmod>2024-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2145,13 +2159,6 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/categories/Python/PyTorch/</loc>
-    <lastmod>2024-08-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://l-fay.github.io/categories/%E5%8E%8B%E7%BC%A9%E6%96%87%E4%BB%B6/rar/</loc>
     <lastmod>2024-08-20</lastmod>
     <changefreq>weekly</changefreq>
@@ -2160,76 +2167,6 @@
   
   <url>
     <loc>https://l-fay.github.io/categories/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/Python/</loc>
-    <lastmod>2024-08-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://l-fay.github.io/categories/NodeJs/</loc>
-    <lastmod>2024-08-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://l-fay.github.io/categories/Python/%E5%B8%B8%E7%94%A8%E5%BA%93/openpyxl/</loc>
-    <lastmod>2024-08-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://l-fay.github.io/categories/Python/%E5%B8%B8%E7%94%A8%E5%BA%93/ffmpeg-python/</loc>
-    <lastmod>2024-08-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://l-fay.github.io/categories/Python/%E5%B8%B8%E7%94%A8%E5%BA%93/mutagen/</loc>
-    <lastmod>2024-08-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://l-fay.github.io/categories/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/Python/ddddocr/</loc>
-    <lastmod>2024-08-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://l-fay.github.io/categories/Office/</loc>
-    <lastmod>2024-08-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://l-fay.github.io/categories/%E7%88%AC%E8%99%AB/</loc>
-    <lastmod>2024-08-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://l-fay.github.io/categories/Office/Excel/</loc>
-    <lastmod>2024-08-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://l-fay.github.io/categories/%E7%88%AC%E8%99%AB/%E9%AA%8C%E8%AF%81%E7%A0%81/</loc>
-    <lastmod>2024-08-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://l-fay.github.io/categories/%E7%BE%A4%E6%99%96/</loc>
     <lastmod>2024-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2250,7 +2187,7 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/categories/Chrome/</loc>
+    <loc>https://l-fay.github.io/categories/Python/PyTorch/</loc>
     <lastmod>2024-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2271,6 +2208,13 @@
   </url>
   
   <url>
+    <loc>https://l-fay.github.io/categories/NodeJs/</loc>
+    <lastmod>2024-08-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://l-fay.github.io/categories/IDE/</loc>
     <lastmod>2024-08-20</lastmod>
     <changefreq>weekly</changefreq>
@@ -2278,7 +2222,7 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/categories/proxy/</loc>
+    <loc>https://l-fay.github.io/categories/Python/%E5%B8%B8%E7%94%A8%E5%BA%93/openpyxl/</loc>
     <lastmod>2024-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2286,6 +2230,13 @@
   
   <url>
     <loc>https://l-fay.github.io/categories/%E9%BA%92%E9%BA%9F/</loc>
+    <lastmod>2024-08-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/categories/Python/%E5%B8%B8%E7%94%A8%E5%BA%93/ffmpeg-python/</loc>
     <lastmod>2024-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2313,13 +2264,6 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/categories/Java/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</loc>
-    <lastmod>2024-08-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://l-fay.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
     <lastmod>2024-08-20</lastmod>
     <changefreq>weekly</changefreq>
@@ -2334,21 +2278,7 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/categories/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/</loc>
-    <lastmod>2024-08-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://l-fay.github.io/categories/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/NodeJs/</loc>
-    <lastmod>2024-08-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://l-fay.github.io/categories/Nexus/</loc>
     <lastmod>2024-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2362,6 +2292,13 @@
   </url>
   
   <url>
+    <loc>https://l-fay.github.io/categories/Python/%E5%B8%B8%E7%94%A8%E5%BA%93/mutagen/</loc>
+    <lastmod>2024-08-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://l-fay.github.io/categories/Linux/Proxy/</loc>
     <lastmod>2024-08-20</lastmod>
     <changefreq>weekly</changefreq>
@@ -2369,14 +2306,7 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/categories/Java/%E5%B8%B8%E7%94%A8%E5%BA%93/</loc>
-    <lastmod>2024-08-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://l-fay.github.io/categories/Java/OKhttp/</loc>
+    <loc>https://l-fay.github.io/categories/Nexus/</loc>
     <lastmod>2024-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2397,20 +2327,6 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/categories/LeetCode/</loc>
-    <lastmod>2024-08-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://l-fay.github.io/categories/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/Python/proxy-pool/</loc>
-    <lastmod>2024-08-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://l-fay.github.io/categories/Python/Proxy/</loc>
     <lastmod>2024-08-20</lastmod>
     <changefreq>weekly</changefreq>
@@ -2419,6 +2335,13 @@
   
   <url>
     <loc>https://l-fay.github.io/categories/Python/%E5%B8%B8%E7%94%A8%E5%BA%93/ReportLab/</loc>
+    <lastmod>2024-08-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/categories/Python/%E5%B8%B8%E7%94%A8%E5%BA%93/os/</loc>
     <lastmod>2024-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2439,7 +2362,7 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/categories/Python/%E5%B8%B8%E7%94%A8%E5%BA%93/os/</loc>
+    <loc>https://l-fay.github.io/categories/Python/%E5%B8%B8%E7%94%A8%E5%BA%93/bypy/</loc>
     <lastmod>2024-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2453,13 +2376,6 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/categories/Python/%E5%B8%B8%E7%94%A8%E5%BA%93/bypy/</loc>
-    <lastmod>2024-08-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://l-fay.github.io/categories/Python/%E5%B8%B8%E7%94%A8%E5%BA%93/pytesseract/</loc>
     <lastmod>2024-08-20</lastmod>
     <changefreq>weekly</changefreq>
@@ -2467,7 +2383,7 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/</loc>
+    <loc>https://l-fay.github.io/categories/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/Python/ddddocr/</loc>
     <lastmod>2024-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2481,7 +2397,7 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/categories/Nas/%E7%BE%A4%E6%99%96/</loc>
+    <loc>https://l-fay.github.io/categories/Python/%E5%B8%B8%E7%94%A8%E5%BA%93/virtualenv/</loc>
     <lastmod>2024-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2495,34 +2411,6 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/categories/Python/PyTorch/%E6%8A%A5%E9%94%99/</loc>
-    <lastmod>2024-08-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://l-fay.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/neo4j/</loc>
-    <lastmod>2024-08-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://l-fay.github.io/categories/Python/%E5%B8%B8%E7%94%A8%E5%BA%93/virtualenv/</loc>
-    <lastmod>2024-08-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://l-fay.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/</loc>
-    <lastmod>2024-08-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://l-fay.github.io/categories/Python/%E5%B8%B8%E7%94%A8%E5%BA%93/Selenium/</loc>
     <lastmod>2024-08-20</lastmod>
     <changefreq>weekly</changefreq>
@@ -2530,14 +2418,7 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/categories/Java/Spring/</loc>
-    <lastmod>2024-08-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://l-fay.github.io/categories/%E7%88%AC%E8%99%AB/%E9%83%A8%E5%88%86%E5%AE%9E%E4%BE%8B/</loc>
+    <loc>https://l-fay.github.io/categories/%E7%88%AC%E8%99%AB/</loc>
     <lastmod>2024-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2551,13 +2432,6 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/categories/Java/%E5%B8%B8%E7%94%A8%E5%BA%93/zip4j/</loc>
-    <lastmod>2024-08-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://l-fay.github.io/categories/Steam/</loc>
     <lastmod>2024-08-20</lastmod>
     <changefreq>weekly</changefreq>
@@ -2565,14 +2439,7 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/categories/%E6%9D%83%E9%99%90%E6%8E%A7%E5%88%B6/</loc>
-    <lastmod>2024-08-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://l-fay.github.io/categories/Java/%E5%B8%B8%E7%94%A8%E5%BA%93/smart-doc/</loc>
+    <loc>https://l-fay.github.io/categories/proxy/</loc>
     <lastmod>2024-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2593,14 +2460,7 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/categories/%E7%88%AC%E8%99%AB/Proxy/</loc>
-    <lastmod>2024-08-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://l-fay.github.io/categories/Windows/%E6%89%B9%E5%A4%84%E7%90%86/</loc>
+    <loc>https://l-fay.github.io/categories/Java/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</loc>
     <lastmod>2024-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2614,6 +2474,13 @@
   </url>
   
   <url>
+    <loc>https://l-fay.github.io/categories/Windows/%E6%89%B9%E5%A4%84%E7%90%86/</loc>
+    <lastmod>2024-08-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://l-fay.github.io/categories/%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7/</loc>
     <lastmod>2024-08-20</lastmod>
     <changefreq>weekly</changefreq>
@@ -2621,7 +2488,133 @@
   </url>
   
   <url>
+    <loc>https://l-fay.github.io/categories/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/</loc>
+    <lastmod>2024-08-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/categories/Office/</loc>
+    <lastmod>2024-08-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/categories/Java/%E5%B8%B8%E7%94%A8%E5%BA%93/</loc>
+    <lastmod>2024-08-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/categories/LeetCode/</loc>
+    <lastmod>2024-08-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/</loc>
+    <lastmod>2024-08-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/neo4j/</loc>
+    <lastmod>2024-08-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/categories/Nas/%E7%BE%A4%E6%99%96/</loc>
+    <lastmod>2024-08-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/categories/Java/OKhttp/</loc>
+    <lastmod>2024-08-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/categories/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/Python/proxy-pool/</loc>
+    <lastmod>2024-08-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/categories/Proxy/Shadowsocks/</loc>
+    <lastmod>2024-08-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://l-fay.github.io/categories/%E7%99%BE%E5%BA%A6%E4%BA%91/</loc>
+    <lastmod>2024-08-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/categories/Python/PyTorch/%E6%8A%A5%E9%94%99/</loc>
+    <lastmod>2024-08-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/</loc>
+    <lastmod>2024-08-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/categories/%E8%87%AA%E5%8A%A8%E5%8C%96/Selenium/</loc>
+    <lastmod>2024-08-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/categories/%E7%88%AC%E8%99%AB/%E9%83%A8%E5%88%86%E5%AE%9E%E4%BE%8B/</loc>
+    <lastmod>2024-08-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/categories/Java/Spring/</loc>
+    <lastmod>2024-08-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/categories/Python/%E5%B8%B8%E7%94%A8%E5%BA%93/tkinter/</loc>
+    <lastmod>2024-08-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/categories/Office/Excel/</loc>
+    <lastmod>2024-08-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/categories/Java/%E5%B8%B8%E7%94%A8%E5%BA%93/zip4j/</loc>
     <lastmod>2024-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2642,6 +2635,27 @@
   </url>
   
   <url>
+    <loc>https://l-fay.github.io/categories/%E6%9D%83%E9%99%90%E6%8E%A7%E5%88%B6/</loc>
+    <lastmod>2024-08-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/categories/%E7%88%AC%E8%99%AB/Proxy/</loc>
+    <lastmod>2024-08-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/categories/%E7%88%AC%E8%99%AB/%E9%AA%8C%E8%AF%81%E7%A0%81/</loc>
+    <lastmod>2024-08-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://l-fay.github.io/categories/Python/%E5%B8%B8%E7%94%A8%E5%BA%93/redis-py-cluster/</loc>
     <lastmod>2024-08-20</lastmod>
     <changefreq>weekly</changefreq>
@@ -2656,21 +2670,14 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/categories/%E8%87%AA%E5%8A%A8%E5%8C%96/Selenium/</loc>
-    <lastmod>2024-08-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://l-fay.github.io/categories/Proxy/Shadowsocks/</loc>
-    <lastmod>2024-08-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://l-fay.github.io/categories/%E7%88%AC%E8%99%AB/%E9%83%A8%E5%88%86%E5%AE%9E%E4%BE%8B/%E5%BE%AE%E5%8D%9A/</loc>
+    <lastmod>2024-08-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/categories/Java/%E5%B8%B8%E7%94%A8%E5%BA%93/smart-doc/</loc>
     <lastmod>2024-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2685,13 +2692,6 @@
   
   <url>
     <loc>https://l-fay.github.io/categories/Java/%E5%B7%A5%E5%85%B7/</loc>
-    <lastmod>2024-08-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://l-fay.github.io/categories/Python/%E5%B8%B8%E7%94%A8%E5%BA%93/tkinter/</loc>
     <lastmod>2024-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
