@@ -1384,7 +1384,7 @@ table th:nth-of-type(3) {
       </tags>
   </entry>
   <entry>
-    <title>Git | 同时提交到两个git地址</title>
+    <title>Git | 同时提交到两个git地址a</title>
     <url>/2024/05/19/git03/</url>
     <content><![CDATA[<p>需要给同一个项目设置两个远程git地址，主要是为了灾备。</p>
 <span id="more"></span>
@@ -1393,8 +1393,8 @@ table th:nth-of-type(3) {
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git remote set-url --add origin xxxxxxxx.git</span><br></pre></td></tr></table></figure>
 <p>查看地址：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git remote -v</span><br></pre></td></tr></table></figure>
-
-<p>然后就OK了。</p>
+<h2 id="可能遇到的问题"><a href="#可能遇到的问题" class="headerlink" title="可能遇到的问题"></a>可能遇到的问题</h2><p>两个git仓库可能不同步，所以建议第一次推送添加<code>-f</code>参数。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git push origin master -f</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>Git</category>
