@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://l-fay.github.io/2024/08/20/db00/</loc>
+    
+    <lastmod>2024-08-20</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://l-fay.github.io/2020/11/27/anaconda00/</loc>
     
     <lastmod>2024-08-20</lastmod>
@@ -2002,6 +2011,20 @@
     <priority>0.2</priority>
   </url>
   
+  <url>
+    <loc>https://l-fay.github.io/tags/MariaDb/</loc>
+    <lastmod>2024-08-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/tags/TdSQL/</loc>
+    <lastmod>2024-08-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
 
   
   <url>
@@ -2713,6 +2736,20 @@
   
   <url>
     <loc>https://l-fay.github.io/categories/%E6%B8%B8%E6%88%8F/%E6%B0%B4%E6%8E%92%E5%BA%8F%E8%B0%9C%E9%A2%98/</loc>
+    <lastmod>2024-08-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/MariaDb/</loc>
+    <lastmod>2024-08-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/TdSQL/</loc>
     <lastmod>2024-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

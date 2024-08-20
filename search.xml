@@ -4578,4 +4578,37 @@ python proxyPool.py server
         <tag>水排序谜题</tag>
       </tags>
   </entry>
+  <entry>
+    <title>数据库 | json_remove()函数在不同数据库的区别</title>
+    <url>/2024/08/20/db00/</url>
+    <content><![CDATA[<p>今天遇到一个问题，在执行<code>select</code>操作时报错，排查出来是json_remove()函数在不同数据库有区别。</p>
+<span id="more"></span>
+
+<h1 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h1><p>sql语句是：<br><code>select json_data, json_remove(json_data,&#39;$.data&#39;) AS </code>json_remove<code> from table_xxx</code><br>查询一个json结构的数据。</p>
+<p>在Java中，使用<code>List&lt;Map&lt;String, Object&gt;&gt;</code>类型接查询结果，然后做后续操作。</p>
+<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>部分测试代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">List&lt;Map&lt;String, Object&gt;&gt; list = jdbcTemplate.queryForList(sql);</span><br><span class="line">Map&lt;String, String&gt; type = new HashMap();</span><br><span class="line">for (Map&lt;String, Object&gt; map : list) &#123;</span><br><span class="line">	Object jsonDateObject = map.get(&quot;json_data&quot;);</span><br><span class="line">	if (jsonDateObject instanceof String) &#123;</span><br><span class="line">		type.put(&quot;jsonDate&quot;, &quot;String&quot;);</span><br><span class="line">	&#125; else if (jsonDateObject instanceof byte[]) &#123;</span><br><span class="line">		type.put(&quot;jsonDate&quot;, &quot;byte[]&quot;);</span><br><span class="line">	&#125; else &#123;</span><br><span class="line">		type.put(&quot;jsonDate&quot;, &quot;other&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">	Object jsonRemoveObject = map.get(&quot;json_remove&quot;);</span><br><span class="line">	if (jsonRemoveObject instanceof String) &#123;</span><br><span class="line">		type.put(&quot;jsonRemove&quot;, &quot;String&quot;);</span><br><span class="line">	&#125; else if (jsonRemoveObject instanceof byte[]) &#123;</span><br><span class="line">		type.put(&quot;jsonRemove&quot;, &quot;byte[]&quot;);</span><br><span class="line">	&#125; else &#123;</span><br><span class="line">		type.put(&quot;jsonRemove&quot;, &quot;other&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">	break;</span><br><span class="line">&#125;</span><br><span class="line">String v = &quot;&quot;;</span><br><span class="line">sql = &quot;select VERSION() as v&quot;;</span><br><span class="line">list = luckySheetJdbcTemplate.queryForList(sql);</span><br><span class="line">for (Map&lt;String, Object&gt; map : list) &#123;</span><br><span class="line">	Object vObject = map.get(&quot;v&quot;);</span><br><span class="line">	v = vObject.toString();</span><br><span class="line">&#125;</span><br><span class="line">type.put(&quot;dbVersion&quot;, v);</span><br><span class="line">return type.toString();</span><br></pre></td></tr></table></figure>
+
+<p>在不同数据库上的查询结果：<br>MariaDb：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;dbVersion&quot;: &quot;10.3.23-MariaDB-0+deb10u1&quot;,</span><br><span class="line">  &quot;jsonData&quot;: &quot;String&quot;,</span><br><span class="line">  &quot;jsonRemove&quot;: &quot;byte[]&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>MySQL:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;dbVersion&quot;: &quot;5.7.26&quot;,</span><br><span class="line">  &quot;jsonData&quot;: &quot;String&quot;,</span><br><span class="line">  &quot;jsonRemove&quot;: &quot;String&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>TdSQL:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;dbVersion&quot;: &quot;5.7.35-V2.0R681D005-v17-20210125-2111-log&quot;,</span><br><span class="line">  &quot;jsonData&quot;: &quot;String&quot;,</span><br><span class="line">  &quot;jsonRemove&quot;: &quot;String&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h1><p>通过测试，<code>json_remove()</code>函数在不同数据库的返回值类型是有区别的，在工程中需要注意。</p>
+]]></content>
+      <categories>
+        <category>数据库</category>
+        <category>MySQL</category>
+        <category>MariaDb</category>
+        <category>TdSQL</category>
+      </categories>
+      <tags>
+        <tag>数据库</tag>
+        <tag>MySQL</tag>
+        <tag>MariaDb</tag>
+        <tag>TdSQL</tag>
+      </tags>
+  </entry>
 </search>
