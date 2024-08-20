@@ -1,3 +1,4 @@
+https://l-fay.github.io/2020/11/27/anaconda00/
 https://l-fay.github.io/2024/05/19/git03/
 https://l-fay.github.io/2024/08/19/selenium07/
 https://l-fay.github.io/2023/07/02/life00/
@@ -158,7 +159,6 @@ https://l-fay.github.io/2020/10/26/command00/
 https://l-fay.github.io/2022/10/15/appium01/
 https://l-fay.github.io/2021/02/07/bandizip00/
 https://l-fay.github.io/2022/10/15/appium02/
-https://l-fay.github.io/2020/11/27/anaconda00/
 https://l-fay.github.io/2021/01/07/anaconda01/
 https://l-fay.github.io/2022/10/15/appium00/
 https://l-fay.github.io/
