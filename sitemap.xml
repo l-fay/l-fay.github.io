@@ -2,6 +2,17 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://l-fay.github.io/2024/08/20/db00/</loc>
+    
+    <lastmod>2024-08-21T02:09:04.391Z</lastmod>
+    
+    <date>1724167689000</date>
+    <title>数据库 | json_remove()函数在不同数据库的区别a | 兰秋廿柒的博客</title>
+    
+    <desc>今天遇到一个问题，在执行select操作时报错，排查出来是json_remove()函数在不同数据库有区别。</desc>
+  </url>
+  
+  <url>
     <loc>https://l-fay.github.io/2024/05/19/git03/</loc>
     
     <lastmod>2024-08-21T01:54:31.238Z</lastmod>
@@ -10,17 +21,6 @@
     <title>Git | 同时提交到两个git地址 | 兰秋廿柒的博客</title>
     
     <desc>需要给同一个项目设置两个远程git地址，主要是为了灾备。</desc>
-  </url>
-  
-  <url>
-    <loc>https://l-fay.github.io/2024/08/20/db00/</loc>
-    
-    <lastmod>2024-08-21T01:41:51.486Z</lastmod>
-    
-    <date>1724167689000</date>
-    <title>数据库 | json_remove()函数在不同数据库的区别 | 兰秋廿柒的博客</title>
-    
-    <desc>今天遇到一个问题，在执行select操作时报错，排查出来是json_remove()函数在不同数据库有区别。</desc>
   </url>
   
   <url>
@@ -409,17 +409,6 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/2023/07/08/spring00/</loc>
-    
-    <lastmod>2024-08-16T02:31:46.280Z</lastmod>
-    
-    <date>1688817694000</date>
-    <title>异步 | @Async注解配置线程池 | 兰秋廿柒的博客</title>
-    
-    <desc>参考文档</desc>
-  </url>
-  
-  <url>
     <loc>https://l-fay.github.io/2020/08/21/spider00/</loc>
     
     <lastmod>2024-08-16T02:31:46.280Z</lastmod>
@@ -428,6 +417,17 @@
     <title>爬取微博数据 | 兰秋廿柒的博客</title>
     
     <desc>这个就简单写写，不详细展开了。</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2023/07/08/spring00/</loc>
+    
+    <lastmod>2024-08-16T02:31:46.280Z</lastmod>
+    
+    <date>1688817694000</date>
+    <title>异步 | @Async注解配置线程池 | 兰秋廿柒的博客</title>
+    
+    <desc>参考文档</desc>
   </url>
   
   <url>
@@ -497,6 +497,17 @@
   </url>
   
   <url>
+    <loc>https://l-fay.github.io/2020/11/01/redis02/</loc>
+    
+    <lastmod>2024-08-16T02:31:46.277Z</lastmod>
+    
+    <date>1604210437000</date>
+    <title>Redis的哨兵模式配置 | 兰秋廿柒的博客</title>
+    
+    <desc>在非自用场景下，单机的redis很明显不够用。当一台服务宕机时，需要及时启用备用服务，这就是哨兵的用处。</desc>
+  </url>
+  
+  <url>
     <loc>https://l-fay.github.io/2021/10/21/redis03/</loc>
     
     <lastmod>2024-08-16T02:31:46.277Z</lastmod>
@@ -516,17 +527,6 @@
     <title>Python连接Redis连接池 | 兰秋廿柒的博客</title>
     
     <desc>记录一下怎么用python连接Redis连接池。</desc>
-  </url>
-  
-  <url>
-    <loc>https://l-fay.github.io/2020/11/01/redis02/</loc>
-    
-    <lastmod>2024-08-16T02:31:46.277Z</lastmod>
-    
-    <date>1604210437000</date>
-    <title>Redis的哨兵模式配置 | 兰秋廿柒的博客</title>
-    
-    <desc>在非自用场景下，单机的redis很明显不够用。当一台服务宕机时，需要及时启用备用服务，这就是哨兵的用处。</desc>
   </url>
   
   <url>
@@ -585,17 +585,6 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/2021/04/05/pythonLibraryError01/</loc>
-    
-    <lastmod>2024-08-16T02:31:46.274Z</lastmod>
-    
-    <date>1617610686000</date>
-    <title>找不到已安装包 | 兰秋廿柒的博客</title>
-    
-    <desc>有的时候明明已经装了一个包，但还是报错”ModuleNotFoundError”。</desc>
-  </url>
-  
-  <url>
     <loc>https://l-fay.github.io/2021/01/11/pythonLibraryError00/</loc>
     
     <lastmod>2024-08-16T02:31:46.274Z</lastmod>
@@ -604,6 +593,17 @@
     <title>matplotlib | NotImplementedError: It is not currently possible to manually set the aspect on 3D axes | 兰秋廿柒的博客</title>
     
     <desc>今天跑项目的时候报错：“NotImplementedError: It is not currently possible to manually set the aspect on 3D axes”</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2021/04/05/pythonLibraryError01/</loc>
+    
+    <lastmod>2024-08-16T02:31:46.274Z</lastmod>
+    
+    <date>1617610686000</date>
+    <title>找不到已安装包 | 兰秋廿柒的博客</title>
+    
+    <desc>有的时候明明已经装了一个包，但还是报错”ModuleNotFoundError”。</desc>
   </url>
   
   <url>
@@ -651,17 +651,6 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/2021/06/07/pythonLibrary15/</loc>
-    
-    <lastmod>2024-08-16T02:31:46.272Z</lastmod>
-    
-    <date>1623066073000</date>
-    <title>mutagen | 提取mp4封面 | 兰秋廿柒的博客</title>
-    
-    <desc>有的时候不想来回找了，就直接从文件中提取好了。</desc>
-  </url>
-  
-  <url>
     <loc>https://l-fay.github.io/2021/06/07/pythonLibrary14/</loc>
     
     <lastmod>2024-08-16T02:31:46.272Z</lastmod>
@@ -670,6 +659,17 @@
     <title>mutagen | 添加mp4封面 | 兰秋廿柒的博客</title>
     
     <desc>主要用来添加封面。</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2021/06/07/pythonLibrary15/</loc>
+    
+    <lastmod>2024-08-16T02:31:46.272Z</lastmod>
+    
+    <date>1623066073000</date>
+    <title>mutagen | 提取mp4封面 | 兰秋廿柒的博客</title>
+    
+    <desc>有的时候不想来回找了，就直接从文件中提取好了。</desc>
   </url>
   
   <url>
@@ -893,17 +893,6 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/2023/03/30/okhttp00/</loc>
-    
-    <lastmod>2024-08-16T02:31:46.261Z</lastmod>
-    
-    <date>1680171626000</date>
-    <title>使用OKhttp进行NTLM鉴权 | 兰秋廿柒的博客</title>
-    
-    <desc>找到了一个用OKhttp进行NTML鉴权的方法。</desc>
-  </url>
-  
-  <url>
     <loc>https://l-fay.github.io/2021/01/09/proxy00/</loc>
     
     <lastmod>2024-08-16T02:31:46.261Z</lastmod>
@@ -912,6 +901,17 @@
     <title>Shadowsocks | AttributeError: /usr/lib/x86_64-linux-gnu/libcrypto.so.1.1: undefined symbol: EVP_CIPHER_CTX_cleanup | 兰秋廿柒的博客</title>
     
     <desc>在Linux上部署Shadowsocks的时候遇到的问题： 错误： 1AttributeError: /usr/lib/x86_64-linux-gnu/libcrypto.so.1.1: undefined symbol: EVP_CIPHER_CTX_cleanup</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2023/03/30/okhttp00/</loc>
+    
+    <lastmod>2024-08-16T02:31:46.261Z</lastmod>
+    
+    <date>1680171626000</date>
+    <title>使用OKhttp进行NTLM鉴权 | 兰秋廿柒的博客</title>
+    
+    <desc>找到了一个用OKhttp进行NTML鉴权的方法。</desc>
   </url>
   
   <url>
@@ -1014,17 +1014,6 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/2021/10/21/mysql00/</loc>
-    
-    <lastmod>2024-08-16T02:31:46.238Z</lastmod>
-    
-    <date>1634820810000</date>
-    <title>Python连接MySQL连接池 | 兰秋廿柒的博客</title>
-    
-    <desc>记录一下怎么用python连接MySQL连接池。</desc>
-  </url>
-  
-  <url>
     <loc>https://l-fay.github.io/2023/10/20/linux11/</loc>
     
     <lastmod>2024-08-16T02:31:46.238Z</lastmod>
@@ -1033,6 +1022,17 @@
     <title>Linux分卷压缩与解压缩 | 兰秋廿柒的博客</title>
     
     <desc>在Linux系统下，分卷压缩与解压缩的方法。</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2021/10/21/mysql00/</loc>
+    
+    <lastmod>2024-08-16T02:31:46.238Z</lastmod>
+    
+    <date>1634820810000</date>
+    <title>Python连接MySQL连接池 | 兰秋廿柒的博客</title>
+    
+    <desc>记录一下怎么用python连接MySQL连接池。</desc>
   </url>
   
   <url>
@@ -1410,17 +1410,6 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/2023/11/22/ffmpeg14/</loc>
-    
-    <lastmod>2024-08-16T02:31:46.213Z</lastmod>
-    
-    <date>1700651554000</date>
-    <title>FFmpeg | pcm格式音频转换 | 兰秋廿柒的博客</title>
-    
-    <desc>在对接一个语音服务时，发现他们用的是pcm格式的音频做处理，所以需要把手中的其他格式音频处理成pcm格式。</desc>
-  </url>
-  
-  <url>
     <loc>https://l-fay.github.io/2023/11/30/ffmpeg15/</loc>
     
     <lastmod>2024-08-16T02:31:46.213Z</lastmod>
@@ -1429,6 +1418,17 @@
     <title>FFmpeg | 添加空音轨 | 兰秋廿柒的博客</title>
     
     <desc>有的文件没有音轨，想添加一个空音轨。</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2023/11/22/ffmpeg14/</loc>
+    
+    <lastmod>2024-08-16T02:31:46.213Z</lastmod>
+    
+    <date>1700651554000</date>
+    <title>FFmpeg | pcm格式音频转换 | 兰秋廿柒的博客</title>
+    
+    <desc>在对接一个语音服务时，发现他们用的是pcm格式的音频做处理，所以需要把手中的其他格式音频处理成pcm格式。</desc>
   </url>
   
   <url>
@@ -1509,17 +1509,6 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/2021/06/07/ffmpeg05/</loc>
-    
-    <lastmod>2024-08-16T02:31:46.210Z</lastmod>
-    
-    <date>1623065266000</date>
-    <title>FFmpeg | 删除视频中的元数据 | 兰秋廿柒的博客</title>
-    
-    <desc>补充FFmpeg | 删除视频中的章节数据</desc>
-  </url>
-  
-  <url>
     <loc>https://l-fay.github.io/2021/06/07/ffmpeg06/</loc>
     
     <lastmod>2024-08-16T02:31:46.210Z</lastmod>
@@ -1539,6 +1528,17 @@
     <title>FFmpeg | crf参数 | 兰秋廿柒的博客</title>
     
     <desc>crf参数是一个控制视频质量的参数。</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2021/06/07/ffmpeg05/</loc>
+    
+    <lastmod>2024-08-16T02:31:46.210Z</lastmod>
+    
+    <date>1623065266000</date>
+    <title>FFmpeg | 删除视频中的元数据 | 兰秋廿柒的博客</title>
+    
+    <desc>补充FFmpeg | 删除视频中的章节数据</desc>
   </url>
   
   <url>
@@ -1641,17 +1641,6 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/2020/12/16/cuda00/</loc>
-    
-    <lastmod>2024-08-16T02:31:46.205Z</lastmod>
-    
-    <date>1608105673000</date>
-    <title>no CUDA-capable device is detected | 兰秋廿柒的博客</title>
-    
-    <desc>这个错误可能由以下几个原因引起：</desc>
-  </url>
-  
-  <url>
     <loc>https://l-fay.github.io/2023/07/12/cuda01/</loc>
     
     <lastmod>2024-08-16T02:31:46.205Z</lastmod>
@@ -1660,6 +1649,17 @@
     <title>rpm格式cuda安装 | 兰秋廿柒的博客</title>
     
     <desc>遇到的问题就不说了，反正最后的需求是用一个rpm格式的安装包去离线安装cuda。</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2020/12/16/cuda00/</loc>
+    
+    <lastmod>2024-08-16T02:31:46.205Z</lastmod>
+    
+    <date>1608105673000</date>
+    <title>no CUDA-capable device is detected | 兰秋廿柒的博客</title>
+    
+    <desc>这个错误可能由以下几个原因引起：</desc>
   </url>
   
   <url>
