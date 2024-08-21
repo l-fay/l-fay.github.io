@@ -1,6 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>pip换源的注意事项</title>
+    <url>/2020/11/27/anaconda00/</url>
+    <content><![CDATA[<p>之前把pip换源了，现在要装opencv-python的3.4.11.43版本，清华源没有，就把默认源加上了<code>https://pypi.python.org/simple/</code>，顺便记一下pip换源的方法。</p>
+<span id="more"></span>
+
+<h2 id="位置"><a href="#位置" class="headerlink" title="位置"></a>位置</h2><p>linux:</p>
+<p>修改 ~&#x2F;.config&#x2F;pip&#x2F;pip.conf (没有就创建一个)。</p>
+<p>windows:</p>
+<p>直接在user目录中创建一个pip目录，如：C:\Users\xx\pip，新建文件pip.ini。</p>
+<h2 id="内容"><a href="#内容" class="headerlink" title="内容"></a>内容</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[global]</span><br><span class="line">index-url = https://pypi.tuna.tsinghua.edu.cn/simple</span><br><span class="line">extra-index-url=</span><br><span class="line">	https://pypi.mirrors.ustc.edu.cn/simple/</span><br><span class="line">	https://pypi.douban.com/simple/</span><br><span class="line">	https://pypi.python.org/simple/</span><br><span class="line">[install]</span><br><span class="line">trusted-host = tuna.tsinghua.edu.cn</span><br><span class="line">	pypi.douban.com</span><br><span class="line">	mirrors.ustc.edu.cn</span><br><span class="line">	python.org</span><br></pre></td></tr></table></figure>
+
+<p>另外记一个错误写法：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[global]</span><br><span class="line">index-url=http://pypi.douban.com/simple</span><br><span class="line">extra-index-url=http://mirrors.aliyun.com/pypi/simple/</span><br><span class="line">extra-index-url=https://pypi.tuna.tsinghua.edu.cn/simple/</span><br><span class="line">extra-index-url=http://pypi.mirrors.ustc.edu.cn/simple/</span><br><span class="line">[install]</span><br><span class="line">trusted-host=pypi.douban.com</span><br><span class="line">trusted-host=mirrors.aliyun.com</span><br><span class="line">trusted-host=pypi.tuna.tsinghua.edu.cn</span><br><span class="line">trusted-host=pypi.mirrors.ustc.edu.cn</span><br></pre></td></tr></table></figure>
+
+<p>这样会报错：<code>option &#39;extra-index-url&#39; in section &#39;global&#39; already exists.</code></p>
+<h2 id="进阶"><a href="#进阶" class="headerlink" title="进阶"></a>进阶</h2><p><code>pip</code>命令不止一个配置文件地址，并且配置文件有不同的覆盖范围和加载顺序，可以用<code>pip -v config list</code>或<code>pip config debug</code>查看。</p>
+]]></content>
+      <categories>
+        <category>Anaconda</category>
+        <category>pip</category>
+      </categories>
+      <tags>
+        <tag>Anaconda</tag>
+        <tag>pip</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>迁移虚拟环境</title>
     <url>/2021/01/07/anaconda01/</url>
     <content><![CDATA[<p>师兄的一篇博客很有帮助，转载一下。</p>
@@ -57,33 +84,6 @@
       </tags>
   </entry>
   <entry>
-    <title>pip换源的注意事项</title>
-    <url>/2020/11/27/anaconda00/</url>
-    <content><![CDATA[<p>之前把pip换源了，现在要装opencv-python的3.4.11.43版本，清华源没有，就把默认源加上了<code>https://pypi.python.org/simple/</code>，顺便记一下pip换源的方法。</p>
-<span id="more"></span>
-
-<h2 id="位置"><a href="#位置" class="headerlink" title="位置"></a>位置</h2><p>linux:</p>
-<p>修改 ~&#x2F;.config&#x2F;pip&#x2F;pip.conf (没有就创建一个)。</p>
-<p>windows:</p>
-<p>直接在user目录中创建一个pip目录，如：C:\Users\xx\pip，新建文件pip.ini。</p>
-<h2 id="内容"><a href="#内容" class="headerlink" title="内容"></a>内容</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[global]</span><br><span class="line">index-url = https://pypi.tuna.tsinghua.edu.cn/simple</span><br><span class="line">extra-index-url=</span><br><span class="line">	https://pypi.mirrors.ustc.edu.cn/simple/</span><br><span class="line">	https://pypi.douban.com/simple/</span><br><span class="line">	https://pypi.python.org/simple/</span><br><span class="line">[install]</span><br><span class="line">trusted-host = tuna.tsinghua.edu.cn</span><br><span class="line">	pypi.douban.com</span><br><span class="line">	mirrors.ustc.edu.cn</span><br><span class="line">	python.org</span><br></pre></td></tr></table></figure>
-
-<p>另外记一个错误写法：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[global]</span><br><span class="line">index-url=http://pypi.douban.com/simple</span><br><span class="line">extra-index-url=http://mirrors.aliyun.com/pypi/simple/</span><br><span class="line">extra-index-url=https://pypi.tuna.tsinghua.edu.cn/simple/</span><br><span class="line">extra-index-url=http://pypi.mirrors.ustc.edu.cn/simple/</span><br><span class="line">[install]</span><br><span class="line">trusted-host=pypi.douban.com</span><br><span class="line">trusted-host=mirrors.aliyun.com</span><br><span class="line">trusted-host=pypi.tuna.tsinghua.edu.cn</span><br><span class="line">trusted-host=pypi.mirrors.ustc.edu.cn</span><br></pre></td></tr></table></figure>
-
-<p>这样会报错：<code>option &#39;extra-index-url&#39; in section &#39;global&#39; already exists.</code></p>
-<h2 id="进阶"><a href="#进阶" class="headerlink" title="进阶"></a>进阶</h2><p><code>pip</code>命令不止一个配置文件地址，并且配置文件有不同的覆盖范围和加载顺序，可以用<code>pip -v config list</code>或<code>pip config debug</code>查看。</p>
-]]></content>
-      <categories>
-        <category>Anaconda</category>
-        <category>pip</category>
-      </categories>
-      <tags>
-        <tag>Anaconda</tag>
-        <tag>pip</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Appium | 安装时遇到的一些坑</title>
     <url>/2022/10/15/appium00/</url>
     <content><![CDATA[<p>背景是有一个需要自动化操作实机安卓APP的需求，研究了一下，记录一下遇到的一些坑。</p>
@@ -112,18 +112,14 @@
       </tags>
   </entry>
   <entry>
-    <title>Appium | Appium中一些注意事项</title>
-    <url>/2022/10/15/appium02/</url>
-    <content><![CDATA[<p>这是在我写脚本的时候遇到的一些问题。</p>
+    <title>Appium | Appium中implicitly_wait失效的替代方案</title>
+    <url>/2022/10/15/appium01/</url>
+    <content><![CDATA[<p>不知道为啥，在Appium中，implicitly_wait是不起作用的，所以找了个替代方案。</p>
 <span id="more"></span>
 
-<h2 id="XPATH"><a href="#XPATH" class="headerlink" title="XPATH"></a>XPATH</h2><p>用XPATH定位经常出现找不到的问题</p>
-<p>解决方法：换用ID定位，在<code>Appium Inspector</code>中叫<code>resource-id</code></p>
-<h2 id="屏幕遮挡"><a href="#屏幕遮挡" class="headerlink" title="屏幕遮挡"></a>屏幕遮挡</h2><p>有时用父模块去判断某个逻辑后，去获取子模块卡住，经过排查，发现是父模块能在屏幕上看到，但子模块在屏幕外，这时就无法获取子模块。</p>
-<p>解决方法：直接用find_elements获得子模块的集合做逻辑判断</p>
-<h2 id="连接性"><a href="#连接性" class="headerlink" title="连接性"></a>连接性</h2><p>Appium服务的连接性有点差，所以在代码中要最小化连接次数。</p>
-<p>基于这个原则，在条件允许的情况下，用driver.tap做点击比先find再点击要好。</p>
-<p>总之就是能用ID不要用XPATH，能用子模块不要用父模块，能少操作就少操作。</p>
+<p>在Stack Overflow上找了个方案，说用线程超时来代替implicitly_wait，这启发了我，既然implicitly_wait不起作用，那我们可以自己给它计时啊。</p>
+<p>于是将一些超时处理的操作套了个壳，用func_timeout库中的<code>@func_set_timeout</code>注解来设定超时时间。</p>
+<p>成功解决。</p>
 ]]></content>
       <categories>
         <category>自动化</category>
@@ -139,14 +135,18 @@
       </tags>
   </entry>
   <entry>
-    <title>Appium | Appium中implicitly_wait失效的替代方案</title>
-    <url>/2022/10/15/appium01/</url>
-    <content><![CDATA[<p>不知道为啥，在Appium中，implicitly_wait是不起作用的，所以找了个替代方案。</p>
+    <title>Appium | Appium中一些注意事项</title>
+    <url>/2022/10/15/appium02/</url>
+    <content><![CDATA[<p>这是在我写脚本的时候遇到的一些问题。</p>
 <span id="more"></span>
 
-<p>在Stack Overflow上找了个方案，说用线程超时来代替implicitly_wait，这启发了我，既然implicitly_wait不起作用，那我们可以自己给它计时啊。</p>
-<p>于是将一些超时处理的操作套了个壳，用func_timeout库中的<code>@func_set_timeout</code>注解来设定超时时间。</p>
-<p>成功解决。</p>
+<h2 id="XPATH"><a href="#XPATH" class="headerlink" title="XPATH"></a>XPATH</h2><p>用XPATH定位经常出现找不到的问题</p>
+<p>解决方法：换用ID定位，在<code>Appium Inspector</code>中叫<code>resource-id</code></p>
+<h2 id="屏幕遮挡"><a href="#屏幕遮挡" class="headerlink" title="屏幕遮挡"></a>屏幕遮挡</h2><p>有时用父模块去判断某个逻辑后，去获取子模块卡住，经过排查，发现是父模块能在屏幕上看到，但子模块在屏幕外，这时就无法获取子模块。</p>
+<p>解决方法：直接用find_elements获得子模块的集合做逻辑判断</p>
+<h2 id="连接性"><a href="#连接性" class="headerlink" title="连接性"></a>连接性</h2><p>Appium服务的连接性有点差，所以在代码中要最小化连接次数。</p>
+<p>基于这个原则，在条件允许的情况下，用driver.tap做点击比先find再点击要好。</p>
+<p>总之就是能用ID不要用XPATH，能用子模块不要用父模块，能少操作就少操作。</p>
 ]]></content>
       <categories>
         <category>自动化</category>
@@ -433,6 +433,39 @@
       </tags>
   </entry>
   <entry>
+    <title>数据库 | json_remove()函数在不同数据库的区别</title>
+    <url>/2024/08/20/db00/</url>
+    <content><![CDATA[<p>今天遇到一个问题，在执行<code>select</code>操作时报错，排查出来是json_remove()函数在不同数据库有区别。</p>
+<span id="more"></span>
+
+<h1 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h1><p>sql语句是：<br><code>select json_data, json_remove(json_data,&#39;$.data&#39;) AS </code>json_remove<code> from table_xxx</code><br>查询一个json结构的数据。</p>
+<p>在Java中，使用<code>List&lt;Map&lt;String, Object&gt;&gt;</code>类型接查询结果，然后做后续操作。</p>
+<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>部分测试代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">List&lt;Map&lt;String, Object&gt;&gt; list = jdbcTemplate.queryForList(sql);</span><br><span class="line">Map&lt;String, String&gt; type = new HashMap();</span><br><span class="line">for (Map&lt;String, Object&gt; map : list) &#123;</span><br><span class="line">	Object jsonDateObject = map.get(&quot;json_data&quot;);</span><br><span class="line">	if (jsonDateObject instanceof String) &#123;</span><br><span class="line">		type.put(&quot;jsonDate&quot;, &quot;String&quot;);</span><br><span class="line">	&#125; else if (jsonDateObject instanceof byte[]) &#123;</span><br><span class="line">		type.put(&quot;jsonDate&quot;, &quot;byte[]&quot;);</span><br><span class="line">	&#125; else &#123;</span><br><span class="line">		type.put(&quot;jsonDate&quot;, &quot;other&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">	Object jsonRemoveObject = map.get(&quot;json_remove&quot;);</span><br><span class="line">	if (jsonRemoveObject instanceof String) &#123;</span><br><span class="line">		type.put(&quot;jsonRemove&quot;, &quot;String&quot;);</span><br><span class="line">	&#125; else if (jsonRemoveObject instanceof byte[]) &#123;</span><br><span class="line">		type.put(&quot;jsonRemove&quot;, &quot;byte[]&quot;);</span><br><span class="line">	&#125; else &#123;</span><br><span class="line">		type.put(&quot;jsonRemove&quot;, &quot;other&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">	break;</span><br><span class="line">&#125;</span><br><span class="line">String v = &quot;&quot;;</span><br><span class="line">sql = &quot;select VERSION() as v&quot;;</span><br><span class="line">list = luckySheetJdbcTemplate.queryForList(sql);</span><br><span class="line">for (Map&lt;String, Object&gt; map : list) &#123;</span><br><span class="line">	Object vObject = map.get(&quot;v&quot;);</span><br><span class="line">	v = vObject.toString();</span><br><span class="line">&#125;</span><br><span class="line">type.put(&quot;dbVersion&quot;, v);</span><br><span class="line">return type.toString();</span><br></pre></td></tr></table></figure>
+
+<p>在不同数据库上的查询结果：<br>MariaDb：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;dbVersion&quot;: &quot;10.3.23-MariaDB-0+deb10u1&quot;,</span><br><span class="line">  &quot;jsonData&quot;: &quot;String&quot;,</span><br><span class="line">  &quot;jsonRemove&quot;: &quot;byte[]&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>MySQL:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;dbVersion&quot;: &quot;5.7.26&quot;,</span><br><span class="line">  &quot;jsonData&quot;: &quot;String&quot;,</span><br><span class="line">  &quot;jsonRemove&quot;: &quot;String&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>TdSQL:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;dbVersion&quot;: &quot;5.7.35-V2.0R681D005-v17-20210125-2111-log&quot;,</span><br><span class="line">  &quot;jsonData&quot;: &quot;String&quot;,</span><br><span class="line">  &quot;jsonRemove&quot;: &quot;String&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h1><p>通过测试，<code>json_remove()</code>函数在不同数据库的返回值类型是有区别的，在工程中需要注意。</p>
+]]></content>
+      <categories>
+        <category>数据库</category>
+        <category>MySQL</category>
+        <category>MariaDb</category>
+        <category>TdSQL</category>
+      </categories>
+      <tags>
+        <tag>数据库</tag>
+        <tag>MySQL</tag>
+        <tag>MariaDb</tag>
+        <tag>TdSQL</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>no CUDA-capable device is detected</title>
     <url>/2020/12/16/cuda00/</url>
     <content><![CDATA[<p>这个错误可能由以下几个原因引起：</p>
@@ -471,39 +504,6 @@
       </categories>
       <tags>
         <tag>CUDA</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>数据库 | json_remove()函数在不同数据库的区别</title>
-    <url>/2024/08/20/db00/</url>
-    <content><![CDATA[<p>今天遇到一个问题，在执行<code>select</code>操作时报错，排查出来是json_remove()函数在不同数据库有区别。</p>
-<span id="more"></span>
-
-<h1 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h1><p>sql语句是：<br><code>select json_data, json_remove(json_data,&#39;$.data&#39;) AS </code>json_remove<code> from table_xxx</code><br>查询一个json结构的数据。</p>
-<p>在Java中，使用<code>List&lt;Map&lt;String, Object&gt;&gt;</code>类型接查询结果，然后做后续操作。</p>
-<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>部分测试代码：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">List&lt;Map&lt;String, Object&gt;&gt; list = jdbcTemplate.queryForList(sql);</span><br><span class="line">Map&lt;String, String&gt; type = new HashMap();</span><br><span class="line">for (Map&lt;String, Object&gt; map : list) &#123;</span><br><span class="line">	Object jsonDateObject = map.get(&quot;json_data&quot;);</span><br><span class="line">	if (jsonDateObject instanceof String) &#123;</span><br><span class="line">		type.put(&quot;jsonDate&quot;, &quot;String&quot;);</span><br><span class="line">	&#125; else if (jsonDateObject instanceof byte[]) &#123;</span><br><span class="line">		type.put(&quot;jsonDate&quot;, &quot;byte[]&quot;);</span><br><span class="line">	&#125; else &#123;</span><br><span class="line">		type.put(&quot;jsonDate&quot;, &quot;other&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">	Object jsonRemoveObject = map.get(&quot;json_remove&quot;);</span><br><span class="line">	if (jsonRemoveObject instanceof String) &#123;</span><br><span class="line">		type.put(&quot;jsonRemove&quot;, &quot;String&quot;);</span><br><span class="line">	&#125; else if (jsonRemoveObject instanceof byte[]) &#123;</span><br><span class="line">		type.put(&quot;jsonRemove&quot;, &quot;byte[]&quot;);</span><br><span class="line">	&#125; else &#123;</span><br><span class="line">		type.put(&quot;jsonRemove&quot;, &quot;other&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">	break;</span><br><span class="line">&#125;</span><br><span class="line">String v = &quot;&quot;;</span><br><span class="line">sql = &quot;select VERSION() as v&quot;;</span><br><span class="line">list = luckySheetJdbcTemplate.queryForList(sql);</span><br><span class="line">for (Map&lt;String, Object&gt; map : list) &#123;</span><br><span class="line">	Object vObject = map.get(&quot;v&quot;);</span><br><span class="line">	v = vObject.toString();</span><br><span class="line">&#125;</span><br><span class="line">type.put(&quot;dbVersion&quot;, v);</span><br><span class="line">return type.toString();</span><br></pre></td></tr></table></figure>
-
-<p>在不同数据库上的查询结果：<br>MariaDb：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;dbVersion&quot;: &quot;10.3.23-MariaDB-0+deb10u1&quot;,</span><br><span class="line">  &quot;jsonData&quot;: &quot;String&quot;,</span><br><span class="line">  &quot;jsonRemove&quot;: &quot;byte[]&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>MySQL:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;dbVersion&quot;: &quot;5.7.26&quot;,</span><br><span class="line">  &quot;jsonData&quot;: &quot;String&quot;,</span><br><span class="line">  &quot;jsonRemove&quot;: &quot;String&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>TdSQL:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;dbVersion&quot;: &quot;5.7.35-V2.0R681D005-v17-20210125-2111-log&quot;,</span><br><span class="line">  &quot;jsonData&quot;: &quot;String&quot;,</span><br><span class="line">  &quot;jsonRemove&quot;: &quot;String&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h1><p>通过测试，<code>json_remove()</code>函数在不同数据库的返回值类型是有区别的，在工程中需要注意。</p>
-]]></content>
-      <categories>
-        <category>数据库</category>
-        <category>MySQL</category>
-        <category>MariaDb</category>
-        <category>TdSQL</category>
-      </categories>
-      <tags>
-        <tag>数据库</tag>
-        <tag>MySQL</tag>
-        <tag>MariaDb</tag>
-        <tag>TdSQL</tag>
       </tags>
   </entry>
   <entry>
@@ -550,6 +550,21 @@
       </tags>
   </entry>
   <entry>
+    <title>Excel | 保持某些变量不变的方法</title>
+    <url>/2023/04/10/excel00/</url>
+    <content><![CDATA[<p>在Excel函数中，涉及到选取范围时，常有类似<code>A2</code>的内容，这些内容在复制单元格内容到新单元格时也会发生变化。</p>
+<span id="more"></span>
+
+<p>若想保持不变，只用加上<code>$</code>即可，例如<code>$A1</code>，这个A列就不会再变化了；<code>B$2</code>则是第二行不会变化。</p>
+]]></content>
+      <categories>
+        <category>Excel</category>
+      </categories>
+      <tags>
+        <tag>Excel</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Electron | 无网络的服务器怎么下载依赖</title>
     <url>/2022/09/15/electron00/</url>
     <content><![CDATA[<p>如题。</p>
@@ -569,21 +584,6 @@
       <tags>
         <tag>Electron</tag>
         <tag>NodeJs</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Excel | 保持某些变量不变的方法</title>
-    <url>/2023/04/10/excel00/</url>
-    <content><![CDATA[<p>在Excel函数中，涉及到选取范围时，常有类似<code>A2</code>的内容，这些内容在复制单元格内容到新单元格时也会发生变化。</p>
-<span id="more"></span>
-
-<p>若想保持不变，只用加上<code>$</code>即可，例如<code>$A1</code>，这个A列就不会再变化了；<code>B$2</code>则是第二行不会变化。</p>
-]]></content>
-      <categories>
-        <category>Excel</category>
-      </categories>
-      <tags>
-        <tag>Excel</tag>
       </tags>
   </entry>
   <entry>
@@ -923,26 +923,6 @@
       </tags>
   </entry>
   <entry>
-    <title>FFmpeg | hevc (Main 10) 转 hevc (Main)</title>
-    <url>/2022/07/07/ffmpeg11/</url>
-    <content><![CDATA[<p>大部分情况下可以不指定profile直接转hevc，转完就是profile<code>main</code>，但有时默认的profile就是<code>main10</code>，更改为<code>main</code>就会报错，记录一下解决方法。</p>
-<span id="more"></span>
-
-<p>出现这种情况的原因是像素格式的问题。</p>
-<p>像这种转不了的，一般是因为像素格式就是10bit的位深，例如<code>yuv420p10le</code>。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ffmpeg -i 1.mp4</span><br><span class="line">Input #0, mov,mp4,m4a,3gp,3g2,mj2, from &#x27;1.mp4&#x27;:</span><br><span class="line">  Metadata:</span><br><span class="line">    major_brand     : iso4</span><br><span class="line">    minor_version   : 1</span><br><span class="line">    compatible_brands: iso4hvc1iso6</span><br><span class="line">    creation_time   : 2019-11-12T12:43:43.000000Z</span><br><span class="line">  Duration: 03:35:25.15, start: 0.000000, bitrate: 2575 kb/s</span><br><span class="line">    Stream #0:0(und): Video: hevc (Main 10) (hvc1 / 0x31637668), yuv420p10le(tv), 1920x1080 [SAR 1:1 DAR 16:9], 2349 kb/s, 23.98 fps, 23.98 tbr, 24k tbn, 23.98 tbc (default)</span><br><span class="line">    Metadata:</span><br><span class="line">      creation_time   : 2019-11-12T12:43:43.000000Z</span><br><span class="line">    Stream #0:1(und): Audio: ac3 (ac-3 / 0x332D6361), 48000 Hz, stereo, fltp, 224 kb/s (default)</span><br><span class="line">    Metadata:</span><br><span class="line">      creation_time   : 2019-11-12T12:44:46.000000Z</span><br><span class="line">    Side data:</span><br><span class="line">      audio service type: main</span><br></pre></td></tr></table></figure>
-
-<p>只改变编码，不改变像素格式的话，只能转成<code>hevc (Main 10)</code>。</p>
-<p>所以要将10bit的<code>yuv420p10le</code>改成8bit的<code>yuv420p</code>，使用<code>-pix_fmt</code>参数，如：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ffmpeg -i 1.mp4 -map 0:0 -c:v hevc -map 0:1 -c:a aac -pix_fmt yuv420p 2.mp4</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>ffmpeg</category>
-      </categories>
-      <tags>
-        <tag>ffmpeg</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>FFmpeg | 字体文件的抽取</title>
     <url>/2023/01/17/ffmpeg12/</url>
     <content><![CDATA[<p>在压字幕的过程中，发现一些mkv中自带了字体文件，于是就找了一下提取字体的方法。毕竟直接从mkv中提取的字幕一是方便，不用在网上到处找；二是不用担心找的不对。</p>
@@ -957,6 +937,26 @@
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ffmpeg -i INPUT -attach DejaVuSans.ttf -metadata:s:2 mimetype=application/x-truetype-font out.mkv</span><br></pre></td></tr></table></figure>
 <p>假设附件流在输出文件中排在第三位。</p>
 ]]></content>
+      <categories>
+        <category>ffmpeg</category>
+      </categories>
+      <tags>
+        <tag>ffmpeg</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>FFmpeg | hevc (Main 10) 转 hevc (Main)</title>
+    <url>/2022/07/07/ffmpeg11/</url>
+    <content><![CDATA[<p>大部分情况下可以不指定profile直接转hevc，转完就是profile<code>main</code>，但有时默认的profile就是<code>main10</code>，更改为<code>main</code>就会报错，记录一下解决方法。</p>
+<span id="more"></span>
+
+<p>出现这种情况的原因是像素格式的问题。</p>
+<p>像这种转不了的，一般是因为像素格式就是10bit的位深，例如<code>yuv420p10le</code>。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ffmpeg -i 1.mp4</span><br><span class="line">Input #0, mov,mp4,m4a,3gp,3g2,mj2, from &#x27;1.mp4&#x27;:</span><br><span class="line">  Metadata:</span><br><span class="line">    major_brand     : iso4</span><br><span class="line">    minor_version   : 1</span><br><span class="line">    compatible_brands: iso4hvc1iso6</span><br><span class="line">    creation_time   : 2019-11-12T12:43:43.000000Z</span><br><span class="line">  Duration: 03:35:25.15, start: 0.000000, bitrate: 2575 kb/s</span><br><span class="line">    Stream #0:0(und): Video: hevc (Main 10) (hvc1 / 0x31637668), yuv420p10le(tv), 1920x1080 [SAR 1:1 DAR 16:9], 2349 kb/s, 23.98 fps, 23.98 tbr, 24k tbn, 23.98 tbc (default)</span><br><span class="line">    Metadata:</span><br><span class="line">      creation_time   : 2019-11-12T12:43:43.000000Z</span><br><span class="line">    Stream #0:1(und): Audio: ac3 (ac-3 / 0x332D6361), 48000 Hz, stereo, fltp, 224 kb/s (default)</span><br><span class="line">    Metadata:</span><br><span class="line">      creation_time   : 2019-11-12T12:44:46.000000Z</span><br><span class="line">    Side data:</span><br><span class="line">      audio service type: main</span><br></pre></td></tr></table></figure>
+
+<p>只改变编码，不改变像素格式的话，只能转成<code>hevc (Main 10)</code>。</p>
+<p>所以要将10bit的<code>yuv420p10le</code>改成8bit的<code>yuv420p</code>，使用<code>-pix_fmt</code>参数，如：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ffmpeg -i 1.mp4 -map 0:0 -c:v hevc -map 0:1 -c:a aac -pix_fmt yuv420p 2.mp4</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>ffmpeg</category>
       </categories>
@@ -2139,6 +2139,29 @@ table th:nth-of-type(3) {
       </tags>
   </entry>
   <entry>
+    <title>Python连接MySQL连接池</title>
+    <url>/2021/10/21/mysql00/</url>
+    <content><![CDATA[<p>记录一下怎么用python连接MySQL连接池。</p>
+<span id="more"></span>
+
+<h2 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pip install mysql-connector-python</span><br></pre></td></tr></table></figure>
+
+<h2 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h2><p>直接上demo。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import time</span><br><span class="line">from mysql.connector.pooling import MySQLConnectionPool</span><br><span class="line"></span><br><span class="line">class MySql:</span><br><span class="line"></span><br><span class="line">    def __init__(self, config):</span><br><span class="line">        self.expire = 1800</span><br><span class="line">        self.mysql_pool = MySQLConnectionPool(</span><br><span class="line">            host=config.MYSQL_HOST,</span><br><span class="line">            port=config.MYSQL_PORT,</span><br><span class="line">            user=config.MYSQL_USER,</span><br><span class="line">            passwd=config.MYSQL_PASSWORD,</span><br><span class="line">            database=config.MYSQL_DATABASE,</span><br><span class="line">            ssl_disabled=config.SSL_DISABLED,</span><br><span class="line">            pool_size=config.MYSQL_MAX_CONNECTIONS</span><br><span class="line">        )</span><br><span class="line"></span><br><span class="line">    def __get_connection(self):</span><br><span class="line">        try:</span><br><span class="line">            conn = self.mysql_pool.get_connection()</span><br><span class="line">            return conn</span><br><span class="line">        except:</span><br><span class="line">            time.sleep(5)</span><br><span class="line"></span><br><span class="line">    def select(self, sql: str, arg=None):</span><br><span class="line">        if not arg == None and not isinstance(arg, tuple):</span><br><span class="line">            arg = (arg,)</span><br><span class="line">        with self.__get_connection() as conn:</span><br><span class="line">            with conn.cursor() as cur:</span><br><span class="line">                cur.execute(sql, arg)</span><br><span class="line">                result = cur.fetchall()</span><br><span class="line">                return result</span><br><span class="line"></span><br><span class="line">    def insert(self, sql: str, arg=None):</span><br><span class="line">        if not arg == None and not isinstance(arg, tuple):</span><br><span class="line">            arg = (arg,)</span><br><span class="line">        with self.__get_connection() as conn:</span><br><span class="line">            with conn.cursor() as cur:</span><br><span class="line">                try:</span><br><span class="line">                    cur.execute(sql, arg)</span><br><span class="line">                    conn.commit()</span><br><span class="line">                    return True</span><br><span class="line">                except Exception as e:</span><br><span class="line">                    print(e)</span><br><span class="line">                    conn.rollback()</span><br><span class="line">                    return False</span><br><span class="line"></span><br><span class="line">    def update(self, sql: str, arg=None):</span><br><span class="line">        if not arg == None and not isinstance(arg, tuple):</span><br><span class="line">            arg = (arg,)</span><br><span class="line">        with self.__get_connection() as conn:</span><br><span class="line">            with conn.cursor() as cur:</span><br><span class="line">                try:</span><br><span class="line">                    cur.execute(sql, arg)</span><br><span class="line">                    conn.commit()</span><br><span class="line">                    return True</span><br><span class="line">                except Exception as e:</span><br><span class="line">                    print(e)</span><br><span class="line">                    conn.rollback()</span><br><span class="line">                    return False</span><br><span class="line"></span><br><span class="line">    def alter(self, sql: str, arg=None):</span><br><span class="line">        if not arg == None and not isinstance(arg, tuple):</span><br><span class="line">            arg = (arg,)</span><br><span class="line">        with self.__get_connection() as conn:</span><br><span class="line">            with conn.cursor() as cur:</span><br><span class="line">                try:</span><br><span class="line">                    cur.execute(sql, arg)</span><br><span class="line">                    conn.commit()</span><br><span class="line">                    return True</span><br><span class="line">                except Exception as e:</span><br><span class="line">                    print(e)</span><br><span class="line">                    conn.rollback()</span><br><span class="line">                    return False</span><br><span class="line"></span><br><span class="line">    def get_index(self, table: str):</span><br><span class="line">        sql = &quot;&quot;&quot;</span><br><span class="line">        show </span><br><span class="line">        INDEX </span><br><span class="line">        from </span><br><span class="line">        &quot;&quot;&quot; + table + &quot;&quot;&quot;</span><br><span class="line">         </span><br><span class="line">        where </span><br><span class="line">        not Key_name = &#x27;PRIMARY&#x27;</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        with self.__get_connection() as conn:</span><br><span class="line">            with conn.cursor() as cur:</span><br><span class="line">                try:</span><br><span class="line">                    cur.execute(sql)</span><br><span class="line">                    result = cur.fetchall()</span><br><span class="line">                    index_names = []</span><br><span class="line">                    for i in result:</span><br><span class="line">                        index_names.append(i[2])</span><br><span class="line">                    return index_names</span><br><span class="line">                except Exception as e:</span><br><span class="line">                    print(e)</span><br><span class="line">                    conn.rollback()</span><br><span class="line">                    return []</span><br><span class="line"></span><br><span class="line">    def truncate(self, sql: str, arg=None):</span><br><span class="line">        if not arg == None and not isinstance(arg, tuple):</span><br><span class="line">            arg = (arg,)</span><br><span class="line">        with self.__get_connection() as conn:</span><br><span class="line">            with conn.cursor() as cur:</span><br><span class="line">                try:</span><br><span class="line">                    cur.execute(sql, arg)</span><br><span class="line">                    conn.commit()</span><br><span class="line">                    return True</span><br><span class="line">                except Exception as e:</span><br><span class="line">                    print(e)</span><br><span class="line">                    conn.rollback()</span><br><span class="line">                    return False</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Python</category>
+        <category>常用库</category>
+        <category>数据库</category>
+        <category>MySQL</category>
+        <category>mysql-connector-python</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>数据库</tag>
+        <tag>MySQL</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Linux分卷压缩与解压缩</title>
     <url>/2023/10/20/linux11/</url>
     <content><![CDATA[<p>在Linux系统下，分卷压缩与解压缩的方法。</p>
@@ -2160,29 +2183,6 @@ table th:nth-of-type(3) {
       </categories>
       <tags>
         <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Python连接MySQL连接池</title>
-    <url>/2021/10/21/mysql00/</url>
-    <content><![CDATA[<p>记录一下怎么用python连接MySQL连接池。</p>
-<span id="more"></span>
-
-<h2 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pip install mysql-connector-python</span><br></pre></td></tr></table></figure>
-
-<h2 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h2><p>直接上demo。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import time</span><br><span class="line">from mysql.connector.pooling import MySQLConnectionPool</span><br><span class="line"></span><br><span class="line">class MySql:</span><br><span class="line"></span><br><span class="line">    def __init__(self, config):</span><br><span class="line">        self.expire = 1800</span><br><span class="line">        self.mysql_pool = MySQLConnectionPool(</span><br><span class="line">            host=config.MYSQL_HOST,</span><br><span class="line">            port=config.MYSQL_PORT,</span><br><span class="line">            user=config.MYSQL_USER,</span><br><span class="line">            passwd=config.MYSQL_PASSWORD,</span><br><span class="line">            database=config.MYSQL_DATABASE,</span><br><span class="line">            ssl_disabled=config.SSL_DISABLED,</span><br><span class="line">            pool_size=config.MYSQL_MAX_CONNECTIONS</span><br><span class="line">        )</span><br><span class="line"></span><br><span class="line">    def __get_connection(self):</span><br><span class="line">        try:</span><br><span class="line">            conn = self.mysql_pool.get_connection()</span><br><span class="line">            return conn</span><br><span class="line">        except:</span><br><span class="line">            time.sleep(5)</span><br><span class="line"></span><br><span class="line">    def select(self, sql: str, arg=None):</span><br><span class="line">        if not arg == None and not isinstance(arg, tuple):</span><br><span class="line">            arg = (arg,)</span><br><span class="line">        with self.__get_connection() as conn:</span><br><span class="line">            with conn.cursor() as cur:</span><br><span class="line">                cur.execute(sql, arg)</span><br><span class="line">                result = cur.fetchall()</span><br><span class="line">                return result</span><br><span class="line"></span><br><span class="line">    def insert(self, sql: str, arg=None):</span><br><span class="line">        if not arg == None and not isinstance(arg, tuple):</span><br><span class="line">            arg = (arg,)</span><br><span class="line">        with self.__get_connection() as conn:</span><br><span class="line">            with conn.cursor() as cur:</span><br><span class="line">                try:</span><br><span class="line">                    cur.execute(sql, arg)</span><br><span class="line">                    conn.commit()</span><br><span class="line">                    return True</span><br><span class="line">                except Exception as e:</span><br><span class="line">                    print(e)</span><br><span class="line">                    conn.rollback()</span><br><span class="line">                    return False</span><br><span class="line"></span><br><span class="line">    def update(self, sql: str, arg=None):</span><br><span class="line">        if not arg == None and not isinstance(arg, tuple):</span><br><span class="line">            arg = (arg,)</span><br><span class="line">        with self.__get_connection() as conn:</span><br><span class="line">            with conn.cursor() as cur:</span><br><span class="line">                try:</span><br><span class="line">                    cur.execute(sql, arg)</span><br><span class="line">                    conn.commit()</span><br><span class="line">                    return True</span><br><span class="line">                except Exception as e:</span><br><span class="line">                    print(e)</span><br><span class="line">                    conn.rollback()</span><br><span class="line">                    return False</span><br><span class="line"></span><br><span class="line">    def alter(self, sql: str, arg=None):</span><br><span class="line">        if not arg == None and not isinstance(arg, tuple):</span><br><span class="line">            arg = (arg,)</span><br><span class="line">        with self.__get_connection() as conn:</span><br><span class="line">            with conn.cursor() as cur:</span><br><span class="line">                try:</span><br><span class="line">                    cur.execute(sql, arg)</span><br><span class="line">                    conn.commit()</span><br><span class="line">                    return True</span><br><span class="line">                except Exception as e:</span><br><span class="line">                    print(e)</span><br><span class="line">                    conn.rollback()</span><br><span class="line">                    return False</span><br><span class="line"></span><br><span class="line">    def get_index(self, table: str):</span><br><span class="line">        sql = &quot;&quot;&quot;</span><br><span class="line">        show </span><br><span class="line">        INDEX </span><br><span class="line">        from </span><br><span class="line">        &quot;&quot;&quot; + table + &quot;&quot;&quot;</span><br><span class="line">         </span><br><span class="line">        where </span><br><span class="line">        not Key_name = &#x27;PRIMARY&#x27;</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        with self.__get_connection() as conn:</span><br><span class="line">            with conn.cursor() as cur:</span><br><span class="line">                try:</span><br><span class="line">                    cur.execute(sql)</span><br><span class="line">                    result = cur.fetchall()</span><br><span class="line">                    index_names = []</span><br><span class="line">                    for i in result:</span><br><span class="line">                        index_names.append(i[2])</span><br><span class="line">                    return index_names</span><br><span class="line">                except Exception as e:</span><br><span class="line">                    print(e)</span><br><span class="line">                    conn.rollback()</span><br><span class="line">                    return []</span><br><span class="line"></span><br><span class="line">    def truncate(self, sql: str, arg=None):</span><br><span class="line">        if not arg == None and not isinstance(arg, tuple):</span><br><span class="line">            arg = (arg,)</span><br><span class="line">        with self.__get_connection() as conn:</span><br><span class="line">            with conn.cursor() as cur:</span><br><span class="line">                try:</span><br><span class="line">                    cur.execute(sql, arg)</span><br><span class="line">                    conn.commit()</span><br><span class="line">                    return True</span><br><span class="line">                except Exception as e:</span><br><span class="line">                    print(e)</span><br><span class="line">                    conn.rollback()</span><br><span class="line">                    return False</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Python</category>
-        <category>常用库</category>
-        <category>数据库</category>
-        <category>MySQL</category>
-        <category>mysql-connector-python</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-        <tag>数据库</tag>
-        <tag>MySQL</tag>
       </tags>
   </entry>
   <entry>
@@ -3181,8 +3181,8 @@ python proxyPool.py server
         <category>Linux</category>
         <category>常用库</category>
         <category>bypy</category>
-        <category>百度云</category>
         <category>命令行工具</category>
+        <category>百度云</category>
       </categories>
       <tags>
         <tag>Linux</tag>
@@ -3243,22 +3243,6 @@ python proxyPool.py server
       <tags>
         <tag>Python</tag>
         <tag>OCR</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>mutagen | 添加mp4封面</title>
-    <url>/2021/06/07/pythonLibrary14/</url>
-    <content><![CDATA[<p>主要用来添加封面。</p>
-<span id="more"></span>
-
-<h2 id="MP4添加封面"><a href="#MP4添加封面" class="headerlink" title="MP4添加封面"></a>MP4添加封面</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">from mutagen.mp4 import MP4, MP4Cover</span><br><span class="line">def addCover(filename, cover):</span><br><span class="line">    audio = MP4(filename)</span><br><span class="line">    data = open(cover, &#x27;rb&#x27;).read()</span><br><span class="line">    covr = []</span><br><span class="line">    if cover.endswith(&#x27;png&#x27;):</span><br><span class="line">        covr.append(MP4Cover(data, MP4Cover.FORMAT_PNG))</span><br><span class="line">    else:</span><br><span class="line">        covr.append(MP4Cover(data, MP4Cover.FORMAT_JPEG))</span><br><span class="line">    audio[&#x27;covr&#x27;] = covr</span><br><span class="line">    audio.save()</span><br><span class="line">    print(filename + &quot; 内嵌图片：&quot; + cover + &quot;。&quot;)</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Python</category>
-        <category>常用库</category>
-        <category>mutagen</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -3371,6 +3355,23 @@ python proxyPool.py server
       </tags>
   </entry>
   <entry>
+    <title>找不到已安装包</title>
+    <url>/2021/04/05/pythonLibraryError01/</url>
+    <content><![CDATA[<p>有的时候明明已经装了一个包，但还是报错”ModuleNotFoundError”。</p>
+<span id="more"></span>
+
+<p>猜测是包的安装路径和import的寻找路径不同，解决方法也很简单。</p>
+<p>用<code>python -m pip</code>代替<code>pip</code>安装就好了。</p>
+]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>Error</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>matplotlib | NotImplementedError: It is not currently possible to manually set the aspect on 3D axes</title>
     <url>/2021/01/11/pythonLibraryError00/</url>
     <content><![CDATA[<p>今天跑项目的时候报错：“NotImplementedError: It is not currently possible to manually set the aspect on 3D axes”</p>
@@ -3386,23 +3387,6 @@ python proxyPool.py server
         <category>Python</category>
         <category>常用库</category>
         <category>matplotlib</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-        <tag>Error</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>找不到已安装包</title>
-    <url>/2021/04/05/pythonLibraryError01/</url>
-    <content><![CDATA[<p>有的时候明明已经装了一个包，但还是报错”ModuleNotFoundError”。</p>
-<span id="more"></span>
-
-<p>猜测是包的安装路径和import的寻找路径不同，解决方法也很简单。</p>
-<p>用<code>python -m pip</code>代替<code>pip</code>安装就好了。</p>
-]]></content>
-      <categories>
-        <category>Python</category>
       </categories>
       <tags>
         <tag>Python</tag>
@@ -3560,44 +3544,6 @@ python proxyPool.py server
       </tags>
   </entry>
   <entry>
-    <title>Redis的哨兵模式配置</title>
-    <url>/2020/11/01/redis02/</url>
-    <content><![CDATA[<p>在非自用场景下，单机的redis很明显不够用。当一台服务宕机时，需要及时启用备用服务，这就是哨兵的用处。</p>
-<span id="more"></span>
-
-<p>按我的理解，哨兵模式主要有两部分组成，主从复制和哨兵节点。</p>
-<h2 id="主从复制"><a href="#主从复制" class="headerlink" title="主从复制"></a>主从复制</h2><p>主从复制没有什么新鲜的，一个主节点，若干个从节点，从节点与主节点保持数据一致，很好理解。</p>
-<p>一台服务器上可以启动多个实例，每个实例使用不同的配置文件启动即可。这时每个实例配置文件中的pidfile需要做修改，防止冲突。</p>
-<p>如果是在多台不同的服务器上启动redis则无需修改pidfile。</p>
-<h3 id="主节点配置"><a href="#主节点配置" class="headerlink" title="主节点配置"></a>主节点配置</h3><p>配置文件就在redis安装路径的根目录下，文件名为<code>redis.conf</code>。</p>
-<p>配置如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 端口，一般是6379</span><br><span class="line">port 6379</span><br><span class="line"></span><br><span class="line"># 节点密码</span><br><span class="line">requirepass &lt;密码&gt;</span><br><span class="line"></span><br><span class="line"># 同一服务器多实例时才需要</span><br><span class="line">pidfile /var/run/redis_6379.pid</span><br></pre></td></tr></table></figure>
-
-<p>最后启动就OK了<code>./src/redis-server ./redis.conf</code>。</p>
-<h3 id="从节点配置"><a href="#从节点配置" class="headerlink" title="从节点配置"></a>从节点配置</h3><p>从节点的端口、密码和pidfile配置和主节点一致，需要额外配置的是主节点ip，不然从节点无法找到主节点，就只是一个单独的redis服务罢了。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 5.0.0版本之前：</span><br><span class="line">slaveof &lt;masterip&gt; &lt;masterport&gt;</span><br><span class="line"></span><br><span class="line"># 5.0.0版本之后：</span><br><span class="line">replicaof &lt;masterip&gt; &lt;masterport&gt;</span><br></pre></td></tr></table></figure>
-<p>当主节点有密码时，需要额外配置<code>masterauth &lt;主节点密码&gt;</code></p>
-<h2 id="哨兵节点"><a href="#哨兵节点" class="headerlink" title="哨兵节点"></a>哨兵节点</h2><p>其实上述主从节点配置好之后，理论上就已经可以容灾了。但是上述模式有一个缺点，就是当主节点宕机时，需要手动切换为从节点读写数据。比较麻烦的同时，也有着时效性不高的问题。</p>
-<p>而哨兵节点就是为了解决这个问题而存在的。</p>
-<p>哨兵节点本身只存储主从节点的IP等数据，当主节点宕机之后，哨兵节点会计算所有从节点的权值，选出一个新的主节点，并修改主从节点的配置文件。</p>
-<h3 id="哨兵节点配置"><a href="#哨兵节点配置" class="headerlink" title="哨兵节点配置"></a>哨兵节点配置</h3><p>配置文件也在redis安装路径的根目录下，文件名为<code>sentinel.conf</code>。</p>
-<p>一般要启动多个哨兵实例。</p>
-<p>配置如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 哨兵端口，默认为26379</span><br><span class="line">port 26379</span><br><span class="line"></span><br><span class="line"># 不限制ip</span><br><span class="line">bind 0.0.0.0</span><br><span class="line">    </span><br><span class="line"># 让sentinel服务后台运行</span><br><span class="line">daemonize yes</span><br><span class="line"> </span><br><span class="line"># 配置监听的主服务器，mymaster代表服务器的名称，自定义</span><br><span class="line">#2代表只有两个或两个以上的哨兵认为主服务器不可⽤的时候，才会进行failover操作。</span><br><span class="line">sentinel monitor mymaster &lt;主节点ip&gt; &lt;主节点端口&gt; 2</span><br><span class="line">    </span><br><span class="line"># sentinel auth-pass定义服务的密码，mymaster是服务名称，123456是Redis服务器密码</span><br><span class="line">sentinel auth-pass mymaster &lt;主节点密码&gt;</span><br><span class="line">    </span><br><span class="line"># 超过5秒master还没有连接上，则认为master已经停止</span><br><span class="line">sentinel down-after-milliseconds mymaster 5000</span><br><span class="line">    </span><br><span class="line"># 如果该时间内没完成failover操作，则认为本次failover失败</span><br><span class="line">sentinel failover-timeout mymaster 30000</span><br></pre></td></tr></table></figure>
-
-<p>然后启动哨兵节点，<code>./src/redis-sentinel ./sentinel.conf</code></p>
-<p>再多整几个配置文件，多起几个实例，就OK了。</p>
-]]></content>
-      <categories>
-        <category>数据库</category>
-        <category>Redis</category>
-      </categories>
-      <tags>
-        <tag>数据库</tag>
-        <tag>Redis</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Python连接Redis集群</title>
     <url>/2021/10/21/redis03/</url>
     <content><![CDATA[<p>记录一下怎么用python连接Redis集群。</p>
@@ -3670,6 +3616,44 @@ python proxyPool.py server
         <tag>自动化</tag>
         <tag>Python</tag>
         <tag>Selenium</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Redis的哨兵模式配置</title>
+    <url>/2020/11/01/redis02/</url>
+    <content><![CDATA[<p>在非自用场景下，单机的redis很明显不够用。当一台服务宕机时，需要及时启用备用服务，这就是哨兵的用处。</p>
+<span id="more"></span>
+
+<p>按我的理解，哨兵模式主要有两部分组成，主从复制和哨兵节点。</p>
+<h2 id="主从复制"><a href="#主从复制" class="headerlink" title="主从复制"></a>主从复制</h2><p>主从复制没有什么新鲜的，一个主节点，若干个从节点，从节点与主节点保持数据一致，很好理解。</p>
+<p>一台服务器上可以启动多个实例，每个实例使用不同的配置文件启动即可。这时每个实例配置文件中的pidfile需要做修改，防止冲突。</p>
+<p>如果是在多台不同的服务器上启动redis则无需修改pidfile。</p>
+<h3 id="主节点配置"><a href="#主节点配置" class="headerlink" title="主节点配置"></a>主节点配置</h3><p>配置文件就在redis安装路径的根目录下，文件名为<code>redis.conf</code>。</p>
+<p>配置如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 端口，一般是6379</span><br><span class="line">port 6379</span><br><span class="line"></span><br><span class="line"># 节点密码</span><br><span class="line">requirepass &lt;密码&gt;</span><br><span class="line"></span><br><span class="line"># 同一服务器多实例时才需要</span><br><span class="line">pidfile /var/run/redis_6379.pid</span><br></pre></td></tr></table></figure>
+
+<p>最后启动就OK了<code>./src/redis-server ./redis.conf</code>。</p>
+<h3 id="从节点配置"><a href="#从节点配置" class="headerlink" title="从节点配置"></a>从节点配置</h3><p>从节点的端口、密码和pidfile配置和主节点一致，需要额外配置的是主节点ip，不然从节点无法找到主节点，就只是一个单独的redis服务罢了。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 5.0.0版本之前：</span><br><span class="line">slaveof &lt;masterip&gt; &lt;masterport&gt;</span><br><span class="line"></span><br><span class="line"># 5.0.0版本之后：</span><br><span class="line">replicaof &lt;masterip&gt; &lt;masterport&gt;</span><br></pre></td></tr></table></figure>
+<p>当主节点有密码时，需要额外配置<code>masterauth &lt;主节点密码&gt;</code></p>
+<h2 id="哨兵节点"><a href="#哨兵节点" class="headerlink" title="哨兵节点"></a>哨兵节点</h2><p>其实上述主从节点配置好之后，理论上就已经可以容灾了。但是上述模式有一个缺点，就是当主节点宕机时，需要手动切换为从节点读写数据。比较麻烦的同时，也有着时效性不高的问题。</p>
+<p>而哨兵节点就是为了解决这个问题而存在的。</p>
+<p>哨兵节点本身只存储主从节点的IP等数据，当主节点宕机之后，哨兵节点会计算所有从节点的权值，选出一个新的主节点，并修改主从节点的配置文件。</p>
+<h3 id="哨兵节点配置"><a href="#哨兵节点配置" class="headerlink" title="哨兵节点配置"></a>哨兵节点配置</h3><p>配置文件也在redis安装路径的根目录下，文件名为<code>sentinel.conf</code>。</p>
+<p>一般要启动多个哨兵实例。</p>
+<p>配置如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 哨兵端口，默认为26379</span><br><span class="line">port 26379</span><br><span class="line"></span><br><span class="line"># 不限制ip</span><br><span class="line">bind 0.0.0.0</span><br><span class="line">    </span><br><span class="line"># 让sentinel服务后台运行</span><br><span class="line">daemonize yes</span><br><span class="line"> </span><br><span class="line"># 配置监听的主服务器，mymaster代表服务器的名称，自定义</span><br><span class="line">#2代表只有两个或两个以上的哨兵认为主服务器不可⽤的时候，才会进行failover操作。</span><br><span class="line">sentinel monitor mymaster &lt;主节点ip&gt; &lt;主节点端口&gt; 2</span><br><span class="line">    </span><br><span class="line"># sentinel auth-pass定义服务的密码，mymaster是服务名称，123456是Redis服务器密码</span><br><span class="line">sentinel auth-pass mymaster &lt;主节点密码&gt;</span><br><span class="line">    </span><br><span class="line"># 超过5秒master还没有连接上，则认为master已经停止</span><br><span class="line">sentinel down-after-milliseconds mymaster 5000</span><br><span class="line">    </span><br><span class="line"># 如果该时间内没完成failover操作，则认为本次failover失败</span><br><span class="line">sentinel failover-timeout mymaster 30000</span><br></pre></td></tr></table></figure>
+
+<p>然后启动哨兵节点，<code>./src/redis-sentinel ./sentinel.conf</code></p>
+<p>再多整几个配置文件，多起几个实例，就OK了。</p>
+]]></content>
+      <categories>
+        <category>数据库</category>
+        <category>Redis</category>
+      </categories>
+      <tags>
+        <tag>数据库</tag>
+        <tag>Redis</tag>
       </tags>
   </entry>
   <entry>
@@ -3848,28 +3832,19 @@ python proxyPool.py server
       </tags>
   </entry>
   <entry>
-    <title>爬取微博数据</title>
-    <url>/2020/08/21/spider00/</url>
-    <content><![CDATA[<p>这个就简单写写，不详细展开了。</p>
+    <title>mutagen | 添加mp4封面</title>
+    <url>/2021/06/07/pythonLibrary14/</url>
+    <content><![CDATA[<p>主要用来添加封面。</p>
 <span id="more"></span>
 
-<p>微博有一个叫做“Sina Visitor System”的系统，如果不做任何处理，只能爬到这个系统的一些内容，无法获得想要的信息。</p>
-<p>绕过系统的方法可参考这篇文章：</p>
-<p><a href="https://blog.thinker.ink/passage/28/">微博爬虫——自动获取访客Cookie</a></p>
-<p>如果数据量比较大的话，需要使用代理，可以看下这篇文章：</p>
-<a href="/2020/09/08/proxy_pool00/" title="代理 | 开源项目proxy_pool">开源项目proxy_pool</a>
-
-<p>我使用的是requests + beautifulsoup + openpyxl的组合，将数据存入excel表格。</p>
-<p>这是openpyxl库的介绍：<a href="/2023/07/11/pythonLibrary03/" title="ReportLab | 生成表格">openpyxl库</a></p>
-]]></content>
+<h2 id="MP4添加封面"><a href="#MP4添加封面" class="headerlink" title="MP4添加封面"></a>MP4添加封面</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">from mutagen.mp4 import MP4, MP4Cover</span><br><span class="line">def addCover(filename, cover):</span><br><span class="line">    audio = MP4(filename)</span><br><span class="line">    data = open(cover, &#x27;rb&#x27;).read()</span><br><span class="line">    covr = []</span><br><span class="line">    if cover.endswith(&#x27;png&#x27;):</span><br><span class="line">        covr.append(MP4Cover(data, MP4Cover.FORMAT_PNG))</span><br><span class="line">    else:</span><br><span class="line">        covr.append(MP4Cover(data, MP4Cover.FORMAT_JPEG))</span><br><span class="line">    audio[&#x27;covr&#x27;] = covr</span><br><span class="line">    audio.save()</span><br><span class="line">    print(filename + &quot; 内嵌图片：&quot; + cover + &quot;。&quot;)</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
-        <category>爬虫</category>
-        <category>部分实例</category>
-        <category>微博</category>
+        <category>Python</category>
+        <category>常用库</category>
+        <category>mutagen</category>
       </categories>
       <tags>
         <tag>Python</tag>
-        <tag>爬虫</tag>
       </tags>
   </entry>
   <entry>
@@ -3894,6 +3869,31 @@ python proxyPool.py server
       <tags>
         <tag>Java</tag>
         <tag>Spring</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>爬取微博数据</title>
+    <url>/2020/08/21/spider00/</url>
+    <content><![CDATA[<p>这个就简单写写，不详细展开了。</p>
+<span id="more"></span>
+
+<p>微博有一个叫做“Sina Visitor System”的系统，如果不做任何处理，只能爬到这个系统的一些内容，无法获得想要的信息。</p>
+<p>绕过系统的方法可参考这篇文章：</p>
+<p><a href="https://blog.thinker.ink/passage/28/">微博爬虫——自动获取访客Cookie</a></p>
+<p>如果数据量比较大的话，需要使用代理，可以看下这篇文章：</p>
+<a href="/2020/09/08/proxy_pool00/" title="代理 | 开源项目proxy_pool">开源项目proxy_pool</a>
+
+<p>我使用的是requests + beautifulsoup + openpyxl的组合，将数据存入excel表格。</p>
+<p>这是openpyxl库的介绍：<a href="/2023/07/11/pythonLibrary03/" title="ReportLab | 生成表格">openpyxl库</a></p>
+]]></content>
+      <categories>
+        <category>爬虫</category>
+        <category>部分实例</category>
+        <category>微博</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>爬虫</tag>
       </tags>
   </entry>
   <entry>
