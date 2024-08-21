@@ -1,15 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://l-fay.github.io/2024/05/19/git03/</loc>
+    <lastmod>2024-08-21</lastmod>
+  </url>
+  <url>
+    <loc>https://l-fay.github.io/2024/08/20/db00/</loc>
+    <lastmod>2024-08-21</lastmod>
+  </url>
+  <url>
+    <loc>https://l-fay.github.io/2024/08/19/selenium07/</loc>
+    <lastmod>2024-08-21</lastmod>
+  </url>
+  <url>
+    <loc>https://l-fay.github.io/2024/08/18/python08/</loc>
+    <lastmod>2024-08-21</lastmod>
+  </url>
+  <url>
+    <loc>https://l-fay.github.io/2023/07/07/life01/</loc>
+    <lastmod>2024-08-21</lastmod>
+  </url>
+  <url>
+    <loc>https://l-fay.github.io/2023/07/02/life00/</loc>
+    <lastmod>2024-08-21</lastmod>
+  </url>
+  <url>
+    <loc>https://l-fay.github.io/2020/11/27/anaconda00/</loc>
+    <lastmod>2024-08-21</lastmod>
+  </url>
+  <url>
     <loc>https://l-fay.github.io/2023/07/15/virtualenv01/</loc>
     <lastmod>2024-08-19</lastmod>
   </url>
   <url>
     <loc>https://l-fay.github.io/2022/11/30/torna00/</loc>
-    <lastmod>2024-08-19</lastmod>
-  </url>
-  <url>
-    <loc>https://l-fay.github.io/2024/08/19/selenium07/</loc>
     <lastmod>2024-08-19</lastmod>
   </url>
   <url>
@@ -38,10 +62,6 @@
   </url>
   <url>
     <loc>https://l-fay.github.io/2021/01/07/anaconda01/</loc>
-    <lastmod>2024-08-19</lastmod>
-  </url>
-  <url>
-    <loc>https://l-fay.github.io/2024/08/18/python08/</loc>
     <lastmod>2024-08-19</lastmod>
   </url>
   <url>
@@ -109,11 +129,11 @@
     <lastmod>2024-08-16</lastmod>
   </url>
   <url>
-    <loc>https://l-fay.github.io/2023/04/11/sql00/</loc>
+    <loc>https://l-fay.github.io/2023/10/28/spring01/</loc>
     <lastmod>2024-08-16</lastmod>
   </url>
   <url>
-    <loc>https://l-fay.github.io/2023/10/28/spring01/</loc>
+    <loc>https://l-fay.github.io/2023/04/11/sql00/</loc>
     <lastmod>2024-08-16</lastmod>
   </url>
   <url>
@@ -153,11 +173,11 @@
     <lastmod>2024-08-16</lastmod>
   </url>
   <url>
-    <loc>https://l-fay.github.io/2021/10/21/redis03/</loc>
+    <loc>https://l-fay.github.io/2020/11/01/redis02/</loc>
     <lastmod>2024-08-16</lastmod>
   </url>
   <url>
-    <loc>https://l-fay.github.io/2020/11/01/redis02/</loc>
+    <loc>https://l-fay.github.io/2021/10/21/redis03/</loc>
     <lastmod>2024-08-16</lastmod>
   </url>
   <url>
@@ -181,11 +201,11 @@
     <lastmod>2024-08-16</lastmod>
   </url>
   <url>
-    <loc>https://l-fay.github.io/2021/01/11/pythonLibraryError00/</loc>
+    <loc>https://l-fay.github.io/2023/11/29/pythonLibrary19/</loc>
     <lastmod>2024-08-16</lastmod>
   </url>
   <url>
-    <loc>https://l-fay.github.io/2023/11/29/pythonLibrary19/</loc>
+    <loc>https://l-fay.github.io/2021/01/11/pythonLibraryError00/</loc>
     <lastmod>2024-08-16</lastmod>
   </url>
   <url>
@@ -393,14 +413,6 @@
     <lastmod>2024-08-16</lastmod>
   </url>
   <url>
-    <loc>https://l-fay.github.io/2023/07/02/life00/</loc>
-    <lastmod>2024-08-16</lastmod>
-  </url>
-  <url>
-    <loc>https://l-fay.github.io/2023/07/07/life01/</loc>
-    <lastmod>2024-08-16</lastmod>
-  </url>
-  <url>
     <loc>https://l-fay.github.io/2021/06/01/javaLibrary00/</loc>
     <lastmod>2024-08-16</lastmod>
   </url>
@@ -465,10 +477,6 @@
     <lastmod>2024-08-16</lastmod>
   </url>
   <url>
-    <loc>https://l-fay.github.io/2024/05/19/git03/</loc>
-    <lastmod>2024-08-16</lastmod>
-  </url>
-  <url>
     <loc>https://l-fay.github.io/2020/12/19/git00/</loc>
     <lastmod>2024-08-16</lastmod>
   </url>
@@ -501,19 +509,19 @@
     <lastmod>2024-08-16</lastmod>
   </url>
   <url>
-    <loc>https://l-fay.github.io/2023/11/30/ffmpeg16/</loc>
-    <lastmod>2024-08-16</lastmod>
-  </url>
-  <url>
     <loc>https://l-fay.github.io/2023/11/30/ffmpeg15/</loc>
     <lastmod>2024-08-16</lastmod>
   </url>
   <url>
-    <loc>https://l-fay.github.io/2022/07/07/ffmpeg11/</loc>
+    <loc>https://l-fay.github.io/2023/11/30/ffmpeg16/</loc>
     <lastmod>2024-08-16</lastmod>
   </url>
   <url>
     <loc>https://l-fay.github.io/2023/01/17/ffmpeg12/</loc>
+    <lastmod>2024-08-16</lastmod>
+  </url>
+  <url>
+    <loc>https://l-fay.github.io/2022/07/07/ffmpeg11/</loc>
     <lastmod>2024-08-16</lastmod>
   </url>
   <url>
@@ -525,11 +533,11 @@
     <lastmod>2024-08-16</lastmod>
   </url>
   <url>
-    <loc>https://l-fay.github.io/2021/09/08/ffmpeg09/</loc>
+    <loc>https://l-fay.github.io/2021/11/25/ffmpeg10/</loc>
     <lastmod>2024-08-16</lastmod>
   </url>
   <url>
-    <loc>https://l-fay.github.io/2021/11/25/ffmpeg10/</loc>
+    <loc>https://l-fay.github.io/2021/09/08/ffmpeg09/</loc>
     <lastmod>2024-08-16</lastmod>
   </url>
   <url>
@@ -545,15 +553,15 @@
     <lastmod>2024-08-16</lastmod>
   </url>
   <url>
-    <loc>https://l-fay.github.io/2021/01/26/ffmpeg02/</loc>
-    <lastmod>2024-08-16</lastmod>
-  </url>
-  <url>
     <loc>https://l-fay.github.io/2021/02/05/ffmpeg03/</loc>
     <lastmod>2024-08-16</lastmod>
   </url>
   <url>
     <loc>https://l-fay.github.io/2021/02/21/ffmpeg04/</loc>
+    <lastmod>2024-08-16</lastmod>
+  </url>
+  <url>
+    <loc>https://l-fay.github.io/2021/01/26/ffmpeg02/</loc>
     <lastmod>2024-08-16</lastmod>
   </url>
   <url>
@@ -638,10 +646,6 @@
   </url>
   <url>
     <loc>https://l-fay.github.io/2022/10/15/appium00/</loc>
-    <lastmod>2024-08-16</lastmod>
-  </url>
-  <url>
-    <loc>https://l-fay.github.io/2020/11/27/anaconda00/</loc>
     <lastmod>2024-08-16</lastmod>
   </url>
 </urlset> 
