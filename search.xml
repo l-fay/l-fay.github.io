@@ -1348,7 +1348,7 @@ table th:nth-of-type(3) {
       </tags>
   </entry>
   <entry>
-    <title>Git | 同时提交到两个git地址a</title>
+    <title>Git | 同时提交到两个git地址</title>
     <url>/2024/05/19/git03/</url>
     <content><![CDATA[<p>需要给同一个项目设置两个远程git地址，主要是为了灾备。</p>
 <span id="more"></span>
