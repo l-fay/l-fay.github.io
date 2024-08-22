@@ -574,17 +574,6 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/2021/01/11/pythonLibraryError00/</loc>
-    
-    <lastmod>2024-08-16T02:31:46.274Z</lastmod>
-    
-    <date>1610330557000</date>
-    <title>matplotlib | NotImplementedError: It is not currently possible to manually set the aspect on 3D axes | 兰秋廿柒的博客</title>
-    
-    <desc>今天跑项目的时候报错：“NotImplementedError: It is not currently possible to manually set the aspect on 3D axes”</desc>
-  </url>
-  
-  <url>
     <loc>https://l-fay.github.io/2023/11/29/pythonLibrary19/</loc>
     
     <lastmod>2024-08-16T02:31:46.274Z</lastmod>
@@ -593,6 +582,17 @@
     <title>Faker | 生成各种类型的随机数据 | 兰秋廿柒的博客</title>
     
     <desc>这是一个可以用来生成各种随机信息的库，可以用于测试、开发和原型设计等场景。</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2021/01/11/pythonLibraryError00/</loc>
+    
+    <lastmod>2024-08-16T02:31:46.274Z</lastmod>
+    
+    <date>1610330557000</date>
+    <title>matplotlib | NotImplementedError: It is not currently possible to manually set the aspect on 3D axes | 兰秋廿柒的博客</title>
+    
+    <desc>今天跑项目的时候报错：“NotImplementedError: It is not currently possible to manually set the aspect on 3D axes”</desc>
   </url>
   
   <url>
@@ -893,17 +893,6 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/2023/03/30/okhttp00/</loc>
-    
-    <lastmod>2024-08-16T02:31:46.261Z</lastmod>
-    
-    <date>1680171626000</date>
-    <title>使用OKhttp进行NTLM鉴权 | 兰秋廿柒的博客</title>
-    
-    <desc>找到了一个用OKhttp进行NTML鉴权的方法。</desc>
-  </url>
-  
-  <url>
     <loc>https://l-fay.github.io/2021/01/09/proxy00/</loc>
     
     <lastmod>2024-08-16T02:31:46.261Z</lastmod>
@@ -912,6 +901,17 @@
     <title>Shadowsocks | AttributeError: /usr/lib/x86_64-linux-gnu/libcrypto.so.1.1: undefined symbol: EVP_CIPHER_CTX_cleanup | 兰秋廿柒的博客</title>
     
     <desc>在Linux上部署Shadowsocks的时候遇到的问题： 错误： 1AttributeError: /usr/lib/x86_64-linux-gnu/libcrypto.so.1.1: undefined symbol: EVP_CIPHER_CTX_cleanup</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2023/03/30/okhttp00/</loc>
+    
+    <lastmod>2024-08-16T02:31:46.261Z</lastmod>
+    
+    <date>1680171626000</date>
+    <title>使用OKhttp进行NTLM鉴权 | 兰秋廿柒的博客</title>
+    
+    <desc>找到了一个用OKhttp进行NTML鉴权的方法。</desc>
   </url>
   
   <url>
