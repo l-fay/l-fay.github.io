@@ -4611,4 +4611,24 @@ python proxyPool.py server
         <tag>水排序谜题</tag>
       </tags>
   </entry>
+  <entry>
+    <title>FFmpeg | 提取附件</title>
+    <url>/2024/08/22/ffmpeg17/</url>
+    <content><![CDATA[<p>有时媒体文件中会将字体封为一个流，在做软字幕烧录硬字幕时，会需要这个字体文件，这是就有把字体文件提取出来的需求。</p>
+<span id="more"></span>
+
+<h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><p>在媒体文件中，字体文件并没有特定的格式，而是作为附件被封在媒体流中，所以直接提取附件就可以了。</p>
+<h1 id="提取方法"><a href="#提取方法" class="headerlink" title="提取方法"></a>提取方法</h1><p><code>ffmpeg</code>支持<code>dump_attachment</code>参数来直接提取参数：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">-dump_attachment[:stream_specifier] filename (input,per-stream)</span><br></pre></td></tr></table></figure>
+<p>示例：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ffmpeg -dump_attachment:t:0 out.ttf -i INPUT</span><br></pre></td></tr></table></figure>
+<p>提取filename标记确定的文件的所有附件：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ffmpeg -dump_attachment:t &quot;&quot; -i INPUT</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>ffmpeg</category>
+      </categories>
+      <tags>
+        <tag>ffmpeg</tag>
+      </tags>
+  </entry>
 </search>

@@ -2,12 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://l-fay.github.io/2024/08/22/ffmpeg17/</loc>
+    
+    <lastmod>2024-08-23T09:10:28.238Z</lastmod>
+    
+    <date>1724340268000</date>
+    <title>FFmpeg | 提取附件 | 兰秋廿柒的博客</title>
+    
+    <desc>有时媒体文件中会将字体封为一个流，在做软字幕烧录硬字幕时，会需要这个字体文件，这是就有把字体文件提取出来的需求。</desc>
+  </url>
+  
+  <url>
     <loc>https://l-fay.github.io/tags/index.html</loc>
     
-    <lastmod>2024-08-23T08:08:05.333Z</lastmod>
+    <lastmod>2024-08-23T08:22:20.728Z</lastmod>
     
     <date>1599052086000</date>
-    <title>标签1 | 兰秋廿柒的博客</title>
+    <title>标签 | 兰秋廿柒的博客</title>
     
     <desc></desc>
   </url>
