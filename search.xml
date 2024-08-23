@@ -1,61 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>pip换源的注意事项</title>
-    <url>/2020/11/27/anaconda00/</url>
-    <content><![CDATA[<p>之前把pip换源了，现在要装opencv-python的3.4.11.43版本，清华源没有，就把默认源加上了<code>https://pypi.python.org/simple/</code>，顺便记一下pip换源的方法。</p>
-<span id="more"></span>
-
-<h2 id="位置"><a href="#位置" class="headerlink" title="位置"></a>位置</h2><p>linux:</p>
-<p>修改 ~&#x2F;.config&#x2F;pip&#x2F;pip.conf (没有就创建一个)。</p>
-<p>windows:</p>
-<p>直接在user目录中创建一个pip目录，如：C:\Users\xx\pip，新建文件pip.ini。</p>
-<h2 id="内容"><a href="#内容" class="headerlink" title="内容"></a>内容</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[global]</span><br><span class="line">index-url = https://pypi.tuna.tsinghua.edu.cn/simple</span><br><span class="line">extra-index-url=</span><br><span class="line">	https://pypi.mirrors.ustc.edu.cn/simple/</span><br><span class="line">	https://pypi.douban.com/simple/</span><br><span class="line">	https://pypi.python.org/simple/</span><br><span class="line">[install]</span><br><span class="line">trusted-host = tuna.tsinghua.edu.cn</span><br><span class="line">	pypi.douban.com</span><br><span class="line">	mirrors.ustc.edu.cn</span><br><span class="line">	python.org</span><br></pre></td></tr></table></figure>
-
-<p>另外记一个错误写法：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[global]</span><br><span class="line">index-url=http://pypi.douban.com/simple</span><br><span class="line">extra-index-url=http://mirrors.aliyun.com/pypi/simple/</span><br><span class="line">extra-index-url=https://pypi.tuna.tsinghua.edu.cn/simple/</span><br><span class="line">extra-index-url=http://pypi.mirrors.ustc.edu.cn/simple/</span><br><span class="line">[install]</span><br><span class="line">trusted-host=pypi.douban.com</span><br><span class="line">trusted-host=mirrors.aliyun.com</span><br><span class="line">trusted-host=pypi.tuna.tsinghua.edu.cn</span><br><span class="line">trusted-host=pypi.mirrors.ustc.edu.cn</span><br></pre></td></tr></table></figure>
-
-<p>这样会报错：<code>option &#39;extra-index-url&#39; in section &#39;global&#39; already exists.</code></p>
-<h2 id="进阶"><a href="#进阶" class="headerlink" title="进阶"></a>进阶</h2><p><code>pip</code>命令不止一个配置文件地址，并且配置文件有不同的覆盖范围和加载顺序，可以用<code>pip -v config list</code>或<code>pip config debug</code>查看。</p>
-]]></content>
-      <categories>
-        <category>Anaconda</category>
-        <category>pip</category>
-      </categories>
-      <tags>
-        <tag>Anaconda</tag>
-        <tag>pip</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Appium | 安装时遇到的一些坑</title>
-    <url>/2022/10/15/appium00/</url>
-    <content><![CDATA[<p>背景是有一个需要自动化操作实机安卓APP的需求，研究了一下，记录一下遇到的一些坑。</p>
-<span id="more"></span>
-
-<h2 id="版本"><a href="#版本" class="headerlink" title="版本"></a>版本</h2><p>首当其冲的就是版本问题，包括实机安卓版本、Appium版本、SDK版本，反倒是JDK版本没遇到什么幺蛾子。</p>
-<h3 id="安卓版本"><a href="#安卓版本" class="headerlink" title="安卓版本"></a>安卓版本</h3><p>这个没得选，自己的手机就是安卓12，只有一点需要注意，我的手机是realme的，需要在开发者模式中打开<code>禁止权限监控</code>才能成功连接Appium。</p>
-<h3 id="SDK版本"><a href="#SDK版本" class="headerlink" title="SDK版本"></a>SDK版本</h3><p>开始的时候缺少经验，死活连不上，就是因为SDK版本和安卓版本不配套。</p>
-<p>后来我选择使用SDK31，跟安卓12配套，这里需要注意的是，SDK31没找到单独下载，所以我装了个Android Studio，用它装SDK。</p>
-<h3 id="Appium版本"><a href="#Appium版本" class="headerlink" title="Appium版本"></a>Appium版本</h3><p>这个我用的是最新的，毕竟SDK和安卓版本都挺新的。</p>
-<h2 id="appium-doctor"><a href="#appium-doctor" class="headerlink" title="appium-doctor"></a>appium-doctor</h2><p>这个东西让我纠结了好久，毕竟到最后我也没过环境检查。</p>
-<p>后来才发现，高版本的SDK文件结构变了，本来就过不了appium-doctor的检查，吐血。</p>
-<h2 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h2><p>我用的参数如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">        &quot;platformName&quot;: &quot;Android&quot;,</span><br><span class="line">        &quot;appium:platformVersion&quot;: &quot;12&quot;,</span><br><span class="line">        &quot;appium:deviceName&quot;: &quot;ff7c5db6               device&quot;,</span><br><span class="line">        &quot;appium:appPackage&quot;: &quot;com.abchina.mmspc&quot;,</span><br><span class="line">        &quot;appium:appActivity&quot;: &quot;.ui.activity.WelcomeActivity&quot;,</span><br><span class="line">        &quot;appium:noReset&quot;: True,                        // 防止重置</span><br><span class="line">        &quot;appium:resetKeyboard&quot;: False,                 // 脚本执行完后重置输入法</span><br><span class="line">        &quot;appium:unicodeKeyboard&quot;: False,               // 脚本是否使用原生输入法，如果需要输入中文，这里要选True</span><br><span class="line">        &quot;appium:newCommandTimeout&quot;: 6000,              // 超过60秒无操作自动断连</span><br><span class="line">        &quot;appium:automationName&quot;: &quot;UiAutomator2&quot;        // 高版本要指定为‘UiAutomator2’，低版本用‘UiAutomator’</span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<p>其中appPackage和appActivity是用<code>adb logcat&gt;D:/log.txt</code>获取log之后，搜索<code>Displayed</code>查看。</p>
-<p>由于我要测的app重置后需要手机验证码登录，所以需要<code>noReset</code>参数来防止重置。</p>
-<p>到这应该就能连上了。</p>
-]]></content>
-      <categories>
-        <category>自动化</category>
-        <category>Appium</category>
-      </categories>
-      <tags>
-        <tag>自动化</tag>
-        <tag>Appium</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>迁移虚拟环境</title>
     <url>/2021/01/07/anaconda01/</url>
     <content><![CDATA[<p>师兄的一篇博客很有帮助，转载一下。</p>
@@ -109,6 +54,61 @@
       <tags>
         <tag>Anaconda</tag>
         <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>pip换源的注意事项</title>
+    <url>/2020/11/27/anaconda00/</url>
+    <content><![CDATA[<p>之前把pip换源了，现在要装opencv-python的3.4.11.43版本，清华源没有，就把默认源加上了<code>https://pypi.python.org/simple/</code>，顺便记一下pip换源的方法。</p>
+<span id="more"></span>
+
+<h2 id="位置"><a href="#位置" class="headerlink" title="位置"></a>位置</h2><p>linux:</p>
+<p>修改 ~&#x2F;.config&#x2F;pip&#x2F;pip.conf (没有就创建一个)。</p>
+<p>windows:</p>
+<p>直接在user目录中创建一个pip目录，如：C:\Users\xx\pip，新建文件pip.ini。</p>
+<h2 id="内容"><a href="#内容" class="headerlink" title="内容"></a>内容</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[global]</span><br><span class="line">index-url = https://pypi.tuna.tsinghua.edu.cn/simple</span><br><span class="line">extra-index-url=</span><br><span class="line">	https://pypi.mirrors.ustc.edu.cn/simple/</span><br><span class="line">	https://pypi.douban.com/simple/</span><br><span class="line">	https://pypi.python.org/simple/</span><br><span class="line">[install]</span><br><span class="line">trusted-host = tuna.tsinghua.edu.cn</span><br><span class="line">	pypi.douban.com</span><br><span class="line">	mirrors.ustc.edu.cn</span><br><span class="line">	python.org</span><br></pre></td></tr></table></figure>
+
+<p>另外记一个错误写法：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[global]</span><br><span class="line">index-url=http://pypi.douban.com/simple</span><br><span class="line">extra-index-url=http://mirrors.aliyun.com/pypi/simple/</span><br><span class="line">extra-index-url=https://pypi.tuna.tsinghua.edu.cn/simple/</span><br><span class="line">extra-index-url=http://pypi.mirrors.ustc.edu.cn/simple/</span><br><span class="line">[install]</span><br><span class="line">trusted-host=pypi.douban.com</span><br><span class="line">trusted-host=mirrors.aliyun.com</span><br><span class="line">trusted-host=pypi.tuna.tsinghua.edu.cn</span><br><span class="line">trusted-host=pypi.mirrors.ustc.edu.cn</span><br></pre></td></tr></table></figure>
+
+<p>这样会报错：<code>option &#39;extra-index-url&#39; in section &#39;global&#39; already exists.</code></p>
+<h2 id="进阶"><a href="#进阶" class="headerlink" title="进阶"></a>进阶</h2><p><code>pip</code>命令不止一个配置文件地址，并且配置文件有不同的覆盖范围和加载顺序，可以用<code>pip -v config list</code>或<code>pip config debug</code>查看。</p>
+]]></content>
+      <categories>
+        <category>Anaconda</category>
+        <category>pip</category>
+      </categories>
+      <tags>
+        <tag>Anaconda</tag>
+        <tag>pip</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Appium | 安装时遇到的一些坑</title>
+    <url>/2022/10/15/appium00/</url>
+    <content><![CDATA[<p>背景是有一个需要自动化操作实机安卓APP的需求，研究了一下，记录一下遇到的一些坑。</p>
+<span id="more"></span>
+
+<h2 id="版本"><a href="#版本" class="headerlink" title="版本"></a>版本</h2><p>首当其冲的就是版本问题，包括实机安卓版本、Appium版本、SDK版本，反倒是JDK版本没遇到什么幺蛾子。</p>
+<h3 id="安卓版本"><a href="#安卓版本" class="headerlink" title="安卓版本"></a>安卓版本</h3><p>这个没得选，自己的手机就是安卓12，只有一点需要注意，我的手机是realme的，需要在开发者模式中打开<code>禁止权限监控</code>才能成功连接Appium。</p>
+<h3 id="SDK版本"><a href="#SDK版本" class="headerlink" title="SDK版本"></a>SDK版本</h3><p>开始的时候缺少经验，死活连不上，就是因为SDK版本和安卓版本不配套。</p>
+<p>后来我选择使用SDK31，跟安卓12配套，这里需要注意的是，SDK31没找到单独下载，所以我装了个Android Studio，用它装SDK。</p>
+<h3 id="Appium版本"><a href="#Appium版本" class="headerlink" title="Appium版本"></a>Appium版本</h3><p>这个我用的是最新的，毕竟SDK和安卓版本都挺新的。</p>
+<h2 id="appium-doctor"><a href="#appium-doctor" class="headerlink" title="appium-doctor"></a>appium-doctor</h2><p>这个东西让我纠结了好久，毕竟到最后我也没过环境检查。</p>
+<p>后来才发现，高版本的SDK文件结构变了，本来就过不了appium-doctor的检查，吐血。</p>
+<h2 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h2><p>我用的参数如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">        &quot;platformName&quot;: &quot;Android&quot;,</span><br><span class="line">        &quot;appium:platformVersion&quot;: &quot;12&quot;,</span><br><span class="line">        &quot;appium:deviceName&quot;: &quot;ff7c5db6               device&quot;,</span><br><span class="line">        &quot;appium:appPackage&quot;: &quot;com.abchina.mmspc&quot;,</span><br><span class="line">        &quot;appium:appActivity&quot;: &quot;.ui.activity.WelcomeActivity&quot;,</span><br><span class="line">        &quot;appium:noReset&quot;: True,                        // 防止重置</span><br><span class="line">        &quot;appium:resetKeyboard&quot;: False,                 // 脚本执行完后重置输入法</span><br><span class="line">        &quot;appium:unicodeKeyboard&quot;: False,               // 脚本是否使用原生输入法，如果需要输入中文，这里要选True</span><br><span class="line">        &quot;appium:newCommandTimeout&quot;: 6000,              // 超过60秒无操作自动断连</span><br><span class="line">        &quot;appium:automationName&quot;: &quot;UiAutomator2&quot;        // 高版本要指定为‘UiAutomator2’，低版本用‘UiAutomator’</span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>其中appPackage和appActivity是用<code>adb logcat&gt;D:/log.txt</code>获取log之后，搜索<code>Displayed</code>查看。</p>
+<p>由于我要测的app重置后需要手机验证码登录，所以需要<code>noReset</code>参数来防止重置。</p>
+<p>到这应该就能连上了。</p>
+]]></content>
+      <categories>
+        <category>自动化</category>
+        <category>Appium</category>
+      </categories>
+      <tags>
+        <tag>自动化</tag>
+        <tag>Appium</tag>
       </tags>
   </entry>
   <entry>
@@ -181,24 +181,6 @@
       </tags>
   </entry>
   <entry>
-    <title>群晖管理端web页docker面板排版混乱的问题</title>
-    <url>/2024/07/24/chrome00/</url>
-    <content><![CDATA[<p>问题如题，留个记录。</p>
-<span id="more"></span>
-
-<p>排查过程就不具体说了，试了很多种方案才确定下来问题所在。</p>
-<p>最后发现是一个Chrome插件的问题，叫做“Google Chrome™ 的 XPath 助手”，禁用了就好了。</p>
-]]></content>
-      <categories>
-        <category>群晖</category>
-        <category>Chrome</category>
-      </categories>
-      <tags>
-        <tag>群晖</tag>
-        <tag>Chrome</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>自动开关机</title>
     <url>/2021/01/24/bios00/</url>
     <content><![CDATA[<p>放假回家了，在回家之前给实验室电脑弄了个自动开关机，方便远程，</p>
@@ -219,6 +201,24 @@
       <tags>
         <tag>Windows</tag>
         <tag>Bios</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>群晖管理端web页docker面板排版混乱的问题</title>
+    <url>/2024/07/24/chrome00/</url>
+    <content><![CDATA[<p>问题如题，留个记录。</p>
+<span id="more"></span>
+
+<p>排查过程就不具体说了，试了很多种方案才确定下来问题所在。</p>
+<p>最后发现是一个Chrome插件的问题，叫做“Google Chrome™ 的 XPath 助手”，禁用了就好了。</p>
+]]></content>
+      <categories>
+        <category>群晖</category>
+        <category>Chrome</category>
+      </categories>
+      <tags>
+        <tag>群晖</tag>
+        <tag>Chrome</tag>
       </tags>
   </entry>
   <entry>
@@ -797,23 +797,6 @@
       </tags>
   </entry>
   <entry>
-    <title>FFmpeg | 删除视频中的元数据</title>
-    <url>/2021/06/07/ffmpeg05/</url>
-    <content><![CDATA[<p>补充<a href="/2021/02/05/ffmpeg03/" title="FFmpeg | 删除视频中的章节数据">FFmpeg | 删除视频中的章节数据</a></p>
-<span id="more"></span>
-
-<p>在上边那篇博客中，我提到了一个参数<code>-map_metadata -1</code>，当时觉得没有用，后来想想不太对，我之前操作的并不是元数据区，这个参数肯定没啥用。</p>
-<p>现在我想把元数据区也清了，有些视频里有一些描述、标题啥的，看着烦，就又把这个参数捡回来了。</p>
-<p>这个参数确实可以删除元数据，不过只能创建新文件去删除，不能直接在源文件上修改。</p>
-]]></content>
-      <categories>
-        <category>ffmpeg</category>
-      </categories>
-      <tags>
-        <tag>ffmpeg</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>FFmpeg | 视频裁切</title>
     <url>/2021/02/21/ffmpeg04/</url>
     <content><![CDATA[<p>手里有一个1920*1080的视频，想把它裁成1920*800的视频。</p>
@@ -829,6 +812,23 @@
 <p>完整命令为：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 1920*1080  ---&gt;   1920*800   (去上下黑框)</span><br><span class="line">ffmpeg -i 1.mp4 -vf crop=1920:800:0:140 2.mp4</span><br><span class="line"></span><br><span class="line"># 1280*720  ---&gt;   1280*534   (去上下黑框)</span><br><span class="line">ffmpeg -i 1.mp4 -vf crop=1280:534:0:93 2.mp4</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
+]]></content>
+      <categories>
+        <category>ffmpeg</category>
+      </categories>
+      <tags>
+        <tag>ffmpeg</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>FFmpeg | 删除视频中的元数据</title>
+    <url>/2021/06/07/ffmpeg05/</url>
+    <content><![CDATA[<p>补充<a href="/2021/02/05/ffmpeg03/" title="FFmpeg | 删除视频中的章节数据">FFmpeg | 删除视频中的章节数据</a></p>
+<span id="more"></span>
+
+<p>在上边那篇博客中，我提到了一个参数<code>-map_metadata -1</code>，当时觉得没有用，后来想想不太对，我之前操作的并不是元数据区，这个参数肯定没啥用。</p>
+<p>现在我想把元数据区也清了，有些视频里有一些描述、标题啥的，看着烦，就又把这个参数捡回来了。</p>
+<p>这个参数确实可以删除元数据，不过只能创建新文件去删除，不能直接在源文件上修改。</p>
 ]]></content>
       <categories>
         <category>ffmpeg</category>
@@ -923,26 +923,6 @@
       </tags>
   </entry>
   <entry>
-    <title>FFmpeg | hevc (Main 10) 转 hevc (Main)</title>
-    <url>/2022/07/07/ffmpeg11/</url>
-    <content><![CDATA[<p>大部分情况下可以不指定profile直接转hevc，转完就是profile<code>main</code>，但有时默认的profile就是<code>main10</code>，更改为<code>main</code>就会报错，记录一下解决方法。</p>
-<span id="more"></span>
-
-<p>出现这种情况的原因是像素格式的问题。</p>
-<p>像这种转不了的，一般是因为像素格式就是10bit的位深，例如<code>yuv420p10le</code>。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ffmpeg -i 1.mp4</span><br><span class="line">Input #0, mov,mp4,m4a,3gp,3g2,mj2, from &#x27;1.mp4&#x27;:</span><br><span class="line">  Metadata:</span><br><span class="line">    major_brand     : iso4</span><br><span class="line">    minor_version   : 1</span><br><span class="line">    compatible_brands: iso4hvc1iso6</span><br><span class="line">    creation_time   : 2019-11-12T12:43:43.000000Z</span><br><span class="line">  Duration: 03:35:25.15, start: 0.000000, bitrate: 2575 kb/s</span><br><span class="line">    Stream #0:0(und): Video: hevc (Main 10) (hvc1 / 0x31637668), yuv420p10le(tv), 1920x1080 [SAR 1:1 DAR 16:9], 2349 kb/s, 23.98 fps, 23.98 tbr, 24k tbn, 23.98 tbc (default)</span><br><span class="line">    Metadata:</span><br><span class="line">      creation_time   : 2019-11-12T12:43:43.000000Z</span><br><span class="line">    Stream #0:1(und): Audio: ac3 (ac-3 / 0x332D6361), 48000 Hz, stereo, fltp, 224 kb/s (default)</span><br><span class="line">    Metadata:</span><br><span class="line">      creation_time   : 2019-11-12T12:44:46.000000Z</span><br><span class="line">    Side data:</span><br><span class="line">      audio service type: main</span><br></pre></td></tr></table></figure>
-
-<p>只改变编码，不改变像素格式的话，只能转成<code>hevc (Main 10)</code>。</p>
-<p>所以要将10bit的<code>yuv420p10le</code>改成8bit的<code>yuv420p</code>，使用<code>-pix_fmt</code>参数，如：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ffmpeg -i 1.mp4 -map 0:0 -c:v hevc -map 0:1 -c:a aac -pix_fmt yuv420p 2.mp4</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>ffmpeg</category>
-      </categories>
-      <tags>
-        <tag>ffmpeg</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>FFmpeg | 字体文件的抽取</title>
     <url>/2023/01/17/ffmpeg12/</url>
     <content><![CDATA[<p>在压字幕的过程中，发现一些mkv中自带了字体文件，于是就找了一下提取字体的方法。毕竟直接从mkv中提取的字幕一是方便，不用在网上到处找；二是不用担心找的不对。</p>
@@ -957,6 +937,26 @@
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ffmpeg -i INPUT -attach DejaVuSans.ttf -metadata:s:2 mimetype=application/x-truetype-font out.mkv</span><br></pre></td></tr></table></figure>
 <p>假设附件流在输出文件中排在第三位。</p>
 ]]></content>
+      <categories>
+        <category>ffmpeg</category>
+      </categories>
+      <tags>
+        <tag>ffmpeg</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>FFmpeg | hevc (Main 10) 转 hevc (Main)</title>
+    <url>/2022/07/07/ffmpeg11/</url>
+    <content><![CDATA[<p>大部分情况下可以不指定profile直接转hevc，转完就是profile<code>main</code>，但有时默认的profile就是<code>main10</code>，更改为<code>main</code>就会报错，记录一下解决方法。</p>
+<span id="more"></span>
+
+<p>出现这种情况的原因是像素格式的问题。</p>
+<p>像这种转不了的，一般是因为像素格式就是10bit的位深，例如<code>yuv420p10le</code>。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ffmpeg -i 1.mp4</span><br><span class="line">Input #0, mov,mp4,m4a,3gp,3g2,mj2, from &#x27;1.mp4&#x27;:</span><br><span class="line">  Metadata:</span><br><span class="line">    major_brand     : iso4</span><br><span class="line">    minor_version   : 1</span><br><span class="line">    compatible_brands: iso4hvc1iso6</span><br><span class="line">    creation_time   : 2019-11-12T12:43:43.000000Z</span><br><span class="line">  Duration: 03:35:25.15, start: 0.000000, bitrate: 2575 kb/s</span><br><span class="line">    Stream #0:0(und): Video: hevc (Main 10) (hvc1 / 0x31637668), yuv420p10le(tv), 1920x1080 [SAR 1:1 DAR 16:9], 2349 kb/s, 23.98 fps, 23.98 tbr, 24k tbn, 23.98 tbc (default)</span><br><span class="line">    Metadata:</span><br><span class="line">      creation_time   : 2019-11-12T12:43:43.000000Z</span><br><span class="line">    Stream #0:1(und): Audio: ac3 (ac-3 / 0x332D6361), 48000 Hz, stereo, fltp, 224 kb/s (default)</span><br><span class="line">    Metadata:</span><br><span class="line">      creation_time   : 2019-11-12T12:44:46.000000Z</span><br><span class="line">    Side data:</span><br><span class="line">      audio service type: main</span><br></pre></td></tr></table></figure>
+
+<p>只改变编码，不改变像素格式的话，只能转成<code>hevc (Main 10)</code>。</p>
+<p>所以要将10bit的<code>yuv420p10le</code>改成8bit的<code>yuv420p</code>，使用<code>-pix_fmt</code>参数，如：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ffmpeg -i 1.mp4 -map 0:0 -c:v hevc -map 0:1 -c:a aac -pix_fmt yuv420p 2.mp4</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>ffmpeg</category>
       </categories>
@@ -1875,32 +1875,6 @@ table th:nth-of-type(3) {
       </tags>
   </entry>
   <entry>
-    <title>Ubuntu安装驱动及CUDA</title>
-    <url>/2020/08/20/linux01/</url>
-    <content><![CDATA[<p>因为要移植师姐的项目到新电脑的关系，需要从安装Linux系统开始从下往上配置环境。</p>
-<span id="more"></span>
-
-<p>网上有很多相关教程，但是大都很老了，可用性比较低。</p>
-<p>后来发现可以直接在系统里更新驱动。</p>
-<p>在确保有可用的NVIDIA显卡的情况下：</p>
-<p>使用<code>ubuntu-drivers devices</code>命令来查看推荐驱动版本。</p>
-<p>打开Software &amp; Updates（软件和更新）选择Additional Drivers（附加驱动）选项卡，选择推荐驱动。</p>
-<p>安装完毕后重启。</p>
-<p>在命令行里使用命令<code>nvidia-smi</code>，就会看到驱动和CUDA都已经装好了。</p>
-<p>完成。</p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-        <category>CUDA</category>
-        <category>Ubuntu</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>CUDA</tag>
-        <tag>Ubuntu</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Linux系统变量</title>
     <url>/2021/01/06/linux02/</url>
     <content><![CDATA[<p>暂时修改就不说了，直接上永久修改。</p>
@@ -1924,6 +1898,32 @@ table th:nth-of-type(3) {
       </categories>
       <tags>
         <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Ubuntu安装驱动及CUDA</title>
+    <url>/2020/08/20/linux01/</url>
+    <content><![CDATA[<p>因为要移植师姐的项目到新电脑的关系，需要从安装Linux系统开始从下往上配置环境。</p>
+<span id="more"></span>
+
+<p>网上有很多相关教程，但是大都很老了，可用性比较低。</p>
+<p>后来发现可以直接在系统里更新驱动。</p>
+<p>在确保有可用的NVIDIA显卡的情况下：</p>
+<p>使用<code>ubuntu-drivers devices</code>命令来查看推荐驱动版本。</p>
+<p>打开Software &amp; Updates（软件和更新）选择Additional Drivers（附加驱动）选项卡，选择推荐驱动。</p>
+<p>安装完毕后重启。</p>
+<p>在命令行里使用命令<code>nvidia-smi</code>，就会看到驱动和CUDA都已经装好了。</p>
+<p>完成。</p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+        <category>CUDA</category>
+        <category>Ubuntu</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>CUDA</tag>
+        <tag>Ubuntu</tag>
       </tags>
   </entry>
   <entry>
@@ -2014,28 +2014,6 @@ table th:nth-of-type(3) {
       </tags>
   </entry>
   <entry>
-    <title>在实验室集群上新建用户</title>
-    <url>/2021/01/13/linux06/</url>
-    <content><![CDATA[<p>这个只适用于实验室老区集群。</p>
-<span id="more"></span>
-
-<h1 id="创建用户"><a href="#创建用户" class="headerlink" title="创建用户"></a>创建用户</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">adduser 用户名</span><br><span class="line"></span><br><span class="line">passwd 用户名</span><br></pre></td></tr></table></figure>
-
-<h1 id="添加环境变量"><a href="#添加环境变量" class="headerlink" title="添加环境变量"></a>添加环境变量</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">su 用户名</span><br><span class="line"></span><br><span class="line">vim ~/.bashrc</span><br><span class="line"></span><br><span class="line">source ~/.bashrc</span><br></pre></td></tr></table></figure>
-
-<p>添加 <code>export PATH=/data/anaconda3/bin:$PATH</code></p>
-<h1 id="更改conda默认文件夹"><a href="#更改conda默认文件夹" class="headerlink" title="更改conda默认文件夹"></a>更改conda默认文件夹</h1><p>把conda文件夹移到data下</p>
-<p>这一步参考<a href="/2021/01/07/anaconda01/" title="迁移虚拟环境">迁移虚拟环境</a></p>
-<p>最后<code>conda info</code>确认目录更改是否成功。</p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Ubuntu网络经常掉线解决方案</title>
     <url>/2022/01/07/linux07/</url>
     <content><![CDATA[<p>症状是：每天早上起来，就不能用远程连接连Ubuntu主机，路由器里也显示主机未连接，只能插上鼠标接上显示器断开网络重新打开，很麻烦。</p>
@@ -2064,6 +2042,28 @@ table th:nth-of-type(3) {
         <tag>Linux</tag>
         <tag>Ubuntu</tag>
         <tag>远程连接</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>在实验室集群上新建用户</title>
+    <url>/2021/01/13/linux06/</url>
+    <content><![CDATA[<p>这个只适用于实验室老区集群。</p>
+<span id="more"></span>
+
+<h1 id="创建用户"><a href="#创建用户" class="headerlink" title="创建用户"></a>创建用户</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">adduser 用户名</span><br><span class="line"></span><br><span class="line">passwd 用户名</span><br></pre></td></tr></table></figure>
+
+<h1 id="添加环境变量"><a href="#添加环境变量" class="headerlink" title="添加环境变量"></a>添加环境变量</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">su 用户名</span><br><span class="line"></span><br><span class="line">vim ~/.bashrc</span><br><span class="line"></span><br><span class="line">source ~/.bashrc</span><br></pre></td></tr></table></figure>
+
+<p>添加 <code>export PATH=/data/anaconda3/bin:$PATH</code></p>
+<h1 id="更改conda默认文件夹"><a href="#更改conda默认文件夹" class="headerlink" title="更改conda默认文件夹"></a>更改conda默认文件夹</h1><p>把conda文件夹移到data下</p>
+<p>这一步参考<a href="/2021/01/07/anaconda01/" title="迁移虚拟环境">迁移虚拟环境</a></p>
+<p>最后<code>conda info</code>确认目录更改是否成功。</p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
@@ -2186,32 +2186,6 @@ table th:nth-of-type(3) {
       </tags>
   </entry>
   <entry>
-    <title>群晖 | 将Docker的网络模式从bridge切换到host</title>
-    <url>/2023/12/09/nas00/</url>
-    <content><![CDATA[<p>目的是让docker容器可以使用ipv6网络</p>
-<span id="more"></span>
-
-<h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><p>之前用docker版qb，一直没啥问题，但是前几天给屋里的ipv6捣鼓出来了，所以就想着能不能让qb也用上ipv6，增加连通性。</p>
-<h2 id="弯路"><a href="#弯路" class="headerlink" title="弯路"></a>弯路</h2><p>网上找了一些教程，都是说创建一个ipv4和ipv6双通的<code>macvlan</code>网络，跟着整了出来。</p>
-<p>但是命令里需要指定ipv6子网，我的设备的ipv6地址并不是静态的，所以就放弃了。</p>
-<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>又找了找方法，有人提到将docker的网络模式设置为<code>host</code>，可以让docker容器使用宿主机的网络信息。</p>
-<h2 id="遇到新问题"><a href="#遇到新问题" class="headerlink" title="遇到新问题"></a>遇到新问题</h2><p>在群晖的docker容器设置里可以更改很多属性，但并不包括网络模式，网络模式在创建容器的时候就已经定死了，我又不想重新转种。</p>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>摸索了一下，在群晖的容器界面可以将容器导出，导出的文件是json，里边包含了所有的容器参数，当然也包含了网络模式和文件夹映射。</p>
-<p>修改json文件，将网络模式从<code>bridge</code>切换到<code>host</code>，再在群晖中导入，启动容器，就可以连上ipv6的用户了。</p>
-<p>当然这么做的前提是旧的docker容器做过文件夹映射，不然文件夹都在docker内部，换个容器所有的做种都没了。</p>
-]]></content>
-      <categories>
-        <category>Nas</category>
-        <category>群晖</category>
-        <category>Docker</category>
-      </categories>
-      <tags>
-        <tag>群晖</tag>
-        <tag>Docker</tag>
-        <tag>Nas</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>neo4j | 基本用法</title>
     <url>/2022/08/11/neo4j00/</url>
     <content><![CDATA[<p>neo4j基本用法。</p>
@@ -2270,6 +2244,32 @@ table th:nth-of-type(3) {
       <tags>
         <tag>数据库</tag>
         <tag>neo4j</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>群晖 | 将Docker的网络模式从bridge切换到host</title>
+    <url>/2023/12/09/nas00/</url>
+    <content><![CDATA[<p>目的是让docker容器可以使用ipv6网络</p>
+<span id="more"></span>
+
+<h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><p>之前用docker版qb，一直没啥问题，但是前几天给屋里的ipv6捣鼓出来了，所以就想着能不能让qb也用上ipv6，增加连通性。</p>
+<h2 id="弯路"><a href="#弯路" class="headerlink" title="弯路"></a>弯路</h2><p>网上找了一些教程，都是说创建一个ipv4和ipv6双通的<code>macvlan</code>网络，跟着整了出来。</p>
+<p>但是命令里需要指定ipv6子网，我的设备的ipv6地址并不是静态的，所以就放弃了。</p>
+<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>又找了找方法，有人提到将docker的网络模式设置为<code>host</code>，可以让docker容器使用宿主机的网络信息。</p>
+<h2 id="遇到新问题"><a href="#遇到新问题" class="headerlink" title="遇到新问题"></a>遇到新问题</h2><p>在群晖的docker容器设置里可以更改很多属性，但并不包括网络模式，网络模式在创建容器的时候就已经定死了，我又不想重新转种。</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>摸索了一下，在群晖的容器界面可以将容器导出，导出的文件是json，里边包含了所有的容器参数，当然也包含了网络模式和文件夹映射。</p>
+<p>修改json文件，将网络模式从<code>bridge</code>切换到<code>host</code>，再在群晖中导入，启动容器，就可以连上ipv6的用户了。</p>
+<p>当然这么做的前提是旧的docker容器做过文件夹映射，不然文件夹都在docker内部，换个容器所有的做种都没了。</p>
+]]></content>
+      <categories>
+        <category>Nas</category>
+        <category>群晖</category>
+        <category>Docker</category>
+      </categories>
+      <tags>
+        <tag>群晖</tag>
+        <tag>Docker</tag>
+        <tag>Nas</tag>
       </tags>
   </entry>
   <entry>
@@ -2361,6 +2361,21 @@ table th:nth-of-type(3) {
 <h2 id="查询索引"><a href="#查询索引" class="headerlink" title="查询索引"></a>查询索引</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">:schema</span><br></pre></td></tr></table></figure>]]></content>
   </entry>
   <entry>
+    <title>Nexus | Not authorized for requested path xxxx</title>
+    <url>/2023/10/28/nexus00/</url>
+    <content><![CDATA[<p>上传组件失败报错。</p>
+<span id="more"></span>
+
+<p>经过检查，发现是上传者的账号没有上传包的权限，在账号的roles中增加下权限就好了。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nx-repository-view-maven2-仓库名-edit</span><br><span class="line"></span><br><span class="line">nx-repository-view-maven2-仓库名-add</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Nexus</category>
+      </categories>
+      <tags>
+        <tag>Nexus</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>网易云音乐Api</title>
     <url>/2021/01/06/netease_cloud_music_api00/</url>
     <content><![CDATA[<p>在这搜集一下网易云音乐的一些Api。</p>
@@ -2385,21 +2400,6 @@ table th:nth-of-type(3) {
       <tags>
         <tag>开源项目</tag>
         <tag>NodeJs</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Nexus | Not authorized for requested path xxxx</title>
-    <url>/2023/10/28/nexus00/</url>
-    <content><![CDATA[<p>上传组件失败报错。</p>
-<span id="more"></span>
-
-<p>经过检查，发现是上传者的账号没有上传包的权限，在账号的roles中增加下权限就好了。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nx-repository-view-maven2-仓库名-edit</span><br><span class="line"></span><br><span class="line">nx-repository-view-maven2-仓库名-add</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Nexus</category>
-      </categories>
-      <tags>
-        <tag>Nexus</tag>
       </tags>
   </entry>
   <entry>
@@ -3393,23 +3393,6 @@ python proxyPool.py server
       </tags>
   </entry>
   <entry>
-    <title>找不到已安装包</title>
-    <url>/2021/04/05/pythonLibraryError01/</url>
-    <content><![CDATA[<p>有的时候明明已经装了一个包，但还是报错”ModuleNotFoundError”。</p>
-<span id="more"></span>
-
-<p>猜测是包的安装路径和import的寻找路径不同，解决方法也很简单。</p>
-<p>用<code>python -m pip</code>代替<code>pip</code>安装就好了。</p>
-]]></content>
-      <categories>
-        <category>Python</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-        <tag>Error</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>SyntaxError: future feature annotations is not defined</title>
     <url>/2023/10/28/pythonLibraryError02/</url>
     <content><![CDATA[<p>安装virtualenv的时候报错，找了找解决办法。</p>
@@ -3421,6 +3404,23 @@ python proxyPool.py server
         <category>Python</category>
         <category>常用库</category>
         <category>virtualenv</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>Error</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>找不到已安装包</title>
+    <url>/2021/04/05/pythonLibraryError01/</url>
+    <content><![CDATA[<p>有的时候明明已经装了一个包，但还是报错”ModuleNotFoundError”。</p>
+<span id="more"></span>
+
+<p>猜测是包的安装路径和import的寻找路径不同，解决方法也很简单。</p>
+<p>用<code>python -m pip</code>代替<code>pip</code>安装就好了。</p>
+]]></content>
+      <categories>
+        <category>Python</category>
       </categories>
       <tags>
         <tag>Python</tag>
@@ -3824,30 +3824,6 @@ python proxyPool.py server
       </tags>
   </entry>
   <entry>
-    <title>Selenium | 获取canvas画布中的图片</title>
-    <url>/2024/08/19/selenium07/</url>
-    <content><![CDATA[<p>搬运自<a href="https://blog.csdn.net/weixin_39726347/article/details/87632561">这里</a>。</p>
-<p>没办法直接获取，但是JS有获取的方法，详见<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLCanvasElement/toDataURL">canvas文档</a>。</p>
-<span id="more"></span>
-
-<h1 id="问题需求"><a href="#问题需求" class="headerlink" title="问题需求"></a>问题需求</h1><p>获取极验三代滑动验证的图片<br>查看官网<a href="https://www.geetest.com/Sensebot/">示例</a></p>
-<img src="/images/selenium07/img00.jpg" width="60%">
-
-<h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">from selenium import webdriver</span><br><span class="line">from selenium.webdriver.common.action_chains import ActionChains</span><br><span class="line">import time</span><br><span class="line">import random</span><br><span class="line">import base64</span><br><span class="line"></span><br><span class="line">driver = webdriver.Chrome()</span><br><span class="line">driver.get(&#x27;http://127.0.0.1:8000/&#x27;)  #打开本地部署的极验滑动验证</span><br><span class="line"></span><br><span class="line">def click(block):  # 自定义点击函数,模拟人工点击</span><br><span class="line">    action = ActionChains(driver)</span><br><span class="line">    action.click_and_hold(block).perform()</span><br><span class="line">    time.sleep(random.randint(1,10)/10)</span><br><span class="line">    action.release(block).perform()</span><br><span class="line">btn = driver.find_element_by_class_name(&#x27;geetest_wait&#x27;)  #到点击按钮</span><br><span class="line">click(btn) # 验证第一步,点击按钮进行验证</span><br><span class="line"></span><br><span class="line">#下面的js代码根据canvas文档说明而来</span><br><span class="line">JS = &#x27;return document.getElementsByClassName(&quot;geetest_canvas_bg geetest_absolute&quot;)[0].toDataURL(&quot;image/png&quot;);&#x27;</span><br><span class="line"># 执行 JS 代码并拿到图片 base64 数据</span><br><span class="line">im_info = driver.execute_script(JS)  #执行js文件得到带图片信息的图片数据</span><br><span class="line">im_base64 = im_info.split(&#x27;,&#x27;)[1]  #拿到base64编码的图片信息</span><br><span class="line">im_bytes = base64.b64decode(im_base64)  #转为bytes类型</span><br><span class="line">with open(&#x27;bg.png&#x27;,&#x27;wb&#x27;) as f:  #保存图片到本地</span><br><span class="line">    f.write(img_data)</span><br><span class="line"># 完毕</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>自动化</category>
-        <category>Python</category>
-        <category>常用库</category>
-        <category>Selenium</category>
-        <category>Selenium</category>
-      </categories>
-      <tags>
-        <tag>自动化</tag>
-        <tag>Python</tag>
-        <tag>Selenium</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>爬取微博数据</title>
     <url>/2020/08/21/spider00/</url>
     <content><![CDATA[<p>这个就简单写写，不详细展开了。</p>
@@ -3870,6 +3846,30 @@ python proxyPool.py server
       <tags>
         <tag>Python</tag>
         <tag>爬虫</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Selenium | 获取canvas画布中的图片</title>
+    <url>/2024/08/19/selenium07/</url>
+    <content><![CDATA[<p>搬运自<a href="https://blog.csdn.net/weixin_39726347/article/details/87632561">这里</a>。</p>
+<p>没办法直接获取，但是JS有获取的方法，详见<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLCanvasElement/toDataURL">canvas文档</a>。</p>
+<span id="more"></span>
+
+<h1 id="问题需求"><a href="#问题需求" class="headerlink" title="问题需求"></a>问题需求</h1><p>获取极验三代滑动验证的图片<br>查看官网<a href="https://www.geetest.com/Sensebot/">示例</a></p>
+<img src="/images/selenium07/img00.jpg" width="60%">
+
+<h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">from selenium import webdriver</span><br><span class="line">from selenium.webdriver.common.action_chains import ActionChains</span><br><span class="line">import time</span><br><span class="line">import random</span><br><span class="line">import base64</span><br><span class="line"></span><br><span class="line">driver = webdriver.Chrome()</span><br><span class="line">driver.get(&#x27;http://127.0.0.1:8000/&#x27;)  #打开本地部署的极验滑动验证</span><br><span class="line"></span><br><span class="line">def click(block):  # 自定义点击函数,模拟人工点击</span><br><span class="line">    action = ActionChains(driver)</span><br><span class="line">    action.click_and_hold(block).perform()</span><br><span class="line">    time.sleep(random.randint(1,10)/10)</span><br><span class="line">    action.release(block).perform()</span><br><span class="line">btn = driver.find_element_by_class_name(&#x27;geetest_wait&#x27;)  #到点击按钮</span><br><span class="line">click(btn) # 验证第一步,点击按钮进行验证</span><br><span class="line"></span><br><span class="line">#下面的js代码根据canvas文档说明而来</span><br><span class="line">JS = &#x27;return document.getElementsByClassName(&quot;geetest_canvas_bg geetest_absolute&quot;)[0].toDataURL(&quot;image/png&quot;);&#x27;</span><br><span class="line"># 执行 JS 代码并拿到图片 base64 数据</span><br><span class="line">im_info = driver.execute_script(JS)  #执行js文件得到带图片信息的图片数据</span><br><span class="line">im_base64 = im_info.split(&#x27;,&#x27;)[1]  #拿到base64编码的图片信息</span><br><span class="line">im_bytes = base64.b64decode(im_base64)  #转为bytes类型</span><br><span class="line">with open(&#x27;bg.png&#x27;,&#x27;wb&#x27;) as f:  #保存图片到本地</span><br><span class="line">    f.write(img_data)</span><br><span class="line"># 完毕</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>自动化</category>
+        <category>Python</category>
+        <category>常用库</category>
+        <category>Selenium</category>
+        <category>Selenium</category>
+      </categories>
+      <tags>
+        <tag>自动化</tag>
+        <tag>Python</tag>
+        <tag>Selenium</tag>
       </tags>
   </entry>
   <entry>
@@ -3957,6 +3957,26 @@ python proxyPool.py server
       </tags>
   </entry>
   <entry>
+    <title>Steam | 验证短信乱码</title>
+    <url>/2023/07/13/steam00/</url>
+    <content><![CDATA[<p>在用Steam的App发验证信息的时候遇到了乱码，在知乎上找到了解决方案，记一下。</p>
+<span id="more"></span>
+
+<p><a href="https://zhuanlan.zhihu.com/p/592974388">奈豆Nazuki - Steam 令牌手机验证器验证码短信乱码</a></p>
+<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>原理就是字符集不一致，文中指出了Steam的验证短信使用的是<code>utf-16be</code>编码，直接转一下就能看见验证码了。</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 替换成自己乱码的短信内容</span><br><span class="line"># 如果出错，可以删除末位字符后再运行</span><br><span class="line">s = &quot;子䥎嵃潮晩牭⁡摤楮朠愠却敡洠䅵瑨敮瑩捡瑯爠睩瑨‹㐹㤸&quot;</span><br><span class="line">print(s.encode(&quot;utf-16be&quot;))</span><br></pre></td></tr></table></figure>
+
+<h2 id="PS"><a href="#PS" class="headerlink" title="PS"></a>PS</h2><p>另外，评论区指出，在App里将语言改成简中再发一遍就能解决，我还没试，姑且记下来。</p>
+<p>有时最后一个字符是<code>�</code>，没法转，把这个字符删掉再转就行了。</p>
+]]></content>
+      <categories>
+        <category>Steam</category>
+      </categories>
+      <tags>
+        <tag>Steam</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>使用Smart-Doc + Torna生成和管理接口文档</title>
     <url>/2022/11/30/torna00/</url>
     <content><![CDATA[<p>在开发spring项目的时候，接口文档承担着向其他开发人员说明接口相关信息的重要任务，因此，一份清晰而又相近的接口文档至关重要。</p>
@@ -4009,26 +4029,6 @@ python proxyPool.py server
         <tag>Java</tag>
         <tag>Torna</tag>
         <tag>smart-doc</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Steam | 验证短信乱码</title>
-    <url>/2023/07/13/steam00/</url>
-    <content><![CDATA[<p>在用Steam的App发验证信息的时候遇到了乱码，在知乎上找到了解决方案，记一下。</p>
-<span id="more"></span>
-
-<p><a href="https://zhuanlan.zhihu.com/p/592974388">奈豆Nazuki - Steam 令牌手机验证器验证码短信乱码</a></p>
-<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>原理就是字符集不一致，文中指出了Steam的验证短信使用的是<code>utf-16be</code>编码，直接转一下就能看见验证码了。</p>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 替换成自己乱码的短信内容</span><br><span class="line"># 如果出错，可以删除末位字符后再运行</span><br><span class="line">s = &quot;子䥎嵃潮晩牭⁡摤楮朠愠却敡洠䅵瑨敮瑩捡瑯爠睩瑨‹㐹㤸&quot;</span><br><span class="line">print(s.encode(&quot;utf-16be&quot;))</span><br></pre></td></tr></table></figure>
-
-<h2 id="PS"><a href="#PS" class="headerlink" title="PS"></a>PS</h2><p>另外，评论区指出，在App里将语言改成简中再发一遍就能解决，我还没试，姑且记下来。</p>
-<p>有时最后一个字符是<code>�</code>，没法转，把这个字符删掉再转就行了。</p>
-]]></content>
-      <categories>
-        <category>Steam</category>
-      </categories>
-      <tags>
-        <tag>Steam</tag>
       </tags>
   </entry>
   <entry>
