@@ -2,6 +2,17 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://l-fay.github.io/tags/index.html</loc>
+    
+    <lastmod>2024-08-23T08:08:05.333Z</lastmod>
+    
+    <date>1599052086000</date>
+    <title>标签1 | 兰秋廿柒的博客</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
     <loc>https://l-fay.github.io/2024/08/20/db00/</loc>
     
     <lastmod>2024-08-21T02:11:50.192Z</lastmod>
@@ -186,17 +197,6 @@
     <title>Python | DataFrame的合并方法总结 | 兰秋廿柒的博客</title>
     
     <desc>在数据分析过程中，通常需要将不同的数据集合并在一起进行分析，而Python中常用的数据结构之一——DataFrame，提供了多种方法用于合并数据。</desc>
-  </url>
-  
-  <url>
-    <loc>https://l-fay.github.io/tags/index.html</loc>
-    
-    <lastmod>2024-08-16T02:31:46.334Z</lastmod>
-    
-    <date>1599052086000</date>
-    <title>标签 | 兰秋廿柒的博客</title>
-    
-    <desc></desc>
   </url>
   
   <url>
