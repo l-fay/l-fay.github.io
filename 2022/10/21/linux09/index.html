@@ -27,7 +27,7 @@
 <meta property="og:description" content="给Linux机器配置DNS的方法。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-10-21T11:30:30.000Z">
-<meta property="article:modified_time" content="2024-08-16T02:31:46.237Z">
+<meta property="article:modified_time" content="2024-08-27T06:39:45.560Z">
 <meta property="article:author" content="兰秋廿柒">
 <meta property="article:tag" content="Linux">
 <meta property="article:tag" content="DNS">
@@ -127,7 +127,7 @@
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -140,6 +140,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#resolv-conf"><span class="nav-number">1.</span> <span class="nav-text">resolv.conf</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#hosts"><span class="nav-number">2.</span> <span class="nav-text">hosts</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -251,7 +252,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>69</span>
+      <span>110</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -271,14 +272,15 @@
     <div class="post-body" itemprop="articleBody"><p>给Linux机器配置DNS的方法。</p>
 <span id="more"></span>
 
-<p>1、使用以下指令打开resolv.conf配置文件：</p>
+<h1 id="resolv-conf"><a href="#resolv-conf" class="headerlink" title="resolv.conf"></a>resolv.conf</h1><p>1、使用以下指令打开resolv.conf配置文件：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/resolv.conf</span><br></pre></td></tr></table></figure>
 
 <p>2、在打开的文件中输入指定的域和DNS，可以配置多个域和DNS。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">search xxx.example.com xxx.example2.com </span><br><span class="line">nameserver XXX.XXX.XXX.XXX</span><br><span class="line">nameserver XXX.XXX.XXX.XXX</span><br></pre></td></tr></table></figure>
 
 <p>3、退出并保存即可。</p>
-
+<h1 id="hosts"><a href="#hosts" class="headerlink" title="hosts"></a>hosts</h1><p>上面那个配置文件，在注释里写了不让改，所以如果只是改DNS的话，还是改hosts文件比较好。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/hosts</span><br></pre></td></tr></table></figure>
     </div>
 
     

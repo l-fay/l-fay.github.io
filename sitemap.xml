@@ -2,6 +2,17 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://l-fay.github.io/2022/10/21/linux09/</loc>
+    
+    <lastmod>2024-08-27T06:39:45.560Z</lastmod>
+    
+    <date>1666351830000</date>
+    <title>Linux | Linux服务器上配置域和DNS | 兰秋廿柒的博客</title>
+    
+    <desc>给Linux机器配置DNS的方法。</desc>
+  </url>
+  
+  <url>
     <loc>https://l-fay.github.io/2024/08/22/ffmpeg17/</loc>
     
     <lastmod>2024-08-23T09:10:28.238Z</lastmod>
@@ -1055,17 +1066,6 @@
     <title>Ubuntu安装字体 | 兰秋廿柒的博客</title>
     
     <desc>安装字体是为了用ffmpeg压制硬字幕用的。</desc>
-  </url>
-  
-  <url>
-    <loc>https://l-fay.github.io/2022/10/21/linux09/</loc>
-    
-    <lastmod>2024-08-16T02:31:46.237Z</lastmod>
-    
-    <date>1666351830000</date>
-    <title>Linux | Linux服务器上配置域和DNS | 兰秋廿柒的博客</title>
-    
-    <desc>给Linux机器配置DNS的方法。</desc>
   </url>
   
   <url>

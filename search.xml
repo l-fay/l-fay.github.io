@@ -2099,14 +2099,15 @@ table th:nth-of-type(3) {
     <content><![CDATA[<p>给Linux机器配置DNS的方法。</p>
 <span id="more"></span>
 
-<p>1、使用以下指令打开resolv.conf配置文件：</p>
+<h1 id="resolv-conf"><a href="#resolv-conf" class="headerlink" title="resolv.conf"></a>resolv.conf</h1><p>1、使用以下指令打开resolv.conf配置文件：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vim /etc/resolv.conf</span><br></pre></td></tr></table></figure>
 
 <p>2、在打开的文件中输入指定的域和DNS，可以配置多个域和DNS。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">search xxx.example.com xxx.example2.com </span><br><span class="line">nameserver XXX.XXX.XXX.XXX</span><br><span class="line">nameserver XXX.XXX.XXX.XXX</span><br></pre></td></tr></table></figure>
 
 <p>3、退出并保存即可。</p>
-]]></content>
+<h1 id="hosts"><a href="#hosts" class="headerlink" title="hosts"></a>hosts</h1><p>上面那个配置文件，在注释里写了不让改，所以如果只是改DNS的话，还是改hosts文件比较好。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vim /etc/hosts</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>Linux</category>
         <category>DNS</category>
