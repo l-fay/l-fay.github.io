@@ -2,6 +2,28 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://l-fay.github.io/2024/09/12/llm00/</loc>
+    
+    <lastmod>2024-09-12T12:28:55.131Z</lastmod>
+    
+    <date>1726148761000</date>
+    <title>Python调用大模型API | 兰秋廿柒的博客</title>
+    
+    <desc>怎样用Python调用大语言模型？</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2024/09/12/python09/</loc>
+    
+    <lastmod>2024-09-12T12:24:12.636Z</lastmod>
+    
+    <date>1726147259000</date>
+    <title>Python | 主线程结束后自动关闭子线程 | 兰秋廿柒的博客</title>
+    
+    <desc>在threading模块创建的线程中，设置为守护线程即可达到题目的目的。</desc>
+  </url>
+  
+  <url>
     <loc>https://l-fay.github.io/2024/08/28/hexo08/</loc>
     
     <lastmod>2024-08-29T09:01:21.385Z</lastmod>

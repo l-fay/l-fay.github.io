@@ -4817,4 +4817,40 @@ python proxyPool.py server
         <tag>pip</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Python调用大模型API</title>
+    <url>/2024/09/12/llm00/</url>
+    <content><![CDATA[<p>怎样用Python调用大语言模型？</p>
+<span id="more"></span>
+
+<p>使用<code>text/event-stream</code>来输出。</p>
+<p>示例代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import requests</span><br><span class="line">import json</span><br><span class="line">import sseclient</span><br><span class="line"> </span><br><span class="line">API_KEY = &#x27;[INSERT YOUR OPENAI API KEY HERE]&#x27;</span><br><span class="line"></span><br><span class="line">def performRequestWithStreaming():</span><br><span class="line">    reqUrl = &#x27;https://api.openai.com/v1/completions&#x27;</span><br><span class="line">    reqHeaders = &#123;</span><br><span class="line">        &#x27;Accept&#x27;: &#x27;text/event-stream&#x27;,</span><br><span class="line">        &#x27;Authorization&#x27;: &#x27;Bearer &#x27; + API_KEY</span><br><span class="line">    &#125;</span><br><span class="line">    reqBody = &#123;</span><br><span class="line">      &quot;model&quot;: &quot;text-davinci-003&quot;,</span><br><span class="line">      &quot;prompt&quot;: &quot;What is Python?&quot;,</span><br><span class="line">      &quot;max_tokens&quot;: 100,</span><br><span class="line">      &quot;temperature&quot;: 0,</span><br><span class="line">      &quot;stream&quot;: True,</span><br><span class="line">    &#125;</span><br><span class="line">    request = requests.post(reqUrl, stream=True, headers=reqHeaders, json=reqBody)</span><br><span class="line">    client = sseclient.SSEClient(request)</span><br><span class="line">    for event in client.events():</span><br><span class="line">        if event.data != &#x27;[DONE]&#x27;:</span><br><span class="line">            print(json.loads(event.data)[&#x27;choices&#x27;][0][&#x27;text&#x27;], end=&quot;&quot;, flush=True),</span><br><span class="line"></span><br><span class="line">if __name__ == &#x27;__main__&#x27;:</span><br><span class="line">    performRequestWithStreaming()</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Python</category>
+        <category>大语言模型</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>大语言模型</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Python | 主线程结束后自动关闭子线程</title>
+    <url>/2024/09/12/python09/</url>
+    <content><![CDATA[<p>在<code>threading</code>模块创建的线程中，设置为守护线程即可达到题目的目的。</p>
+<span id="more"></span>
+
+<p>示例代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">thread = threading.Thread(target=my_thread_func)</span><br><span class="line">thread.daemon = True</span><br><span class="line">thread.start()</span><br></pre></td></tr></table></figure>
+
+<p>这样就OK了。</p>
+]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
 </search>
