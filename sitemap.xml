@@ -2,6 +2,17 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://l-fay.github.io/2024/08/03/windows05/</loc>
+    
+    <lastmod>2024-10-08T09:23:52.338Z</lastmod>
+    
+    <date>1722657419000</date>
+    <title>解决天猫精灵连接Windows10蓝牙时，语音控制会中断媒体播放的问题 | 兰秋廿柒的博客</title>
+    
+    <desc>用天猫精灵当蓝牙音响的时候，遇到个很困扰的问题，每次天猫精灵语音控制的过程中，都会启动&#x2F;暂停电脑中的媒体播放。</desc>
+  </url>
+  
+  <url>
     <loc>https://l-fay.github.io/2024/09/12/llm00/</loc>
     
     <lastmod>2024-09-12T12:28:55.131Z</lastmod>
@@ -307,17 +318,6 @@
     <title>Windows 每天第一次开机执行的批处理脚本模板 | 兰秋廿柒的博客</title>
     
     <desc>如题。</desc>
-  </url>
-  
-  <url>
-    <loc>https://l-fay.github.io/2024/08/03/windows05/</loc>
-    
-    <lastmod>2024-08-16T02:31:46.289Z</lastmod>
-    
-    <date>1722657419000</date>
-    <title>解决天猫精灵连接Windows10蓝牙时，语音控制会中断媒体播放的问题 | 兰秋廿柒的博客</title>
-    
-    <desc>用天猫精灵当蓝牙音响的时候，遇到个很困扰的问题，每次天猫精灵语音控制的过程中，都会启动&#x2F;暂停电脑中的媒体播放。</desc>
   </url>
   
   <url>

@@ -4745,6 +4745,9 @@ python proxyPool.py server
 <p>3.在弹出的窗口中，找到天猫精灵，右键打开属性</p>
 <p>4.切换到服务选项卡，把可远程控制的设备和遥控器的勾选去掉</p>
 <p>搬运自<a href="https://www.cnblogs.com/wingsziye/p/13121226.html">这里</a></p>
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>去掉可远程控制的设备和遥控器的勾选之后，当次播放就没有问题了。</p>
+<p>不过关机再重启之后，电脑虽然能正常连接天猫精灵，但是并不能正常使用，在扬声器列表中无法找到该音响。</p>
+<p>暂时没有找到解决方案。</p>
 ]]></content>
       <categories>
         <category>Windows</category>
