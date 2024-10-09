@@ -4747,6 +4747,7 @@ python proxyPool.py server
 <p>搬运自<a href="https://www.cnblogs.com/wingsziye/p/13121226.html">这里</a></p>
 <h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>去掉可远程控制的设备和遥控器的勾选之后，当次播放就没有问题了。</p>
 <p>不过关机再重启之后，电脑虽然能正常连接天猫精灵，但是并不能正常使用，在扬声器列表中无法找到该音响。</p>
+<p>只能重新勾选上可远程控制的设备和遥控器。</p>
 <p>暂时没有找到解决方案。</p>
 ]]></content>
       <categories>
@@ -4855,5 +4856,10 @@ python proxyPool.py server
       <tags>
         <tag>Python</tag>
       </tags>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/2024/10/09/wsl00/</url>
+    <content><![CDATA[<span id="more"></span>]]></content>
   </entry>
 </search>
