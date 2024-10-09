@@ -4858,8 +4858,23 @@ python proxyPool.py server
       </tags>
   </entry>
   <entry>
-    <title></title>
+    <title>将 WSL Linux 实例安装到其他盘</title>
     <url>/2024/10/09/wsl00/</url>
-    <content><![CDATA[<span id="more"></span>]]></content>
+    <content><![CDATA[<p>纯搬运。</p>
+<span id="more"></span>
+
+<p>搬运自<a href="https://zhuanlan.zhihu.com/p/525955480">这里</a>，备份如下：</p>
+<img data-src="/images/wsl00/img00.avif" width="60%">
+
+<p>根据评论，找到了更方便的工具：<a href="https://github.com/DDoSolitary/LxRunOffline">LxRunOffline</a>，这个不是教程，就不备份了。</p>
+]]></content>
+      <categories>
+        <category>Windows</category>
+        <category>WSL</category>
+      </categories>
+      <tags>
+        <tag>Windows</tag>
+        <tag>WSL</tag>
+      </tags>
   </entry>
 </search>
