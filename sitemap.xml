@@ -4,12 +4,199 @@
   <url>
     <loc>https://l-fay.github.io/2024/10/09/wsl00/</loc>
     
-    <lastmod>2024-10-09T08:35:20.164Z</lastmod>
+    <lastmod>2024-10-09T10:15:05.952Z</lastmod>
     
     <date>1728452968000</date>
     <title>将 WSL Linux 实例安装到其他盘 | 兰秋廿柒的博客</title>
     
     <desc>纯搬运。</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2023/07/15/virtualenv01/</loc>
+    
+    <lastmod>2024-10-09T10:15:05.943Z</lastmod>
+    
+    <date>1689432312000</date>
+    <title>Python多环境 | python3.5上使用virtualenv创建虚拟环境的坑 | 兰秋廿柒的博客</title>
+    
+    <desc>python3.5上使用virtualenv的一些问题。</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2022/11/30/torna00/</loc>
+    
+    <lastmod>2024-10-09T10:15:05.941Z</lastmod>
+    
+    <date>1669807930000</date>
+    <title>使用Smart-Doc + Torna生成和管理接口文档 | 兰秋廿柒的博客</title>
+    
+    <desc>在开发spring项目的时候，接口文档承担着向其他开发人员说明接口相关信息的重要任务，因此，一份清晰而又相近的接口文档至关重要。 但是，写接口文档的痛苦想必各位开发人员都体验过，明明写接口的时候那么丝滑，写接口文档的时候像要老命一样各种核对数据格式、文档格式，最后还有可能漏掉那么一些示例导致调用不成功，继续和其他开发沟通……还有接口文档的更新问题，一旦要更新接口文档，就意味着要给所有用着接口文档的</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2024/08/19/selenium07/</loc>
+    
+    <lastmod>2024-10-09T10:15:05.933Z</lastmod>
+    
+    <date>1724065913000</date>
+    <title>Selenium | 获取canvas画布中的图片 | 兰秋廿柒的博客</title>
+    
+    <desc>搬运自这里。 没办法直接获取，但是JS有获取的方法，详见canvas文档。</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2020/09/09/pytorchError00/</loc>
+    
+    <lastmod>2024-10-09T10:15:05.923Z</lastmod>
+    
+    <date>1599652039000</date>
+    <title>RuntimeError: No such operator torchvision::nms | 兰秋廿柒的博客</title>
+    
+    <desc>今天遇到了如题目所示的问题 项目地址：naver&#x2F;dope 由于是个新的项目，还没有issues，只能自力更生。</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2022/03/01/pytorch00/</loc>
+    
+    <lastmod>2024-10-09T10:15:05.922Z</lastmod>
+    
+    <date>1646114343000</date>
+    <title>Pytorch和Python的版本对应关系 | 兰秋廿柒的博客</title>
+    
+    <desc>截止到2022年3月1日，版本对应关系如图：</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2024/09/12/python09/</loc>
+    
+    <lastmod>2024-10-09T10:15:05.910Z</lastmod>
+    
+    <date>1726147259000</date>
+    <title>Python | 主线程结束后自动关闭子线程 | 兰秋廿柒的博客</title>
+    
+    <desc>在threading模块创建的线程中，设置为守护线程即可达到题目的目的。</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2024/08/18/python07/</loc>
+    
+    <lastmod>2024-10-09T10:15:05.908Z</lastmod>
+    
+    <date>1723948685000</date>
+    <title>Python | DataFrame的合并方法总结 | 兰秋廿柒的博客</title>
+    
+    <desc>在数据分析过程中，通常需要将不同的数据集合并在一起进行分析，而Python中常用的数据结构之一——DataFrame，提供了多种方法用于合并数据。</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2024/09/12/llm00/</loc>
+    
+    <lastmod>2024-10-09T10:15:05.887Z</lastmod>
+    
+    <date>1726148761000</date>
+    <title>Python调用大模型API | 兰秋廿柒的博客</title>
+    
+    <desc>怎样用Python调用大语言模型？</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2020/08/20/linux00/</loc>
+    
+    <lastmod>2024-10-09T10:15:05.878Z</lastmod>
+    
+    <date>1597896230000</date>
+    <title>Ubuntu系统安装 | 兰秋廿柒的博客</title>
+    
+    <desc>废话不多说，直接开始。</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2022/07/01/java01/</loc>
+    
+    <lastmod>2024-10-09T10:15:05.871Z</lastmod>
+    
+    <date>1656661597000</date>
+    <title>Java | 用HttpServletResponse实现浏览器的文件下载 | 兰秋廿柒的博客</title>
+    
+    <desc>java中用HttpServletResponse实现浏览器的文件下载 搬运自这篇博客。</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2024/08/28/hexo08/</loc>
+    
+    <lastmod>2024-10-09T10:15:05.868Z</lastmod>
+    
+    <date>1724849349000</date>
+    <title>Hexo | 解决Gitalk无法获取Github Token问题 | 兰秋廿柒的博客</title>
+    
+    <desc>搬运自Dedicatus545 前言记一次Hexo Next主题下Gitalk无法获取Github Token问题</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2024/08/26/hexo07/</loc>
+    
+    <lastmod>2024-10-09T10:15:05.867Z</lastmod>
+    
+    <date>1724670062000</date>
+    <title>Hexo | Hexo及其依赖升级 | 兰秋廿柒的博客</title>
+    
+    <desc>升级Hexo及其依赖的方法，也适用于其他的Node项目。</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2020/08/01/hexo00/</loc>
+    
+    <lastmod>2024-10-09T10:15:05.863Z</lastmod>
+    
+    <date>1596271344000</date>
+    <title>我就想试试怎么写博客 | 兰秋廿柒的博客</title>
+    
+    <desc>写这个的目的就是试一试hexo的各种语法，免得以后忘记。</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2024/08/22/ffmpeg17/</loc>
+    
+    <lastmod>2024-10-09T10:15:05.840Z</lastmod>
+    
+    <date>1724340268000</date>
+    <title>FFmpeg | 提取附件 | 兰秋廿柒的博客</title>
+    
+    <desc>有时媒体文件中会将字体封为一个流，在做软字幕烧录硬字幕时，会需要这个字体文件，这是就有把字体文件提取出来的需求。</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2020/12/19/ffmpeg00/</loc>
+    
+    <lastmod>2024-10-09T10:15:05.828Z</lastmod>
+    
+    <date>1608358304000</date>
+    <title>FFmpeg | Failed to inject frame into filter network: Invalid argument | 兰秋廿柒的博客</title>
+    
+    <desc>今天在给看的剧压字幕的时候遇到了错误。</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2021/01/24/bios00/</loc>
+    
+    <lastmod>2024-10-09T10:15:05.815Z</lastmod>
+    
+    <date>1611486668000</date>
+    <title>自动开关机 | 兰秋廿柒的博客</title>
+    
+    <desc>放假回家了，在回家之前给实验室电脑弄了个自动开关机，方便远程，</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2021/01/07/anaconda01/</loc>
+    
+    <lastmod>2024-10-09T10:15:05.811Z</lastmod>
+    
+    <date>1610011784000</date>
+    <title>迁移虚拟环境 | 兰秋廿柒的博客</title>
+    
+    <desc>师兄的一篇博客很有帮助，转载一下。</desc>
   </url>
   
   <url>
@@ -24,50 +211,6 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/2024/09/12/llm00/</loc>
-    
-    <lastmod>2024-09-12T12:28:55.131Z</lastmod>
-    
-    <date>1726148761000</date>
-    <title>Python调用大模型API | 兰秋廿柒的博客</title>
-    
-    <desc>怎样用Python调用大语言模型？</desc>
-  </url>
-  
-  <url>
-    <loc>https://l-fay.github.io/2024/09/12/python09/</loc>
-    
-    <lastmod>2024-09-12T12:24:12.636Z</lastmod>
-    
-    <date>1726147259000</date>
-    <title>Python | 主线程结束后自动关闭子线程 | 兰秋廿柒的博客</title>
-    
-    <desc>在threading模块创建的线程中，设置为守护线程即可达到题目的目的。</desc>
-  </url>
-  
-  <url>
-    <loc>https://l-fay.github.io/2024/08/28/hexo08/</loc>
-    
-    <lastmod>2024-08-29T09:01:21.385Z</lastmod>
-    
-    <date>1724849349000</date>
-    <title>Hexo | 解决Gitalk无法获取Github Token问题 | 兰秋廿柒的博客</title>
-    
-    <desc>搬运自Dedicatus545 前言记一次Hexo Next主题下Gitalk无法获取Github Token问题</desc>
-  </url>
-  
-  <url>
-    <loc>https://l-fay.github.io/2024/08/26/hexo07/</loc>
-    
-    <lastmod>2024-08-27T08:05:30.094Z</lastmod>
-    
-    <date>1724670062000</date>
-    <title>Hexo | Hexo及其依赖升级 | 兰秋廿柒的博客</title>
-    
-    <desc>升级Hexo及其依赖的方法，也适用于其他的Node项目。</desc>
-  </url>
-  
-  <url>
     <loc>https://l-fay.github.io/2022/10/21/linux09/</loc>
     
     <lastmod>2024-08-27T06:39:45.560Z</lastmod>
@@ -76,17 +219,6 @@
     <title>Linux | Linux服务器上配置域和DNS | 兰秋廿柒的博客</title>
     
     <desc>给Linux机器配置DNS的方法。</desc>
-  </url>
-  
-  <url>
-    <loc>https://l-fay.github.io/2024/08/22/ffmpeg17/</loc>
-    
-    <lastmod>2024-08-23T09:10:28.238Z</lastmod>
-    
-    <date>1724340268000</date>
-    <title>FFmpeg | 提取附件 | 兰秋廿柒的博客</title>
-    
-    <desc>有时媒体文件中会将字体封为一个流，在做软字幕烧录硬字幕时，会需要这个字体文件，这是就有把字体文件提取出来的需求。</desc>
   </url>
   
   <url>
@@ -120,17 +252,6 @@
     <title>Git | 同时提交到两个git地址 | 兰秋廿柒的博客</title>
     
     <desc>需要给同一个项目设置两个远程git地址，主要是为了灾备。</desc>
-  </url>
-  
-  <url>
-    <loc>https://l-fay.github.io/2024/08/19/selenium07/</loc>
-    
-    <lastmod>2024-08-21T01:38:24.865Z</lastmod>
-    
-    <date>1724065913000</date>
-    <title>Selenium | 获取canvas画布中的图片 | 兰秋廿柒的博客</title>
-    
-    <desc>搬运自这里。 没办法直接获取，但是JS有获取的方法，详见canvas文档。</desc>
   </url>
   
   <url>
@@ -175,116 +296,6 @@
     <title>pip换源的注意事项 | 兰秋廿柒的博客</title>
     
     <desc>之前把pip换源了，现在要装opencv-python的3.4.11.43版本，清华源没有，就把默认源加上了https://pypi.python.org/simple/，顺便记一下pip换源的方法。</desc>
-  </url>
-  
-  <url>
-    <loc>https://l-fay.github.io/2023/07/15/virtualenv01/</loc>
-    
-    <lastmod>2024-08-19T11:57:30.117Z</lastmod>
-    
-    <date>1689432312000</date>
-    <title>Python多环境 | python3.5上使用virtualenv创建虚拟环境的坑 | 兰秋廿柒的博客</title>
-    
-    <desc>python3.5上使用virtualenv的一些问题。</desc>
-  </url>
-  
-  <url>
-    <loc>https://l-fay.github.io/2022/11/30/torna00/</loc>
-    
-    <lastmod>2024-08-19T11:55:07.217Z</lastmod>
-    
-    <date>1669807930000</date>
-    <title>使用Smart-Doc + Torna生成和管理接口文档 | 兰秋廿柒的博客</title>
-    
-    <desc>在开发spring项目的时候，接口文档承担着向其他开发人员说明接口相关信息的重要任务，因此，一份清晰而又相近的接口文档至关重要。 但是，写接口文档的痛苦想必各位开发人员都体验过，明明写接口的时候那么丝滑，写接口文档的时候像要老命一样各种核对数据格式、文档格式，最后还有可能漏掉那么一些示例导致调用不成功，继续和其他开发沟通……还有接口文档的更新问题，一旦要更新接口文档，就意味着要给所有用着接口文档的</desc>
-  </url>
-  
-  <url>
-    <loc>https://l-fay.github.io/2020/09/09/pytorchError00/</loc>
-    
-    <lastmod>2024-08-19T11:53:12.907Z</lastmod>
-    
-    <date>1599652039000</date>
-    <title>RuntimeError: No such operator torchvision::nms | 兰秋廿柒的博客</title>
-    
-    <desc>今天遇到了如题目所示的问题 项目地址：naver&#x2F;dope 由于是个新的项目，还没有issues，只能自力更生。</desc>
-  </url>
-  
-  <url>
-    <loc>https://l-fay.github.io/2022/03/01/pytorch00/</loc>
-    
-    <lastmod>2024-08-19T11:51:28.441Z</lastmod>
-    
-    <date>1646114343000</date>
-    <title>Pytorch和Python的版本对应关系 | 兰秋廿柒的博客</title>
-    
-    <desc>截止到2022年3月1日，版本对应关系如图：</desc>
-  </url>
-  
-  <url>
-    <loc>https://l-fay.github.io/2020/08/20/linux00/</loc>
-    
-    <lastmod>2024-08-19T11:50:18.121Z</lastmod>
-    
-    <date>1597896230000</date>
-    <title>Ubuntu系统安装 | 兰秋廿柒的博客</title>
-    
-    <desc>废话不多说，直接开始。</desc>
-  </url>
-  
-  <url>
-    <loc>https://l-fay.github.io/2022/07/01/java01/</loc>
-    
-    <lastmod>2024-08-19T11:46:27.254Z</lastmod>
-    
-    <date>1656661597000</date>
-    <title>Java | 用HttpServletResponse实现浏览器的文件下载 | 兰秋廿柒的博客</title>
-    
-    <desc>java中用HttpServletResponse实现浏览器的文件下载 搬运自这篇博客。</desc>
-  </url>
-  
-  <url>
-    <loc>https://l-fay.github.io/2020/12/19/ffmpeg00/</loc>
-    
-    <lastmod>2024-08-19T11:43:49.790Z</lastmod>
-    
-    <date>1608358304000</date>
-    <title>FFmpeg | Failed to inject frame into filter network: Invalid argument | 兰秋廿柒的博客</title>
-    
-    <desc>今天在给看的剧压字幕的时候遇到了错误。</desc>
-  </url>
-  
-  <url>
-    <loc>https://l-fay.github.io/2021/01/24/bios00/</loc>
-    
-    <lastmod>2024-08-19T11:38:41.081Z</lastmod>
-    
-    <date>1611486668000</date>
-    <title>自动开关机 | 兰秋廿柒的博客</title>
-    
-    <desc>放假回家了，在回家之前给实验室电脑弄了个自动开关机，方便远程，</desc>
-  </url>
-  
-  <url>
-    <loc>https://l-fay.github.io/2021/01/07/anaconda01/</loc>
-    
-    <lastmod>2024-08-19T11:36:57.073Z</lastmod>
-    
-    <date>1610011784000</date>
-    <title>迁移虚拟环境 | 兰秋廿柒的博客</title>
-    
-    <desc>师兄的一篇博客很有帮助，转载一下。</desc>
-  </url>
-  
-  <url>
-    <loc>https://l-fay.github.io/2024/08/18/python07/</loc>
-    
-    <lastmod>2024-08-19T03:16:52.053Z</lastmod>
-    
-    <date>1723948685000</date>
-    <title>Python | DataFrame的合并方法总结 | 兰秋廿柒的博客</title>
-    
-    <desc>在数据分析过程中，通常需要将不同的数据集合并在一起进行分析，而Python中常用的数据结构之一——DataFrame，提供了多种方法用于合并数据。</desc>
   </url>
   
   <url>
@@ -1341,17 +1352,6 @@
     <title>Hexo | 新电脑上使用之前的博客文件夹 | 兰秋廿柒的博客</title>
     
     <desc>本教程旨在自用，针对的是已有Hexo的博客文件夹的群体，新配置的不要看这个，跳过了很多新配置的必须步骤。</desc>
-  </url>
-  
-  <url>
-    <loc>https://l-fay.github.io/2020/08/01/hexo00/</loc>
-    
-    <lastmod>2024-08-16T02:31:46.225Z</lastmod>
-    
-    <date>1596271344000</date>
-    <title>我就想试试怎么写博客 | 兰秋廿柒的博客</title>
-    
-    <desc>写这个的目的就是试一试hexo的各种语法，免得以后忘记。</desc>
   </url>
   
   <url>

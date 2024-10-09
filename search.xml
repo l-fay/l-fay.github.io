@@ -71,7 +71,7 @@
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cd /data/aaa/.conda/envs/py3.7/bin</span><br><span class="line">vim pip</span><br></pre></td></tr></table></figure>
 <p>我们在<code>#!</code>中添加</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/data/aaa/.conda/envs/py3.7/bin/python</span><br></pre></td></tr></table></figure>
-<p>下面是一个例子。<br><img data-src="/images/anaconda01/img00.jpg" width="60%"></p>
+<p>下面是一个例子。<br><img data-src="/images/anaconda01/img00.avif" width="60%"></p>
 <p>——————————————————————————————————————————</p>
 <p>转载自<a href="https://benpaodewoniu.github.io/2020/05/29/anaconda1/">anaconda | 迁移虚拟环境</a></p>
 ]]></content>
@@ -163,7 +163,7 @@
 <h1 id="自动开机"><a href="#自动开机" class="headerlink" title="自动开机"></a>自动开机</h1><p>本来想着用WOL，但是实验室电脑没那条件，就只能找其他方法。</p>
 <p>最后是用Bios里的定时开机解决的需求，根据主板及固件的不同，设置可能有差别。</p>
 <p>我的是18年买的技嘉主板，设置如下图。</p>
-<img data-src="/images/bios00/img00.jpg">
+<img data-src="/images/bios00/img00.avif">
 
 <p>已知20年的技嘉主板设置不了<del>（我没找到）</del></p>
 ]]></content>
@@ -663,7 +663,7 @@
 <p>WTF！？</p>
 <p>在经过面向搜索引擎的编程之后，MD果然是盘符问题。</p>
 <p>在Windows系统中视频滤波器之后跟的参数的等号后面不能有盘符，也就是说只能用相对路径，更改了以后用命令行试了一下，就通了。</p>
-<img data-src="/images/ffmpeg00/img00.jpg" width="60%">
+<img data-src="/images/ffmpeg00/img00.avif" width="60%">
 
 <p>搭嘎扣头哇路！</p>
 <p>每次都要用命令行手动处理？这也太麻烦了，我写脚本就是为了批量处理，不能本末倒置。</p>
@@ -1418,7 +1418,7 @@ table th:nth-of-type(3) {
 <h3 id="超链接"><a href="#超链接" class="headerlink" title="超链接"></a>超链接</h3><p><a href="https://hexo.io/docs/writing.html">官方文档</a></p>
 <a href="/2020/08/01/hexo00/" title="我就想试试怎么写博客">站内跳转</a>
 
-<h3 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h3><img data-src="/images/avatar1.jpg" width="60%">
+<h3 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h3><img data-src="/images/avatar1.avif" width="60%">
 
 <h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><p>文件名和title不要求一致</p>
 ]]></content>
@@ -1930,10 +1930,10 @@ table th:nth-of-type(3) {
 <p>搬运自<a href="https://blog.csdn.net/kelekele111/article/details/123681813">这篇</a>博客。</p>
 <span id="more"></span>
 
-<h2 id="实现效果"><a href="#实现效果" class="headerlink" title="实现效果"></a>实现效果</h2><img data-src="/images/java01/img00.jpg" width="100%">
+<h2 id="实现效果"><a href="#实现效果" class="headerlink" title="实现效果"></a>实现效果</h2><img data-src="/images/java01/img00.avif" width="100%">
 
 <h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><p><strong>1. 将文件放在resources文件包下</strong></p>
-<img data-src="/images/java01/img01.jpg" width="60%">
+<img data-src="/images/java01/img01.avif" width="60%">
 
 <p><strong>2. FileServlet类实现代码</strong></p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public class FileServlet extends HttpServlet &#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException &#123;</span><br><span class="line">        //1.要获取下载文件的路径</span><br><span class="line">        String realPath = &quot;E:\\开源项目\\demo\\javaweb-02-servlet\\response\\src\\main\\resources\\123.png&quot;;</span><br><span class="line">        System.out.println(&quot;下载文件的位置&quot;+realPath);</span><br><span class="line">        //2.下载的文件名是啥,截取文件名</span><br><span class="line">        String fileName = realPath.substring(realPath.lastIndexOf(&quot;\\&quot;) + 1);</span><br><span class="line">        //3.设置让浏览器支持(Content-Disposition)下载我们需要的东西,如果文件名字为中文，需要转码，URLEncoder.encode设置文件名编码</span><br><span class="line">        resp.setHeader(&quot;Content-Disposition&quot;,&quot;attachment;filename=&quot;+ URLEncoder.encode(fileName,&quot;utf-8&quot;));</span><br><span class="line">        //4.获取下载文件的输入流</span><br><span class="line">        FileInputStream in = new FileInputStream(realPath);</span><br><span class="line">        //5.创建缓冲区</span><br><span class="line">        int len = 0;</span><br><span class="line">        byte[] buffer = new byte[1024];</span><br><span class="line">        //6.获取OutputStream对象</span><br><span class="line">        ServletOutputStream out = resp.getOutputStream();</span><br><span class="line">        //7.将FileOutputStream流写入到buffer缓冲区，使用OutputStream将缓冲区的数据输出到客户端</span><br><span class="line">        while ((len = in.read(buffer)) &gt; 0)&#123;</span><br><span class="line">            out.write(buffer,0,len);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        //关闭流</span><br><span class="line">        in.close();</span><br><span class="line">        out.close();</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException &#123;</span><br><span class="line">        doGet(req, resp);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -1986,34 +1986,34 @@ table th:nth-of-type(3) {
 <h3 id="软件选择"><a href="#软件选择" class="headerlink" title="软件选择"></a>软件选择</h3><p>我使用的是UltraISO，目前没有遇到问题。</p>
 <p>试用版就够用了。</p>
 <h3 id="开始制作"><a href="#开始制作" class="headerlink" title="开始制作"></a>开始制作</h3><p>制作流程如下：</p>
-<img data-src="/images/linux00/img00.jpg" width="60%">
+<img data-src="/images/linux00/img00.avif" width="60%">
 
-<img data-src="/images/linux00/img01.jpg" width="60%">
+<img data-src="/images/linux00/img01.avif" width="60%">
 
-<img data-src="/images/linux00/img02.jpg" width="60%">
+<img data-src="/images/linux00/img02.avif" width="60%">
 
-<img data-src="/images/linux00/img03.jpg" width="60%">
+<img data-src="/images/linux00/img03.avif" width="60%">
 
-<img data-src="/images/linux00/img04.jpg" width="60%">
+<img data-src="/images/linux00/img04.avif" width="60%">
 
-<img data-src="/images/linux00/img05.jpg" width="60%">
+<img data-src="/images/linux00/img05.avif" width="60%">
 
-<img data-src="/images/linux00/img06.jpg" width="60%">
+<img data-src="/images/linux00/img06.avif" width="60%">
 
 <p>制作完成后，显示刻录成功，就OK了。</p>
 <p>没有失败过，所以这里提供不了失败的截图及处理方法。</p>
 <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>进入BIOS之后从U盘启动。</p>
 <p>我懒得照照片了，以下是都是网图。</p>
 <h3 id="Ubuntu单系统"><a href="#Ubuntu单系统" class="headerlink" title="Ubuntu单系统"></a>Ubuntu单系统</h3><p>如果机器没有操作系统，跟着引导，一直下一步后，那么会看到如下画面，选清除磁盘的选项，英文版的也一样，自己大致翻译一下。</p>
-<img data-src="/images/linux00/img07.jpg" width="60%">
+<img data-src="/images/linux00/img07.avif" width="60%">
 
 <p>之后就没有什么需要注意的了，跟着引导走就行。</p>
 <p>如果之前电脑上有操作系统，现在想把Windows覆盖掉，只要一个Ubuntu系统的话，跟着引导在下图界面也选清除磁盘就行，英文界面的自己翻译一下。</p>
-<img data-src="/images/linux00/img08.jpg" width="60%">
+<img data-src="/images/linux00/img08.avif" width="60%">
 
 <h3 id="双系统"><a href="#双系统" class="headerlink" title="双系统"></a>双系统</h3><p>如果想装双系统，个人感觉比较简单的方法是，先装Windows，在新装的Windows中删除几个卷，再在这些空出来的磁盘空间上装Ubuntu。</p>
 <p>空出一些未分区的磁盘空间之后，跟着引导在下图界面选择并存，英文界面也是一样的。</p>
-<img data-src="/images/linux00/img9.jpg" width="60%">
+<img data-src="/images/linux00/img08.avif" width="60%">
 
 <p>到这就差不多了。</p>
 <p>没了。</p>
@@ -3612,7 +3612,7 @@ python proxyPool.py server
     <content><![CDATA[<p>截止到2022年3月1日，版本对应关系如图：</p>
 <span id="more"></span>
 
-<img data-src="/images/pytorch00/img00.jpg">
+<img data-src="/images/pytorch00/img00.avif">
 
 <p>最新的版本在这：<a href="https://github.com/pytorch/vision">torchvision</a></p>
 ]]></content>
@@ -3637,7 +3637,7 @@ python proxyPool.py server
 <p>查了很多博客和其他项目的issues。</p>
 <p>基本上都说的是torch和torchvision的版本不匹配造成的。</p>
 <p>看到的是如下的截图：</p>
-<img data-src="/images/pytorchError00/img00.jpg">
+<img data-src="/images/pytorchError00/img00.avif">
 
 <p>但是没有解决问题，毕竟本地的版本是匹配的。</p>
 <p>后来在这个<a href="https://github.com/pytorch/vision/issues/1622">issue</a>里得到了灵感。</p>
@@ -3646,7 +3646,7 @@ python proxyPool.py server
 <p>在项目中，作者说用的是pytorch的1.5版本和torchvision的0.6版本。</p>
 <p>所以在安装环境的时候，torch&#x3D;&#x3D;1.5默认安装1.5.0版本。</p>
 <p>再回到<a href="https://github.com/pytorch/vision">torchvision</a>的网站，给出的版本对应信息如下：</p>
-<img data-src="/images/pytorchError00/img01.jpg">
+<img data-src="/images/pytorchError00/img01.avif">
 
 <p>果然1.5版本有个1.5.1，把torch和vision都换成相应版本，问题解决。</p>
 <p>再列两个虽然没解决问题，但个人认为很有帮助的issues：</p>
@@ -4010,7 +4010,7 @@ python proxyPool.py server
 <span id="more"></span>
 
 <h1 id="问题需求"><a href="#问题需求" class="headerlink" title="问题需求"></a>问题需求</h1><p>获取极验三代滑动验证的图片<br>查看官网<a href="https://www.geetest.com/Sensebot/">示例</a></p>
-<img data-src="/images/selenium07/img00.jpg" width="60%">
+<img data-src="/images/selenium07/img00.avif" width="60%">
 
 <h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">from selenium import webdriver</span><br><span class="line">from selenium.webdriver.common.action_chains import ActionChains</span><br><span class="line">import time</span><br><span class="line">import random</span><br><span class="line">import base64</span><br><span class="line"></span><br><span class="line">driver = webdriver.Chrome()</span><br><span class="line">driver.get(&#x27;http://127.0.0.1:8000/&#x27;)  #打开本地部署的极验滑动验证</span><br><span class="line"></span><br><span class="line">def click(block):  # 自定义点击函数,模拟人工点击</span><br><span class="line">    action = ActionChains(driver)</span><br><span class="line">    action.click_and_hold(block).perform()</span><br><span class="line">    time.sleep(random.randint(1,10)/10)</span><br><span class="line">    action.release(block).perform()</span><br><span class="line">btn = driver.find_element_by_class_name(&#x27;geetest_wait&#x27;)  #到点击按钮</span><br><span class="line">click(btn) # 验证第一步,点击按钮进行验证</span><br><span class="line"></span><br><span class="line">#下面的js代码根据canvas文档说明而来</span><br><span class="line">JS = &#x27;return document.getElementsByClassName(&quot;geetest_canvas_bg geetest_absolute&quot;)[0].toDataURL(&quot;image/png&quot;);&#x27;</span><br><span class="line"># 执行 JS 代码并拿到图片 base64 数据</span><br><span class="line">im_info = driver.execute_script(JS)  #执行js文件得到带图片信息的图片数据</span><br><span class="line">im_base64 = im_info.split(&#x27;,&#x27;)[1]  #拿到base64编码的图片信息</span><br><span class="line">im_bytes = base64.b64decode(im_base64)  #转为bytes类型</span><br><span class="line">with open(&#x27;bg.png&#x27;,&#x27;wb&#x27;) as f:  #保存图片到本地</span><br><span class="line">    f.write(img_data)</span><br><span class="line"># 完毕</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
@@ -4190,7 +4190,7 @@ python proxyPool.py server
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public class ProductVO &#123;</span><br><span class="line">    /**</span><br><span class="line">     * 产品id</span><br><span class="line">     *</span><br><span class="line">     * @mock aa</span><br><span class="line">     */</span><br><span class="line">    private String productNo;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 备注</span><br><span class="line">     *</span><br><span class="line">     * @mock xxx</span><br><span class="line">     */</span><br><span class="line">    private String remark;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 产品详情</span><br><span class="line">     *</span><br><span class="line">     * @mock</span><br><span class="line">     */</span><br><span class="line">    private ProductDetailVO productDetailVO;</span><br><span class="line">    </span><br><span class="line">    ... 省略getter setter   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>那么生成的接口文档效果如下：</p>
-<img data-src="/images/torna00/img00.jpg" width="100%">
+<img data-src="/images/torna00/img00.avif" width="100%">
 
 <p>对照着看一下，可以发现Smart-Doc + Torna的方案生成的接口文档，请求参数和响应参数的描述和示例都非常详尽，在方便接口对接的同时，也大大减轻了开发人员的负担。</p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>Smart-Doc + Torna的生成和管理接口文档解决方案只需写好注释、规范代码，就能通过对注释和实体类的解析来生成示例详尽的接口文档，适用范围很大；由于其对代码零侵入的特性，不用改动业务代码就能使用，对旧代码也很友好。</p>
@@ -4234,12 +4234,12 @@ python proxyPool.py server
 
 <p>搬运自<a href="https://www.cnblogs.com/Se7eN-HOU/p/16175633.html">这里</a></p>
 <h2 id="一、坑一：安装的virtualenv版本太高"><a href="#一、坑一：安装的virtualenv版本太高" class="headerlink" title="一、坑一：安装的virtualenv版本太高"></a>一、坑一：安装的virtualenv版本太高</h2><p>显示使用virtualenv 安装虚拟环境报错　　</p>
-<img data-src="/images/virtualenv01/img00.jpg" width="60%">
+<img data-src="/images/virtualenv01/img00.avif" width="60%">
 
 <p>出现这个问题就是说明你的virtualev安装的版本太高，降低一下版本重新安装即可，我这里使用的是15这个版本</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pip install virtualenv==15.0.0 </span><br></pre></td></tr></table></figure>
 
-<h2 id="二、坑2：pip的版本太高"><a href="#二、坑2：pip的版本太高" class="headerlink" title="二、坑2：pip的版本太高"></a>二、坑2：pip的版本太高</h2><img data-src="/images/virtualenv01/img01.jpg" width="60%">
+<h2 id="二、坑2：pip的版本太高"><a href="#二、坑2：pip的版本太高" class="headerlink" title="二、坑2：pip的版本太高"></a>二、坑2：pip的版本太高</h2><img data-src="/images/virtualenv01/img01.avif" width="60%">
 
 <p>如果出现上面的错误，说明你的pip的版本太高，没办法，只能说是python3.5的版本太低了，历史遗留问题，没办法，必须要使用python3.5，只能乖乖降pip的版本</p>
 <p>python3.5最高支持pip&#x3D;20的版本</p>
