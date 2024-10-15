@@ -4877,4 +4877,27 @@ python proxyPool.py server
         <tag>WSL</tag>
       </tags>
   </entry>
+  <entry>
+    <title>记一次WebSocket的CLOSE_WAIT问题解决</title>
+    <url>/2024/10/15/spring02/</url>
+    <content><![CDATA[<p>这几天发现线上的服务器有很多CLOSE_WAIT的连接，导致新的请求接不进来。</p>
+<span id="more"></span>
+
+<h2 id="问题原因"><a href="#问题原因" class="headerlink" title="问题原因"></a>问题原因</h2><p>经排查，是WebSocket连接没有正常关闭引起的。</p>
+<h2 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决"></a>问题解决</h2><p>直接贴代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">@Configuration</span><br><span class="line">@EnableWebSocket</span><br><span class="line">public class WebSocketConfig implements WebSocketConfigurer &#123;</span><br><span class="line">    @Bean</span><br><span class="line">    public ServletServerContainerFactoryBean createWebSocketContainer() &#123;</span><br><span class="line">        var container = new ServletServerContainerFactoryBean();</span><br><span class="line">        container.setMaxSessionIdleTimeout(...);</span><br><span class="line">        return container;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>解决方法来自<a href="https://stackoverflow.com/questions/25930285/spring-websocket-timeout-settings">这里</a>。</p>
+]]></content>
+      <categories>
+        <category>Java</category>
+        <category>Spring</category>
+        <category>WebSocket</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>Spring</tag>
+        <tag>WebSocket</tag>
+      </tags>
+  </entry>
 </search>

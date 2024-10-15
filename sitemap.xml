@@ -2,6 +2,17 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://l-fay.github.io/2024/10/15/spring02/</loc>
+    
+    <lastmod>2024-10-15T10:53:20.483Z</lastmod>
+    
+    <date>1728989323000</date>
+    <title>记一次WebSocket的CLOSE_WAIT问题解决 | 兰秋廿柒的博客</title>
+    
+    <desc>这几天发现线上的服务器有很多CLOSE_WAIT的连接，导致新的请求接不进来。</desc>
+  </url>
+  
+  <url>
     <loc>https://l-fay.github.io/2024/10/09/wsl00/</loc>
     
     <lastmod>2024-10-09T10:15:05.952Z</lastmod>
