@@ -4888,6 +4888,9 @@ python proxyPool.py server
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">@Configuration</span><br><span class="line">@EnableWebSocket</span><br><span class="line">public class WebSocketConfig implements WebSocketConfigurer &#123;</span><br><span class="line">    @Bean</span><br><span class="line">    public ServletServerContainerFactoryBean createWebSocketContainer() &#123;</span><br><span class="line">        var container = new ServletServerContainerFactoryBean();</span><br><span class="line">        container.setMaxSessionIdleTimeout(...);</span><br><span class="line">        return container;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>解决方法来自<a href="https://stackoverflow.com/questions/25930285/spring-websocket-timeout-settings">这里</a>。</p>
+<p>这是设置超时关闭，设置完运行了两天发现情况有所好转，但还是存在CLOSE_WAIT的问题，于是开始重检代码。</p>
+<p>经过<code>jstack</code>大法重检，发现问题在于服务端把所有的WebSocket连接放在一个<code>Hashtable</code>中。在高并发场景下，<code>Hashtable</code>撑不住了。</p>
+<p>把<code>Hashtable</code>换成<code>ConcurrentHashMap</code>，问题解决。</p>
 ]]></content>
       <categories>
         <category>Java</category>
