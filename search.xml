@@ -4903,4 +4903,22 @@ python proxyPool.py server
         <tag>WebSocket</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Hexo | Warning: LF will be replaced by CRLF and Special characters appear</title>
+    <url>/2024/10/21/hexo09/</url>
+    <content><![CDATA[<p>使用<code>hexo d</code>部署的时候，提示<code>Warning: LF will be replaced by CRLF and Special characters appear</code>。</p>
+<span id="more"></span>
+
+<h2 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h2><p>在Unix系统中，行尾用换行符 (LF) 表示。在 Windows 中，一行由回车符 (CR) 和换行符 (LF) 表示，即 (CRLF)。当从 git 获取从 unix 系统上传的代码时，它们只会有一个 LF。就会报这个Warning。</p>
+<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>修改<code>[hexo-blog-root-dir]/.deploy_git/.git/config</code>文件。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[core]</span><br><span class="line"># some options</span><br><span class="line">	autocrlf = false</span><br><span class="line">[filter &quot;lfs&quot;]</span><br><span class="line">	required = true</span><br><span class="line">	clean = git-lfs clean -- %f</span><br><span class="line">	smudge = git-lfs smudge -- %f</span><br><span class="line">	process = git-lfs filter-process</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Git</category>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
 </search>
