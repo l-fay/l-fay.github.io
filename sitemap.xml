@@ -2,6 +2,17 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://l-fay.github.io/2024/10/22/nginx01/</loc>
+    
+    <lastmod>2024-10-22T10:26:39.975Z</lastmod>
+    
+    <date>1729595568000</date>
+    <title>Nginx | location 和 proxy_pass路径配置总结 | 兰秋廿柒的博客</title>
+    
+    <desc>Nginx的配置中，一个\可能导致巨大的差异。</desc>
+  </url>
+  
+  <url>
     <loc>https://l-fay.github.io/2024/10/21/hexo09/</loc>
     
     <lastmod>2024-10-22T10:23:51.109Z</lastmod>
@@ -10,17 +21,6 @@
     <title>Hexo | Warning: LF will be replaced by CRLF and Special characters appear | 兰秋廿柒的博客</title>
     
     <desc>使用hexo d部署的时候，提示Warning: LF will be replaced by CRLF and Special characters appear。</desc>
-  </url>
-  
-  <url>
-    <loc>https://l-fay.github.io/2024/10/22/nginx01/</loc>
-    
-    <lastmod>2024-10-22T10:22:18.315Z</lastmod>
-    
-    <date>1729595568000</date>
-    <title>Nginx | location 和 proxy_pass路径配置总结 | 兰秋廿柒的博客</title>
-    
-    <desc>Nginx的配置中，一个\可能导致巨大的差异。</desc>
   </url>
   
   <url>
