@@ -2,130 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://l-fay.github.io/2022/10/21/linux09/</loc>
+    <loc>https://l-fay.github.io/2024/11/03/pycharm00/</loc>
     
-    <lastmod>2024-08-29T15:36:21.451Z</lastmod>
+    <lastmod>2024-11-03T11:40:55.075Z</lastmod>
     
-    <date>1666351830000</date>
-    <title>Linux | Linux服务器上配置域和DNS | 兰秋廿柒的博客</title>
+    <date>1730619431000</date>
+    <title>Pycharm | 无法重命名解释器 | 兰秋廿柒的博客</title>
     
-    <desc>给Linux机器配置DNS的方法。</desc>
-  </url>
-  
-  <url>
-    <loc>https://l-fay.github.io/2024/08/26/hexo07/</loc>
-    
-    <lastmod>2024-08-29T15:36:21.450Z</lastmod>
-    
-    <date>1724670062000</date>
-    <title>Hexo | Hexo及其依赖升级 | 兰秋廿柒的博客</title>
-    
-    <desc>升级Hexo及其依赖的方法，也适用于其他的Node项目。</desc>
-  </url>
-  
-  <url>
-    <loc>https://l-fay.github.io/2024/08/28/hexo08/</loc>
-    
-    <lastmod>2024-08-29T15:36:21.450Z</lastmod>
-    
-    <date>1724849349000</date>
-    <title>Hexo | 解决Gitalk无法获取Github Token问题 | 兰秋廿柒的博客</title>
-    
-    <desc>搬运自Dedicatus545 前言记一次Hexo Next主题下Gitalk无法获取Github Token问题</desc>
-  </url>
-  
-  <url>
-    <loc>https://l-fay.github.io/2024/05/19/git03/</loc>
-    
-    <lastmod>2024-08-29T15:36:21.449Z</lastmod>
-    
-    <date>1716123377000</date>
-    <title>Git | 同时提交到两个git地址 | 兰秋廿柒的博客</title>
-    
-    <desc>需要给同一个项目设置两个远程git地址，主要是为了灾备。</desc>
-  </url>
-  
-  <url>
-    <loc>https://l-fay.github.io/2024/08/22/ffmpeg17/</loc>
-    
-    <lastmod>2024-08-29T15:36:21.448Z</lastmod>
-    
-    <date>1724340268000</date>
-    <title>FFmpeg | 提取附件 | 兰秋廿柒的博客</title>
-    
-    <desc>有时媒体文件中会将字体封为一个流，在做软字幕烧录硬字幕时，会需要这个字体文件，这是就有把字体文件提取出来的需求。</desc>
-  </url>
-  
-  <url>
-    <loc>https://l-fay.github.io/2024/08/20/db00/</loc>
-    
-    <lastmod>2024-08-20T15:43:18.562Z</lastmod>
-    
-    <date>1724167689000</date>
-    <title>数据库 | json_remove()函数在不同数据库的区别 | 兰秋廿柒的博客</title>
-    
-    <desc>今天遇到一个问题，在执行select操作时报错，排查出来是json_remove()函数在不同数据库有区别。</desc>
-  </url>
-  
-  <url>
-    <loc>https://l-fay.github.io/2020/11/27/anaconda00/</loc>
-    
-    <lastmod>2024-08-20T13:23:14.655Z</lastmod>
-    
-    <date>1606472146000</date>
-    <title>pip换源的注意事项 | 兰秋廿柒的博客</title>
-    
-    <desc>之前把pip换源了，现在要装opencv-python的3.4.11.43版本，清华源没有，就把默认源加上了https://pypi.python.org/simple/，顺便记一下pip换源的方法。</desc>
-  </url>
-  
-  <url>
-    <loc>https://l-fay.github.io/2024/08/19/selenium07/</loc>
-    
-    <lastmod>2024-08-20T13:11:18.637Z</lastmod>
-    
-    <date>1724065913000</date>
-    <title>Selenium | 获取canvas画布中的图片 | 兰秋廿柒的博客</title>
-    
-    <desc>搬运自这里。 没办法直接获取，但是JS有获取的方法，详见canvas文档。</desc>
-  </url>
-  
-  <url>
-    <loc>https://l-fay.github.io/2023/07/02/life00/</loc>
-    
-    <lastmod>2024-08-20T12:51:28.960Z</lastmod>
-    
-    <date>1688294712000</date>
-    <title>杂记 | 每个人都是一本书 | 兰秋廿柒的博客</title>
-    
-    <desc>文章已加密</desc>
-  </url>
-  
-  <url>
-    <loc>https://l-fay.github.io/2023/07/07/life01/</loc>
-    
-    <lastmod>2024-08-20T12:51:26.201Z</lastmod>
-    
-    <date>1688730846000</date>
-    <title>梦 | 噩梦 | 兰秋廿柒的博客</title>
-    
-    <desc>文章已加密</desc>
-  </url>
-  
-  <url>
-    <loc>https://l-fay.github.io/2024/08/18/python08/</loc>
-    
-    <lastmod>2024-08-20T11:34:26.711Z</lastmod>
-    
-    <date>1723952513000</date>
-    <title>Python | DataFrame合并后处理重复index的方法 | 兰秋廿柒的博客</title>
-    
-    <desc>在合并DataFrame的博客的2.1章节中，可以看到输出结果的index重复了，后续所有通过index的操作都会受影响。</desc>
+    <desc>在重命名解释器时遇到了cannot save settings, please specify a different SDK name错误。</desc>
   </url>
   
   <url>
     <loc>https://l-fay.github.io/tags/index.html</loc>
     
-    <lastmod>2024-08-20T11:21:55.520Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.810Z</lastmod>
     
     <date>1599052086000</date>
     <title>标签 | 兰秋廿柒的博客</title>
@@ -136,7 +26,7 @@
   <url>
     <loc>https://l-fay.github.io/categories/index.html</loc>
     
-    <lastmod>2024-08-20T11:21:55.489Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.794Z</lastmod>
     
     <date>1599051789000</date>
     <title>分类 | 兰秋廿柒的博客</title>
@@ -145,42 +35,9 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/2022/07/10/windows03/</loc>
-    
-    <lastmod>2024-08-20T11:21:55.488Z</lastmod>
-    
-    <date>1657424917000</date>
-    <title>Win10每天第一次开机死机需要重启解决办法 | 兰秋廿柒的博客</title>
-    
-    <desc>由于新配了电脑，这几天在捣鼓各种环境软件啥的，突然发现每天电脑第一次开机总会死机，解决方法如下。</desc>
-  </url>
-  
-  <url>
-    <loc>https://l-fay.github.io/2024/08/03/windows05/</loc>
-    
-    <lastmod>2024-08-20T11:21:55.488Z</lastmod>
-    
-    <date>1722657419000</date>
-    <title>解决天猫精灵连接Windows10蓝牙时，语音控制会中断媒体播放的问题 | 兰秋廿柒的博客</title>
-    
-    <desc>用天猫精灵当蓝牙音响的时候，遇到个很困扰的问题，每次天猫精灵语音控制的过程中，都会启动&#x2F;暂停电脑中的媒体播放。</desc>
-  </url>
-  
-  <url>
-    <loc>https://l-fay.github.io/2022/07/10/windows04/</loc>
-    
-    <lastmod>2024-08-20T11:21:55.488Z</lastmod>
-    
-    <date>1657425788000</date>
-    <title>Windows 每天第一次开机执行的批处理脚本模板 | 兰秋廿柒的博客</title>
-    
-    <desc>如题。</desc>
-  </url>
-  
-  <url>
     <loc>https://l-fay.github.io/2021/06/16/you-get00/</loc>
     
-    <lastmod>2024-08-20T11:21:55.488Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.793Z</lastmod>
     
     <date>1623829236000</date>
     <title>you-get | 在线视频下载工具 | 兰秋廿柒的博客</title>
@@ -189,31 +46,31 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/2022/03/01/windows00/</loc>
+    <loc>https://l-fay.github.io/2022/07/10/windows03/</loc>
     
-    <lastmod>2024-08-20T11:21:55.487Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.792Z</lastmod>
     
-    <date>1646115409000</date>
-    <title>Windows一些快捷键 | 兰秋廿柒的博客</title>
+    <date>1657424917000</date>
+    <title>Win10每天第一次开机死机需要重启解决办法 | 兰秋廿柒的博客</title>
     
-    <desc>Windows一些快捷键。</desc>
+    <desc>由于新配了电脑，这几天在捣鼓各种环境软件啥的，突然发现每天电脑第一次开机总会死机，解决方法如下。</desc>
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/2020/08/20/windows01/</loc>
+    <loc>https://l-fay.github.io/2022/07/10/windows04/</loc>
     
-    <lastmod>2024-08-20T11:21:55.487Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.792Z</lastmod>
     
-    <date>1597891350000</date>
-    <title>Windows系统安装 | 兰秋廿柒的博客</title>
+    <date>1657425788000</date>
+    <title>Windows 每天第一次开机执行的批处理脚本模板 | 兰秋廿柒的博客</title>
     
-    <desc>Windows系统还是比用的比较多的。</desc>
+    <desc>如题。</desc>
   </url>
   
   <url>
     <loc>https://l-fay.github.io/2022/05/16/windows02/</loc>
     
-    <lastmod>2024-08-20T11:21:55.487Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.791Z</lastmod>
     
     <date>1652680679000</date>
     <title>WindowsServer2008R2安装 | 兰秋廿柒的博客</title>
@@ -222,9 +79,31 @@
   </url>
   
   <url>
+    <loc>https://l-fay.github.io/2020/08/20/windows01/</loc>
+    
+    <lastmod>2024-11-03T07:21:07.791Z</lastmod>
+    
+    <date>1597891350000</date>
+    <title>Windows系统安装 | 兰秋廿柒的博客</title>
+    
+    <desc>Windows系统还是比用的比较多的。</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2022/03/01/windows00/</loc>
+    
+    <lastmod>2024-11-03T07:21:07.790Z</lastmod>
+    
+    <date>1646115409000</date>
+    <title>Windows一些快捷键 | 兰秋廿柒的博客</title>
+    
+    <desc>Windows一些快捷键。</desc>
+  </url>
+  
+  <url>
     <loc>https://l-fay.github.io/2021/03/22/visualization01/</loc>
     
-    <lastmod>2024-08-20T11:21:55.486Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.789Z</lastmod>
     
     <date>1616403575000</date>
     <title>Tkinter | 控件摆放 | 兰秋廿柒的博客</title>
@@ -235,7 +114,7 @@
   <url>
     <loc>https://l-fay.github.io/2021/03/23/visualization02/</loc>
     
-    <lastmod>2024-08-20T11:21:55.486Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.789Z</lastmod>
     
     <date>1616512014000</date>
     <title>Tkinter | 循环产生控件时函数的执行逻辑 | 兰秋廿柒的博客</title>
@@ -244,20 +123,9 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/2023/07/20/virtualenv02/</loc>
-    
-    <lastmod>2024-08-20T11:21:55.485Z</lastmod>
-    
-    <date>1689854742000</date>
-    <title>Python多环境 | 安装virtualenv的步骤 | 兰秋廿柒的博客</title>
-    
-    <desc>这篇博客记一下安装virtualenv的通常步骤。</desc>
-  </url>
-  
-  <url>
     <loc>https://l-fay.github.io/2021/03/22/visualization00/</loc>
     
-    <lastmod>2024-08-20T11:21:55.485Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.788Z</lastmod>
     
     <date>1616399826000</date>
     <title>Tkinter | 初学Tkinter | 兰秋廿柒的博客</title>
@@ -268,7 +136,7 @@
   <url>
     <loc>https://l-fay.github.io/2023/07/20/virtualenv03/</loc>
     
-    <lastmod>2024-08-20T11:21:55.485Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.770Z</lastmod>
     
     <date>1689856650000</date>
     <title>virtualenv的使用场景 | 兰秋廿柒的博客</title>
@@ -279,7 +147,7 @@
   <url>
     <loc>https://l-fay.github.io/2023/07/15/virtualenv00/</loc>
     
-    <lastmod>2024-08-20T11:21:55.484Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.769Z</lastmod>
     
     <date>1689431844000</date>
     <title>Python多环境 | 基于virtualenv+virtualenvwrapper创建python虚拟环境 | 兰秋廿柒的博客</title>
@@ -288,31 +156,20 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/2023/07/15/virtualenv01/</loc>
+    <loc>https://l-fay.github.io/2023/07/20/virtualenv02/</loc>
     
-    <lastmod>2024-08-20T11:21:55.484Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.769Z</lastmod>
     
-    <date>1689432312000</date>
-    <title>Python多环境 | python3.5上使用virtualenv创建虚拟环境的坑 | 兰秋廿柒的博客</title>
+    <date>1689854742000</date>
+    <title>Python多环境 | 安装virtualenv的步骤 | 兰秋廿柒的博客</title>
     
-    <desc>python3.5上使用virtualenv的一些问题。</desc>
-  </url>
-  
-  <url>
-    <loc>https://l-fay.github.io/2022/11/30/torna00/</loc>
-    
-    <lastmod>2024-08-20T11:21:55.483Z</lastmod>
-    
-    <date>1669807930000</date>
-    <title>使用Smart-Doc + Torna生成和管理接口文档 | 兰秋廿柒的博客</title>
-    
-    <desc>在开发spring项目的时候，接口文档承担着向其他开发人员说明接口相关信息的重要任务，因此，一份清晰而又相近的接口文档至关重要。 但是，写接口文档的痛苦想必各位开发人员都体验过，明明写接口的时候那么丝滑，写接口文档的时候像要老命一样各种核对数据格式、文档格式，最后还有可能漏掉那么一些示例导致调用不成功，继续和其他开发沟通……还有接口文档的更新问题，一旦要更新接口文档，就意味着要给所有用着接口文档的</desc>
+    <desc>这篇博客记一下安装virtualenv的通常步骤。</desc>
   </url>
   
   <url>
     <loc>https://l-fay.github.io/2023/07/13/steam00/</loc>
     
-    <lastmod>2024-08-20T11:21:55.482Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.768Z</lastmod>
     
     <date>1689253208000</date>
     <title>Steam | 验证短信乱码 | 兰秋廿柒的博客</title>
@@ -323,7 +180,7 @@
   <url>
     <loc>https://l-fay.github.io/2023/10/28/sql01/</loc>
     
-    <lastmod>2024-08-20T11:21:55.482Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.767Z</lastmod>
     
     <date>1698491791000</date>
     <title>mysql根据父节点递归查询所有子节点 | 兰秋廿柒的博客</title>
@@ -334,7 +191,7 @@
   <url>
     <loc>https://l-fay.github.io/2023/04/11/sql00/</loc>
     
-    <lastmod>2024-08-20T11:21:55.482Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.767Z</lastmod>
     
     <date>1681211149000</date>
     <title>sql | MySql的upserte语句 | 兰秋廿柒的博客</title>
@@ -345,7 +202,7 @@
   <url>
     <loc>https://l-fay.github.io/2023/10/28/spring01/</loc>
     
-    <lastmod>2024-08-20T11:21:55.481Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.766Z</lastmod>
     
     <date>1698482447000</date>
     <title>缓存 | @Cacheable注解函数内部调用不生效 | 兰秋廿柒的博客</title>
@@ -356,7 +213,7 @@
   <url>
     <loc>https://l-fay.github.io/2023/07/08/spring00/</loc>
     
-    <lastmod>2024-08-20T11:21:55.481Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.765Z</lastmod>
     
     <date>1688817694000</date>
     <title>异步 | @Async注解配置线程池 | 兰秋廿柒的博客</title>
@@ -365,9 +222,20 @@
   </url>
   
   <url>
+    <loc>https://l-fay.github.io/2023/11/22/selenium06/</loc>
+    
+    <lastmod>2024-11-03T07:21:07.764Z</lastmod>
+    
+    <date>1700649463000</date>
+    <title>Selenium | Docker里的Chrome浏览器自动化过程报错 | 兰秋廿柒的博客</title>
+    
+    <desc>记录下Docker里的Chrome浏览器自动化过程报错以及解决方法。</desc>
+  </url>
+  
+  <url>
     <loc>https://l-fay.github.io/2020/08/21/spider00/</loc>
     
-    <lastmod>2024-08-20T11:21:55.481Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.764Z</lastmod>
     
     <date>1597992139000</date>
     <title>爬取微博数据 | 兰秋廿柒的博客</title>
@@ -376,9 +244,20 @@
   </url>
   
   <url>
+    <loc>https://l-fay.github.io/2023/11/22/selenium05/</loc>
+    
+    <lastmod>2024-11-03T07:21:07.763Z</lastmod>
+    
+    <date>1700648325000</date>
+    <title>Selenium | 操作Docker里的Chrome浏览器 | 兰秋廿柒的博客</title>
+    
+    <desc>主要是在Nas里用Docker布了一个Chrome，用来执行爬虫。</desc>
+  </url>
+  
+  <url>
     <loc>https://l-fay.github.io/2023/11/05/selenium04/</loc>
     
-    <lastmod>2024-08-20T11:21:55.479Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.763Z</lastmod>
     
     <date>1699170333000</date>
     <title>Selenium | 修改元素属性 | 兰秋廿柒的博客</title>
@@ -389,7 +268,7 @@
   <url>
     <loc>https://l-fay.github.io/2021/06/05/selenium03/</loc>
     
-    <lastmod>2024-08-20T11:21:55.479Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.761Z</lastmod>
     
     <date>1622876519000</date>
     <title>Selenium | iframe的操作 | 兰秋廿柒的博客</title>
@@ -398,53 +277,9 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/2023/11/22/selenium05/</loc>
-    
-    <lastmod>2024-08-20T11:21:55.479Z</lastmod>
-    
-    <date>1700648325000</date>
-    <title>Selenium | 操作Docker里的Chrome浏览器 | 兰秋廿柒的博客</title>
-    
-    <desc>主要是在Nas里用Docker布了一个Chrome，用来执行爬虫。</desc>
-  </url>
-  
-  <url>
-    <loc>https://l-fay.github.io/2023/11/22/selenium06/</loc>
-    
-    <lastmod>2024-08-20T11:21:55.479Z</lastmod>
-    
-    <date>1700649463000</date>
-    <title>Selenium | Docker里的Chrome浏览器自动化过程报错 | 兰秋廿柒的博客</title>
-    
-    <desc>记录下Docker里的Chrome浏览器自动化过程报错以及解决方法。</desc>
-  </url>
-  
-  <url>
-    <loc>https://l-fay.github.io/2021/04/19/selenium02/</loc>
-    
-    <lastmod>2024-08-20T11:21:55.478Z</lastmod>
-    
-    <date>1618804258000</date>
-    <title>Selenium | 配置Chrome的option | 兰秋廿柒的博客</title>
-    
-    <desc>有的网站会检测Chrome配置，所以为了规避检测，大抵有两种方法。</desc>
-  </url>
-  
-  <url>
-    <loc>https://l-fay.github.io/2021/04/19/selenium00/</loc>
-    
-    <lastmod>2024-08-20T11:21:55.478Z</lastmod>
-    
-    <date>1618803161000</date>
-    <title>Selenium | canvas元素的点击问题 | 兰秋廿柒的博客</title>
-    
-    <desc>用Selenium写自动化脚本的时候遇到的一个有趣的细节。</desc>
-  </url>
-  
-  <url>
     <loc>https://l-fay.github.io/2021/04/19/selenium01/</loc>
     
-    <lastmod>2024-08-20T11:21:55.478Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.748Z</lastmod>
     
     <date>1618803919000</date>
     <title>Selenium | 窗口的句柄问题 | 兰秋廿柒的博客</title>
@@ -453,9 +288,20 @@
   </url>
   
   <url>
+    <loc>https://l-fay.github.io/2021/04/19/selenium02/</loc>
+    
+    <lastmod>2024-11-03T07:21:07.748Z</lastmod>
+    
+    <date>1618804258000</date>
+    <title>Selenium | 配置Chrome的option | 兰秋廿柒的博客</title>
+    
+    <desc>有的网站会检测Chrome配置，所以为了规避检测，大抵有两种方法。</desc>
+  </url>
+  
+  <url>
     <loc>https://l-fay.github.io/2021/10/22/redis04/</loc>
     
-    <lastmod>2024-08-20T11:21:55.477Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.747Z</lastmod>
     
     <date>1634884056000</date>
     <title>Python连接Redis连接池 | 兰秋廿柒的博客</title>
@@ -464,9 +310,20 @@
   </url>
   
   <url>
+    <loc>https://l-fay.github.io/2021/04/19/selenium00/</loc>
+    
+    <lastmod>2024-11-03T07:21:07.747Z</lastmod>
+    
+    <date>1618803161000</date>
+    <title>Selenium | canvas元素的点击问题 | 兰秋廿柒的博客</title>
+    
+    <desc>用Selenium写自动化脚本的时候遇到的一个有趣的细节。</desc>
+  </url>
+  
+  <url>
     <loc>https://l-fay.github.io/2020/11/01/redis02/</loc>
     
-    <lastmod>2024-08-20T11:21:55.477Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.746Z</lastmod>
     
     <date>1604210437000</date>
     <title>Redis的哨兵模式配置 | 兰秋廿柒的博客</title>
@@ -477,7 +334,7 @@
   <url>
     <loc>https://l-fay.github.io/2021/10/21/redis03/</loc>
     
-    <lastmod>2024-08-20T11:21:55.477Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.746Z</lastmod>
     
     <date>1634814037000</date>
     <title>Python连接Redis集群 | 兰秋廿柒的博客</title>
@@ -486,31 +343,9 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/2020/09/09/pytorchError00/</loc>
-    
-    <lastmod>2024-08-20T11:21:55.476Z</lastmod>
-    
-    <date>1599652039000</date>
-    <title>RuntimeError: No such operator torchvision::nms | 兰秋廿柒的博客</title>
-    
-    <desc>今天遇到了如题目所示的问题 项目地址：naver&#x2F;dope 由于是个新的项目，还没有issues，只能自力更生。</desc>
-  </url>
-  
-  <url>
-    <loc>https://l-fay.github.io/2020/10/26/redis01/</loc>
-    
-    <lastmod>2024-08-20T11:21:55.476Z</lastmod>
-    
-    <date>1603707677000</date>
-    <title>Redis的配置 | 兰秋廿柒的博客</title>
-    
-    <desc>一些相关的配置。</desc>
-  </url>
-  
-  <url>
     <loc>https://l-fay.github.io/2021/03/22/pytorchError01/</loc>
     
-    <lastmod>2024-08-20T11:21:55.476Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.745Z</lastmod>
     
     <date>1616399350000</date>
     <title>RuntimeError: All input tensors must be on the same device. Received cuda:0 and cpu | 兰秋廿柒的博客</title>
@@ -521,7 +356,7 @@
   <url>
     <loc>https://l-fay.github.io/2020/10/26/redis00/</loc>
     
-    <lastmod>2024-08-20T11:21:55.476Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.745Z</lastmod>
     
     <date>1603706593000</date>
     <title>Redis的安装 | 兰秋廿柒的博客</title>
@@ -530,31 +365,20 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/2021/04/05/pythonLibraryError01/</loc>
+    <loc>https://l-fay.github.io/2020/10/26/redis01/</loc>
     
-    <lastmod>2024-08-20T11:21:55.475Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.745Z</lastmod>
     
-    <date>1617610686000</date>
-    <title>找不到已安装包 | 兰秋廿柒的博客</title>
+    <date>1603707677000</date>
+    <title>Redis的配置 | 兰秋廿柒的博客</title>
     
-    <desc>有的时候明明已经装了一个包，但还是报错”ModuleNotFoundError”。</desc>
-  </url>
-  
-  <url>
-    <loc>https://l-fay.github.io/2022/03/01/pytorch00/</loc>
-    
-    <lastmod>2024-08-20T11:21:55.475Z</lastmod>
-    
-    <date>1646114343000</date>
-    <title>Pytorch和Python的版本对应关系 | 兰秋廿柒的博客</title>
-    
-    <desc>截止到2022年3月1日，版本对应关系如图：</desc>
+    <desc>一些相关的配置。</desc>
   </url>
   
   <url>
     <loc>https://l-fay.github.io/2023/10/28/pythonLibraryError02/</loc>
     
-    <lastmod>2024-08-20T11:21:55.475Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.744Z</lastmod>
     
     <date>1698480955000</date>
     <title>SyntaxError: future feature annotations is not defined | 兰秋廿柒的博客</title>
@@ -563,20 +387,20 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/2023/07/11/pythonLibrary18/</loc>
+    <loc>https://l-fay.github.io/2021/04/05/pythonLibraryError01/</loc>
     
-    <lastmod>2024-08-20T11:21:55.474Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.744Z</lastmod>
     
-    <date>1689081676000</date>
-    <title>ReportLab | 文本排列问题 | 兰秋廿柒的博客</title>
+    <date>1617610686000</date>
+    <title>找不到已安装包 | 兰秋廿柒的博客</title>
     
-    <desc>在使用ReportLab生成PDF时，遇到了大字号的文本段在换行后，上下行相互覆盖的问题。</desc>
+    <desc>有的时候明明已经装了一个包，但还是报错”ModuleNotFoundError”。</desc>
   </url>
   
   <url>
     <loc>https://l-fay.github.io/2021/01/11/pythonLibraryError00/</loc>
     
-    <lastmod>2024-08-20T11:21:55.474Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.743Z</lastmod>
     
     <date>1610330557000</date>
     <title>matplotlib | NotImplementedError: It is not currently possible to manually set the aspect on 3D axes | 兰秋廿柒的博客</title>
@@ -587,7 +411,7 @@
   <url>
     <loc>https://l-fay.github.io/2023/11/29/pythonLibrary19/</loc>
     
-    <lastmod>2024-08-20T11:21:55.474Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.743Z</lastmod>
     
     <date>1701261110000</date>
     <title>Faker | 生成各种类型的随机数据 | 兰秋廿柒的博客</title>
@@ -596,20 +420,9 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/2021/06/07/pythonLibrary16/</loc>
-    
-    <lastmod>2024-08-20T11:21:55.473Z</lastmod>
-    
-    <date>1623066428000</date>
-    <title>mutagen | 删除元数据 | 兰秋廿柒的博客</title>
-    
-    <desc>解决了ffmpeg | 删除视频中的元数据中的不能在源文件上直接修改的问题。</desc>
-  </url>
-  
-  <url>
     <loc>https://l-fay.github.io/2021/06/07/pythonLibrary15/</loc>
     
-    <lastmod>2024-08-20T11:21:55.473Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.742Z</lastmod>
     
     <date>1623066073000</date>
     <title>mutagen | 提取mp4封面 | 兰秋廿柒的博客</title>
@@ -618,20 +431,31 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/2021/06/07/pythonLibrary14/</loc>
+    <loc>https://l-fay.github.io/2021/06/07/pythonLibrary16/</loc>
     
-    <lastmod>2024-08-20T11:21:55.473Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.742Z</lastmod>
     
-    <date>1623065491000</date>
-    <title>mutagen | 添加mp4封面 | 兰秋廿柒的博客</title>
+    <date>1623066428000</date>
+    <title>mutagen | 删除元数据 | 兰秋廿柒的博客</title>
     
-    <desc>主要用来添加封面。</desc>
+    <desc>解决了ffmpeg | 删除视频中的元数据中的不能在源文件上直接修改的问题。</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2023/07/11/pythonLibrary18/</loc>
+    
+    <lastmod>2024-11-03T07:21:07.742Z</lastmod>
+    
+    <date>1689081676000</date>
+    <title>ReportLab | 文本排列问题 | 兰秋廿柒的博客</title>
+    
+    <desc>在使用ReportLab生成PDF时，遇到了大字号的文本段在换行后，上下行相互覆盖的问题。</desc>
   </url>
   
   <url>
     <loc>https://l-fay.github.io/2021/07/09/pythonLibrary17/</loc>
     
-    <lastmod>2024-08-20T11:21:55.473Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.742Z</lastmod>
     
     <date>1625838915000</date>
     <title>Python | datetime库计算时间差 | 兰秋廿柒的博客</title>
@@ -640,9 +464,20 @@
   </url>
   
   <url>
+    <loc>https://l-fay.github.io/2021/06/07/pythonLibrary14/</loc>
+    
+    <lastmod>2024-11-03T07:21:07.740Z</lastmod>
+    
+    <date>1623065491000</date>
+    <title>mutagen | 添加mp4封面 | 兰秋廿柒的博客</title>
+    
+    <desc>主要用来添加封面。</desc>
+  </url>
+  
+  <url>
     <loc>https://l-fay.github.io/2021/03/22/pythonLibrary08/</loc>
     
-    <lastmod>2024-08-20T11:21:55.472Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.739Z</lastmod>
     
     <date>1616425214000</date>
     <title>Python | paramiko库使用sftp操作集群 | 兰秋廿柒的博客</title>
@@ -653,7 +488,7 @@
   <url>
     <loc>https://l-fay.github.io/2021/04/19/pythonLibrary12/</loc>
     
-    <lastmod>2024-08-20T11:21:55.472Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.739Z</lastmod>
     
     <date>1618805155000</date>
     <title>Pytesseract | 简介 | 兰秋廿柒的博客</title>
@@ -662,20 +497,9 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/2021/01/27/pythonLibrary05/</loc>
-    
-    <lastmod>2024-08-20T11:21:55.471Z</lastmod>
-    
-    <date>1611761007000</date>
-    <title>Python | datetime库的时间相关操作 | 兰秋廿柒的博客</title>
-    
-    <desc>有的时候需要使用当前的时间。</desc>
-  </url>
-  
-  <url>
     <loc>https://l-fay.github.io/2021/02/03/pythonLibrary07/</loc>
     
-    <lastmod>2024-08-20T11:21:55.471Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.738Z</lastmod>
     
     <date>1612359062000</date>
     <title>Python | bypy库在Linux上操作百度云 | 兰秋廿柒的博客</title>
@@ -686,7 +510,7 @@
   <url>
     <loc>https://l-fay.github.io/2021/01/27/pythonLibrary06/</loc>
     
-    <lastmod>2024-08-20T11:21:55.471Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.738Z</lastmod>
     
     <date>1611761237000</date>
     <title>Python | os库 | 兰秋廿柒的博客</title>
@@ -695,31 +519,9 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/2023/07/11/pythonLibrary03/</loc>
-    
-    <lastmod>2024-08-20T11:21:55.470Z</lastmod>
-    
-    <date>1689081937000</date>
-    <title>ReportLab | 生成表格 | 兰秋廿柒的博客</title>
-    
-    <desc>在用ReportLab生成PDF时有加入表格的需求。</desc>
-  </url>
-  
-  <url>
-    <loc>https://l-fay.github.io/2021/01/06/pythonLibrary02/</loc>
-    
-    <lastmod>2024-08-20T11:21:55.470Z</lastmod>
-    
-    <date>1609940845000</date>
-    <title>mutagen | MP3封面操作 | 兰秋廿柒的博客</title>
-    
-    <desc>先放一个函数。</desc>
-  </url>
-  
-  <url>
     <loc>https://l-fay.github.io/2021/01/10/pythonLibrary04/</loc>
     
-    <lastmod>2024-08-20T11:21:55.470Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.737Z</lastmod>
     
     <date>1610272119000</date>
     <title>re库处理正则表达式 | 兰秋廿柒的博客</title>
@@ -728,9 +530,53 @@
   </url>
   
   <url>
+    <loc>https://l-fay.github.io/2021/01/27/pythonLibrary05/</loc>
+    
+    <lastmod>2024-11-03T07:21:07.737Z</lastmod>
+    
+    <date>1611761007000</date>
+    <title>Python | datetime库的时间相关操作 | 兰秋廿柒的博客</title>
+    
+    <desc>有的时候需要使用当前的时间。</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2021/01/06/pythonLibrary02/</loc>
+    
+    <lastmod>2024-11-03T07:21:07.736Z</lastmod>
+    
+    <date>1609940845000</date>
+    <title>mutagen | MP3封面操作 | 兰秋廿柒的博客</title>
+    
+    <desc>先放一个函数。</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2023/07/11/pythonLibrary03/</loc>
+    
+    <lastmod>2024-11-03T07:21:07.736Z</lastmod>
+    
+    <date>1689081937000</date>
+    <title>ReportLab | 生成表格 | 兰秋廿柒的博客</title>
+    
+    <desc>在用ReportLab生成PDF时有加入表格的需求。</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2024/08/18/python08/</loc>
+    
+    <lastmod>2024-11-03T07:21:07.735Z</lastmod>
+    
+    <date>1723952513000</date>
+    <title>Python | DataFrame合并后处理重复index的方法 | 兰秋廿柒的博客</title>
+    
+    <desc>在合并DataFrame的博客的2.1章节中，可以看到输出结果的index重复了，后续所有通过index的操作都会受影响。</desc>
+  </url>
+  
+  <url>
     <loc>https://l-fay.github.io/2020/12/04/pythonLibrary00/</loc>
     
-    <lastmod>2024-08-20T11:21:55.469Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.735Z</lastmod>
     
     <date>1607067232000</date>
     <title>Python视频处理用到的库 | 兰秋廿柒的博客</title>
@@ -739,20 +585,9 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/2024/08/18/python07/</loc>
-    
-    <lastmod>2024-08-20T11:21:55.469Z</lastmod>
-    
-    <date>1723948685000</date>
-    <title>Python | DataFrame的合并方法总结 | 兰秋廿柒的博客</title>
-    
-    <desc>在数据分析过程中，通常需要将不同的数据集合并在一起进行分析，而Python中常用的数据结构之一——DataFrame，提供了多种方法用于合并数据。</desc>
-  </url>
-  
-  <url>
     <loc>https://l-fay.github.io/2021/01/06/pythonLibrary01/</loc>
     
-    <lastmod>2024-08-20T11:21:55.469Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.735Z</lastmod>
     
     <date>1609922061000</date>
     <title>Python路径处理用到的库 | 兰秋廿柒的博客</title>
@@ -763,7 +598,7 @@
   <url>
     <loc>https://l-fay.github.io/2024/01/02/python06/</loc>
     
-    <lastmod>2024-08-20T11:21:55.468Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.734Z</lastmod>
     
     <date>1704183687000</date>
     <title>Python | 不同场景下使用代理的方法 | 兰秋廿柒的博客</title>
@@ -772,9 +607,20 @@
   </url>
   
   <url>
+    <loc>https://l-fay.github.io/2024/08/18/python07/</loc>
+    
+    <lastmod>2024-11-03T07:21:07.734Z</lastmod>
+    
+    <date>1723948685000</date>
+    <title>Python | DataFrame的合并方法总结 | 兰秋廿柒的博客</title>
+    
+    <desc>在数据分析过程中，通常需要将不同的数据集合并在一起进行分析，而Python中常用的数据结构之一——DataFrame，提供了多种方法用于合并数据。</desc>
+  </url>
+  
+  <url>
     <loc>https://l-fay.github.io/2023/12/04/python04/</loc>
     
-    <lastmod>2024-08-20T11:21:55.467Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.733Z</lastmod>
     
     <date>1701695636000</date>
     <title>Python | 单例模式的实现 | 兰秋廿柒的博客</title>
@@ -783,20 +629,9 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/2023/12/04/python03/</loc>
-    
-    <lastmod>2024-08-20T11:21:55.467Z</lastmod>
-    
-    <date>1701688436000</date>
-    <title>Python | 在程序中查找当前解释器路径 | 兰秋廿柒的博客</title>
-    
-    <desc>主要应用场景是在py文件中调用命令行，想确保用的是当前虚拟环境。</desc>
-  </url>
-  
-  <url>
     <loc>https://l-fay.github.io/2023/12/05/python05/</loc>
     
-    <lastmod>2024-08-20T11:21:55.467Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.733Z</lastmod>
     
     <date>1701786992000</date>
     <title>Python | 获取资源文件夹路径 | 兰秋廿柒的博客</title>
@@ -805,20 +640,20 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/2021/03/22/python01/</loc>
+    <loc>https://l-fay.github.io/2023/12/04/python03/</loc>
     
-    <lastmod>2024-08-20T11:21:55.466Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.732Z</lastmod>
     
-    <date>1616417511000</date>
-    <title>Python获取文件下的所有函数名 | 兰秋廿柒的博客</title>
+    <date>1701688436000</date>
+    <title>Python | 在程序中查找当前解释器路径 | 兰秋廿柒的博客</title>
     
-    <desc>我有一个特殊需求需要获取当前py文件里的所有函数名。</desc>
+    <desc>主要应用场景是在py文件中调用命令行，想确保用的是当前虚拟环境。</desc>
   </url>
   
   <url>
     <loc>https://l-fay.github.io/2021/03/22/python02/</loc>
     
-    <lastmod>2024-08-20T11:21:55.466Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.732Z</lastmod>
     
     <date>1616423294000</date>
     <title>Python | 根据函数名执行函数 | 兰秋廿柒的博客</title>
@@ -827,9 +662,20 @@
   </url>
   
   <url>
+    <loc>https://l-fay.github.io/2021/03/22/python01/</loc>
+    
+    <lastmod>2024-11-03T07:21:07.731Z</lastmod>
+    
+    <date>1616417511000</date>
+    <title>Python获取文件下的所有函数名 | 兰秋廿柒的博客</title>
+    
+    <desc>我有一个特殊需求需要获取当前py文件里的所有函数名。</desc>
+  </url>
+  
+  <url>
     <loc>https://l-fay.github.io/2021/01/27/python00/</loc>
     
-    <lastmod>2024-08-20T11:21:55.465Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.730Z</lastmod>
     
     <date>1611760545000</date>
     <title>Python静默执行命令行语句 | 兰秋廿柒的博客</title>
@@ -840,7 +686,7 @@
   <url>
     <loc>https://l-fay.github.io/2020/09/08/proxy_pool00/</loc>
     
-    <lastmod>2024-08-20T11:21:55.465Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.730Z</lastmod>
     
     <date>1599542667000</date>
     <title>代理 | 开源项目proxy_pool | 兰秋廿柒的博客</title>
@@ -849,31 +695,9 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/2021/01/09/proxy00/</loc>
-    
-    <lastmod>2024-08-20T11:21:55.464Z</lastmod>
-    
-    <date>1610188352000</date>
-    <title>Shadowsocks | AttributeError: /usr/lib/x86_64-linux-gnu/libcrypto.so.1.1: undefined symbol: EVP_CIPHER_CTX_cleanup | 兰秋廿柒的博客</title>
-    
-    <desc>在Linux上部署Shadowsocks的时候遇到的问题： 错误： 1AttributeError: /usr/lib/x86_64-linux-gnu/libcrypto.so.1.1: undefined symbol: EVP_CIPHER_CTX_cleanup</desc>
-  </url>
-  
-  <url>
-    <loc>https://l-fay.github.io/2021/01/09/proxy01/</loc>
-    
-    <lastmod>2024-08-20T11:21:55.464Z</lastmod>
-    
-    <date>1610188837000</date>
-    <title>Shadowsocks | 在Linux上部署Shadowsocks服务端 | 兰秋廿柒的博客</title>
-    
-    <desc>因为校园网限流，所以想整个代理，让宿舍的网络下载东西的时候走实验室电脑，曲线实现免流。</desc>
-  </url>
-  
-  <url>
     <loc>https://l-fay.github.io/2023/12/05/proxy02/</loc>
     
-    <lastmod>2024-08-20T11:21:55.464Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.729Z</lastmod>
     
     <date>1701774653000</date>
     <title>CMD设置代理 | 兰秋廿柒的博客</title>
@@ -884,7 +708,7 @@
   <url>
     <loc>https://l-fay.github.io/2024/01/20/proxy03/</loc>
     
-    <lastmod>2024-08-20T11:21:55.464Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.729Z</lastmod>
     
     <date>1705749426000</date>
     <title>Proxy | 代理分类 | 兰秋廿柒的博客</title>
@@ -893,9 +717,31 @@
   </url>
   
   <url>
+    <loc>https://l-fay.github.io/2021/01/09/proxy01/</loc>
+    
+    <lastmod>2024-11-03T07:21:07.728Z</lastmod>
+    
+    <date>1610188837000</date>
+    <title>Shadowsocks | 在Linux上部署Shadowsocks服务端 | 兰秋廿柒的博客</title>
+    
+    <desc>因为校园网限流，所以想整个代理，让宿舍的网络下载东西的时候走实验室电脑，曲线实现免流。</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2021/01/09/proxy00/</loc>
+    
+    <lastmod>2024-11-03T07:21:07.712Z</lastmod>
+    
+    <date>1610188352000</date>
+    <title>Shadowsocks | AttributeError: /usr/lib/x86_64-linux-gnu/libcrypto.so.1.1: undefined symbol: EVP_CIPHER_CTX_cleanup | 兰秋廿柒的博客</title>
+    
+    <desc>在Linux上部署Shadowsocks的时候遇到的问题： 错误： 1AttributeError: /usr/lib/x86_64-linux-gnu/libcrypto.so.1.1: undefined symbol: EVP_CIPHER_CTX_cleanup</desc>
+  </url>
+  
+  <url>
     <loc>https://l-fay.github.io/2023/03/30/okhttp00/</loc>
     
-    <lastmod>2024-08-20T11:21:55.463Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.711Z</lastmod>
     
     <date>1680171626000</date>
     <title>使用OKhttp进行NTLM鉴权 | 兰秋廿柒的博客</title>
@@ -904,20 +750,9 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/2021/01/06/netease_cloud_music_api00/</loc>
-    
-    <lastmod>2024-08-20T11:21:55.449Z</lastmod>
-    
-    <date>1609929851000</date>
-    <title>网易云音乐Api | 兰秋廿柒的博客</title>
-    
-    <desc>在这搜集一下网易云音乐的一些Api。</desc>
-  </url>
-  
-  <url>
     <loc>https://l-fay.github.io/2023/10/28/nexus00/</loc>
     
-    <lastmod>2024-08-20T11:21:55.449Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.697Z</lastmod>
     
     <date>1698481832000</date>
     <title>Nexus | Not authorized for requested path xxxx | 兰秋廿柒的博客</title>
@@ -928,7 +763,7 @@
   <url>
     <loc>https://l-fay.github.io/2023/05/20/nginx00/</loc>
     
-    <lastmod>2024-08-20T11:21:55.449Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.697Z</lastmod>
     
     <date>1684567803000</date>
     <title>Nginx | 限制上传速度 | 兰秋廿柒的博客</title>
@@ -937,9 +772,20 @@
   </url>
   
   <url>
+    <loc>https://l-fay.github.io/2021/01/06/netease_cloud_music_api00/</loc>
+    
+    <lastmod>2024-11-03T07:21:07.696Z</lastmod>
+    
+    <date>1609929851000</date>
+    <title>网易云音乐Api | 兰秋廿柒的博客</title>
+    
+    <desc>在这搜集一下网易云音乐的一些Api。</desc>
+  </url>
+  
+  <url>
     <loc>https://l-fay.github.io/2022/09/05/neo4j03/</loc>
     
-    <lastmod>2024-08-20T11:21:55.448Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.696Z</lastmod>
     
     <date>1662376917000</date>
     <title>neo4j | 增加同时打开文件数 | 兰秋廿柒的博客</title>
@@ -948,20 +794,9 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/2022/08/26/neo4j02/</loc>
-    
-    <lastmod>2024-08-20T11:21:55.448Z</lastmod>
-    
-    <date>1661511979000</date>
-    <title>neo4j | 全属性模糊查询 | 兰秋廿柒的博客</title>
-    
-    <desc>不指定属性名的情况下进行模糊查询。</desc>
-  </url>
-  
-  <url>
     <loc>https://l-fay.github.io/2022/09/14/neo4j04/</loc>
     
-    <lastmod>2024-08-20T11:21:55.448Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.696Z</lastmod>
     
     <date>1663154840000</date>
     <title>neo4j | 索引相关的cypher语句 | 兰秋廿柒的博客</title>
@@ -970,20 +805,9 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/2022/08/11/neo4j00/</loc>
-    
-    <lastmod>2024-08-20T11:21:55.447Z</lastmod>
-    
-    <date>1660221456000</date>
-    <title>neo4j | 基本用法 | 兰秋廿柒的博客</title>
-    
-    <desc>neo4j基本用法。</desc>
-  </url>
-  
-  <url>
     <loc>https://l-fay.github.io/2022/08/26/neo4j01/</loc>
     
-    <lastmod>2024-08-20T11:21:55.447Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.695Z</lastmod>
     
     <date>1661510202000</date>
     <title>neo4j | 单属性模糊查询 | 兰秋廿柒的博客</title>
@@ -992,9 +816,20 @@
   </url>
   
   <url>
+    <loc>https://l-fay.github.io/2022/08/26/neo4j02/</loc>
+    
+    <lastmod>2024-11-03T07:21:07.695Z</lastmod>
+    
+    <date>1661511979000</date>
+    <title>neo4j | 全属性模糊查询 | 兰秋廿柒的博客</title>
+    
+    <desc>不指定属性名的情况下进行模糊查询。</desc>
+  </url>
+  
+  <url>
     <loc>https://l-fay.github.io/2023/12/09/nas00/</loc>
     
-    <lastmod>2024-08-20T11:21:55.447Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.694Z</lastmod>
     
     <date>1702096176000</date>
     <title>群晖 | 将Docker的网络模式从bridge切换到host | 兰秋廿柒的博客</title>
@@ -1003,31 +838,20 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/2023/07/09/linux10/</loc>
+    <loc>https://l-fay.github.io/2022/08/11/neo4j00/</loc>
     
-    <lastmod>2024-08-20T11:21:55.446Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.694Z</lastmod>
     
-    <date>1688907992000</date>
-    <title>Linux救砖 | 兰秋廿柒的博客</title>
+    <date>1660221456000</date>
+    <title>neo4j | 基本用法 | 兰秋廿柒的博客</title>
     
-    <desc>骚操作把系统搞崩了，更新一个底层文件之后，系统就进不去了。</desc>
-  </url>
-  
-  <url>
-    <loc>https://l-fay.github.io/2023/10/20/linux11/</loc>
-    
-    <lastmod>2024-08-20T11:21:55.446Z</lastmod>
-    
-    <date>1697807254000</date>
-    <title>Linux分卷压缩与解压缩 | 兰秋廿柒的博客</title>
-    
-    <desc>在Linux系统下，分卷压缩与解压缩的方法。</desc>
+    <desc>neo4j基本用法。</desc>
   </url>
   
   <url>
     <loc>https://l-fay.github.io/2021/10/21/mysql00/</loc>
     
-    <lastmod>2024-08-20T11:21:55.446Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.693Z</lastmod>
     
     <date>1634820810000</date>
     <title>Python连接MySQL连接池 | 兰秋廿柒的博客</title>
@@ -1036,20 +860,42 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/2022/01/07/linux07/</loc>
+    <loc>https://l-fay.github.io/2023/10/20/linux11/</loc>
     
-    <lastmod>2024-08-20T11:21:55.445Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.692Z</lastmod>
     
-    <date>1641539246000</date>
-    <title>Ubuntu网络经常掉线解决方案 | 兰秋廿柒的博客</title>
+    <date>1697807254000</date>
+    <title>Linux分卷压缩与解压缩 | 兰秋廿柒的博客</title>
     
-    <desc>症状是：每天早上起来，就不能用远程连接连Ubuntu主机，路由器里也显示主机未连接，只能插上鼠标接上显示器断开网络重新打开，很麻烦。</desc>
+    <desc>在Linux系统下，分卷压缩与解压缩的方法。</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2022/10/21/linux09/</loc>
+    
+    <lastmod>2024-11-03T07:21:07.691Z</lastmod>
+    
+    <date>1666351830000</date>
+    <title>Linux | Linux服务器上配置域和DNS | 兰秋廿柒的博客</title>
+    
+    <desc>给Linux机器配置DNS的方法。</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2023/07/09/linux10/</loc>
+    
+    <lastmod>2024-11-03T07:21:07.691Z</lastmod>
+    
+    <date>1688907992000</date>
+    <title>Linux救砖 | 兰秋廿柒的博客</title>
+    
+    <desc>骚操作把系统搞崩了，更新一个底层文件之后，系统就进不去了。</desc>
   </url>
   
   <url>
     <loc>https://l-fay.github.io/2022/03/01/linux08/</loc>
     
-    <lastmod>2024-08-20T11:21:55.445Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.690Z</lastmod>
     
     <date>1646114723000</date>
     <title>Ubuntu安装字体 | 兰秋廿柒的博客</title>
@@ -1058,20 +904,20 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/2021/01/09/linux04/</loc>
+    <loc>https://l-fay.github.io/2022/01/07/linux07/</loc>
     
-    <lastmod>2024-08-20T11:21:55.444Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.690Z</lastmod>
     
-    <date>1610184308000</date>
-    <title>Ubuntu下开启远程桌面 | 兰秋廿柒的博客</title>
+    <date>1641539246000</date>
+    <title>Ubuntu网络经常掉线解决方案 | 兰秋廿柒的博客</title>
     
-    <desc>https://blog.csdn.net/cxn304/article/details/99733711 首先在图形界面中system-share中把远程打开。</desc>
+    <desc>症状是：每天早上起来，就不能用远程连接连Ubuntu主机，路由器里也显示主机未连接，只能插上鼠标接上显示器断开网络重新打开，很麻烦。</desc>
   </url>
   
   <url>
     <loc>https://l-fay.github.io/2021/01/09/linux05/</loc>
     
-    <lastmod>2024-08-20T11:21:55.444Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.689Z</lastmod>
     
     <date>1610185841000</date>
     <title>sudo权限的问题 | 兰秋廿柒的博客</title>
@@ -1082,7 +928,7 @@
   <url>
     <loc>https://l-fay.github.io/2021/01/13/linux06/</loc>
     
-    <lastmod>2024-08-20T11:21:55.444Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.689Z</lastmod>
     
     <date>1610522839000</date>
     <title>在实验室集群上新建用户 | 兰秋廿柒的博客</title>
@@ -1091,31 +937,9 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/2020/08/20/linux01/</loc>
-    
-    <lastmod>2024-08-20T11:21:55.443Z</lastmod>
-    
-    <date>1597922401000</date>
-    <title>Ubuntu安装驱动及CUDA | 兰秋廿柒的博客</title>
-    
-    <desc>因为要移植师姐的项目到新电脑的关系，需要从安装Linux系统开始从下往上配置环境。</desc>
-  </url>
-  
-  <url>
-    <loc>https://l-fay.github.io/2021/01/06/linux02/</loc>
-    
-    <lastmod>2024-08-20T11:21:55.443Z</lastmod>
-    
-    <date>1609915894000</date>
-    <title>Linux系统变量 | 兰秋廿柒的博客</title>
-    
-    <desc>暂时修改就不说了，直接上永久修改。</desc>
-  </url>
-  
-  <url>
     <loc>https://l-fay.github.io/2021/01/06/linux03/</loc>
     
-    <lastmod>2024-08-20T11:21:55.443Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.688Z</lastmod>
     
     <date>1609916364000</date>
     <title>在Linux集群上为某些用户安装Anaconda | 兰秋廿柒的博客</title>
@@ -1124,31 +948,64 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/2020/08/20/linux00/</loc>
+    <loc>https://l-fay.github.io/2021/01/09/linux04/</loc>
     
-    <lastmod>2024-08-20T11:21:55.442Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.688Z</lastmod>
     
-    <date>1597896230000</date>
-    <title>Ubuntu系统安装 | 兰秋廿柒的博客</title>
+    <date>1610184308000</date>
+    <title>Ubuntu下开启远程桌面 | 兰秋廿柒的博客</title>
     
-    <desc>废话不多说，直接开始。</desc>
+    <desc>https://blog.csdn.net/cxn304/article/details/99733711 首先在图形界面中system-share中把远程打开。</desc>
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/2022/08/26/javaLibrary01/</loc>
+    <loc>https://l-fay.github.io/2021/01/06/linux02/</loc>
     
-    <lastmod>2024-08-20T11:21:55.441Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.687Z</lastmod>
     
-    <date>1661509809000</date>
-    <title>Excel | 用EasyExcel库读Excel表格 | 兰秋廿柒的博客</title>
+    <date>1609915894000</date>
+    <title>Linux系统变量 | 兰秋廿柒的博客</title>
     
-    <desc>照着这篇博客写的，码一下。</desc>
+    <desc>暂时修改就不说了，直接上永久修改。</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2020/08/20/linux01/</loc>
+    
+    <lastmod>2024-11-03T07:21:07.687Z</lastmod>
+    
+    <date>1597922401000</date>
+    <title>Ubuntu安装驱动及CUDA | 兰秋廿柒的博客</title>
+    
+    <desc>因为要移植师姐的项目到新电脑的关系，需要从安装Linux系统开始从下往上配置环境。</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2023/07/07/life01/</loc>
+    
+    <lastmod>2024-11-03T07:21:07.686Z</lastmod>
+    
+    <date>1688730846000</date>
+    <title>梦 | 噩梦 | 兰秋廿柒的博客</title>
+    
+    <desc>文章已加密</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2023/07/02/life00/</loc>
+    
+    <lastmod>2024-11-03T07:21:07.685Z</lastmod>
+    
+    <date>1688294712000</date>
+    <title>杂记 | 每个人都是一本书 | 兰秋廿柒的博客</title>
+    
+    <desc>文章已加密</desc>
   </url>
   
   <url>
     <loc>https://l-fay.github.io/2023/05/16/kylin00/</loc>
     
-    <lastmod>2024-08-20T11:21:55.441Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.684Z</lastmod>
     
     <date>1684234559000</date>
     <title>麒麟 | 麒麟SP1更改系统快捷键 | 兰秋廿柒的博客</title>
@@ -1159,7 +1016,7 @@
   <url>
     <loc>https://l-fay.github.io/2021/03/26/leetcode00/</loc>
     
-    <lastmod>2024-08-20T11:21:55.441Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.684Z</lastmod>
     
     <date>1616743598000</date>
     <title>LeetCode | 第二题两数相加 | 兰秋廿柒的博客</title>
@@ -1168,20 +1025,31 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/2022/07/01/java01/</loc>
+    <loc>https://l-fay.github.io/2022/08/26/javaLibrary01/</loc>
     
-    <lastmod>2024-08-20T11:21:55.440Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.683Z</lastmod>
     
-    <date>1656661597000</date>
-    <title>Java | 用HttpServletResponse实现浏览器的文件下载 | 兰秋廿柒的博客</title>
+    <date>1661509809000</date>
+    <title>Excel | 用EasyExcel库读Excel表格 | 兰秋廿柒的博客</title>
     
-    <desc>java中用HttpServletResponse实现浏览器的文件下载 搬运自这篇博客。</desc>
+    <desc>照着这篇博客写的，码一下。</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2021/06/01/javaLibrary00/</loc>
+    
+    <lastmod>2024-11-03T07:21:07.683Z</lastmod>
+    
+    <date>1622545146000</date>
+    <title>Java | zip4j库的简单使用 | 兰秋廿柒的博客</title>
+    
+    <desc>官方文档</desc>
   </url>
   
   <url>
     <loc>https://l-fay.github.io/2023/07/15/java03/</loc>
     
-    <lastmod>2024-08-20T11:21:55.440Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.682Z</lastmod>
     
     <date>1689431342000</date>
     <title>Java | 文件路径分隔符 | 兰秋廿柒的博客</title>
@@ -1192,7 +1060,7 @@
   <url>
     <loc>https://l-fay.github.io/2023/04/11/java02/</loc>
     
-    <lastmod>2024-08-20T11:21:55.440Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.681Z</lastmod>
     
     <date>1681210134000</date>
     <title>Java | 怎样用Java获取文件后缀 | 兰秋廿柒的博客</title>
@@ -1201,20 +1069,9 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/2021/06/01/javaLibrary00/</loc>
-    
-    <lastmod>2024-08-20T11:21:55.440Z</lastmod>
-    
-    <date>1622545146000</date>
-    <title>Java | zip4j库的简单使用 | 兰秋廿柒的博客</title>
-    
-    <desc>官方文档</desc>
-  </url>
-  
-  <url>
     <loc>https://l-fay.github.io/2021/03/29/java00/</loc>
     
-    <lastmod>2024-08-20T11:21:55.439Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.680Z</lastmod>
     
     <date>1617002244000</date>
     <title>Java | 设计模式之单例模式 | 兰秋廿柒的博客</title>
@@ -1225,7 +1082,7 @@
   <url>
     <loc>https://l-fay.github.io/2023/07/10/ide00/</loc>
     
-    <lastmod>2024-08-20T11:21:55.438Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.678Z</lastmod>
     
     <date>1688990582000</date>
     <title>JetBrains全家桶无法打开Terminals问题解决 | 兰秋廿柒的博客</title>
@@ -1234,9 +1091,31 @@
   </url>
   
   <url>
+    <loc>https://l-fay.github.io/2024/08/28/hexo08/</loc>
+    
+    <lastmod>2024-11-03T07:21:07.676Z</lastmod>
+    
+    <date>1724849349000</date>
+    <title>Hexo | 解决Gitalk无法获取Github Token问题 | 兰秋廿柒的博客</title>
+    
+    <desc>搬运自Dedicatus545 前言记一次Hexo Next主题下Gitalk无法获取Github Token问题</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2024/08/26/hexo07/</loc>
+    
+    <lastmod>2024-11-03T07:21:07.675Z</lastmod>
+    
+    <date>1724670062000</date>
+    <title>Hexo | Hexo及其依赖升级 | 兰秋廿柒的博客</title>
+    
+    <desc>升级Hexo及其依赖的方法，也适用于其他的Node项目。</desc>
+  </url>
+  
+  <url>
     <loc>https://l-fay.github.io/2022/07/05/hexo06/</loc>
     
-    <lastmod>2024-08-20T11:21:55.438Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.674Z</lastmod>
     
     <date>1657006654000</date>
     <title>Hexo | 添加搜索框 | 兰秋廿柒的博客</title>
@@ -1245,42 +1124,9 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/2020/12/19/hexo02/</loc>
-    
-    <lastmod>2024-08-20T11:21:55.437Z</lastmod>
-    
-    <date>1608370119000</date>
-    <title>Hexo | Hexo推送时如何避免每次都要输入账号密码 | 兰秋廿柒的博客</title>
-    
-    <desc>之前不知道动到哪里的设置了，每次hexo d的时候都要输入完整的账号密码才能发布。</desc>
-  </url>
-  
-  <url>
-    <loc>https://l-fay.github.io/2021/03/22/hexo03/</loc>
-    
-    <lastmod>2024-08-20T11:21:55.437Z</lastmod>
-    
-    <date>1616419113000</date>
-    <title>Hexo | fatal: unable to access | 兰秋廿柒的博客</title>
-    
-    <desc>Hexo的报错处理。</desc>
-  </url>
-  
-  <url>
-    <loc>https://l-fay.github.io/2021/04/05/hexo04/</loc>
-    
-    <lastmod>2024-08-20T11:21:55.437Z</lastmod>
-    
-    <date>1617611875000</date>
-    <title>Hexo | 文章模板 | 兰秋廿柒的博客</title>
-    
-    <desc>无意间在创建新的md文件的时候多按了一个空格。</desc>
-  </url>
-  
-  <url>
     <loc>https://l-fay.github.io/2022/07/04/hexo05/</loc>
     
-    <lastmod>2024-08-20T11:21:55.437Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.672Z</lastmod>
     
     <date>1656947277000</date>
     <title>Hexo | 新电脑上使用之前的博客文件夹 | 兰秋廿柒的博客</title>
@@ -1289,20 +1135,42 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/2020/08/01/hexo00/</loc>
+    <loc>https://l-fay.github.io/2021/04/05/hexo04/</loc>
     
-    <lastmod>2024-08-20T11:21:55.436Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.671Z</lastmod>
     
-    <date>1596271344000</date>
-    <title>我就想试试怎么写博客 | 兰秋廿柒的博客</title>
+    <date>1617611875000</date>
+    <title>Hexo | 文章模板 | 兰秋廿柒的博客</title>
     
-    <desc>写这个的目的就是试一试hexo的各种语法，免得以后忘记。</desc>
+    <desc>无意间在创建新的md文件的时候多按了一个空格。</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2021/03/22/hexo03/</loc>
+    
+    <lastmod>2024-11-03T07:21:07.670Z</lastmod>
+    
+    <date>1616419113000</date>
+    <title>Hexo | fatal: unable to access | 兰秋廿柒的博客</title>
+    
+    <desc>Hexo的报错处理。</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2020/12/19/hexo02/</loc>
+    
+    <lastmod>2024-11-03T07:21:07.669Z</lastmod>
+    
+    <date>1608370119000</date>
+    <title>Hexo | Hexo推送时如何避免每次都要输入账号密码 | 兰秋廿柒的博客</title>
+    
+    <desc>之前不知道动到哪里的设置了，每次hexo d的时候都要输入完整的账号密码才能发布。</desc>
   </url>
   
   <url>
     <loc>https://l-fay.github.io/2020/08/03/hexo01/</loc>
     
-    <lastmod>2024-08-20T11:21:55.436Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.668Z</lastmod>
     
     <date>1596434927000</date>
     <title>NexT 8.0.0版本修改代码块背景 | 兰秋廿柒的博客</title>
@@ -1311,20 +1179,20 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/2020/12/19/git00/</loc>
+    <loc>https://l-fay.github.io/2024/05/19/git03/</loc>
     
-    <lastmod>2024-08-20T11:21:55.435Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.667Z</lastmod>
     
-    <date>1608370839000</date>
-    <title>git | 将非空目录上传至GitHub仓库 | 兰秋廿柒的博客</title>
+    <date>1716123377000</date>
+    <title>Git | 同时提交到两个git地址 | 兰秋廿柒的博客</title>
     
-    <desc>因为是初学，学的时候自己操作的是空目录，现在想把已有的项目push上去，在备份完之后试了一下，发现正常操作就可以，记录一下。</desc>
+    <desc>需要给同一个项目设置两个远程git地址，主要是为了灾备。</desc>
   </url>
   
   <url>
     <loc>https://l-fay.github.io/2023/12/06/git02/</loc>
     
-    <lastmod>2024-08-20T11:21:55.435Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.667Z</lastmod>
     
     <date>1701862757000</date>
     <title>Git | 给SSH克隆设置代理 | 兰秋廿柒的博客</title>
@@ -1335,7 +1203,7 @@
   <url>
     <loc>https://l-fay.github.io/2021/04/05/git01/</loc>
     
-    <lastmod>2024-08-20T11:21:55.435Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.666Z</lastmod>
     
     <date>1617611719000</date>
     <title>git | 删除本地文件后 Git pull从远程仓库重新获取不到解决办法 | 兰秋廿柒的博客</title>
@@ -1344,9 +1212,20 @@
   </url>
   
   <url>
+    <loc>https://l-fay.github.io/2020/12/19/git00/</loc>
+    
+    <lastmod>2024-11-03T07:21:07.665Z</lastmod>
+    
+    <date>1608370839000</date>
+    <title>git | 将非空目录上传至GitHub仓库 | 兰秋廿柒的博客</title>
+    
+    <desc>因为是初学，学的时候自己操作的是空目录，现在想把已有的项目push上去，在备份完之后试了一下，发现正常操作就可以，记录一下。</desc>
+  </url>
+  
+  <url>
     <loc>https://l-fay.github.io/2022/04/25/game00/</loc>
     
-    <lastmod>2024-08-20T11:21:55.434Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.665Z</lastmod>
     
     <date>1650892225000</date>
     <title>水排序谜题全部答案 | 兰秋廿柒的博客</title>
@@ -1357,7 +1236,7 @@
   <url>
     <loc>https://l-fay.github.io/2023/10/29/flask02/</loc>
     
-    <lastmod>2024-08-20T11:21:55.432Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.661Z</lastmod>
     
     <date>1698565161000</date>
     <title>Flask异常处理 | 兰秋廿柒的博客</title>
@@ -1366,20 +1245,9 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/2023/10/22/flask00/</loc>
-    
-    <lastmod>2024-08-20T11:21:55.431Z</lastmod>
-    
-    <date>1697974361000</date>
-    <title>Flask | flask的定时任务 | 兰秋廿柒的博客</title>
-    
-    <desc>记一下flask中执行定时任务的方式</desc>
-  </url>
-  
-  <url>
     <loc>https://l-fay.github.io/2023/10/28/flask01/</loc>
     
-    <lastmod>2024-08-20T11:21:55.431Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.660Z</lastmod>
     
     <date>1698484452000</date>
     <title>Flask | RuntimeError: No application found. Either work inside a view function or push an application context. | 兰秋廿柒的博客</title>
@@ -1390,7 +1258,7 @@
   <url>
     <loc>https://l-fay.github.io/2022/02/11/ffmpegParameter01/</loc>
     
-    <lastmod>2024-08-20T11:21:55.431Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.660Z</lastmod>
     
     <date>1644554754000</date>
     <title>ffmpeg | 用过的参数记录 | 兰秋廿柒的博客</title>
@@ -1399,31 +1267,20 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/2023/11/30/ffmpeg16/</loc>
+    <loc>https://l-fay.github.io/2023/10/22/flask00/</loc>
     
-    <lastmod>2024-08-20T11:21:55.430Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.660Z</lastmod>
     
-    <date>1701349144000</date>
-    <title>FFmpeg | 修改分辨率 | 兰秋廿柒的博客</title>
+    <date>1697974361000</date>
+    <title>Flask | flask的定时任务 | 兰秋廿柒的博客</title>
     
-    <desc>当需要对视频进行放缩时（如720p-&gt;1080p或1080p-&gt;720p），用到的语法。</desc>
-  </url>
-  
-  <url>
-    <loc>https://l-fay.github.io/2023/11/30/ffmpeg15/</loc>
-    
-    <lastmod>2024-08-20T11:21:55.430Z</lastmod>
-    
-    <date>1701343316000</date>
-    <title>FFmpeg | 添加空音轨 | 兰秋廿柒的博客</title>
-    
-    <desc>有的文件没有音轨，想添加一个空音轨。</desc>
+    <desc>记一下flask中执行定时任务的方式</desc>
   </url>
   
   <url>
     <loc>https://l-fay.github.io/2021/01/27/ffmpegParameter00/</loc>
     
-    <lastmod>2024-08-20T11:21:55.430Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.659Z</lastmod>
     
     <date>1611753228000</date>
     <title>ffmpeg | 参数记录 | 兰秋廿柒的博客</title>
@@ -1432,9 +1289,42 @@
   </url>
   
   <url>
+    <loc>https://l-fay.github.io/2024/08/22/ffmpeg17/</loc>
+    
+    <lastmod>2024-11-03T07:21:07.658Z</lastmod>
+    
+    <date>1724340268000</date>
+    <title>FFmpeg | 提取附件 | 兰秋廿柒的博客</title>
+    
+    <desc>有时媒体文件中会将字体封为一个流，在做软字幕烧录硬字幕时，会需要这个字体文件，这是就有把字体文件提取出来的需求。</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2023/11/30/ffmpeg15/</loc>
+    
+    <lastmod>2024-11-03T07:21:07.657Z</lastmod>
+    
+    <date>1701343316000</date>
+    <title>FFmpeg | 添加空音轨 | 兰秋廿柒的博客</title>
+    
+    <desc>有的文件没有音轨，想添加一个空音轨。</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2023/11/30/ffmpeg16/</loc>
+    
+    <lastmod>2024-11-03T07:21:07.657Z</lastmod>
+    
+    <date>1701349144000</date>
+    <title>FFmpeg | 修改分辨率 | 兰秋廿柒的博客</title>
+    
+    <desc>当需要对视频进行放缩时（如720p-&gt;1080p或1080p-&gt;720p），用到的语法。</desc>
+  </url>
+  
+  <url>
     <loc>https://l-fay.github.io/2023/04/11/ffmpeg13/</loc>
     
-    <lastmod>2024-08-20T11:21:55.429Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.656Z</lastmod>
     
     <date>1681203260000</date>
     <title>FFmpeg | 如何将视频内封图片字幕压为硬字幕 | 兰秋廿柒的博客</title>
@@ -1445,7 +1335,7 @@
   <url>
     <loc>https://l-fay.github.io/2023/11/22/ffmpeg14/</loc>
     
-    <lastmod>2024-08-20T11:21:55.429Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.656Z</lastmod>
     
     <date>1700651554000</date>
     <title>FFmpeg | pcm格式音频转换 | 兰秋廿柒的博客</title>
@@ -1454,42 +1344,9 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/2023/01/17/ffmpeg12/</loc>
-    
-    <lastmod>2024-08-20T11:21:55.429Z</lastmod>
-    
-    <date>1673949901000</date>
-    <title>FFmpeg | 字体文件的抽取 | 兰秋廿柒的博客</title>
-    
-    <desc>在压字幕的过程中，发现一些mkv中自带了字体文件，于是就找了一下提取字体的方法。毕竟直接从mkv中提取的字幕一是方便，不用在网上到处找；二是不用担心找的不对。</desc>
-  </url>
-  
-  <url>
-    <loc>https://l-fay.github.io/2021/09/08/ffmpeg09/</loc>
-    
-    <lastmod>2024-08-20T11:21:55.428Z</lastmod>
-    
-    <date>1631090077000</date>
-    <title>FFmpeg | attached_pic参数添加封面 | 兰秋廿柒的博客</title>
-    
-    <desc>添加封面图片的参数。</desc>
-  </url>
-  
-  <url>
-    <loc>https://l-fay.github.io/2021/11/25/ffmpeg10/</loc>
-    
-    <lastmod>2024-08-20T11:21:55.428Z</lastmod>
-    
-    <date>1637821799000</date>
-    <title>FFmpeg | 在元数据里给媒体流命名 | 兰秋廿柒的博客</title>
-    
-    <desc>最近手里有个视频，英配和中配都很好，就想都保留下来，命个名加以区别。</desc>
-  </url>
-  
-  <url>
     <loc>https://l-fay.github.io/2022/07/07/ffmpeg11/</loc>
     
-    <lastmod>2024-08-20T11:21:55.428Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.655Z</lastmod>
     
     <date>1657208447000</date>
     <title>FFmpeg | hevc (Main 10) 转 hevc (Main) | 兰秋廿柒的博客</title>
@@ -1498,9 +1355,53 @@
   </url>
   
   <url>
+    <loc>https://l-fay.github.io/2023/01/17/ffmpeg12/</loc>
+    
+    <lastmod>2024-11-03T07:21:07.655Z</lastmod>
+    
+    <date>1673949901000</date>
+    <title>FFmpeg | 字体文件的抽取 | 兰秋廿柒的博客</title>
+    
+    <desc>在压字幕的过程中，发现一些mkv中自带了字体文件，于是就找了一下提取字体的方法。毕竟直接从mkv中提取的字幕一是方便，不用在网上到处找；二是不用担心找的不对。</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2021/11/25/ffmpeg10/</loc>
+    
+    <lastmod>2024-11-03T07:21:07.654Z</lastmod>
+    
+    <date>1637821799000</date>
+    <title>FFmpeg | 在元数据里给媒体流命名 | 兰秋廿柒的博客</title>
+    
+    <desc>最近手里有个视频，英配和中配都很好，就想都保留下来，命个名加以区别。</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2021/07/14/ffmpeg08/</loc>
+    
+    <lastmod>2024-11-03T07:21:07.654Z</lastmod>
+    
+    <date>1626254196000</date>
+    <title>FFmpeg | preset参数 | 兰秋廿柒的博客</title>
+    
+    <desc>这是一个用编码时间来换视频质量的参数。</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2021/09/08/ffmpeg09/</loc>
+    
+    <lastmod>2024-11-03T07:21:07.654Z</lastmod>
+    
+    <date>1631090077000</date>
+    <title>FFmpeg | attached_pic参数添加封面 | 兰秋廿柒的博客</title>
+    
+    <desc>添加封面图片的参数。</desc>
+  </url>
+  
+  <url>
     <loc>https://l-fay.github.io/2021/06/07/ffmpeg06/</loc>
     
-    <lastmod>2024-08-20T11:21:55.427Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.653Z</lastmod>
     
     <date>1623070416000</date>
     <title>FFmpeg | 元数据之creation_time | 兰秋廿柒的博客</title>
@@ -1511,7 +1412,7 @@
   <url>
     <loc>https://l-fay.github.io/2021/07/14/ffmpeg07/</loc>
     
-    <lastmod>2024-08-20T11:21:55.427Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.653Z</lastmod>
     
     <date>1626253668000</date>
     <title>FFmpeg | crf参数 | 兰秋廿柒的博客</title>
@@ -1520,20 +1421,9 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/2021/07/14/ffmpeg08/</loc>
-    
-    <lastmod>2024-08-20T11:21:55.427Z</lastmod>
-    
-    <date>1626254196000</date>
-    <title>FFmpeg | preset参数 | 兰秋廿柒的博客</title>
-    
-    <desc>这是一个用编码时间来换视频质量的参数。</desc>
-  </url>
-  
-  <url>
     <loc>https://l-fay.github.io/2021/02/21/ffmpeg04/</loc>
     
-    <lastmod>2024-08-20T11:21:55.426Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.652Z</lastmod>
     
     <date>1613904570000</date>
     <title>FFmpeg | 视频裁切 | 兰秋廿柒的博客</title>
@@ -1544,7 +1434,7 @@
   <url>
     <loc>https://l-fay.github.io/2021/06/07/ffmpeg05/</loc>
     
-    <lastmod>2024-08-20T11:21:55.426Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.652Z</lastmod>
     
     <date>1623065266000</date>
     <title>FFmpeg | 删除视频中的元数据 | 兰秋廿柒的博客</title>
@@ -1553,20 +1443,9 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/2021/01/20/ffmpeg01/</loc>
-    
-    <lastmod>2024-08-20T11:21:55.425Z</lastmod>
-    
-    <date>1611140528000</date>
-    <title>ffmpeg-python库的初步使用 | 兰秋廿柒的博客</title>
-    
-    <desc>首先这个库不是官方的库，是github上有人做的第三方库。</desc>
-  </url>
-  
-  <url>
     <loc>https://l-fay.github.io/2021/01/26/ffmpeg02/</loc>
     
-    <lastmod>2024-08-20T11:21:55.425Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.651Z</lastmod>
     
     <date>1611661160000</date>
     <title>FFmpeg | Too many packets buffered for output stream 0:1 | 兰秋廿柒的博客</title>
@@ -1575,20 +1454,9 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/2020/12/19/ffmpeg00/</loc>
-    
-    <lastmod>2024-08-20T11:21:55.425Z</lastmod>
-    
-    <date>1608358304000</date>
-    <title>FFmpeg | Failed to inject frame into filter network: Invalid argument | 兰秋廿柒的博客</title>
-    
-    <desc>今天在给看的剧压字幕的时候遇到了错误。</desc>
-  </url>
-  
-  <url>
     <loc>https://l-fay.github.io/2021/02/05/ffmpeg03/</loc>
     
-    <lastmod>2024-08-20T11:21:55.425Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.651Z</lastmod>
     
     <date>1612537409000</date>
     <title>FFmpeg | 删除视频中的章节数据 | 兰秋廿柒的博客</title>
@@ -1597,9 +1465,20 @@
   </url>
   
   <url>
+    <loc>https://l-fay.github.io/2021/01/20/ffmpeg01/</loc>
+    
+    <lastmod>2024-11-03T07:21:07.650Z</lastmod>
+    
+    <date>1611140528000</date>
+    <title>ffmpeg-python库的初步使用 | 兰秋廿柒的博客</title>
+    
+    <desc>首先这个库不是官方的库，是github上有人做的第三方库。</desc>
+  </url>
+  
+  <url>
     <loc>https://l-fay.github.io/2023/07/14/excel01/</loc>
     
-    <lastmod>2024-08-20T11:21:55.424Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.649Z</lastmod>
     
     <date>1689337537000</date>
     <title>Excel | openpyxl库操作Excel表格中的超链接 | 兰秋廿柒的博客</title>
@@ -1610,7 +1489,7 @@
   <url>
     <loc>https://l-fay.github.io/2021/01/10/excel02/</loc>
     
-    <lastmod>2024-08-20T11:21:55.424Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.649Z</lastmod>
     
     <date>1610267215000</date>
     <title>Excel | 用openpyxl库操作Excel表格 | 兰秋廿柒的博客</title>
@@ -1619,31 +1498,9 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/2021/03/05/docker00/</loc>
-    
-    <lastmod>2024-08-20T11:21:55.423Z</lastmod>
-    
-    <date>1614936978000</date>
-    <title>Docker | Docker基础命令 | 兰秋廿柒的博客</title>
-    
-    <desc></desc>
-  </url>
-  
-  <url>
-    <loc>https://l-fay.github.io/2023/10/29/ddddocr00/</loc>
-    
-    <lastmod>2024-08-20T11:21:55.423Z</lastmod>
-    
-    <date>1698568182000</date>
-    <title>验证码识别 | 开源项目ddddocr | 兰秋廿柒的博客</title>
-    
-    <desc>因为爬虫有突破验证码的需求，找到了这个开源项目。</desc>
-  </url>
-  
-  <url>
     <loc>https://l-fay.github.io/2023/04/10/excel00/</loc>
     
-    <lastmod>2024-08-20T11:21:55.423Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.648Z</lastmod>
     
     <date>1681125666000</date>
     <title>Excel | 保持某些变量不变的方法 | 兰秋廿柒的博客</title>
@@ -1652,9 +1509,20 @@
   </url>
   
   <url>
+    <loc>https://l-fay.github.io/2021/03/05/docker00/</loc>
+    
+    <lastmod>2024-11-03T07:21:07.647Z</lastmod>
+    
+    <date>1614936978000</date>
+    <title>Docker | Docker基础命令 | 兰秋廿柒的博客</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
     <loc>https://l-fay.github.io/2022/09/15/electron00/</loc>
     
-    <lastmod>2024-08-20T11:21:55.423Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.647Z</lastmod>
     
     <date>1663239795000</date>
     <title>Electron | 无网络的服务器怎么下载依赖 | 兰秋廿柒的博客</title>
@@ -1663,31 +1531,31 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/2020/12/16/condaError00/</loc>
+    <loc>https://l-fay.github.io/2023/10/29/ddddocr00/</loc>
     
-    <lastmod>2024-08-20T11:21:55.422Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.646Z</lastmod>
     
-    <date>1608105022000</date>
-    <title>failed with initial frozen solve | 兰秋廿柒的博客</title>
+    <date>1698568182000</date>
+    <title>验证码识别 | 开源项目ddddocr | 兰秋廿柒的博客</title>
     
-    <desc>记录一下遇到的错误。</desc>
+    <desc>因为爬虫有突破验证码的需求，找到了这个开源项目。</desc>
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/2020/12/16/cuda00/</loc>
+    <loc>https://l-fay.github.io/2024/08/20/db00/</loc>
     
-    <lastmod>2024-08-20T11:21:55.422Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.643Z</lastmod>
     
-    <date>1608105673000</date>
-    <title>no CUDA-capable device is detected | 兰秋廿柒的博客</title>
+    <date>1724167689000</date>
+    <title>数据库 | json_remove()函数在不同数据库的区别 | 兰秋廿柒的博客</title>
     
-    <desc>这个错误可能由以下几个原因引起：</desc>
+    <desc>今天遇到一个问题，在执行select操作时报错，排查出来是json_remove()函数在不同数据库有区别。</desc>
   </url>
   
   <url>
     <loc>https://l-fay.github.io/2023/07/12/cuda01/</loc>
     
-    <lastmod>2024-08-20T11:21:55.422Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.642Z</lastmod>
     
     <date>1689165850000</date>
     <title>rpm格式cuda安装 | 兰秋廿柒的博客</title>
@@ -1696,31 +1564,31 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/2021/01/09/command03/</loc>
+    <loc>https://l-fay.github.io/2020/12/16/cuda00/</loc>
     
-    <lastmod>2024-08-20T11:21:55.421Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.641Z</lastmod>
     
-    <date>1610186691000</date>
-    <title>vim的使用方法 | 兰秋廿柒的博客</title>
+    <date>1608105673000</date>
+    <title>no CUDA-capable device is detected | 兰秋廿柒的博客</title>
     
-    <desc>vim是linux的命令行编辑器。</desc>
+    <desc>这个错误可能由以下几个原因引起：</desc>
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/2022/04/14/command04/</loc>
+    <loc>https://l-fay.github.io/2020/12/16/condaError00/</loc>
     
-    <lastmod>2024-08-20T11:21:55.421Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.641Z</lastmod>
     
-    <date>1649922189000</date>
-    <title>nohup与tail组合使用 | 兰秋廿柒的博客</title>
+    <date>1608105022000</date>
+    <title>failed with initial frozen solve | 兰秋廿柒的博客</title>
     
-    <desc>建议长时间运行的程序都这样跑。</desc>
+    <desc>记录一下遇到的错误。</desc>
   </url>
   
   <url>
     <loc>https://l-fay.github.io/2022/01/07/compressedFile00/</loc>
     
-    <lastmod>2024-08-20T11:21:55.421Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.640Z</lastmod>
     
     <date>1641538268000</date>
     <title>RAR文件操作以及分卷文件的正确处理方法 | 兰秋廿柒的博客</title>
@@ -1729,20 +1597,20 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/2020/10/26/command01/</loc>
+    <loc>https://l-fay.github.io/2022/04/14/command04/</loc>
     
-    <lastmod>2024-08-20T11:21:55.420Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.624Z</lastmod>
     
-    <date>1603712063000</date>
-    <title>一些基础符号 | 兰秋廿柒的博客</title>
+    <date>1649922189000</date>
+    <title>nohup与tail组合使用 | 兰秋廿柒的博客</title>
     
-    <desc>Linux命令行中一些符号的意义。</desc>
+    <desc>建议长时间运行的程序都这样跑。</desc>
   </url>
   
   <url>
     <loc>https://l-fay.github.io/2021/01/05/command02/</loc>
     
-    <lastmod>2024-08-20T11:21:55.420Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.623Z</lastmod>
     
     <date>1609827543000</date>
     <title>Linux创建用户并解决用户进入后命令行只有一个美元符号的问题 | 兰秋廿柒的博客</title>
@@ -1751,31 +1619,20 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/2024/07/24/chrome00/</loc>
+    <loc>https://l-fay.github.io/2021/01/09/command03/</loc>
     
-    <lastmod>2024-08-20T11:21:55.419Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.623Z</lastmod>
     
-    <date>1721826602000</date>
-    <title>群晖管理端web页docker面板排版混乱的问题 | 兰秋廿柒的博客</title>
+    <date>1610186691000</date>
+    <title>vim的使用方法 | 兰秋廿柒的博客</title>
     
-    <desc>问题如题，留个记录。</desc>
-  </url>
-  
-  <url>
-    <loc>https://l-fay.github.io/2021/01/24/bios00/</loc>
-    
-    <lastmod>2024-08-20T11:21:55.419Z</lastmod>
-    
-    <date>1611486668000</date>
-    <title>自动开关机 | 兰秋廿柒的博客</title>
-    
-    <desc>放假回家了，在回家之前给实验室电脑弄了个自动开关机，方便远程，</desc>
+    <desc>vim是linux的命令行编辑器。</desc>
   </url>
   
   <url>
     <loc>https://l-fay.github.io/2020/10/26/command00/</loc>
     
-    <lastmod>2024-08-20T11:21:55.419Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.622Z</lastmod>
     
     <date>1603710426000</date>
     <title>nohup命令使用方法 | 兰秋廿柒的博客</title>
@@ -1784,20 +1641,20 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/2022/10/15/appium01/</loc>
+    <loc>https://l-fay.github.io/2020/10/26/command01/</loc>
     
-    <lastmod>2024-08-20T11:21:55.418Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.622Z</lastmod>
     
-    <date>1665833546000</date>
-    <title>Appium | Appium中implicitly_wait失效的替代方案 | 兰秋廿柒的博客</title>
+    <date>1603712063000</date>
+    <title>一些基础符号 | 兰秋廿柒的博客</title>
     
-    <desc>不知道为啥，在Appium中，implicitly_wait是不起作用的，所以找了个替代方案。</desc>
+    <desc>Linux命令行中一些符号的意义。</desc>
   </url>
   
   <url>
     <loc>https://l-fay.github.io/2021/02/07/bandizip00/</loc>
     
-    <lastmod>2024-08-20T11:21:55.418Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.621Z</lastmod>
     
     <date>1612706145000</date>
     <title>Bandizip | 使用命令行对文件进行压缩、解压 | 兰秋廿柒的博客</title>
@@ -1806,9 +1663,20 @@
   </url>
   
   <url>
+    <loc>https://l-fay.github.io/2024/07/24/chrome00/</loc>
+    
+    <lastmod>2024-11-03T07:21:07.621Z</lastmod>
+    
+    <date>1721826602000</date>
+    <title>群晖管理端web页docker面板排版混乱的问题 | 兰秋廿柒的博客</title>
+    
+    <desc>问题如题，留个记录。</desc>
+  </url>
+  
+  <url>
     <loc>https://l-fay.github.io/2022/10/15/appium02/</loc>
     
-    <lastmod>2024-08-20T11:21:55.418Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.620Z</lastmod>
     
     <date>1665835038000</date>
     <title>Appium | Appium中一些注意事项 | 兰秋廿柒的博客</title>
@@ -1817,25 +1685,234 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/2021/01/07/anaconda01/</loc>
+    <loc>https://l-fay.github.io/2022/10/15/appium01/</loc>
     
-    <lastmod>2024-08-20T11:21:55.417Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.620Z</lastmod>
     
-    <date>1610011784000</date>
-    <title>迁移虚拟环境 | 兰秋廿柒的博客</title>
+    <date>1665833546000</date>
+    <title>Appium | Appium中implicitly_wait失效的替代方案 | 兰秋廿柒的博客</title>
     
-    <desc>师兄的一篇博客很有帮助，转载一下。</desc>
+    <desc>不知道为啥，在Appium中，implicitly_wait是不起作用的，所以找了个替代方案。</desc>
   </url>
   
   <url>
     <loc>https://l-fay.github.io/2022/10/15/appium00/</loc>
     
-    <lastmod>2024-08-20T11:21:55.417Z</lastmod>
+    <lastmod>2024-11-03T07:21:07.619Z</lastmod>
     
     <date>1665831588000</date>
     <title>Appium | 安装时遇到的一些坑 | 兰秋廿柒的博客</title>
     
     <desc>背景是有一个需要自动化操作实机安卓APP的需求，研究了一下，记录一下遇到的一些坑。</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2024/08/03/windows05/</loc>
+    
+    <lastmod>2024-11-03T06:45:11.632Z</lastmod>
+    
+    <date>1722657419000</date>
+    <title>解决天猫精灵连接Windows10蓝牙时，语音控制会中断媒体播放的问题 | 兰秋廿柒的博客</title>
+    
+    <desc>用天猫精灵当蓝牙音响的时候，遇到个很困扰的问题，每次天猫精灵语音控制的过程中，都会启动&#x2F;暂停电脑中的媒体播放。</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2024/10/09/wsl00/</loc>
+    
+    <lastmod>2024-11-03T06:45:11.632Z</lastmod>
+    
+    <date>1728452968000</date>
+    <title>将 WSL Linux 实例安装到其他盘 | 兰秋廿柒的博客</title>
+    
+    <desc>纯搬运。</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2023/07/15/virtualenv01/</loc>
+    
+    <lastmod>2024-11-03T06:45:11.631Z</lastmod>
+    
+    <date>1689432312000</date>
+    <title>Python多环境 | python3.5上使用virtualenv创建虚拟环境的坑 | 兰秋廿柒的博客</title>
+    
+    <desc>python3.5上使用virtualenv的一些问题。</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2022/11/30/torna00/</loc>
+    
+    <lastmod>2024-11-03T06:45:11.630Z</lastmod>
+    
+    <date>1669807930000</date>
+    <title>使用Smart-Doc + Torna生成和管理接口文档 | 兰秋廿柒的博客</title>
+    
+    <desc>在开发spring项目的时候，接口文档承担着向其他开发人员说明接口相关信息的重要任务，因此，一份清晰而又相近的接口文档至关重要。 但是，写接口文档的痛苦想必各位开发人员都体验过，明明写接口的时候那么丝滑，写接口文档的时候像要老命一样各种核对数据格式、文档格式，最后还有可能漏掉那么一些示例导致调用不成功，继续和其他开发沟通……还有接口文档的更新问题，一旦要更新接口文档，就意味着要给所有用着接口文档的</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2024/10/15/spring02/</loc>
+    
+    <lastmod>2024-11-03T06:45:11.620Z</lastmod>
+    
+    <date>1728989323000</date>
+    <title>记一次WebSocket的CLOSE_WAIT问题解决 | 兰秋廿柒的博客</title>
+    
+    <desc>这几天发现线上的服务器有很多CLOSE_WAIT的连接，导致新的请求接不进来。</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2020/09/09/pytorchError00/</loc>
+    
+    <lastmod>2024-11-03T06:45:11.619Z</lastmod>
+    
+    <date>1599652039000</date>
+    <title>RuntimeError: No such operator torchvision::nms | 兰秋廿柒的博客</title>
+    
+    <desc>今天遇到了如题目所示的问题 项目地址：naver&#x2F;dope 由于是个新的项目，还没有issues，只能自力更生。</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2024/08/19/selenium07/</loc>
+    
+    <lastmod>2024-11-03T06:45:11.619Z</lastmod>
+    
+    <date>1724065913000</date>
+    <title>Selenium | 获取canvas画布中的图片 | 兰秋廿柒的博客</title>
+    
+    <desc>搬运自这里。 没办法直接获取，但是JS有获取的方法，详见canvas文档。</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2024/10/22/nginx01/</loc>
+    
+    <lastmod>2024-11-03T06:45:11.618Z</lastmod>
+    
+    <date>1729595568000</date>
+    <title>Nginx | location 和 proxy_pass路径配置总结 | 兰秋廿柒的博客</title>
+    
+    <desc>Nginx的配置中，一个/可能导致巨大的差异。</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2022/03/01/pytorch00/</loc>
+    
+    <lastmod>2024-11-03T06:45:11.618Z</lastmod>
+    
+    <date>1646114343000</date>
+    <title>Pytorch和Python的版本对应关系 | 兰秋廿柒的博客</title>
+    
+    <desc>截止到2022年3月1日，版本对应关系如图：</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2024/09/12/python09/</loc>
+    
+    <lastmod>2024-11-03T06:45:11.618Z</lastmod>
+    
+    <date>1726147259000</date>
+    <title>Python | 主线程结束后自动关闭子线程 | 兰秋廿柒的博客</title>
+    
+    <desc>在threading模块创建的线程中，设置为守护线程即可达到题目的目的。</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2024/09/12/llm00/</loc>
+    
+    <lastmod>2024-11-03T06:45:11.617Z</lastmod>
+    
+    <date>1726148761000</date>
+    <title>Python调用大模型API | 兰秋廿柒的博客</title>
+    
+    <desc>怎样用Python调用大语言模型？</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2020/08/20/linux00/</loc>
+    
+    <lastmod>2024-11-03T06:45:11.617Z</lastmod>
+    
+    <date>1597896230000</date>
+    <title>Ubuntu系统安装 | 兰秋廿柒的博客</title>
+    
+    <desc>废话不多说，直接开始。</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2024/10/21/hexo09/</loc>
+    
+    <lastmod>2024-11-03T06:45:11.616Z</lastmod>
+    
+    <date>1729516217000</date>
+    <title>Hexo | Warning: LF will be replaced by CRLF and Special characters appear | 兰秋廿柒的博客</title>
+    
+    <desc>使用hexo d部署的时候，提示Warning: LF will be replaced by CRLF and Special characters appear。</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2022/07/01/java01/</loc>
+    
+    <lastmod>2024-11-03T06:45:11.616Z</lastmod>
+    
+    <date>1656661597000</date>
+    <title>Java | 用HttpServletResponse实现浏览器的文件下载 | 兰秋廿柒的博客</title>
+    
+    <desc>java中用HttpServletResponse实现浏览器的文件下载 搬运自这篇博客。</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2020/12/19/ffmpeg00/</loc>
+    
+    <lastmod>2024-11-03T06:45:11.615Z</lastmod>
+    
+    <date>1608358304000</date>
+    <title>FFmpeg | Failed to inject frame into filter network: Invalid argument | 兰秋廿柒的博客</title>
+    
+    <desc>今天在给看的剧压字幕的时候遇到了错误。</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2021/01/24/bios00/</loc>
+    
+    <lastmod>2024-11-03T06:45:11.615Z</lastmod>
+    
+    <date>1611486668000</date>
+    <title>自动开关机 | 兰秋廿柒的博客</title>
+    
+    <desc>放假回家了，在回家之前给实验室电脑弄了个自动开关机，方便远程，</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2020/08/01/hexo00/</loc>
+    
+    <lastmod>2024-11-03T06:45:11.615Z</lastmod>
+    
+    <date>1596271344000</date>
+    <title>我就想试试怎么写博客 | 兰秋廿柒的博客</title>
+    
+    <desc>写这个的目的就是试一试hexo的各种语法，免得以后忘记。</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2020/11/27/anaconda00/</loc>
+    
+    <lastmod>2024-11-03T06:45:11.614Z</lastmod>
+    
+    <date>1606472146000</date>
+    <title>pip换源的注意事项 | 兰秋廿柒的博客</title>
+    
+    <desc>之前把pip换源了，现在要装opencv-python的3.4.11.43版本，清华源没有，就把默认源加上了https://pypi.python.org/simple/，顺便记一下pip换源的方法。</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2021/01/07/anaconda01/</loc>
+    
+    <lastmod>2024-11-03T06:45:11.614Z</lastmod>
+    
+    <date>1610011784000</date>
+    <title>迁移虚拟环境 | 兰秋廿柒的博客</title>
+    
+    <desc>师兄的一篇博客很有帮助，转载一下。</desc>
   </url>
   
 </urlset>

@@ -27,8 +27,11 @@
 <meta property="og:description" content="昨天遇到了这个错误，查询后发现原因是有一个变量创建之后没有发给GPU，导致运算的时候出错。 解决方法： 在出错的变量创建后，在参与计算之前发给GPU。 12data &#x3D; torch.zeros(1)data &#x3D; data.cuda()">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-03-22T07:49:10.000Z">
-<meta property="article:modified_time" content="2024-08-20T11:21:55.476Z">
+<meta property="article:modified_time" content="2024-11-03T07:21:07.745Z">
 <meta property="article:author" content="兰秋廿柒">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="PyTorch">
+<meta property="article:tag" content="报错">
 <meta name="twitter:card" content="summary">
 
 
@@ -152,9 +155,19 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">165</span>
+          <span class="site-state-item-count">172</span>
           <span class="site-state-item-name">日志</span>
         </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">109</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">82</span>
+        <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
 </div>
@@ -211,6 +224,23 @@
 
       <time title="创建时间：2021-03-22 15:49:10" itemprop="dateCreated datePublished" datetime="2021-03-22T15:49:10+08:00">2021-03-22</time>
     </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Python/PyTorch/" itemprop="url" rel="index"><span itemprop="name">PyTorch</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Python/PyTorch/%E6%8A%A5%E9%94%99/" itemprop="url" rel="index"><span itemprop="name">报错</span></a>
+        </span>
+    </span>
 
   
     <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
@@ -226,14 +256,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span></span>
+      <span>68</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>NaN:aN</span>
+      <span>1 分钟</span>
     </span>
 </div>
 
@@ -254,6 +284,11 @@
     
 
     <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Python/" rel="tag"># Python</a>
+              <a href="/tags/PyTorch/" rel="tag"># PyTorch</a>
+              <a href="/tags/%E6%8A%A5%E9%94%99/" rel="tag"># 报错</a>
+          </div>
 
         
 
@@ -298,13 +333,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">NaNm</span>
+    <span title="站点总字数">201k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">NaN:aN</span>
+    <span title="站点阅读时长">11:11</span>
   </span>
 </div>
 <div class="busuanzi-count">
