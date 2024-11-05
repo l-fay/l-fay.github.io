@@ -2,6 +2,17 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://l-fay.github.io/2024/11/03/pycharm00/</loc>
+    
+    <lastmod>2024-11-05T01:49:09.230Z</lastmod>
+    
+    <date>1730619431000</date>
+    <title>Pycharm | 无法重命名解释器 | 兰秋廿柒的博客</title>
+    
+    <desc>在重命名解释器时遇到了cannot save settings, please specify a different SDK name错误。</desc>
+  </url>
+  
+  <url>
     <loc>https://l-fay.github.io/2024/10/22/nginx01/</loc>
     
     <lastmod>2024-10-22T10:27:33.974Z</lastmod>
