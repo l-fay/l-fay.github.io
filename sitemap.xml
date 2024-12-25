@@ -2,6 +2,17 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://l-fay.github.io/2024/12/24/linux12/</loc>
+    
+    <lastmod>2024-12-25T06:53:10.381Z</lastmod>
+    
+    <date>1735040732000</date>
+    <title>Linux防火墙配置 | 兰秋廿柒的博客</title>
+    
+    <desc>配置白名单防火墙</desc>
+  </url>
+  
+  <url>
     <loc>https://l-fay.github.io/2024/11/03/pycharm00/</loc>
     
     <lastmod>2024-11-05T01:53:09.334Z</lastmod>

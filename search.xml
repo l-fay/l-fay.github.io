@@ -5003,4 +5003,20 @@ python proxyPool.py server
         <tag>Pycharm</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Linux防火墙配置</title>
+    <url>/2024/12/24/linux12/</url>
+    <content><![CDATA[<p>配置白名单防火墙</p>
+<span id="more"></span>
+
+<h2 id="对指定IP开放指定端口"><a href="#对指定IP开放指定端口" class="headerlink" title="对指定IP开放指定端口"></a>对指定IP开放指定端口</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">firewall-cmd --permanent --add-rich-rule=&#x27;rule family=&quot;ipv4&quot; source address=&quot;xxx.xxx.xxx.xxx&quot; port protocol=&quot;tcp&quot; port=&quot;3306&quot; accept&#x27;</span><br></pre></td></tr></table></figure>
+
+<h2 id="重新加载"><a href="#重新加载" class="headerlink" title="重新加载"></a>重新加载</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">firewall-cmd --reload</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
 </search>
