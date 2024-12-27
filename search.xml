@@ -5009,6 +5009,10 @@ python proxyPool.py server
     <content><![CDATA[<p>配置白名单防火墙</p>
 <span id="more"></span>
 
+<h2 id="开放指定端口"><a href="#开放指定端口" class="headerlink" title="开放指定端口"></a>开放指定端口</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">firewall-cmd --permanent --add-port=3306/tcp</span><br></pre></td></tr></table></figure>
+
+<h2 id="删除指定端口"><a href="#删除指定端口" class="headerlink" title="删除指定端口"></a>删除指定端口</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">firewall-cmd --permanent --remove-port=3306/tcp</span><br></pre></td></tr></table></figure>
+
 <h2 id="对指定IP开放指定端口"><a href="#对指定IP开放指定端口" class="headerlink" title="对指定IP开放指定端口"></a>对指定IP开放指定端口</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">firewall-cmd --permanent --add-rich-rule=&#x27;rule family=&quot;ipv4&quot; source address=&quot;xxx.xxx.xxx.xxx&quot; port protocol=&quot;tcp&quot; port=&quot;3306&quot; accept&#x27;</span><br></pre></td></tr></table></figure>
 
 <h2 id="重新加载"><a href="#重新加载" class="headerlink" title="重新加载"></a>重新加载</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">firewall-cmd --reload</span><br></pre></td></tr></table></figure>]]></content>
