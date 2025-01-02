@@ -2,6 +2,17 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://l-fay.github.io/2024/09/12/python09/</loc>
+    
+    <lastmod>2025-01-02T07:17:08.119Z</lastmod>
+    
+    <date>1726147259000</date>
+    <title>Python | 主线程结束后自动关闭子线程 | 兰秋廿柒的博客</title>
+    
+    <desc>在threading模块创建的线程中，设置为守护线程即可达到标题的目的。</desc>
+  </url>
+  
+  <url>
     <loc>https://l-fay.github.io/2024/12/31/python10/</loc>
     
     <lastmod>2025-01-02T02:03:09.412Z</lastmod>
@@ -681,17 +692,6 @@
     <title>Python路径处理用到的库 | 兰秋廿柒的博客</title>
     
     <desc>文件路径很多时候不能写死，否则移植的时候会很麻烦，尤其是跨平台的时候。 所以我在处理路径的时候偏向于使用相对路径。</desc>
-  </url>
-  
-  <url>
-    <loc>https://l-fay.github.io/2024/09/12/python09/</loc>
-    
-    <lastmod>2024-10-09T10:15:05.910Z</lastmod>
-    
-    <date>1726147259000</date>
-    <title>Python | 主线程结束后自动关闭子线程 | 兰秋廿柒的博客</title>
-    
-    <desc>在threading模块创建的线程中，设置为守护线程即可达到题目的目的。</desc>
   </url>
   
   <url>

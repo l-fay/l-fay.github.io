@@ -3195,7 +3195,7 @@ python proxyPool.py server
   <entry>
     <title>Python | 主线程结束后自动关闭子线程</title>
     <url>/2024/09/12/python09/</url>
-    <content><![CDATA[<p>在<code>threading</code>模块创建的线程中，设置为守护线程即可达到题目的目的。</p>
+    <content><![CDATA[<p>在<code>threading</code>模块创建的线程中，设置为守护线程即可达到标题的目的。</p>
 <span id="more"></span>
 
 <p>示例代码：</p>
