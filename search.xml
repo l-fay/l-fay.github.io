@@ -1,31 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Appium | 安装时遇到的一些坑</title>
-    <url>/2022/10/15/appium00/</url>
-    <content><![CDATA[<p>背景是有一个需要自动化操作实机安卓APP的需求，研究了一下，记录一下遇到的一些坑。</p>
+    <title>pip换源的注意事项</title>
+    <url>/2020/11/27/anaconda00/</url>
+    <content><![CDATA[<p>之前把pip换源了，现在要装opencv-python的3.4.11.43版本，清华源没有，就把默认源加上了<code>https://pypi.python.org/simple/</code>，顺便记一下pip换源的方法。</p>
 <span id="more"></span>
 
-<h2 id="版本"><a href="#版本" class="headerlink" title="版本"></a>版本</h2><p>首当其冲的就是版本问题，包括实机安卓版本、Appium版本、SDK版本，反倒是JDK版本没遇到什么幺蛾子。</p>
-<h3 id="安卓版本"><a href="#安卓版本" class="headerlink" title="安卓版本"></a>安卓版本</h3><p>这个没得选，自己的手机就是安卓12，只有一点需要注意，我的手机是realme的，需要在开发者模式中打开<code>禁止权限监控</code>才能成功连接Appium。</p>
-<h3 id="SDK版本"><a href="#SDK版本" class="headerlink" title="SDK版本"></a>SDK版本</h3><p>开始的时候缺少经验，死活连不上，就是因为SDK版本和安卓版本不配套。</p>
-<p>后来我选择使用SDK31，跟安卓12配套，这里需要注意的是，SDK31没找到单独下载，所以我装了个Android Studio，用它装SDK。</p>
-<h3 id="Appium版本"><a href="#Appium版本" class="headerlink" title="Appium版本"></a>Appium版本</h3><p>这个我用的是最新的，毕竟SDK和安卓版本都挺新的。</p>
-<h2 id="appium-doctor"><a href="#appium-doctor" class="headerlink" title="appium-doctor"></a>appium-doctor</h2><p>这个东西让我纠结了好久，毕竟到最后我也没过环境检查。</p>
-<p>后来才发现，高版本的SDK文件结构变了，本来就过不了appium-doctor的检查，吐血。</p>
-<h2 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h2><p>我用的参数如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">        &quot;platformName&quot;: &quot;Android&quot;,</span><br><span class="line">        &quot;appium:platformVersion&quot;: &quot;12&quot;,</span><br><span class="line">        &quot;appium:deviceName&quot;: &quot;ff7c5db6               device&quot;,</span><br><span class="line">        &quot;appium:appPackage&quot;: &quot;com.abchina.mmspc&quot;,</span><br><span class="line">        &quot;appium:appActivity&quot;: &quot;.ui.activity.WelcomeActivity&quot;,</span><br><span class="line">        &quot;appium:noReset&quot;: True,                        // 防止重置</span><br><span class="line">        &quot;appium:resetKeyboard&quot;: False,                 // 脚本执行完后重置输入法</span><br><span class="line">        &quot;appium:unicodeKeyboard&quot;: False,               // 脚本是否使用原生输入法，如果需要输入中文，这里要选True</span><br><span class="line">        &quot;appium:newCommandTimeout&quot;: 6000,              // 超过60秒无操作自动断连</span><br><span class="line">        &quot;appium:automationName&quot;: &quot;UiAutomator2&quot;        // 高版本要指定为‘UiAutomator2’，低版本用‘UiAutomator’</span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<p>其中appPackage和appActivity是用<code>adb logcat&gt;D:/log.txt</code>获取log之后，搜索<code>Displayed</code>查看。</p>
-<p>由于我要测的app重置后需要手机验证码登录，所以需要<code>noReset</code>参数来防止重置。</p>
-<p>到这应该就能连上了。</p>
+<h2 id="位置"><a href="#位置" class="headerlink" title="位置"></a>位置</h2><p>linux:</p>
+<p>修改 ~&#x2F;.config&#x2F;pip&#x2F;pip.conf (没有就创建一个)。</p>
+<p>windows:</p>
+<p>直接在user目录中创建一个pip目录，如：C:\Users\xx\pip，新建文件pip.ini。</p>
+<h2 id="内容"><a href="#内容" class="headerlink" title="内容"></a>内容</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[global]</span><br><span class="line">index-url = https://pypi.tuna.tsinghua.edu.cn/simple</span><br><span class="line">extra-index-url=</span><br><span class="line">	https://pypi.mirrors.ustc.edu.cn/simple/</span><br><span class="line">	https://pypi.douban.com/simple/</span><br><span class="line">	https://pypi.python.org/simple/</span><br><span class="line">[install]</span><br><span class="line">trusted-host = tuna.tsinghua.edu.cn</span><br><span class="line">	pypi.douban.com</span><br><span class="line">	mirrors.ustc.edu.cn</span><br><span class="line">	python.org</span><br></pre></td></tr></table></figure>
+
+<p>另外记一个错误写法：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[global]</span><br><span class="line">index-url=http://pypi.douban.com/simple</span><br><span class="line">extra-index-url=http://mirrors.aliyun.com/pypi/simple/</span><br><span class="line">extra-index-url=https://pypi.tuna.tsinghua.edu.cn/simple/</span><br><span class="line">extra-index-url=http://pypi.mirrors.ustc.edu.cn/simple/</span><br><span class="line">[install]</span><br><span class="line">trusted-host=pypi.douban.com</span><br><span class="line">trusted-host=mirrors.aliyun.com</span><br><span class="line">trusted-host=pypi.tuna.tsinghua.edu.cn</span><br><span class="line">trusted-host=pypi.mirrors.ustc.edu.cn</span><br></pre></td></tr></table></figure>
+
+<p>这样会报错：<code>option &#39;extra-index-url&#39; in section &#39;global&#39; already exists.</code></p>
+<h2 id="进阶"><a href="#进阶" class="headerlink" title="进阶"></a>进阶</h2><p><code>pip</code>命令不止一个配置文件地址，并且配置文件有不同的覆盖范围和加载顺序，可以用<code>pip -v config list</code>或<code>pip config debug</code>查看。</p>
 ]]></content>
       <categories>
-        <category>自动化</category>
-        <category>Appium</category>
+        <category>Anaconda</category>
+        <category>pip</category>
       </categories>
       <tags>
-        <tag>自动化</tag>
-        <tag>Appium</tag>
+        <tag>Anaconda</tag>
+        <tag>pip</tag>
       </tags>
   </entry>
   <entry>
@@ -82,6 +81,34 @@
       <tags>
         <tag>Anaconda</tag>
         <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Appium | 安装时遇到的一些坑</title>
+    <url>/2022/10/15/appium00/</url>
+    <content><![CDATA[<p>背景是有一个需要自动化操作实机安卓APP的需求，研究了一下，记录一下遇到的一些坑。</p>
+<span id="more"></span>
+
+<h2 id="版本"><a href="#版本" class="headerlink" title="版本"></a>版本</h2><p>首当其冲的就是版本问题，包括实机安卓版本、Appium版本、SDK版本，反倒是JDK版本没遇到什么幺蛾子。</p>
+<h3 id="安卓版本"><a href="#安卓版本" class="headerlink" title="安卓版本"></a>安卓版本</h3><p>这个没得选，自己的手机就是安卓12，只有一点需要注意，我的手机是realme的，需要在开发者模式中打开<code>禁止权限监控</code>才能成功连接Appium。</p>
+<h3 id="SDK版本"><a href="#SDK版本" class="headerlink" title="SDK版本"></a>SDK版本</h3><p>开始的时候缺少经验，死活连不上，就是因为SDK版本和安卓版本不配套。</p>
+<p>后来我选择使用SDK31，跟安卓12配套，这里需要注意的是，SDK31没找到单独下载，所以我装了个Android Studio，用它装SDK。</p>
+<h3 id="Appium版本"><a href="#Appium版本" class="headerlink" title="Appium版本"></a>Appium版本</h3><p>这个我用的是最新的，毕竟SDK和安卓版本都挺新的。</p>
+<h2 id="appium-doctor"><a href="#appium-doctor" class="headerlink" title="appium-doctor"></a>appium-doctor</h2><p>这个东西让我纠结了好久，毕竟到最后我也没过环境检查。</p>
+<p>后来才发现，高版本的SDK文件结构变了，本来就过不了appium-doctor的检查，吐血。</p>
+<h2 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h2><p>我用的参数如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">        &quot;platformName&quot;: &quot;Android&quot;,</span><br><span class="line">        &quot;appium:platformVersion&quot;: &quot;12&quot;,</span><br><span class="line">        &quot;appium:deviceName&quot;: &quot;ff7c5db6               device&quot;,</span><br><span class="line">        &quot;appium:appPackage&quot;: &quot;com.abchina.mmspc&quot;,</span><br><span class="line">        &quot;appium:appActivity&quot;: &quot;.ui.activity.WelcomeActivity&quot;,</span><br><span class="line">        &quot;appium:noReset&quot;: True,                        // 防止重置</span><br><span class="line">        &quot;appium:resetKeyboard&quot;: False,                 // 脚本执行完后重置输入法</span><br><span class="line">        &quot;appium:unicodeKeyboard&quot;: False,               // 脚本是否使用原生输入法，如果需要输入中文，这里要选True</span><br><span class="line">        &quot;appium:newCommandTimeout&quot;: 6000,              // 超过60秒无操作自动断连</span><br><span class="line">        &quot;appium:automationName&quot;: &quot;UiAutomator2&quot;        // 高版本要指定为‘UiAutomator2’，低版本用‘UiAutomator’</span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>其中appPackage和appActivity是用<code>adb logcat&gt;D:/log.txt</code>获取log之后，搜索<code>Displayed</code>查看。</p>
+<p>由于我要测的app重置后需要手机验证码登录，所以需要<code>noReset</code>参数来防止重置。</p>
+<p>到这应该就能连上了。</p>
+]]></content>
+      <categories>
+        <category>自动化</category>
+        <category>Appium</category>
+      </categories>
+      <tags>
+        <tag>自动化</tag>
+        <tag>Appium</tag>
       </tags>
   </entry>
   <entry>
@@ -177,6 +204,24 @@
       </tags>
   </entry>
   <entry>
+    <title>群晖管理端web页docker面板排版混乱的问题</title>
+    <url>/2024/07/24/chrome00/</url>
+    <content><![CDATA[<p>问题如题，留个记录。</p>
+<span id="more"></span>
+
+<p>排查过程就不具体说了，试了很多种方案才确定下来问题所在。</p>
+<p>最后发现是一个Chrome插件的问题，叫做“Google Chrome™ 的 XPath 助手”，禁用了就好了。</p>
+]]></content>
+      <categories>
+        <category>群晖</category>
+        <category>Chrome</category>
+      </categories>
+      <tags>
+        <tag>群晖</tag>
+        <tag>Chrome</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>nohup命令使用方法</title>
     <url>/2020/10/26/command00/</url>
     <content><![CDATA[<p>因为- <a href="/2020/09/08/proxy_pool00/" title="代理 | 开源项目proxy_pool">这个项目</a>需要长时间运行，所以学习了一下nohup命令。</p>
@@ -206,24 +251,6 @@
       <tags>
         <tag>Linux</tag>
         <tag>命令</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>群晖管理端web页docker面板排版混乱的问题</title>
-    <url>/2024/07/24/chrome00/</url>
-    <content><![CDATA[<p>问题如题，留个记录。</p>
-<span id="more"></span>
-
-<p>排查过程就不具体说了，试了很多种方案才确定下来问题所在。</p>
-<p>最后发现是一个Chrome插件的问题，叫做“Google Chrome™ 的 XPath 助手”，禁用了就好了。</p>
-]]></content>
-      <categories>
-        <category>群晖</category>
-        <category>Chrome</category>
-      </categories>
-      <tags>
-        <tag>群晖</tag>
-        <tag>Chrome</tag>
       </tags>
   </entry>
   <entry>
@@ -794,23 +821,6 @@
       </tags>
   </entry>
   <entry>
-    <title>FFmpeg | 删除视频中的元数据</title>
-    <url>/2021/06/07/ffmpeg05/</url>
-    <content><![CDATA[<p>补充<a href="/2021/02/05/ffmpeg03/" title="FFmpeg | 删除视频中的章节数据">FFmpeg | 删除视频中的章节数据</a></p>
-<span id="more"></span>
-
-<p>在上边那篇博客中，我提到了一个参数<code>-map_metadata -1</code>，当时觉得没有用，后来想想不太对，我之前操作的并不是元数据区，这个参数肯定没啥用。</p>
-<p>现在我想把元数据区也清了，有些视频里有一些描述、标题啥的，看着烦，就又把这个参数捡回来了。</p>
-<p>这个参数确实可以删除元数据，不过只能创建新文件去删除，不能直接在源文件上修改。</p>
-]]></content>
-      <categories>
-        <category>ffmpeg</category>
-      </categories>
-      <tags>
-        <tag>ffmpeg</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>FFmpeg | 元数据之creation_time</title>
     <url>/2021/06/07/ffmpeg06/</url>
     <content><![CDATA[<p>用mutagen无法处理元数据中的creation_time，根本就读不到这个数据。</p>
@@ -827,6 +837,23 @@
       </categories>
       <tags>
         <tag>Python</tag>
+        <tag>ffmpeg</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>FFmpeg | 删除视频中的元数据</title>
+    <url>/2021/06/07/ffmpeg05/</url>
+    <content><![CDATA[<p>补充<a href="/2021/02/05/ffmpeg03/" title="FFmpeg | 删除视频中的章节数据">FFmpeg | 删除视频中的章节数据</a></p>
+<span id="more"></span>
+
+<p>在上边那篇博客中，我提到了一个参数<code>-map_metadata -1</code>，当时觉得没有用，后来想想不太对，我之前操作的并不是元数据区，这个参数肯定没啥用。</p>
+<p>现在我想把元数据区也清了，有些视频里有一些描述、标题啥的，看着烦，就又把这个参数捡回来了。</p>
+<p>这个参数确实可以删除元数据，不过只能创建新文件去删除，不能直接在源文件上修改。</p>
+]]></content>
+      <categories>
+        <category>ffmpeg</category>
+      </categories>
+      <tags>
         <tag>ffmpeg</tag>
       </tags>
   </entry>
@@ -864,23 +891,6 @@
       </tags>
   </entry>
   <entry>
-    <title>FFmpeg | attached_pic参数添加封面</title>
-    <url>/2021/09/08/ffmpeg09/</url>
-    <content><![CDATA[<p>添加封面图片的参数。</p>
-<span id="more"></span>
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ffmpeg -i pic.jpg -i video.mp4 -map 1:0 -map 1:1 -map 0:0 -c copy -disposition:2 attached_pic output.mp4</span><br></pre></td></tr></table></figure>
-
-<p>其中<code>-disposition:2 attached_pic</code>中的参数<code>2</code>指的是视频中的第几个流，我个人习惯是视频、音频、封面这样的顺序。</p>
-]]></content>
-      <categories>
-        <category>ffmpeg</category>
-      </categories>
-      <tags>
-        <tag>ffmpeg</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>FFmpeg | 在元数据里给媒体流命名</title>
     <url>/2021/11/25/ffmpeg10/</url>
     <content><![CDATA[<p>最近手里有个视频，英配和中配都很好，就想都保留下来，命个名加以区别。</p>
@@ -908,6 +918,23 @@
 <p>只改变编码，不改变像素格式的话，只能转成<code>hevc (Main 10)</code>。</p>
 <p>所以要将10bit的<code>yuv420p10le</code>改成8bit的<code>yuv420p</code>，使用<code>-pix_fmt</code>参数，如：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ffmpeg -i 1.mp4 -map 0:0 -c:v hevc -map 0:1 -c:a aac -pix_fmt yuv420p 2.mp4</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>ffmpeg</category>
+      </categories>
+      <tags>
+        <tag>ffmpeg</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>FFmpeg | attached_pic参数添加封面</title>
+    <url>/2021/09/08/ffmpeg09/</url>
+    <content><![CDATA[<p>添加封面图片的参数。</p>
+<span id="more"></span>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ffmpeg -i pic.jpg -i video.mp4 -map 1:0 -map 1:1 -map 0:0 -c copy -disposition:2 attached_pic output.mp4</span><br></pre></td></tr></table></figure>
+
+<p>其中<code>-disposition:2 attached_pic</code>中的参数<code>2</code>指的是视频中的第几个流，我个人习惯是视频、音频、封面这样的顺序。</p>
+]]></content>
       <categories>
         <category>ffmpeg</category>
       </categories>
@@ -993,6 +1020,26 @@
       </tags>
   </entry>
   <entry>
+    <title>FFmpeg | 提取附件</title>
+    <url>/2024/08/22/ffmpeg17/</url>
+    <content><![CDATA[<p>有时媒体文件中会将字体封为一个流，在做软字幕烧录硬字幕时，会需要这个字体文件，这是就有把字体文件提取出来的需求。</p>
+<span id="more"></span>
+
+<h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><p>在媒体文件中，字体文件并没有特定的格式，而是作为附件被封在媒体流中，所以直接提取附件就可以了。</p>
+<h1 id="提取方法"><a href="#提取方法" class="headerlink" title="提取方法"></a>提取方法</h1><p><code>ffmpeg</code>支持<code>dump_attachment</code>参数来直接提取参数：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">-dump_attachment[:stream_specifier] filename (input,per-stream)</span><br></pre></td></tr></table></figure>
+<p>示例：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ffmpeg -dump_attachment:t:0 out.ttf -i INPUT</span><br></pre></td></tr></table></figure>
+<p>提取filename标记确定的文件的所有附件：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ffmpeg -dump_attachment:t &quot;&quot; -i INPUT</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>ffmpeg</category>
+      </categories>
+      <tags>
+        <tag>ffmpeg</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>FFmpeg | 修改分辨率</title>
     <url>/2023/11/30/ffmpeg16/</url>
     <content><![CDATA[<p>当需要对视频进行放缩时（如720p-&gt;1080p或1080p-&gt;720p），用到的语法。</p>
@@ -1007,26 +1054,6 @@
 <p>这两个错误的原因都是因为在计算自适应长宽的时候出现不规则的分辨率。<br>前者是宽为小数，后者是长宽为小数。</p>
 <p>解决方法是将命令中的<code>-1</code>换成<code>-2</code>。<br><code>-n</code>当<code>n&gt;0</code>时，参数的意思是将计算后的长宽调整为能被<code>n</code>整除的数。<br>所以理论上来讲，<code>-2</code>参数会在计算结果为非偶数时将计算结果进行微调从而导致放缩结果并不完全遵守原比例，会有微小变形。<br>但是这种变形是一两个像素的级别，我个人感觉在视觉上并不影响观感。</p>
 ]]></content>
-      <categories>
-        <category>ffmpeg</category>
-      </categories>
-      <tags>
-        <tag>ffmpeg</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>FFmpeg | 提取附件</title>
-    <url>/2024/08/22/ffmpeg17/</url>
-    <content><![CDATA[<p>有时媒体文件中会将字体封为一个流，在做软字幕烧录硬字幕时，会需要这个字体文件，这是就有把字体文件提取出来的需求。</p>
-<span id="more"></span>
-
-<h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><p>在媒体文件中，字体文件并没有特定的格式，而是作为附件被封在媒体流中，所以直接提取附件就可以了。</p>
-<h1 id="提取方法"><a href="#提取方法" class="headerlink" title="提取方法"></a>提取方法</h1><p><code>ffmpeg</code>支持<code>dump_attachment</code>参数来直接提取参数：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">-dump_attachment[:stream_specifier] filename (input,per-stream)</span><br></pre></td></tr></table></figure>
-<p>示例：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ffmpeg -dump_attachment:t:0 out.ttf -i INPUT</span><br></pre></td></tr></table></figure>
-<p>提取filename标记确定的文件的所有附件：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ffmpeg -dump_attachment:t &quot;&quot; -i INPUT</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>ffmpeg</category>
       </categories>
@@ -1292,35 +1319,6 @@ table th:nth-of-type(3) {
       </tags>
   </entry>
   <entry>
-    <title>git | 将非空目录上传至GitHub仓库</title>
-    <url>/2020/12/19/git00/</url>
-    <content><![CDATA[<p>因为是初学，学的时候自己操作的是空目录，现在想把已有的项目push上去，在备份完之后试了一下，发现正常操作就可以，记录一下。</p>
-<span id="more"></span>
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cd folder</span><br><span class="line">git init</span><br><span class="line">git remote add origin git@github.com:l-fay/personalTools.git</span><br><span class="line">git add .</span><br><span class="line">git commit -m &quot;个人用的一些工具&quot;</span><br><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Git</category>
-      </categories>
-      <tags>
-        <tag>Git</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>git | 删除本地文件后 Git pull从远程仓库重新获取不到解决办法</title>
-    <url>/2021/04/05/git01/</url>
-    <content><![CDATA[<p><code>git pull</code>一直提示<code>Already up-to-date</code></p>
-<span id="more"></span>
-
-<p>删除本地文件后，想从远程仓库中重新新Pull最新代码，但是执行了git pull命令后始终无法拉取下来<br>提示 Already up-to-date.<br>原因：当前本地库处于另一个分支中，需将本分支发Head重置至develop<br>git 强行pull并覆盖本地文件(依次执行)</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git fetch --all</span><br><span class="line">git reset --hard origin/master</span><br><span class="line">git pull</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Git</category>
-      </categories>
-      <tags>
-        <tag>Git</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Git | 给SSH克隆设置代理</title>
     <url>/2023/12/06/git02/</url>
     <content><![CDATA[<p>在<code>git clone</code>时设置代理。</p>
@@ -1341,6 +1339,20 @@ table th:nth-of-type(3) {
       </tags>
   </entry>
   <entry>
+    <title>git | 将非空目录上传至GitHub仓库</title>
+    <url>/2020/12/19/git00/</url>
+    <content><![CDATA[<p>因为是初学，学的时候自己操作的是空目录，现在想把已有的项目push上去，在备份完之后试了一下，发现正常操作就可以，记录一下。</p>
+<span id="more"></span>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cd folder</span><br><span class="line">git init</span><br><span class="line">git remote add origin git@github.com:l-fay/personalTools.git</span><br><span class="line">git add .</span><br><span class="line">git commit -m &quot;个人用的一些工具&quot;</span><br><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Git</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Git | 同时提交到两个git地址</title>
     <url>/2024/05/19/git03/</url>
     <content><![CDATA[<p>需要给同一个项目设置两个远程git地址，主要是为了灾备。</p>
@@ -1353,6 +1365,21 @@ table th:nth-of-type(3) {
 <h2 id="可能遇到的问题"><a href="#可能遇到的问题" class="headerlink" title="可能遇到的问题"></a>可能遇到的问题</h2><p>两个git仓库可能不同步，所以建议第一次推送添加<code>-f</code>参数。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git push origin master -f</span><br></pre></td></tr></table></figure>
 ]]></content>
+      <categories>
+        <category>Git</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>git | 删除本地文件后 Git pull从远程仓库重新获取不到解决办法</title>
+    <url>/2021/04/05/git01/</url>
+    <content><![CDATA[<p><code>git pull</code>一直提示<code>Already up-to-date</code></p>
+<span id="more"></span>
+
+<p>删除本地文件后，想从远程仓库中重新新Pull最新代码，但是执行了git pull命令后始终无法拉取下来<br>提示 Already up-to-date.<br>原因：当前本地库处于另一个分支中，需将本分支发Head重置至develop<br>git 强行pull并覆盖本地文件(依次执行)</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git fetch --all</span><br><span class="line">git reset --hard origin/master</span><br><span class="line">git pull</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>Git</category>
       </categories>
@@ -1522,28 +1549,6 @@ table th:nth-of-type(3) {
       </tags>
   </entry>
   <entry>
-    <title>Hexo | 新电脑上使用之前的博客文件夹</title>
-    <url>/2022/07/04/hexo05/</url>
-    <content><![CDATA[<p>本教程旨在自用，针对的是已有Hexo的博客文件夹的群体，新配置的不要看这个，跳过了很多新配置的必须步骤。</p>
-<span id="more"></span>
-
-<h2 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h2><p>在官网下载安装，此处不展开。<br>配置环境变量：<br><code>D:\Git\bin（记得换成实际安装位置）</code><br><code>git --version</code> 验证安装。</p>
-<h2 id="安装NodeJs"><a href="#安装NodeJs" class="headerlink" title="安装NodeJs"></a>安装NodeJs</h2><p>在官网下载长期维护版安装。<br><code>node -v</code> 验证安装。</p>
-<h2 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h2><p>在博客文件夹下运行 <code>npm install hexo-cli -g</code> 。<br><code>hexo -v</code> 验证安装。</p>
-<p>到这一步，之前自己改的scripts啥的都能保留，但是需要修改js文件里的路径配置，自己检查下。</p>
-<h2 id="连接GitHub上的已有仓库"><a href="#连接GitHub上的已有仓库" class="headerlink" title="连接GitHub上的已有仓库"></a>连接GitHub上的已有仓库</h2><p>输入 <code>git config --global user.name &quot;你GitHub账号的名字&quot;</code> 。<br>注：由于我也是小白，不知道这名字有啥用，我输入的是GitHub里 <code>Setting - Public profile - Name</code> 的值。<br>再输入 <code>git config --global user.email &quot;你GitHub账号的邮箱&quot;</code> 。<br>再输入 <code>ssh-keygen -t rsa -C &quot;你GitHub账号的邮箱&quot;</code> 生成SSH Key，什么也不用输入，直接按三次回车确定。<br>看下上一步命令行中提示的路径，进入相应文件夹打开 <code>id_rsa.pub</code> 文件，将里边的内容复制一下。<br>然后在GitHub里 <code>Setting - SSH and GPG keys - SSH keys</code> 点击 <code>new SSH key</code> ，输入名字和刚复制的key，名字主要是为了区分这是哪个电脑的key，自己取一下作区分就好。<br>然后把旧的不用的key清理一下。<br>在博客文件夹下运行 <code>npm install hexo-deployer-git --save</code> 安装GitHub推送插件。</p>
-<h2 id="安装next主题"><a href="#安装next主题" class="headerlink" title="安装next主题"></a>安装next主题</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git clone git@github.com:gonghs/hexo-theme-next.git themes/next</span><br></pre></td></tr></table></figure>
-<p>如果有自己的配置文件，再将配置文件覆盖掉。</p>
-<p>到这就大功告成了，试试 <code>hexo g</code> 和 <code>hexo d</code> 吧！</p>
-]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hexo | 添加搜索框</title>
     <url>/2022/07/05/hexo06/</url>
     <content><![CDATA[<p>Hexo本身就支持搜索框，下个插件，改改设置就好。</p>
@@ -1558,6 +1563,28 @@ table th:nth-of-type(3) {
 <h2 id="改主题配置"><a href="#改主题配置" class="headerlink" title="改主题配置"></a>改主题配置</h2><p>在主题目录的<code>_config.yml</code>查找<code>local_search</code>，启用。</p>
 <hr>
 <p>到这就OK了。</p>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo | 新电脑上使用之前的博客文件夹</title>
+    <url>/2022/07/04/hexo05/</url>
+    <content><![CDATA[<p>本教程旨在自用，针对的是已有Hexo的博客文件夹的群体，新配置的不要看这个，跳过了很多新配置的必须步骤。</p>
+<span id="more"></span>
+
+<h2 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h2><p>在官网下载安装，此处不展开。<br>配置环境变量：<br><code>D:\Git\bin（记得换成实际安装位置）</code><br><code>git --version</code> 验证安装。</p>
+<h2 id="安装NodeJs"><a href="#安装NodeJs" class="headerlink" title="安装NodeJs"></a>安装NodeJs</h2><p>在官网下载长期维护版安装。<br><code>node -v</code> 验证安装。</p>
+<h2 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h2><p>在博客文件夹下运行 <code>npm install hexo-cli -g</code> 。<br><code>hexo -v</code> 验证安装。</p>
+<p>到这一步，之前自己改的scripts啥的都能保留，但是需要修改js文件里的路径配置，自己检查下。</p>
+<h2 id="连接GitHub上的已有仓库"><a href="#连接GitHub上的已有仓库" class="headerlink" title="连接GitHub上的已有仓库"></a>连接GitHub上的已有仓库</h2><p>输入 <code>git config --global user.name &quot;你GitHub账号的名字&quot;</code> 。<br>注：由于我也是小白，不知道这名字有啥用，我输入的是GitHub里 <code>Setting - Public profile - Name</code> 的值。<br>再输入 <code>git config --global user.email &quot;你GitHub账号的邮箱&quot;</code> 。<br>再输入 <code>ssh-keygen -t rsa -C &quot;你GitHub账号的邮箱&quot;</code> 生成SSH Key，什么也不用输入，直接按三次回车确定。<br>看下上一步命令行中提示的路径，进入相应文件夹打开 <code>id_rsa.pub</code> 文件，将里边的内容复制一下。<br>然后在GitHub里 <code>Setting - SSH and GPG keys - SSH keys</code> 点击 <code>new SSH key</code> ，输入名字和刚复制的key，名字主要是为了区分这是哪个电脑的key，自己取一下作区分就好。<br>然后把旧的不用的key清理一下。<br>在博客文件夹下运行 <code>npm install hexo-deployer-git --save</code> 安装GitHub推送插件。</p>
+<h2 id="安装next主题"><a href="#安装next主题" class="headerlink" title="安装next主题"></a>安装next主题</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git clone git@github.com:gonghs/hexo-theme-next.git themes/next</span><br></pre></td></tr></table></figure>
+<p>如果有自己的配置文件，再将配置文件覆盖掉。</p>
+<p>到这就大功告成了，试试 <code>hexo g</code> 和 <code>hexo d</code> 吧！</p>
 ]]></content>
       <categories>
         <category>Hexo</category>
@@ -1769,6 +1796,30 @@ table th:nth-of-type(3) {
       </tags>
   </entry>
   <entry>
+    <title>Java | 用HttpServletResponse实现浏览器的文件下载</title>
+    <url>/2022/07/01/java01/</url>
+    <content><![CDATA[<p>java中用HttpServletResponse实现浏览器的文件下载</p>
+<p>搬运自<a href="https://blog.csdn.net/kelekele111/article/details/123681813">这篇</a>博客。</p>
+<span id="more"></span>
+
+<h2 id="实现效果"><a href="#实现效果" class="headerlink" title="实现效果"></a>实现效果</h2><img data-src="/images/java01/img00.avif" width="100%">
+
+<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><p><strong>1. 将文件放在resources文件包下</strong></p>
+<img data-src="/images/java01/img01.avif" width="60%">
+
+<p><strong>2. FileServlet类实现代码</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public class FileServlet extends HttpServlet &#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException &#123;</span><br><span class="line">        //1.要获取下载文件的路径</span><br><span class="line">        String realPath = &quot;E:\\开源项目\\demo\\javaweb-02-servlet\\response\\src\\main\\resources\\123.png&quot;;</span><br><span class="line">        System.out.println(&quot;下载文件的位置&quot;+realPath);</span><br><span class="line">        //2.下载的文件名是啥,截取文件名</span><br><span class="line">        String fileName = realPath.substring(realPath.lastIndexOf(&quot;\\&quot;) + 1);</span><br><span class="line">        //3.设置让浏览器支持(Content-Disposition)下载我们需要的东西,如果文件名字为中文，需要转码，URLEncoder.encode设置文件名编码</span><br><span class="line">        resp.setHeader(&quot;Content-Disposition&quot;,&quot;attachment;filename=&quot;+ URLEncoder.encode(fileName,&quot;utf-8&quot;));</span><br><span class="line">        //4.获取下载文件的输入流</span><br><span class="line">        FileInputStream in = new FileInputStream(realPath);</span><br><span class="line">        //5.创建缓冲区</span><br><span class="line">        int len = 0;</span><br><span class="line">        byte[] buffer = new byte[1024];</span><br><span class="line">        //6.获取OutputStream对象</span><br><span class="line">        ServletOutputStream out = resp.getOutputStream();</span><br><span class="line">        //7.将FileOutputStream流写入到buffer缓冲区，使用OutputStream将缓冲区的数据输出到客户端</span><br><span class="line">        while ((len = in.read(buffer)) &gt; 0)&#123;</span><br><span class="line">            out.write(buffer,0,len);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        //关闭流</span><br><span class="line">        in.close();</span><br><span class="line">        out.close();</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException &#123;</span><br><span class="line">        doGet(req, resp);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>3. web.xml设置</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;web-app xmlns=&quot;http://xmlns.jcp.org/xml/ns/javaee&quot;</span><br><span class="line">         xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><br><span class="line">         xsi:schemaLocation=&quot;http://xmlns.jcp.org/xml/ns/javaee</span><br><span class="line">                             http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd&quot;</span><br><span class="line">         version=&quot;4.0&quot;</span><br><span class="line">         metadata-complete=&quot;true&quot;&gt;</span><br><span class="line">  </span><br><span class="line">&lt;!--  Servlet注册，下载文件--&gt;</span><br><span class="line">  &lt;servlet&gt;</span><br><span class="line">    &lt;servlet-name&gt;fileDown&lt;/servlet-name&gt;</span><br><span class="line">    &lt;servlet-class&gt;com.hwh.servlet.FileServlet&lt;/servlet-class&gt;</span><br><span class="line">  &lt;/servlet&gt;</span><br><span class="line">  &lt;servlet-mapping&gt;</span><br><span class="line">    &lt;servlet-name&gt;fileDown&lt;/servlet-name&gt;</span><br><span class="line">    &lt;url-pattern&gt;/fileDown&lt;/url-pattern&gt;</span><br><span class="line">  &lt;/servlet-mapping&gt;</span><br><span class="line">  </span><br><span class="line">&lt;/web-app&gt;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Java | 设计模式之单例模式</title>
     <url>/2021/03/29/java00/</url>
     <content><![CDATA[<p>从今天开始为实习做准备。</p>
@@ -1802,6 +1853,24 @@ table th:nth-of-type(3) {
       <tags>
         <tag>Java</tag>
         <tag>设计模式</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo | Warning: LF will be replaced by CRLF and Special characters appear</title>
+    <url>/2024/10/21/hexo09/</url>
+    <content><![CDATA[<p>使用<code>hexo d</code>部署的时候，提示<code>Warning: LF will be replaced by CRLF and Special characters appear</code>。</p>
+<span id="more"></span>
+
+<h2 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h2><p>在Unix系统中，行尾用换行符 (LF) 表示。在 Windows 中，一行由回车符 (CR) 和换行符 (LF) 表示，即 (CRLF)。当从 git 获取从 unix 系统上传的代码时，它们只会有一个 LF。就会报这个Warning。</p>
+<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>修改<code>[hexo-blog-root-dir]/.deploy_git/.git/config</code>文件。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[core]</span><br><span class="line"># some options</span><br><span class="line">	autocrlf = false</span><br><span class="line">[filter &quot;lfs&quot;]</span><br><span class="line">	required = true</span><br><span class="line">	clean = git-lfs clean -- %f</span><br><span class="line">	smudge = git-lfs smudge -- %f</span><br><span class="line">	process = git-lfs filter-process</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Git</category>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -1898,6 +1967,31 @@ table th:nth-of-type(3) {
       </tags>
   </entry>
   <entry>
+    <title>梦 | 噩梦</title>
+    <url>/2023/07/07/life01/</url>
+    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="密码错误！" data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="835b0a73bd808d00328fd05de3bb89431d3e51a56948e087ead5c7258485e2fb">e71c316008ae9a5737050fd6ef15c6999a16bba7d8c028ddb7cd458cab77210981e7ff6b4e50a6a5f372470f2783b8ddf0453a6f82d3b30efa92cb8c3b8eca04f809fdf36646a0ee18a3b169ef5f1487ee80b2399ce8c893fad3ad235e4bee1cac37da7c71e6947a3ec2ac25e2b8938bb689430638e440695d3df101deadbc07b654cb42fa9a0b4033d65835cee506f18c59467c08b00ed36e24363d79e400eaa35d47f643a67521df293783b101edca7fed179d58ec59012b0ef982115532eca52c2ae1141c458f9e4e0b3f8ea3182011867a58dfe5f23b70cf05aa6fbc257333f24513a36c2b75a0dda2b79755e3de58e762c263bf1537c25ac03cd43db290df9b63182961d0551f018d27218da649c2f96fbf5c69bc70e1e24a295bd5c81eb9cbc18741626a0cd53d02fd88960a647ab3a3c3560ebf6008c8a6a601208adb3b19d0ccd1a6d796a046b003004ca3b104239e2b56fa7c0a211396ede8ef4b0d96bac7c15a416a6cad517e87b670376de6c2f1f3fb921b0ff438a921a6209878debe4fbde3a0dd7198514b61e2b1e153d6101bab20c88dfc3483507f418286bd721b613c803c64a06b82a41756bbc5a79ff67a8dcd8ef3a8a30dec00930634dc00a62047f12c4928a2d79af9fda2a599f30850734d359ae9ff88e8483cc41700452e08fbeada7298aba10d98ade5ddc74f4a0da53fc7c854114717a4f3e5bf8eaaa688a8c0a99a0fac7be84ae704a5614dc1436d04fa5c9cda455499a65fe4435334b9434e3d786c2d69b11b33dd62f4b0d41703479066e326e3fe05762115bed0ada9173e54c2c7cbf7942ebd2d703835455a19f01aae6a8546bafe66a9481da582446fe93f26499400ff6a4ff5ef5455b40f32c28e3591b0ba0c32459ec957e085758e5d09e55ee5be897ac2f3cc06342bb2cecfdbd7ffab2289cf6502711177139513ed3578640855c4093e37f26d9a3d70616b5531a306520e77169c389fe718ecb33b19ccd5a8266d6c1f975ab5199f9d76b43e42040fe4ff400432d1787abcd19f8518f174d7b47942dcf499aa745f8c1a893f25f30e84e6d838fc1d0ff18685a4b4efd96f1f1ceba48e689a5bf3b0f8b3d896fe759451ee6cd086c813f02fe69d55d5c9609d5f6259da6d9245efdeaaf9a1a67b87e21ab49fcca4033f52d9ea77afc159b9f4ede318d893cedbe5547b9dd7f54872b4a73a545b528e4c9e6e742127d4d8be76b078f53dae589fe289705c13541c197a6d84906b44aca475689eca07fdfe653fda70301e608290f8cc2cd707a7ae5f69111a762a0a84c11bb396b3a4819a00dad86997bff2baea6c9f46e2824c83166c9c523711d806b2b59d7308bcb9e531c2cd43ade05880460b0641eb494cbdc74373118ca3afa8717b5d87e22f32363e9c56c019845486cb21dd43d00a0b5bc23f72500f8d8885327ff7109a170478d6d879506cd12f222a06ecb0f2d943d28c6757ae4c296fd230f8db9a0a37d567861d7df8843930a9096688640b3df1e5fa811e6cd21fa572a2fed6de5fe5ff9cb326bf325406f2a7da6eed9c555b9bfcfc26e7399c2c1f796ec37a22ae8f1fe422b61e22362bb7bf084cf009508f54b98f9cf50600f44a58602f449898199698de040716bfb2e1a916ae3bec1b0ebdf7134517e80f45d50459260e671bd14aceef339a5fc8cab57469f288f3504288f8333fe189219c44566b080f25051978e039af34971329944cab915a0ec7f04f6749db1b4c84ab4ef7dbb150ca39a774cbcfd0222fbbe8232b1addb5c7bed74456954e651cffe40b6d4a09cd30fd66f3cf3390e990a744749d358ac6692a56e527b5bf018b1ce251fd17de0082d305ef7f6b8a3c11c71a4757005d12d338e408e246c518377d8c38bc50371782bdb4cf6e1d2a161966e31cfa03061d8c331ec75fa0ab5879b5a0c1c9ea77f4b85987521b0cf7e553a1dd14a8b366d1063f0ebafb3ba7bc1895c31f6a7919114f92893c0a79fe14efa877045cc2cf7a6799e12ff6ada9d2f8d1b3b86c2854782c8844d0e0fc9e26c141d1a9426a454033dfd6d2298ca323bdbec87139497cfa99aaf2f516d2fe2d22454eaa2e469e14cdeee6379cddfc961dba11f27a3d690c45e73fe3840cb059fcb8add0c44ed554a2eda1755b0205efdd1806be9131f7d387e959a60f8a5cac51ea24c44af6bea41159932f201773a103ec9a6def2e80e8ad964a2c9877ae4527fa788392c6512b55440a80eb6a03e8339a4387b12492d1596fbe3762d9c395dbefe9236eb66447118cec53c78bc0a63c0013351d40b0143958f56b3c88b9fe4cec696f9141b54ca555be51ed5a7c44e57ea02c4ecc95b50ab70efdb50d8094c55b2524b3fdd65463b313e31a120e17c32e5c94b1bcf5f241ac13c0f7d8bce3c4c562e7038b2dd6e779209665ef47c0d3d44face5e2ef54072a790f508ddca6d90e7eb6020457fb7f244398fdd27e66a1bd25faa6665c5464116ac8af43cfb9d057a5aefbf8612905865482b81e797283d42fea43c38e44c00a9e58468f6be943783892c349d09b33fff712da94233dc228efab6944984f45b7699c872de84640034c14246584105d638266158c4e0f31bdfeb15ecce4181d58386a7e50f8309ef5df175356e3a2c816691f272e97069c1dbbc06b563c6b2b5dd175e80d109c67456b1ae110fdc8ebf1c5ae77e2f1b1e99de3a0796917dff35810b03fbab4198ea2d50b8be615344a1be8b6a05f8c06c73e0654494aaee592cbfcbc52965e7a92646968aba2544f98e07ad183b2cc9a8bc69d790375ac8bf178da97494053d1bf4ebf500b0e9b35636c107c3ed62e33d4b8d095d39d29a861e4b93544342ae668301c0033abb69a2d26ee7b0298f3f650a91959f6c3801c628225595118f3184d3c4d288fa419d81a98ae819071f460a845ad08dd8e081e76e0a7dfdd6ce970147852350beac4d7ea8f074526267f6551beda669754dbe025434ed58f1f52670eae2b871e9377b12d4c645465a131727bcc1215b8cd8ae4326c0ca0a88b0805852065636a189b0aa06b11f315f8e8835ddeb971ef78954103346bb8224b16fdd6d2f67ccb6f2cd3c8be955dd2595848aac40750ae97d0e96cdedcb870e5fca244abaec50b6aa4405406ae7e344a24920741593cef41db2d3d624531d01199463f60253ce85d567d3d88acc8a9ee2fa89d19cc304237bccd33051fe365dea13087c9d778c45cf2366015f8f80f9d3c172af3f081e4db036f3485171ce2fb4ee89e2de2f14d1452257a69ce7eb52ad12f2e52987889a62855ceaab0f48299df2397873106500f8f388d44b5e443b6710fcdafe0e02ae703e46f940a76addcac08b62f454a4fbf614c8501319db529e9aaa14aa91574c98859803370023a2836dffa42b45743237ed448b71026c49f3a477c46e00c213cf9bbefa551618762a8d073e62566072ccc1f8b27c5afc5cf1de121d9669173f46fe03f49e9f979f89161a6e7dc2460c133af8799ab25b26e7e94b61dbf48906de9f95cf8f6a6a5ce10c32b475740727a5b2e6031409f4646aead8ac9d110bc9b94d8677e8efbe9b0abead9e27b7072730828c8e6c25d78cd4e15c4cd3cc2eed7d4a29b38715906393978260a834f3607dfe8ed19f5935ecdb0df65afcb8ca820</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-wave">
+      <input class="hbe hbe-input-field hbe-input-field-wave" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-wave" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-wave">1级加密</span>
+      </label>
+      <svg class="hbe hbe-graphic hbe-graphic-wave" width="300%" height="100%" viewBox="0 0 1200 60" preserveAspectRatio="none">
+        <path d="M0,56.5c0,0,298.666,0,399.333,0C448.336,56.5,513.994,46,597,46c77.327,0,135,10.5,200.999,10.5c95.996,0,402.001,0,402.001,0"></path>
+      </svg>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>生活</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>LeetCode | 第二题两数相加</title>
     <url>/2021/03/26/leetcode00/</url>
     <content><![CDATA[<p>心血来潮，重新用Java做了下之前用Python做过的题。</p>
@@ -1921,30 +2015,6 @@ table th:nth-of-type(3) {
       <tags>
         <tag>Java</tag>
         <tag>LeetCode</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Java | 用HttpServletResponse实现浏览器的文件下载</title>
-    <url>/2022/07/01/java01/</url>
-    <content><![CDATA[<p>java中用HttpServletResponse实现浏览器的文件下载</p>
-<p>搬运自<a href="https://blog.csdn.net/kelekele111/article/details/123681813">这篇</a>博客。</p>
-<span id="more"></span>
-
-<h2 id="实现效果"><a href="#实现效果" class="headerlink" title="实现效果"></a>实现效果</h2><img data-src="/images/java01/img00.avif" width="100%">
-
-<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><p><strong>1. 将文件放在resources文件包下</strong></p>
-<img data-src="/images/java01/img01.avif" width="60%">
-
-<p><strong>2. FileServlet类实现代码</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public class FileServlet extends HttpServlet &#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException &#123;</span><br><span class="line">        //1.要获取下载文件的路径</span><br><span class="line">        String realPath = &quot;E:\\开源项目\\demo\\javaweb-02-servlet\\response\\src\\main\\resources\\123.png&quot;;</span><br><span class="line">        System.out.println(&quot;下载文件的位置&quot;+realPath);</span><br><span class="line">        //2.下载的文件名是啥,截取文件名</span><br><span class="line">        String fileName = realPath.substring(realPath.lastIndexOf(&quot;\\&quot;) + 1);</span><br><span class="line">        //3.设置让浏览器支持(Content-Disposition)下载我们需要的东西,如果文件名字为中文，需要转码，URLEncoder.encode设置文件名编码</span><br><span class="line">        resp.setHeader(&quot;Content-Disposition&quot;,&quot;attachment;filename=&quot;+ URLEncoder.encode(fileName,&quot;utf-8&quot;));</span><br><span class="line">        //4.获取下载文件的输入流</span><br><span class="line">        FileInputStream in = new FileInputStream(realPath);</span><br><span class="line">        //5.创建缓冲区</span><br><span class="line">        int len = 0;</span><br><span class="line">        byte[] buffer = new byte[1024];</span><br><span class="line">        //6.获取OutputStream对象</span><br><span class="line">        ServletOutputStream out = resp.getOutputStream();</span><br><span class="line">        //7.将FileOutputStream流写入到buffer缓冲区，使用OutputStream将缓冲区的数据输出到客户端</span><br><span class="line">        while ((len = in.read(buffer)) &gt; 0)&#123;</span><br><span class="line">            out.write(buffer,0,len);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        //关闭流</span><br><span class="line">        in.close();</span><br><span class="line">        out.close();</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException &#123;</span><br><span class="line">        doGet(req, resp);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>3. web.xml设置</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;web-app xmlns=&quot;http://xmlns.jcp.org/xml/ns/javaee&quot;</span><br><span class="line">         xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><br><span class="line">         xsi:schemaLocation=&quot;http://xmlns.jcp.org/xml/ns/javaee</span><br><span class="line">                             http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd&quot;</span><br><span class="line">         version=&quot;4.0&quot;</span><br><span class="line">         metadata-complete=&quot;true&quot;&gt;</span><br><span class="line">  </span><br><span class="line">&lt;!--  Servlet注册，下载文件--&gt;</span><br><span class="line">  &lt;servlet&gt;</span><br><span class="line">    &lt;servlet-name&gt;fileDown&lt;/servlet-name&gt;</span><br><span class="line">    &lt;servlet-class&gt;com.hwh.servlet.FileServlet&lt;/servlet-class&gt;</span><br><span class="line">  &lt;/servlet&gt;</span><br><span class="line">  &lt;servlet-mapping&gt;</span><br><span class="line">    &lt;servlet-name&gt;fileDown&lt;/servlet-name&gt;</span><br><span class="line">    &lt;url-pattern&gt;/fileDown&lt;/url-pattern&gt;</span><br><span class="line">  &lt;/servlet-mapping&gt;</span><br><span class="line">  </span><br><span class="line">&lt;/web-app&gt;</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Java</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
       </tags>
   </entry>
   <entry>
@@ -2025,31 +2095,6 @@ table th:nth-of-type(3) {
       <tags>
         <tag>Linux</tag>
         <tag>Ubuntu</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>梦 | 噩梦</title>
-    <url>/2023/07/07/life01/</url>
-    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="密码错误！" data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
-  <script id="hbeData" type="hbeData" data-hmacdigest="835b0a73bd808d00328fd05de3bb89431d3e51a56948e087ead5c7258485e2fb">e71c316008ae9a5737050fd6ef15c6999a16bba7d8c028ddb7cd458cab77210981e7ff6b4e50a6a5f372470f2783b8ddf0453a6f82d3b30efa92cb8c3b8eca04f809fdf36646a0ee18a3b169ef5f1487ee80b2399ce8c893fad3ad235e4bee1cac37da7c71e6947a3ec2ac25e2b8938bb689430638e440695d3df101deadbc07b654cb42fa9a0b4033d65835cee506f18c59467c08b00ed36e24363d79e400eaa35d47f643a67521df293783b101edca7fed179d58ec59012b0ef982115532eca52c2ae1141c458f9e4e0b3f8ea3182011867a58dfe5f23b70cf05aa6fbc257333f24513a36c2b75a0dda2b79755e3de58e762c263bf1537c25ac03cd43db290df9b63182961d0551f018d27218da649c2f96fbf5c69bc70e1e24a295bd5c81eb9cbc18741626a0cd53d02fd88960a647ab3a3c3560ebf6008c8a6a601208adb3b19d0ccd1a6d796a046b003004ca3b104239e2b56fa7c0a211396ede8ef4b0d96bac7c15a416a6cad517e87b670376de6c2f1f3fb921b0ff438a921a6209878debe4fbde3a0dd7198514b61e2b1e153d6101bab20c88dfc3483507f418286bd721b613c803c64a06b82a41756bbc5a79ff67a8dcd8ef3a8a30dec00930634dc00a62047f12c4928a2d79af9fda2a599f30850734d359ae9ff88e8483cc41700452e08fbeada7298aba10d98ade5ddc74f4a0da53fc7c854114717a4f3e5bf8eaaa688a8c0a99a0fac7be84ae704a5614dc1436d04fa5c9cda455499a65fe4435334b9434e3d786c2d69b11b33dd62f4b0d41703479066e326e3fe05762115bed0ada9173e54c2c7cbf7942ebd2d703835455a19f01aae6a8546bafe66a9481da582446fe93f26499400ff6a4ff5ef5455b40f32c28e3591b0ba0c32459ec957e085758e5d09e55ee5be897ac2f3cc06342bb2cecfdbd7ffab2289cf6502711177139513ed3578640855c4093e37f26d9a3d70616b5531a306520e77169c389fe718ecb33b19ccd5a8266d6c1f975ab5199f9d76b43e42040fe4ff400432d1787abcd19f8518f174d7b47942dcf499aa745f8c1a893f25f30e84e6d838fc1d0ff18685a4b4efd96f1f1ceba48e689a5bf3b0f8b3d896fe759451ee6cd086c813f02fe69d55d5c9609d5f6259da6d9245efdeaaf9a1a67b87e21ab49fcca4033f52d9ea77afc159b9f4ede318d893cedbe5547b9dd7f54872b4a73a545b528e4c9e6e742127d4d8be76b078f53dae589fe289705c13541c197a6d84906b44aca475689eca07fdfe653fda70301e608290f8cc2cd707a7ae5f69111a762a0a84c11bb396b3a4819a00dad86997bff2baea6c9f46e2824c83166c9c523711d806b2b59d7308bcb9e531c2cd43ade05880460b0641eb494cbdc74373118ca3afa8717b5d87e22f32363e9c56c019845486cb21dd43d00a0b5bc23f72500f8d8885327ff7109a170478d6d879506cd12f222a06ecb0f2d943d28c6757ae4c296fd230f8db9a0a37d567861d7df8843930a9096688640b3df1e5fa811e6cd21fa572a2fed6de5fe5ff9cb326bf325406f2a7da6eed9c555b9bfcfc26e7399c2c1f796ec37a22ae8f1fe422b61e22362bb7bf084cf009508f54b98f9cf50600f44a58602f449898199698de040716bfb2e1a916ae3bec1b0ebdf7134517e80f45d50459260e671bd14aceef339a5fc8cab57469f288f3504288f8333fe189219c44566b080f25051978e039af34971329944cab915a0ec7f04f6749db1b4c84ab4ef7dbb150ca39a774cbcfd0222fbbe8232b1addb5c7bed74456954e651cffe40b6d4a09cd30fd66f3cf3390e990a744749d358ac6692a56e527b5bf018b1ce251fd17de0082d305ef7f6b8a3c11c71a4757005d12d338e408e246c518377d8c38bc50371782bdb4cf6e1d2a161966e31cfa03061d8c331ec75fa0ab5879b5a0c1c9ea77f4b85987521b0cf7e553a1dd14a8b366d1063f0ebafb3ba7bc1895c31f6a7919114f92893c0a79fe14efa877045cc2cf7a6799e12ff6ada9d2f8d1b3b86c2854782c8844d0e0fc9e26c141d1a9426a454033dfd6d2298ca323bdbec87139497cfa99aaf2f516d2fe2d22454eaa2e469e14cdeee6379cddfc961dba11f27a3d690c45e73fe3840cb059fcb8add0c44ed554a2eda1755b0205efdd1806be9131f7d387e959a60f8a5cac51ea24c44af6bea41159932f201773a103ec9a6def2e80e8ad964a2c9877ae4527fa788392c6512b55440a80eb6a03e8339a4387b12492d1596fbe3762d9c395dbefe9236eb66447118cec53c78bc0a63c0013351d40b0143958f56b3c88b9fe4cec696f9141b54ca555be51ed5a7c44e57ea02c4ecc95b50ab70efdb50d8094c55b2524b3fdd65463b313e31a120e17c32e5c94b1bcf5f241ac13c0f7d8bce3c4c562e7038b2dd6e779209665ef47c0d3d44face5e2ef54072a790f508ddca6d90e7eb6020457fb7f244398fdd27e66a1bd25faa6665c5464116ac8af43cfb9d057a5aefbf8612905865482b81e797283d42fea43c38e44c00a9e58468f6be943783892c349d09b33fff712da94233dc228efab6944984f45b7699c872de84640034c14246584105d638266158c4e0f31bdfeb15ecce4181d58386a7e50f8309ef5df175356e3a2c816691f272e97069c1dbbc06b563c6b2b5dd175e80d109c67456b1ae110fdc8ebf1c5ae77e2f1b1e99de3a0796917dff35810b03fbab4198ea2d50b8be615344a1be8b6a05f8c06c73e0654494aaee592cbfcbc52965e7a92646968aba2544f98e07ad183b2cc9a8bc69d790375ac8bf178da97494053d1bf4ebf500b0e9b35636c107c3ed62e33d4b8d095d39d29a861e4b93544342ae668301c0033abb69a2d26ee7b0298f3f650a91959f6c3801c628225595118f3184d3c4d288fa419d81a98ae819071f460a845ad08dd8e081e76e0a7dfdd6ce970147852350beac4d7ea8f074526267f6551beda669754dbe025434ed58f1f52670eae2b871e9377b12d4c645465a131727bcc1215b8cd8ae4326c0ca0a88b0805852065636a189b0aa06b11f315f8e8835ddeb971ef78954103346bb8224b16fdd6d2f67ccb6f2cd3c8be955dd2595848aac40750ae97d0e96cdedcb870e5fca244abaec50b6aa4405406ae7e344a24920741593cef41db2d3d624531d01199463f60253ce85d567d3d88acc8a9ee2fa89d19cc304237bccd33051fe365dea13087c9d778c45cf2366015f8f80f9d3c172af3f081e4db036f3485171ce2fb4ee89e2de2f14d1452257a69ce7eb52ad12f2e52987889a62855ceaab0f48299df2397873106500f8f388d44b5e443b6710fcdafe0e02ae703e46f940a76addcac08b62f454a4fbf614c8501319db529e9aaa14aa91574c98859803370023a2836dffa42b45743237ed448b71026c49f3a477c46e00c213cf9bbefa551618762a8d073e62566072ccc1f8b27c5afc5cf1de121d9669173f46fe03f49e9f979f89161a6e7dc2460c133af8799ab25b26e7e94b61dbf48906de9f95cf8f6a6a5ce10c32b475740727a5b2e6031409f4646aead8ac9d110bc9b94d8677e8efbe9b0abead9e27b7072730828c8e6c25d78cd4e15c4cd3cc2eed7d4a29b38715906393978260a834f3607dfe8ed19f5935ecdb0df65afcb8ca820</script>
-  <div class="hbe hbe-content">
-    <div class="hbe hbe-input hbe-input-wave">
-      <input class="hbe hbe-input-field hbe-input-field-wave" type="password" id="hbePass">
-      <label class="hbe hbe-input-label hbe-input-label-wave" for="hbePass">
-        <span class="hbe hbe-input-label-content hbe-input-label-content-wave">1级加密</span>
-      </label>
-      <svg class="hbe hbe-graphic hbe-graphic-wave" width="300%" height="100%" viewBox="0 0 1200 60" preserveAspectRatio="none">
-        <path d="M0,56.5c0,0,298.666,0,399.333,0C448.336,56.5,513.994,46,597,46c77.327,0,135,10.5,200.999,10.5c95.996,0,402.001,0,402.001,0"></path>
-      </svg>
-    </div>
-  </div>
-</div>
-<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>生活</tag>
       </tags>
   </entry>
   <entry>
@@ -2192,28 +2237,6 @@ table th:nth-of-type(3) {
       </tags>
   </entry>
   <entry>
-    <title>在实验室集群上新建用户</title>
-    <url>/2021/01/13/linux06/</url>
-    <content><![CDATA[<p>这个只适用于实验室老区集群。</p>
-<span id="more"></span>
-
-<h1 id="创建用户"><a href="#创建用户" class="headerlink" title="创建用户"></a>创建用户</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">adduser 用户名</span><br><span class="line"></span><br><span class="line">passwd 用户名</span><br></pre></td></tr></table></figure>
-
-<h1 id="添加环境变量"><a href="#添加环境变量" class="headerlink" title="添加环境变量"></a>添加环境变量</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">su 用户名</span><br><span class="line"></span><br><span class="line">vim ~/.bashrc</span><br><span class="line"></span><br><span class="line">source ~/.bashrc</span><br></pre></td></tr></table></figure>
-
-<p>添加 <code>export PATH=/data/anaconda3/bin:$PATH</code></p>
-<h1 id="更改conda默认文件夹"><a href="#更改conda默认文件夹" class="headerlink" title="更改conda默认文件夹"></a>更改conda默认文件夹</h1><p>把conda文件夹移到data下</p>
-<p>这一步参考<a href="/2021/01/07/anaconda01/" title="迁移虚拟环境">迁移虚拟环境</a></p>
-<p>最后<code>conda info</code>确认目录更改是否成功。</p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Ubuntu网络经常掉线解决方案</title>
     <url>/2022/01/07/linux07/</url>
     <content><![CDATA[<p>症状是：每天早上起来，就不能用远程连接连Ubuntu主机，路由器里也显示主机未连接，只能插上鼠标接上显示器断开网络重新打开，很麻烦。</p>
@@ -2245,27 +2268,25 @@ table th:nth-of-type(3) {
       </tags>
   </entry>
   <entry>
-    <title>Linux | Linux服务器上配置域和DNS</title>
-    <url>/2022/10/21/linux09/</url>
-    <content><![CDATA[<p>给Linux机器配置DNS的方法。</p>
+    <title>在实验室集群上新建用户</title>
+    <url>/2021/01/13/linux06/</url>
+    <content><![CDATA[<p>这个只适用于实验室老区集群。</p>
 <span id="more"></span>
 
-<h1 id="resolv-conf"><a href="#resolv-conf" class="headerlink" title="resolv.conf"></a>resolv.conf</h1><p>1、使用以下指令打开resolv.conf配置文件：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vim /etc/resolv.conf</span><br></pre></td></tr></table></figure>
+<h1 id="创建用户"><a href="#创建用户" class="headerlink" title="创建用户"></a>创建用户</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">adduser 用户名</span><br><span class="line"></span><br><span class="line">passwd 用户名</span><br></pre></td></tr></table></figure>
 
-<p>2、在打开的文件中输入指定的域和DNS，可以配置多个域和DNS。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">search xxx.example.com xxx.example2.com </span><br><span class="line">nameserver XXX.XXX.XXX.XXX</span><br><span class="line">nameserver XXX.XXX.XXX.XXX</span><br></pre></td></tr></table></figure>
+<h1 id="添加环境变量"><a href="#添加环境变量" class="headerlink" title="添加环境变量"></a>添加环境变量</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">su 用户名</span><br><span class="line"></span><br><span class="line">vim ~/.bashrc</span><br><span class="line"></span><br><span class="line">source ~/.bashrc</span><br></pre></td></tr></table></figure>
 
-<p>3、退出并保存即可。</p>
-<h1 id="hosts"><a href="#hosts" class="headerlink" title="hosts"></a>hosts</h1><p>上面那个配置文件，在注释里写了不让改，所以如果只是改DNS的话，还是改hosts文件比较好。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vim /etc/hosts</span><br></pre></td></tr></table></figure>]]></content>
+<p>添加 <code>export PATH=/data/anaconda3/bin:$PATH</code></p>
+<h1 id="更改conda默认文件夹"><a href="#更改conda默认文件夹" class="headerlink" title="更改conda默认文件夹"></a>更改conda默认文件夹</h1><p>把conda文件夹移到data下</p>
+<p>这一步参考<a href="/2021/01/07/anaconda01/" title="迁移虚拟环境">迁移虚拟环境</a></p>
+<p>最后<code>conda info</code>确认目录更改是否成功。</p>
+]]></content>
       <categories>
         <category>Linux</category>
-        <category>DNS</category>
       </categories>
       <tags>
         <tag>Linux</tag>
-        <tag>DNS</tag>
       </tags>
   </entry>
   <entry>
@@ -2318,6 +2339,68 @@ table th:nth-of-type(3) {
       </tags>
   </entry>
   <entry>
+    <title>Linux | Linux服务器上配置域和DNS</title>
+    <url>/2022/10/21/linux09/</url>
+    <content><![CDATA[<p>给Linux机器配置DNS的方法。</p>
+<span id="more"></span>
+
+<h1 id="resolv-conf"><a href="#resolv-conf" class="headerlink" title="resolv.conf"></a>resolv.conf</h1><p>1、使用以下指令打开resolv.conf配置文件：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vim /etc/resolv.conf</span><br></pre></td></tr></table></figure>
+
+<p>2、在打开的文件中输入指定的域和DNS，可以配置多个域和DNS。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">search xxx.example.com xxx.example2.com </span><br><span class="line">nameserver XXX.XXX.XXX.XXX</span><br><span class="line">nameserver XXX.XXX.XXX.XXX</span><br></pre></td></tr></table></figure>
+
+<p>3、退出并保存即可。</p>
+<h1 id="hosts"><a href="#hosts" class="headerlink" title="hosts"></a>hosts</h1><p>上面那个配置文件，在注释里写了不让改，所以如果只是改DNS的话，还是改hosts文件比较好。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vim /etc/hosts</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Linux</category>
+        <category>DNS</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>DNS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux防火墙配置</title>
+    <url>/2024/12/24/linux12/</url>
+    <content><![CDATA[<p>配置白名单防火墙</p>
+<span id="more"></span>
+
+<h2 id="开放指定端口"><a href="#开放指定端口" class="headerlink" title="开放指定端口"></a>开放指定端口</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">firewall-cmd --permanent --add-port=3306/tcp</span><br></pre></td></tr></table></figure>
+
+<h2 id="删除指定端口"><a href="#删除指定端口" class="headerlink" title="删除指定端口"></a>删除指定端口</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">firewall-cmd --permanent --remove-port=3306/tcp</span><br></pre></td></tr></table></figure>
+
+<h2 id="对指定IP开放指定端口"><a href="#对指定IP开放指定端口" class="headerlink" title="对指定IP开放指定端口"></a>对指定IP开放指定端口</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">firewall-cmd --permanent --add-rich-rule=&#x27;rule family=&quot;ipv4&quot; source address=&quot;xxx.xxx.xxx.xxx&quot; port protocol=&quot;tcp&quot; port=&quot;3306&quot; accept&#x27;</span><br></pre></td></tr></table></figure>
+
+<h2 id="重新加载"><a href="#重新加载" class="headerlink" title="重新加载"></a>重新加载</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">firewall-cmd --reload</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Python调用大模型API</title>
+    <url>/2024/09/12/llm00/</url>
+    <content><![CDATA[<p>怎样用Python调用大语言模型？</p>
+<span id="more"></span>
+
+<p>使用<code>text/event-stream</code>来输出。</p>
+<p>示例代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import requests</span><br><span class="line">import json</span><br><span class="line">import sseclient</span><br><span class="line"> </span><br><span class="line">API_KEY = &#x27;[INSERT YOUR OPENAI API KEY HERE]&#x27;</span><br><span class="line"></span><br><span class="line">def performRequestWithStreaming():</span><br><span class="line">    reqUrl = &#x27;https://api.openai.com/v1/completions&#x27;</span><br><span class="line">    reqHeaders = &#123;</span><br><span class="line">        &#x27;Accept&#x27;: &#x27;text/event-stream&#x27;,</span><br><span class="line">        &#x27;Authorization&#x27;: &#x27;Bearer &#x27; + API_KEY</span><br><span class="line">    &#125;</span><br><span class="line">    reqBody = &#123;</span><br><span class="line">      &quot;model&quot;: &quot;text-davinci-003&quot;,</span><br><span class="line">      &quot;prompt&quot;: &quot;What is Python?&quot;,</span><br><span class="line">      &quot;max_tokens&quot;: 100,</span><br><span class="line">      &quot;temperature&quot;: 0,</span><br><span class="line">      &quot;stream&quot;: True,</span><br><span class="line">    &#125;</span><br><span class="line">    request = requests.post(reqUrl, stream=True, headers=reqHeaders, json=reqBody)</span><br><span class="line">    client = sseclient.SSEClient(request)</span><br><span class="line">    for event in client.events():</span><br><span class="line">        if event.data != &#x27;[DONE]&#x27;:</span><br><span class="line">            print(json.loads(event.data)[&#x27;choices&#x27;][0][&#x27;text&#x27;], end=&quot;&quot;, flush=True),</span><br><span class="line"></span><br><span class="line">if __name__ == &#x27;__main__&#x27;:</span><br><span class="line">    performRequestWithStreaming()</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Python</category>
+        <category>大语言模型</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>大语言模型</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Linux分卷压缩与解压缩</title>
     <url>/2023/10/20/linux11/</url>
     <content><![CDATA[<p>在Linux系统下，分卷压缩与解压缩的方法。</p>
@@ -2339,29 +2422,6 @@ table th:nth-of-type(3) {
       </categories>
       <tags>
         <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Python连接MySQL连接池</title>
-    <url>/2021/10/21/mysql00/</url>
-    <content><![CDATA[<p>记录一下怎么用python连接MySQL连接池。</p>
-<span id="more"></span>
-
-<h2 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pip install mysql-connector-python</span><br></pre></td></tr></table></figure>
-
-<h2 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h2><p>直接上demo。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import time</span><br><span class="line">from mysql.connector.pooling import MySQLConnectionPool</span><br><span class="line"></span><br><span class="line">class MySql:</span><br><span class="line"></span><br><span class="line">    def __init__(self, config):</span><br><span class="line">        self.expire = 1800</span><br><span class="line">        self.mysql_pool = MySQLConnectionPool(</span><br><span class="line">            host=config.MYSQL_HOST,</span><br><span class="line">            port=config.MYSQL_PORT,</span><br><span class="line">            user=config.MYSQL_USER,</span><br><span class="line">            passwd=config.MYSQL_PASSWORD,</span><br><span class="line">            database=config.MYSQL_DATABASE,</span><br><span class="line">            ssl_disabled=config.SSL_DISABLED,</span><br><span class="line">            pool_size=config.MYSQL_MAX_CONNECTIONS</span><br><span class="line">        )</span><br><span class="line"></span><br><span class="line">    def __get_connection(self):</span><br><span class="line">        try:</span><br><span class="line">            conn = self.mysql_pool.get_connection()</span><br><span class="line">            return conn</span><br><span class="line">        except:</span><br><span class="line">            time.sleep(5)</span><br><span class="line"></span><br><span class="line">    def select(self, sql: str, arg=None):</span><br><span class="line">        if not arg == None and not isinstance(arg, tuple):</span><br><span class="line">            arg = (arg,)</span><br><span class="line">        with self.__get_connection() as conn:</span><br><span class="line">            with conn.cursor() as cur:</span><br><span class="line">                cur.execute(sql, arg)</span><br><span class="line">                result = cur.fetchall()</span><br><span class="line">                return result</span><br><span class="line"></span><br><span class="line">    def insert(self, sql: str, arg=None):</span><br><span class="line">        if not arg == None and not isinstance(arg, tuple):</span><br><span class="line">            arg = (arg,)</span><br><span class="line">        with self.__get_connection() as conn:</span><br><span class="line">            with conn.cursor() as cur:</span><br><span class="line">                try:</span><br><span class="line">                    cur.execute(sql, arg)</span><br><span class="line">                    conn.commit()</span><br><span class="line">                    return True</span><br><span class="line">                except Exception as e:</span><br><span class="line">                    print(e)</span><br><span class="line">                    conn.rollback()</span><br><span class="line">                    return False</span><br><span class="line"></span><br><span class="line">    def update(self, sql: str, arg=None):</span><br><span class="line">        if not arg == None and not isinstance(arg, tuple):</span><br><span class="line">            arg = (arg,)</span><br><span class="line">        with self.__get_connection() as conn:</span><br><span class="line">            with conn.cursor() as cur:</span><br><span class="line">                try:</span><br><span class="line">                    cur.execute(sql, arg)</span><br><span class="line">                    conn.commit()</span><br><span class="line">                    return True</span><br><span class="line">                except Exception as e:</span><br><span class="line">                    print(e)</span><br><span class="line">                    conn.rollback()</span><br><span class="line">                    return False</span><br><span class="line"></span><br><span class="line">    def alter(self, sql: str, arg=None):</span><br><span class="line">        if not arg == None and not isinstance(arg, tuple):</span><br><span class="line">            arg = (arg,)</span><br><span class="line">        with self.__get_connection() as conn:</span><br><span class="line">            with conn.cursor() as cur:</span><br><span class="line">                try:</span><br><span class="line">                    cur.execute(sql, arg)</span><br><span class="line">                    conn.commit()</span><br><span class="line">                    return True</span><br><span class="line">                except Exception as e:</span><br><span class="line">                    print(e)</span><br><span class="line">                    conn.rollback()</span><br><span class="line">                    return False</span><br><span class="line"></span><br><span class="line">    def get_index(self, table: str):</span><br><span class="line">        sql = &quot;&quot;&quot;</span><br><span class="line">        show </span><br><span class="line">        INDEX </span><br><span class="line">        from </span><br><span class="line">        &quot;&quot;&quot; + table + &quot;&quot;&quot;</span><br><span class="line">         </span><br><span class="line">        where </span><br><span class="line">        not Key_name = &#x27;PRIMARY&#x27;</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        with self.__get_connection() as conn:</span><br><span class="line">            with conn.cursor() as cur:</span><br><span class="line">                try:</span><br><span class="line">                    cur.execute(sql)</span><br><span class="line">                    result = cur.fetchall()</span><br><span class="line">                    index_names = []</span><br><span class="line">                    for i in result:</span><br><span class="line">                        index_names.append(i[2])</span><br><span class="line">                    return index_names</span><br><span class="line">                except Exception as e:</span><br><span class="line">                    print(e)</span><br><span class="line">                    conn.rollback()</span><br><span class="line">                    return []</span><br><span class="line"></span><br><span class="line">    def truncate(self, sql: str, arg=None):</span><br><span class="line">        if not arg == None and not isinstance(arg, tuple):</span><br><span class="line">            arg = (arg,)</span><br><span class="line">        with self.__get_connection() as conn:</span><br><span class="line">            with conn.cursor() as cur:</span><br><span class="line">                try:</span><br><span class="line">                    cur.execute(sql, arg)</span><br><span class="line">                    conn.commit()</span><br><span class="line">                    return True</span><br><span class="line">                except Exception as e:</span><br><span class="line">                    print(e)</span><br><span class="line">                    conn.rollback()</span><br><span class="line">                    return False</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Python</category>
-        <category>常用库</category>
-        <category>数据库</category>
-        <category>MySQL</category>
-        <category>mysql-connector-python</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-        <tag>数据库</tag>
-        <tag>MySQL</tag>
       </tags>
   </entry>
   <entry>
@@ -2452,46 +2512,26 @@ table th:nth-of-type(3) {
       </tags>
   </entry>
   <entry>
-    <title>neo4j | 单属性模糊查询</title>
-    <url>/2022/08/26/neo4j01/</url>
-    <content><![CDATA[<p>Cypher的查询条件中支持正则表达式。</p>
+    <title>Python连接MySQL连接池</title>
+    <url>/2021/10/21/mysql00/</url>
+    <content><![CDATA[<p>记录一下怎么用python连接MySQL连接池。</p>
 <span id="more"></span>
 
-<p>假如想查询名字中带有“李”字的人，可以用如下语句。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">MATCH (r) where r.name=~&#x27;.*李.*&#x27; RETURN r</span><br></pre></td></tr></table></figure>
+<h2 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pip install mysql-connector-python</span><br></pre></td></tr></table></figure>
 
-<p>其中<code>.*李.*</code>是正则，这个很熟悉就不多说，<code>~</code>应该就是表示后边的表达式使用了正则，去掉确实就不行了。</p>
-<p>PS：由于前后都用了正则，所以并不是匹配姓李的人，“李元霸”和“铁拐李”都能匹配到。</p>
-]]></content>
+<h2 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h2><p>直接上demo。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import time</span><br><span class="line">from mysql.connector.pooling import MySQLConnectionPool</span><br><span class="line"></span><br><span class="line">class MySql:</span><br><span class="line"></span><br><span class="line">    def __init__(self, config):</span><br><span class="line">        self.expire = 1800</span><br><span class="line">        self.mysql_pool = MySQLConnectionPool(</span><br><span class="line">            host=config.MYSQL_HOST,</span><br><span class="line">            port=config.MYSQL_PORT,</span><br><span class="line">            user=config.MYSQL_USER,</span><br><span class="line">            passwd=config.MYSQL_PASSWORD,</span><br><span class="line">            database=config.MYSQL_DATABASE,</span><br><span class="line">            ssl_disabled=config.SSL_DISABLED,</span><br><span class="line">            pool_size=config.MYSQL_MAX_CONNECTIONS</span><br><span class="line">        )</span><br><span class="line"></span><br><span class="line">    def __get_connection(self):</span><br><span class="line">        try:</span><br><span class="line">            conn = self.mysql_pool.get_connection()</span><br><span class="line">            return conn</span><br><span class="line">        except:</span><br><span class="line">            time.sleep(5)</span><br><span class="line"></span><br><span class="line">    def select(self, sql: str, arg=None):</span><br><span class="line">        if not arg == None and not isinstance(arg, tuple):</span><br><span class="line">            arg = (arg,)</span><br><span class="line">        with self.__get_connection() as conn:</span><br><span class="line">            with conn.cursor() as cur:</span><br><span class="line">                cur.execute(sql, arg)</span><br><span class="line">                result = cur.fetchall()</span><br><span class="line">                return result</span><br><span class="line"></span><br><span class="line">    def insert(self, sql: str, arg=None):</span><br><span class="line">        if not arg == None and not isinstance(arg, tuple):</span><br><span class="line">            arg = (arg,)</span><br><span class="line">        with self.__get_connection() as conn:</span><br><span class="line">            with conn.cursor() as cur:</span><br><span class="line">                try:</span><br><span class="line">                    cur.execute(sql, arg)</span><br><span class="line">                    conn.commit()</span><br><span class="line">                    return True</span><br><span class="line">                except Exception as e:</span><br><span class="line">                    print(e)</span><br><span class="line">                    conn.rollback()</span><br><span class="line">                    return False</span><br><span class="line"></span><br><span class="line">    def update(self, sql: str, arg=None):</span><br><span class="line">        if not arg == None and not isinstance(arg, tuple):</span><br><span class="line">            arg = (arg,)</span><br><span class="line">        with self.__get_connection() as conn:</span><br><span class="line">            with conn.cursor() as cur:</span><br><span class="line">                try:</span><br><span class="line">                    cur.execute(sql, arg)</span><br><span class="line">                    conn.commit()</span><br><span class="line">                    return True</span><br><span class="line">                except Exception as e:</span><br><span class="line">                    print(e)</span><br><span class="line">                    conn.rollback()</span><br><span class="line">                    return False</span><br><span class="line"></span><br><span class="line">    def alter(self, sql: str, arg=None):</span><br><span class="line">        if not arg == None and not isinstance(arg, tuple):</span><br><span class="line">            arg = (arg,)</span><br><span class="line">        with self.__get_connection() as conn:</span><br><span class="line">            with conn.cursor() as cur:</span><br><span class="line">                try:</span><br><span class="line">                    cur.execute(sql, arg)</span><br><span class="line">                    conn.commit()</span><br><span class="line">                    return True</span><br><span class="line">                except Exception as e:</span><br><span class="line">                    print(e)</span><br><span class="line">                    conn.rollback()</span><br><span class="line">                    return False</span><br><span class="line"></span><br><span class="line">    def get_index(self, table: str):</span><br><span class="line">        sql = &quot;&quot;&quot;</span><br><span class="line">        show </span><br><span class="line">        INDEX </span><br><span class="line">        from </span><br><span class="line">        &quot;&quot;&quot; + table + &quot;&quot;&quot;</span><br><span class="line">         </span><br><span class="line">        where </span><br><span class="line">        not Key_name = &#x27;PRIMARY&#x27;</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        with self.__get_connection() as conn:</span><br><span class="line">            with conn.cursor() as cur:</span><br><span class="line">                try:</span><br><span class="line">                    cur.execute(sql)</span><br><span class="line">                    result = cur.fetchall()</span><br><span class="line">                    index_names = []</span><br><span class="line">                    for i in result:</span><br><span class="line">                        index_names.append(i[2])</span><br><span class="line">                    return index_names</span><br><span class="line">                except Exception as e:</span><br><span class="line">                    print(e)</span><br><span class="line">                    conn.rollback()</span><br><span class="line">                    return []</span><br><span class="line"></span><br><span class="line">    def truncate(self, sql: str, arg=None):</span><br><span class="line">        if not arg == None and not isinstance(arg, tuple):</span><br><span class="line">            arg = (arg,)</span><br><span class="line">        with self.__get_connection() as conn:</span><br><span class="line">            with conn.cursor() as cur:</span><br><span class="line">                try:</span><br><span class="line">                    cur.execute(sql, arg)</span><br><span class="line">                    conn.commit()</span><br><span class="line">                    return True</span><br><span class="line">                except Exception as e:</span><br><span class="line">                    print(e)</span><br><span class="line">                    conn.rollback()</span><br><span class="line">                    return False</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
+        <category>Python</category>
+        <category>常用库</category>
         <category>数据库</category>
-        <category>neo4j</category>
+        <category>MySQL</category>
+        <category>mysql-connector-python</category>
       </categories>
       <tags>
+        <tag>Python</tag>
         <tag>数据库</tag>
-        <tag>正则表达式</tag>
-        <tag>neo4j</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>neo4j | 全属性模糊查询</title>
-    <url>/2022/08/26/neo4j02/</url>
-    <content><![CDATA[<p>不指定属性名的情况下进行模糊查询。</p>
-<span id="more"></span>
-
-<p>直接上代码</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">MATCH p=(r) WHERE ANY(k in keys(r) WHERE ANY(nn in r[k] WHERE nn =~&#x27;.*李.*&#x27;)) RETURN p</span><br></pre></td></tr></table></figure>
-
-<p>逻辑就是先遍历所有节点，每个节点遍历所有key值，再根据key值遍历属性。</p>
-]]></content>
-      <categories>
-        <category>数据库</category>
-        <category>neo4j</category>
-      </categories>
-      <tags>
-        <tag>数据库</tag>
-        <tag>正则表达式</tag>
-        <tag>neo4j</tag>
+        <tag>MySQL</tag>
       </tags>
   </entry>
   <entry>
@@ -2525,6 +2565,28 @@ table th:nth-of-type(3) {
       </tags>
   </entry>
   <entry>
+    <title>neo4j | 单属性模糊查询</title>
+    <url>/2022/08/26/neo4j01/</url>
+    <content><![CDATA[<p>Cypher的查询条件中支持正则表达式。</p>
+<span id="more"></span>
+
+<p>假如想查询名字中带有“李”字的人，可以用如下语句。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">MATCH (r) where r.name=~&#x27;.*李.*&#x27; RETURN r</span><br></pre></td></tr></table></figure>
+
+<p>其中<code>.*李.*</code>是正则，这个很熟悉就不多说，<code>~</code>应该就是表示后边的表达式使用了正则，去掉确实就不行了。</p>
+<p>PS：由于前后都用了正则，所以并不是匹配姓李的人，“李元霸”和“铁拐李”都能匹配到。</p>
+]]></content>
+      <categories>
+        <category>数据库</category>
+        <category>neo4j</category>
+      </categories>
+      <tags>
+        <tag>数据库</tag>
+        <tag>正则表达式</tag>
+        <tag>neo4j</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>neo4j | 索引相关的cypher语句</title>
     <url>/2022/09/14/neo4j04/</url>
     <content><![CDATA[<p>在数据量大的时候，需要在neo4j数据库中建立索引，不然搜的特别慢。</p>
@@ -2540,18 +2602,88 @@ table th:nth-of-type(3) {
 <h2 id="查询索引"><a href="#查询索引" class="headerlink" title="查询索引"></a>查询索引</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">:schema</span><br></pre></td></tr></table></figure>]]></content>
   </entry>
   <entry>
-    <title>Nexus | Not authorized for requested path xxxx</title>
-    <url>/2023/10/28/nexus00/</url>
-    <content><![CDATA[<p>上传组件失败报错。</p>
+    <title>neo4j | 全属性模糊查询</title>
+    <url>/2022/08/26/neo4j02/</url>
+    <content><![CDATA[<p>不指定属性名的情况下进行模糊查询。</p>
 <span id="more"></span>
 
-<p>经过检查，发现是上传者的账号没有上传包的权限，在账号的roles中增加下权限就好了。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nx-repository-view-maven2-仓库名-edit</span><br><span class="line"></span><br><span class="line">nx-repository-view-maven2-仓库名-add</span><br></pre></td></tr></table></figure>]]></content>
+<p>直接上代码</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">MATCH p=(r) WHERE ANY(k in keys(r) WHERE ANY(nn in r[k] WHERE nn =~&#x27;.*李.*&#x27;)) RETURN p</span><br></pre></td></tr></table></figure>
+
+<p>逻辑就是先遍历所有节点，每个节点遍历所有key值，再根据key值遍历属性。</p>
+]]></content>
       <categories>
-        <category>Nexus</category>
+        <category>数据库</category>
+        <category>neo4j</category>
       </categories>
       <tags>
-        <tag>Nexus</tag>
+        <tag>数据库</tag>
+        <tag>正则表达式</tag>
+        <tag>neo4j</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Nginx | location 和 proxy_pass路径配置总结</title>
+    <url>/2024/10/22/nginx01/</url>
+    <content><![CDATA[<p>Nginx的配置中，一个<code>/</code>可能导致巨大的差异。</p>
+<span id="more"></span>
+
+<p>找到了一篇特别详细的博客，<a href="https://www.cnblogs.com/operationhome/p/15212801.html">传送门</a>。</p>
+<p>博客总结如下：</p>
+<p>访问的URL都是<code>test.com/user/test.html</code>，<code>upstream</code>都是<code>test1</code>。</p>
+<table>
+<thead>
+<tr>
+<th align="center">序号</th>
+<th align="center">location配置</th>
+<th align="center">proxy_pass配置</th>
+<th align="center">后端接收的请求</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">1</td>
+<td align="center">&#x2F;user&#x2F;</td>
+<td align="center"><a href="http://test1/">http://test1/</a></td>
+<td align="center">&#x2F;test.html</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center">&#x2F;user&#x2F;</td>
+<td align="center"><a href="http://test1/">http://test1</a></td>
+<td align="center">&#x2F;user&#x2F;test.html</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="center">&#x2F;user</td>
+<td align="center"><a href="http://test1/">http://test1</a></td>
+<td align="center">&#x2F;user&#x2F;test.html</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="center">&#x2F;user</td>
+<td align="center"><a href="http://test1/">http://test1/</a></td>
+<td align="center">&#x2F;&#x2F;test.html</td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td align="center">&#x2F;user&#x2F;</td>
+<td align="center"><a href="http://test1/haha/">http://test1/haha/</a></td>
+<td align="center">&#x2F;haha&#x2F;test.html</td>
+</tr>
+<tr>
+<td align="center">6</td>
+<td align="center">&#x2F;user&#x2F;</td>
+<td align="center"><a href="http://test1/haha">http://test1/haha</a></td>
+<td align="center">&#x2F;hahatest.html</td>
+</tr>
+</tbody></table>
+<p>这玩意……用脑子真记不下来……放博客用到了查一下吧。</p>
+]]></content>
+      <categories>
+        <category>Nginx</category>
+      </categories>
+      <tags>
+        <tag>Nginx</tag>
       </tags>
   </entry>
   <entry>
@@ -2599,6 +2731,21 @@ table th:nth-of-type(3) {
       </categories>
       <tags>
         <tag>Nginx</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Nexus | Not authorized for requested path xxxx</title>
+    <url>/2023/10/28/nexus00/</url>
+    <content><![CDATA[<p>上传组件失败报错。</p>
+<span id="more"></span>
+
+<p>经过检查，发现是上传者的账号没有上传包的权限，在账号的roles中增加下权限就好了。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nx-repository-view-maven2-仓库名-edit</span><br><span class="line"></span><br><span class="line">nx-repository-view-maven2-仓库名-add</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Nexus</category>
+      </categories>
+      <tags>
+        <tag>Nexus</tag>
       </tags>
   </entry>
   <entry>
@@ -2738,6 +2885,24 @@ table th:nth-of-type(3) {
       <tags>
         <tag>Windows</tag>
         <tag>Proxy</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Pycharm | 无法重命名解释器</title>
+    <url>/2024/11/03/pycharm00/</url>
+    <content><![CDATA[<p>在重命名解释器时遇到了<code>cannot save settings, please specify a different SDK name</code>错误。</p>
+<span id="more"></span>
+
+<h2 id="问题原因"><a href="#问题原因" class="headerlink" title="问题原因"></a>问题原因</h2><p>之前重命名过另一个解释器，因为未知原因，没在UI上显示，但在配置文件中还有记录，所以再次重命名为相同名字时报错。</p>
+<hr>
+<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>配置文件在<code>C:\Users\&lt;username&gt;\AppData\Roaming\JetBrains\PyCharm2023.1\options\jdk.table.xml</code></p>
+<p>删除配置文件中错误的解释器配置就可以了。</p>
+]]></content>
+      <categories>
+        <category>Pycharm</category>
+      </categories>
+      <tags>
+        <tag>Pycharm</tag>
       </tags>
   </entry>
   <entry>
@@ -2966,81 +3131,6 @@ python proxyPool.py server
       </tags>
   </entry>
   <entry>
-    <title>Python | 单例模式的实现</title>
-    <url>/2023/12/04/python04/</url>
-    <content><![CDATA[<p>单例模式应用场景就不多说了。</p>
-<span id="more"></span>
-
-<h2 id="存入配置（只是像单例）"><a href="#存入配置（只是像单例）" class="headerlink" title="存入配置（只是像单例）"></a>存入配置（只是像单例）</h2><p>这是我之前自己捣鼓的。</p>
-<p>我是在Flask中实例化数据库client的时候用单例，在启动项目的时候实例化一个对象，然后存进app中，再写个函数根据key去取这个对象。</p>
-<p>你就说能不能用吧！</p>
-<h2 id="使用函数装饰器实现单例"><a href="#使用函数装饰器实现单例" class="headerlink" title="使用函数装饰器实现单例"></a>使用函数装饰器实现单例</h2><p>由于装饰器函数的作用域是全局，所以装饰器函数中定义的变量也算是全局变量，所以可以在装饰器中存储对象信息。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">def singleton(cls):</span><br><span class="line">    _instance = &#123;&#125;</span><br><span class="line"> </span><br><span class="line">    def inner():</span><br><span class="line">        if cls not in _instance:</span><br><span class="line">            _instance[cls] = cls()</span><br><span class="line">        return _instance[cls]</span><br><span class="line">    return inner</span><br><span class="line">    </span><br><span class="line">@singleton</span><br><span class="line">class Cls(object):</span><br><span class="line">    def __init__(self):</span><br><span class="line">        pass</span><br><span class="line"> </span><br><span class="line">cls1 = Cls()</span><br><span class="line">cls2 = Cls()</span><br><span class="line">print(id(cls1) == id(cls2)) # True</span><br></pre></td></tr></table></figure>
-
-<p>这种方法跟我的思路一样，区别是把类的id当做key，不用自己构建，用的时候直接创建就好，比我的方便。</p>
-<h2 id="使用类装饰器实现单例"><a href="#使用类装饰器实现单例" class="headerlink" title="使用类装饰器实现单例"></a>使用类装饰器实现单例</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">class Singleton(object):</span><br><span class="line">    def __init__(self, cls):</span><br><span class="line">        self._cls = cls</span><br><span class="line">        self._instance = &#123;&#125;</span><br><span class="line">    def __call__(self):</span><br><span class="line">        if self._cls not in self._instance:</span><br><span class="line">            self._instance[self._cls] = self._cls()</span><br><span class="line">        return self._instance[self._cls]</span><br><span class="line"> </span><br><span class="line">@Singleton</span><br><span class="line">class Cls2(object):</span><br><span class="line">    def __init__(self):</span><br><span class="line">        pass</span><br><span class="line"> </span><br><span class="line">cls1 = Cls2()</span><br><span class="line">cls2 = Cls2()</span><br><span class="line">print(id(cls1) == id(cls2)) # True</span><br></pre></td></tr></table></figure>
-
-<p>这种和上一种很相似。</p>
-<h2 id="使用-new-关键字实现单例模式"><a href="#使用-new-关键字实现单例模式" class="headerlink" title="使用__new__关键字实现单例模式"></a>使用<code>__new__</code>关键字实现单例模式</h2><p>所有的类在实例化时，都是通过<code>__new__</code>方法来完成的。</p>
-<p>所以在<code>__new__</code>方法中应用上边的思路也可以实现单例。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">class Single(object):</span><br><span class="line">    _instance = None</span><br><span class="line">    def __new__(cls, *args, **kw):</span><br><span class="line">        if cls._instance is None:</span><br><span class="line">            cls._instance = object.__new__(cls, *args, **kw)</span><br><span class="line">        return cls._instance</span><br><span class="line">    def __init__(self):</span><br><span class="line">        pass</span><br><span class="line"> </span><br><span class="line">single1 = Single()</span><br><span class="line">single2 = Single()</span><br><span class="line">print(id(single1) == id(single2)) # True</span><br></pre></td></tr></table></figure>
-
-<h2 id="优劣"><a href="#优劣" class="headerlink" title="优劣"></a>优劣</h2><p>类装饰器和函数装饰器适合封装后调用，在类比较多的时候很方便。</p>
-<p><code>__new__</code>关键字适合应用一两个类的情况。</p>
-]]></content>
-      <categories>
-        <category>Python</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Python | 获取资源文件夹路径</title>
-    <url>/2023/12/05/python05/</url>
-    <content><![CDATA[<p>不管什么编程语言，相对路径和绝对路径的问题都很让人头疼。</p>
-<span id="more"></span>
-
-<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>在写代码的时候，我比较倾向于使用相对路径，因为谁知道这个项目会布置到哪台服务器上，每次部署要么改代码，要么该服务器路径，太麻烦了。</p>
-<p>但是相对路径也有自己的问题，比如在函数中获取上层甚至上上层路径就是很大的问题。</p>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>上代码：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import os</span><br><span class="line">import importlib.resources as res</span><br><span class="line"></span><br><span class="line">def get_resources_path() -&gt; str:</span><br><span class="line">    with res.path(&quot;resources&quot;, &quot;__init__.py&quot;) as path:</span><br><span class="line">        resources_path = os.path.split(str(path))[0]</span><br><span class="line">        return resources_path</span><br></pre></td></tr></table></figure>
-
-<p>其中<code>resources</code>是程序根目录下的一个文件夹，文件夹中有<code>__init__.py</code>文件。</p>
-]]></content>
-      <categories>
-        <category>Python</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Python | 不同场景下使用代理的方法</title>
-    <url>/2024/01/02/python06/</url>
-    <content><![CDATA[<p>两种使用代理的方法。</p>
-<span id="more"></span>
-<h2 id="requests使用代理"><a href="#requests使用代理" class="headerlink" title="requests使用代理"></a>requests使用代理</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import requests</span><br><span class="line"></span><br><span class="line">url=&quot;xxx&quot;</span><br><span class="line">requests.get(url,proxies=&#123;&quot;https&quot;: &quot;xxx.xxx.xxx.xxx:xxxx&quot;,&quot;http&quot;: &quot;xxx.xxx.xxx.xxx:xxxx&quot;&#125;)</span><br></pre></td></tr></table></figure>
-<p>这种方式是我用的最多的，因为自己做的小项目基本上也都是用requests去做请求的。</p>
-<h2 id="设置全局变量"><a href="#设置全局变量" class="headerlink" title="设置全局变量"></a>设置全局变量</h2><p>后来发现，requests的能力是有极限的，我从短暂的人生中学到……咳咳，串台了。</p>
-<p>主要是用第三方包的时候，看源码里边封装了requests的请求，我也不想改源码，于是就想迂回一下找个代码里的全局代理方法。</p>
-<p>还真被我找到了，<a href="https://stackoverflow.com/questions/31639742/how-to-pass-all-pythons-traffics-through-a-http-proxy">传送门</a>。</p>
-<p>太长不看版：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import requests</span><br><span class="line">import os</span><br><span class="line"></span><br><span class="line">url=&quot;xxx&quot;</span><br><span class="line">proxy=&#x27;xxx.xxx.xxx.xxx:xxxx&#x27;</span><br><span class="line">os.environ[&#x27;http_proxy&#x27;] = proxy</span><br><span class="line">os.environ[&#x27;HTTP_PROXY&#x27;] = proxy</span><br><span class="line">os.environ[&#x27;https_proxy&#x27;] = proxy</span><br><span class="line">os.environ[&#x27;HTTPS_PROXY&#x27;] = proxy</span><br><span class="line">requests.get(url)</span><br></pre></td></tr></table></figure>
-
-<p>经过测试，这个改动只对当前程序生效，并且也确实起到了代理作用，所以想封装一个函数先改全局变量，发送请求后再改回来，其实也就加几行：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">os.environ[&#x27;http_proxy&#x27;] = &quot;&quot;</span><br><span class="line">os.environ[&#x27;HTTP_PROXY&#x27;] = &quot;&quot;</span><br><span class="line">os.environ[&#x27;https_proxy&#x27;] = &quot;&quot;</span><br><span class="line">os.environ[&#x27;HTTPS_PROXY&#x27;] = &quot;&quot;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Python</category>
-        <category>Proxy</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-        <tag>Proxy</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Python | DataFrame的合并方法总结</title>
     <url>/2024/08/18/python07/</url>
     <content><![CDATA[<p>在数据分析过程中，通常需要将不同的数据集合并在一起进行分析，而Python中常用的数据结构之一——DataFrame，提供了多种方法用于合并数据。</p>
@@ -3095,6 +3185,50 @@ python proxyPool.py server
 <h2 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">df5=pd.concat([df1,df2])</span><br><span class="line">df5.index=range(len(df5))</span><br><span class="line">print(df5)</span><br></pre></td></tr></table></figure>
 <p>输出为：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">   one  two</span><br><span class="line">0    1    4</span><br><span class="line">1    2    5</span><br><span class="line">2    3    6</span><br><span class="line">3    4    7</span><br><span class="line">4    8   12</span><br><span class="line">5    9   13</span><br><span class="line">6   10   14</span><br><span class="line">7   11   15</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Python | 主线程结束后自动关闭子线程</title>
+    <url>/2024/09/12/python09/</url>
+    <content><![CDATA[<p>在<code>threading</code>模块创建的线程中，设置为守护线程即可达到题目的目的。</p>
+<span id="more"></span>
+
+<p>示例代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">thread = threading.Thread(target=my_thread_func)</span><br><span class="line">thread.daemon = True</span><br><span class="line">thread.start()</span><br></pre></td></tr></table></figure>
+
+<p>这样就OK了。</p>
+]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Python | A process in the process pool was terminated abruptly while the future was running or pending</title>
+    <url>/2024/12/31/python10/</url>
+    <content><![CDATA[<p>错误处理。</p>
+<span id="more"></span>
+
+<h2 id="问题-错误"><a href="#问题-错误" class="headerlink" title="问题&#x2F;错误"></a>问题&#x2F;错误</h2><p>代码报错<code>A process in the process pool was terminated abruptly while the future was running or pending</code></p>
+<hr>
+<h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>原因是在多进程（<code>ProcessPoolExecutor</code>）中，<code>multiprocessing.Manager().dict()</code>和<code>multiprocessing.Manager().list()</code>不能作为返回值，和pool.submit().result()有冲突。</p>
+<p>猜测和序列化有关，没有深究。</p>
+<hr>
+<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>本质上都是要保证在子程序return时，返回值是<code>dict</code>或<code>list</code>。</p>
+<p>推荐方法一。</p>
+<h3 id="方法一-使用普通dict和list"><a href="#方法一-使用普通dict和list" class="headerlink" title="方法一 使用普通dict和list"></a>方法一 使用普通<code>dict</code>和<code>list</code></h3><p>在子程序里没必要使用进程安全的<code>multiprocessing.Manager().dict()</code>和<code>multiprocessing.Manager().list()</code>，可以直接使用普通<code>dict</code>和<code>list</code>。</p>
+<h3 id="方法二-使用copy"><a href="#方法二-使用copy" class="headerlink" title="方法二 使用copy"></a>方法二 使用copy</h3><p>也可以在return之前，使用<code>copy</code>或<code>deepcopy</code>转成普通<code>dict</code>和<code>list</code>。</p>
+<hr>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p><code>multiprocessing.Manager().dict()</code>、<code>multiprocessing.Manager().list()</code>和pool.submit().result()有冲突。</p>
+<p>所以要保证在子程序return时，返回值是<code>dict</code>或<code>list</code>。</p>
+]]></content>
       <categories>
         <category>Python</category>
       </categories>
@@ -3193,6 +3327,36 @@ python proxyPool.py server
       </tags>
   </entry>
   <entry>
+    <title>Python | 单例模式的实现</title>
+    <url>/2023/12/04/python04/</url>
+    <content><![CDATA[<p>单例模式应用场景就不多说了。</p>
+<span id="more"></span>
+
+<h2 id="存入配置（只是像单例）"><a href="#存入配置（只是像单例）" class="headerlink" title="存入配置（只是像单例）"></a>存入配置（只是像单例）</h2><p>这是我之前自己捣鼓的。</p>
+<p>我是在Flask中实例化数据库client的时候用单例，在启动项目的时候实例化一个对象，然后存进app中，再写个函数根据key去取这个对象。</p>
+<p>你就说能不能用吧！</p>
+<h2 id="使用函数装饰器实现单例"><a href="#使用函数装饰器实现单例" class="headerlink" title="使用函数装饰器实现单例"></a>使用函数装饰器实现单例</h2><p>由于装饰器函数的作用域是全局，所以装饰器函数中定义的变量也算是全局变量，所以可以在装饰器中存储对象信息。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">def singleton(cls):</span><br><span class="line">    _instance = &#123;&#125;</span><br><span class="line"> </span><br><span class="line">    def inner():</span><br><span class="line">        if cls not in _instance:</span><br><span class="line">            _instance[cls] = cls()</span><br><span class="line">        return _instance[cls]</span><br><span class="line">    return inner</span><br><span class="line">    </span><br><span class="line">@singleton</span><br><span class="line">class Cls(object):</span><br><span class="line">    def __init__(self):</span><br><span class="line">        pass</span><br><span class="line"> </span><br><span class="line">cls1 = Cls()</span><br><span class="line">cls2 = Cls()</span><br><span class="line">print(id(cls1) == id(cls2)) # True</span><br></pre></td></tr></table></figure>
+
+<p>这种方法跟我的思路一样，区别是把类的id当做key，不用自己构建，用的时候直接创建就好，比我的方便。</p>
+<h2 id="使用类装饰器实现单例"><a href="#使用类装饰器实现单例" class="headerlink" title="使用类装饰器实现单例"></a>使用类装饰器实现单例</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">class Singleton(object):</span><br><span class="line">    def __init__(self, cls):</span><br><span class="line">        self._cls = cls</span><br><span class="line">        self._instance = &#123;&#125;</span><br><span class="line">    def __call__(self):</span><br><span class="line">        if self._cls not in self._instance:</span><br><span class="line">            self._instance[self._cls] = self._cls()</span><br><span class="line">        return self._instance[self._cls]</span><br><span class="line"> </span><br><span class="line">@Singleton</span><br><span class="line">class Cls2(object):</span><br><span class="line">    def __init__(self):</span><br><span class="line">        pass</span><br><span class="line"> </span><br><span class="line">cls1 = Cls2()</span><br><span class="line">cls2 = Cls2()</span><br><span class="line">print(id(cls1) == id(cls2)) # True</span><br></pre></td></tr></table></figure>
+
+<p>这种和上一种很相似。</p>
+<h2 id="使用-new-关键字实现单例模式"><a href="#使用-new-关键字实现单例模式" class="headerlink" title="使用__new__关键字实现单例模式"></a>使用<code>__new__</code>关键字实现单例模式</h2><p>所有的类在实例化时，都是通过<code>__new__</code>方法来完成的。</p>
+<p>所以在<code>__new__</code>方法中应用上边的思路也可以实现单例。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">class Single(object):</span><br><span class="line">    _instance = None</span><br><span class="line">    def __new__(cls, *args, **kw):</span><br><span class="line">        if cls._instance is None:</span><br><span class="line">            cls._instance = object.__new__(cls, *args, **kw)</span><br><span class="line">        return cls._instance</span><br><span class="line">    def __init__(self):</span><br><span class="line">        pass</span><br><span class="line"> </span><br><span class="line">single1 = Single()</span><br><span class="line">single2 = Single()</span><br><span class="line">print(id(single1) == id(single2)) # True</span><br></pre></td></tr></table></figure>
+
+<h2 id="优劣"><a href="#优劣" class="headerlink" title="优劣"></a>优劣</h2><p>类装饰器和函数装饰器适合封装后调用，在类比较多的时候很方便。</p>
+<p><code>__new__</code>关键字适合应用一两个类的情况。</p>
+]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>re库处理正则表达式</title>
     <url>/2021/01/10/pythonLibrary04/</url>
     <content><![CDATA[<p>记录一下我用的比较多的re库中的函数。</p>
@@ -3233,6 +3397,23 @@ python proxyPool.py server
       </tags>
   </entry>
   <entry>
+    <title>Python | os库</title>
+    <url>/2021/01/27/pythonLibrary06/</url>
+    <content><![CDATA[<p>os库是Python自带的一个库，这里记录一些常用函数。</p>
+<span id="more"></span>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"># 获得文件大小，如果是文件夹，返回0</span><br><span class="line">os.path.getsize(file_path)</span><br><span class="line"></span><br><span class="line"># 重命名文件或文件夹</span><br><span class="line">os.rename(file_path,new_name)</span><br><span class="line"></span><br><span class="line"># 递归删除文件夹，文件夹中可以有空文件夹</span><br><span class="line">os.removedirs(dir)</span><br><span class="line"></span><br><span class="line"># 删除文件夹，文件夹只能为空目录</span><br><span class="line">os.rmdir(dir)</span><br><span class="line"></span><br><span class="line"># 查看路径指向的文件或文件夹是否存在</span><br><span class="line">os.path.exists(path)</span><br><span class="line"></span><br><span class="line"># 组合路径</span><br><span class="line">os.path.join(path1, path2, path3……)</span><br><span class="line"></span><br><span class="line"># 分割路径和文件名</span><br><span class="line">os.path.split(file_path)</span><br><span class="line"></span><br><span class="line"># 分割文件和拓展名</span><br><span class="line">os.path.splitext(file_path)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Python</category>
+        <category>常用库</category>
+        <category>os</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Python | datetime库的时间相关操作</title>
     <url>/2021/01/27/pythonLibrary05/</url>
     <content><![CDATA[<p>有的时候需要使用当前的时间。</p>
@@ -3255,23 +3436,6 @@ python proxyPool.py server
       <tags>
         <tag>Python</tag>
         <tag>时间</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Python | os库</title>
-    <url>/2021/01/27/pythonLibrary06/</url>
-    <content><![CDATA[<p>os库是Python自带的一个库，这里记录一些常用函数。</p>
-<span id="more"></span>
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"># 获得文件大小，如果是文件夹，返回0</span><br><span class="line">os.path.getsize(file_path)</span><br><span class="line"></span><br><span class="line"># 重命名文件或文件夹</span><br><span class="line">os.rename(file_path,new_name)</span><br><span class="line"></span><br><span class="line"># 递归删除文件夹，文件夹中可以有空文件夹</span><br><span class="line">os.removedirs(dir)</span><br><span class="line"></span><br><span class="line"># 删除文件夹，文件夹只能为空目录</span><br><span class="line">os.rmdir(dir)</span><br><span class="line"></span><br><span class="line"># 查看路径指向的文件或文件夹是否存在</span><br><span class="line">os.path.exists(path)</span><br><span class="line"></span><br><span class="line"># 组合路径</span><br><span class="line">os.path.join(path1, path2, path3……)</span><br><span class="line"></span><br><span class="line"># 分割路径和文件名</span><br><span class="line">os.path.split(file_path)</span><br><span class="line"></span><br><span class="line"># 分割文件和拓展名</span><br><span class="line">os.path.splitext(file_path)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Python</category>
-        <category>常用库</category>
-        <category>os</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -3360,8 +3524,8 @@ python proxyPool.py server
         <category>Linux</category>
         <category>常用库</category>
         <category>bypy</category>
-        <category>命令行工具</category>
         <category>百度云</category>
+        <category>命令行工具</category>
       </categories>
       <tags>
         <tag>Linux</tag>
@@ -3487,6 +3651,51 @@ python proxyPool.py server
       </tags>
   </entry>
   <entry>
+    <title>Python | 获取资源文件夹路径</title>
+    <url>/2023/12/05/python05/</url>
+    <content><![CDATA[<p>不管什么编程语言，相对路径和绝对路径的问题都很让人头疼。</p>
+<span id="more"></span>
+
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>在写代码的时候，我比较倾向于使用相对路径，因为谁知道这个项目会布置到哪台服务器上，每次部署要么改代码，要么该服务器路径，太麻烦了。</p>
+<p>但是相对路径也有自己的问题，比如在函数中获取上层甚至上上层路径就是很大的问题。</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>上代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import os</span><br><span class="line">import importlib.resources as res</span><br><span class="line"></span><br><span class="line">def get_resources_path() -&gt; str:</span><br><span class="line">    with res.path(&quot;resources&quot;, &quot;__init__.py&quot;) as path:</span><br><span class="line">        resources_path = os.path.split(str(path))[0]</span><br><span class="line">        return resources_path</span><br></pre></td></tr></table></figure>
+
+<p>其中<code>resources</code>是程序根目录下的一个文件夹，文件夹中有<code>__init__.py</code>文件。</p>
+]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Python | 不同场景下使用代理的方法</title>
+    <url>/2024/01/02/python06/</url>
+    <content><![CDATA[<p>两种使用代理的方法。</p>
+<span id="more"></span>
+<h2 id="requests使用代理"><a href="#requests使用代理" class="headerlink" title="requests使用代理"></a>requests使用代理</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import requests</span><br><span class="line"></span><br><span class="line">url=&quot;xxx&quot;</span><br><span class="line">requests.get(url,proxies=&#123;&quot;https&quot;: &quot;xxx.xxx.xxx.xxx:xxxx&quot;,&quot;http&quot;: &quot;xxx.xxx.xxx.xxx:xxxx&quot;&#125;)</span><br></pre></td></tr></table></figure>
+<p>这种方式是我用的最多的，因为自己做的小项目基本上也都是用requests去做请求的。</p>
+<h2 id="设置全局变量"><a href="#设置全局变量" class="headerlink" title="设置全局变量"></a>设置全局变量</h2><p>后来发现，requests的能力是有极限的，我从短暂的人生中学到……咳咳，串台了。</p>
+<p>主要是用第三方包的时候，看源码里边封装了requests的请求，我也不想改源码，于是就想迂回一下找个代码里的全局代理方法。</p>
+<p>还真被我找到了，<a href="https://stackoverflow.com/questions/31639742/how-to-pass-all-pythons-traffics-through-a-http-proxy">传送门</a>。</p>
+<p>太长不看版：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import requests</span><br><span class="line">import os</span><br><span class="line"></span><br><span class="line">url=&quot;xxx&quot;</span><br><span class="line">proxy=&#x27;xxx.xxx.xxx.xxx:xxxx&#x27;</span><br><span class="line">os.environ[&#x27;http_proxy&#x27;] = proxy</span><br><span class="line">os.environ[&#x27;HTTP_PROXY&#x27;] = proxy</span><br><span class="line">os.environ[&#x27;https_proxy&#x27;] = proxy</span><br><span class="line">os.environ[&#x27;HTTPS_PROXY&#x27;] = proxy</span><br><span class="line">requests.get(url)</span><br></pre></td></tr></table></figure>
+
+<p>经过测试，这个改动只对当前程序生效，并且也确实起到了代理作用，所以想封装一个函数先改全局变量，发送请求后再改回来，其实也就加几行：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">os.environ[&#x27;http_proxy&#x27;] = &quot;&quot;</span><br><span class="line">os.environ[&#x27;HTTP_PROXY&#x27;] = &quot;&quot;</span><br><span class="line">os.environ[&#x27;https_proxy&#x27;] = &quot;&quot;</span><br><span class="line">os.environ[&#x27;HTTPS_PROXY&#x27;] = &quot;&quot;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Python</category>
+        <category>Proxy</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>Proxy</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Python | datetime库计算时间差</title>
     <url>/2021/07/09/pythonLibrary17/</url>
     <content><![CDATA[<p>在做爬虫的时候，需要计算网页上的发布时间和本地时间的时间差。</p>
@@ -3527,6 +3736,28 @@ python proxyPool.py server
       </tags>
   </entry>
   <entry>
+    <title>matplotlib | NotImplementedError: It is not currently possible to manually set the aspect on 3D axes</title>
+    <url>/2021/01/11/pythonLibraryError00/</url>
+    <content><![CDATA[<p>今天跑项目的时候报错：“NotImplementedError: It is not currently possible to manually set the aspect on 3D axes”</p>
+<span id="more"></span>
+
+<p>matplotlib在19年2月的时候加入了Raise NotImplementedError，目的是是为了告诉人们3D图中尚不能更改轴纵横比的事实。</p>
+<p>有个不是很好的解决方法</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">conda install matplotlib=2.2.3</span><br></pre></td></tr></table></figure>
+
+<p>但据说它可能导致画出的图变形，先用用看吧，等遇到问题了再看那时候matplotlib有没有修复这个问题，实在不行就用其他方法重构这部分。</p>
+]]></content>
+      <categories>
+        <category>Python</category>
+        <category>常用库</category>
+        <category>matplotlib</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>Error</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Faker | 生成各种类型的随机数据</title>
     <url>/2023/11/29/pythonLibrary19/</url>
     <content><![CDATA[<p>这是一个可以用来生成各种随机信息的库，可以用于测试、开发和原型设计等场景。</p>
@@ -3547,28 +3778,6 @@ python proxyPool.py server
       <tags>
         <tag>Python</tag>
         <tag>Faker</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>matplotlib | NotImplementedError: It is not currently possible to manually set the aspect on 3D axes</title>
-    <url>/2021/01/11/pythonLibraryError00/</url>
-    <content><![CDATA[<p>今天跑项目的时候报错：“NotImplementedError: It is not currently possible to manually set the aspect on 3D axes”</p>
-<span id="more"></span>
-
-<p>matplotlib在19年2月的时候加入了Raise NotImplementedError，目的是是为了告诉人们3D图中尚不能更改轴纵横比的事实。</p>
-<p>有个不是很好的解决方法</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">conda install matplotlib=2.2.3</span><br></pre></td></tr></table></figure>
-
-<p>但据说它可能导致画出的图变形，先用用看吧，等遇到问题了再看那时候matplotlib有没有修复这个问题，实在不行就用其他方法重构这部分。</p>
-]]></content>
-      <categories>
-        <category>Python</category>
-        <category>常用库</category>
-        <category>matplotlib</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-        <tag>Error</tag>
       </tags>
   </entry>
   <entry>
@@ -3684,6 +3893,32 @@ python proxyPool.py server
       </tags>
   </entry>
   <entry>
+    <title>Redis的配置</title>
+    <url>/2020/10/26/redis01/</url>
+    <content><![CDATA[<p>一些相关的配置。</p>
+<span id="more"></span>
+
+<p>既然要配置，首先找一下安装目录在哪：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">whereis redis</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">redis: /etc/redis</span><br></pre></td></tr></table></figure>
+
+<p>在这个文件夹下，有一个redis.conf，这就是配置文件了。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vim redis.conf</span><br></pre></td></tr></table></figure>
+
+<p>主要查看<code>port</code>和<code>bind</code>，分别是端口和绑定的ip。</p>
+<p>一般默认port是6379，bind是127.0.0.1。</p>
+]]></content>
+      <categories>
+        <category>数据库</category>
+        <category>Redis</category>
+      </categories>
+      <tags>
+        <tag>数据库</tag>
+        <tag>Redis</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Redis的安装</title>
     <url>/2020/10/26/redis00/</url>
     <content><![CDATA[<p>因为项目需要，要重装一下Redis。</p>
@@ -3703,32 +3938,6 @@ python proxyPool.py server
 
 <p>启动：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">redis-server</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>数据库</category>
-        <category>Redis</category>
-      </categories>
-      <tags>
-        <tag>数据库</tag>
-        <tag>Redis</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Redis的配置</title>
-    <url>/2020/10/26/redis01/</url>
-    <content><![CDATA[<p>一些相关的配置。</p>
-<span id="more"></span>
-
-<p>既然要配置，首先找一下安装目录在哪：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">whereis redis</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">redis: /etc/redis</span><br></pre></td></tr></table></figure>
-
-<p>在这个文件夹下，有一个redis.conf，这就是配置文件了。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vim redis.conf</span><br></pre></td></tr></table></figure>
-
-<p>主要查看<code>port</code>和<code>bind</code>，分别是端口和绑定的ip。</p>
-<p>一般默认port是6379，bind是127.0.0.1。</p>
-]]></content>
       <categories>
         <category>数据库</category>
         <category>Redis</category>
@@ -3901,6 +4110,31 @@ python proxyPool.py server
       </tags>
   </entry>
   <entry>
+    <title>Selenium | 操作Docker里的Chrome浏览器</title>
+    <url>/2023/11/22/selenium05/</url>
+    <content><![CDATA[<p>主要是在Nas里用Docker布了一个Chrome，用来执行爬虫。</p>
+<span id="more"></span>
+
+<h2 id="镜像选择"><a href="#镜像选择" class="headerlink" title="镜像选择"></a>镜像选择</h2><p>能用Selenium调用的Chrome镜像有两个，<code>selenium/standalone-chrome</code>和<code>selenium/standalone-chrome-debug</code>，后者能在执行Selenium代码的时候启动一个VNC服务，能用VNC看看执行过程是否符合预期。VNC的默认端口是5900，默认密码是secret。</p>
+<p>具体镜像怎么怎么启动就不展开了，我是用Nas的图形界面启动的，没用命令行，所以不太了解。</p>
+<h2 id="连接"><a href="#连接" class="headerlink" title="连接"></a>连接</h2><p>使用Selenium连接的时候和Appium比较像，使用远程地址进行连接。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">from selenium import webdriver</span><br><span class="line">from selenium.webdriver.chrome.options import Options</span><br><span class="line"></span><br><span class="line">chrome_options = Options()</span><br><span class="line">###</span><br><span class="line"># 在这添加各种配置</span><br><span class="line">###</span><br><span class="line"></span><br><span class="line"># 普通的浏览器调用方式</span><br><span class="line"># browser = webdriver.Chrome(chrome_options=chrome_options)</span><br><span class="line"></span><br><span class="line"># 远程浏览器调用方式，后边的/wd/hub不能省略</span><br><span class="line">browser = webdriver.Remote(&quot;http://192.168.50.150:9516/wd/hub&quot;, options=chrome_options)</span><br></pre></td></tr></table></figure>
+<p>连接起来之后就和正常调用没区别了，正常Selenium代码就行。</p>
+]]></content>
+      <categories>
+        <category>自动化</category>
+        <category>Python</category>
+        <category>常用库</category>
+        <category>Selenium</category>
+        <category>Selenium</category>
+      </categories>
+      <tags>
+        <tag>自动化</tag>
+        <tag>Python</tag>
+        <tag>Selenium</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Selenium | iframe的操作</title>
     <url>/2021/06/05/selenium03/</url>
     <content><![CDATA[<p>在selenium中，不能用<code>find_element</code>对iframe内元素进行直接操作</p>
@@ -3949,60 +4183,6 @@ python proxyPool.py server
       </tags>
   </entry>
   <entry>
-    <title>Selenium | 操作Docker里的Chrome浏览器</title>
-    <url>/2023/11/22/selenium05/</url>
-    <content><![CDATA[<p>主要是在Nas里用Docker布了一个Chrome，用来执行爬虫。</p>
-<span id="more"></span>
-
-<h2 id="镜像选择"><a href="#镜像选择" class="headerlink" title="镜像选择"></a>镜像选择</h2><p>能用Selenium调用的Chrome镜像有两个，<code>selenium/standalone-chrome</code>和<code>selenium/standalone-chrome-debug</code>，后者能在执行Selenium代码的时候启动一个VNC服务，能用VNC看看执行过程是否符合预期。VNC的默认端口是5900，默认密码是secret。</p>
-<p>具体镜像怎么怎么启动就不展开了，我是用Nas的图形界面启动的，没用命令行，所以不太了解。</p>
-<h2 id="连接"><a href="#连接" class="headerlink" title="连接"></a>连接</h2><p>使用Selenium连接的时候和Appium比较像，使用远程地址进行连接。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">from selenium import webdriver</span><br><span class="line">from selenium.webdriver.chrome.options import Options</span><br><span class="line"></span><br><span class="line">chrome_options = Options()</span><br><span class="line">###</span><br><span class="line"># 在这添加各种配置</span><br><span class="line">###</span><br><span class="line"></span><br><span class="line"># 普通的浏览器调用方式</span><br><span class="line"># browser = webdriver.Chrome(chrome_options=chrome_options)</span><br><span class="line"></span><br><span class="line"># 远程浏览器调用方式，后边的/wd/hub不能省略</span><br><span class="line">browser = webdriver.Remote(&quot;http://192.168.50.150:9516/wd/hub&quot;, options=chrome_options)</span><br></pre></td></tr></table></figure>
-<p>连接起来之后就和正常调用没区别了，正常Selenium代码就行。</p>
-]]></content>
-      <categories>
-        <category>自动化</category>
-        <category>Python</category>
-        <category>常用库</category>
-        <category>Selenium</category>
-        <category>Selenium</category>
-      </categories>
-      <tags>
-        <tag>自动化</tag>
-        <tag>Python</tag>
-        <tag>Selenium</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Selenium | Docker里的Chrome浏览器自动化过程报错</title>
-    <url>/2023/11/22/selenium06/</url>
-    <content><![CDATA[<p>记录下Docker里的Chrome浏览器自动化过程报错以及解决方法。</p>
-<span id="more"></span>
-
-<h2 id="session-deleted-because-of-page-crash"><a href="#session-deleted-because-of-page-crash" class="headerlink" title="session deleted because of page crash"></a>session deleted because of page crash</h2><p>用Docker启动的Chrome容器，可用空间默认只有64M，太小了容易崩溃。</p>
-<p>在创建容器时设置shm-size为500M即可，如果是命令行启动，加上<code>--shm-size=&quot;500M&quot;</code>。</p>
-<h2 id="‘WebDriver’-object-has-no-attribute-‘execute-cdp-cmd’"><a href="#‘WebDriver’-object-has-no-attribute-‘execute-cdp-cmd’" class="headerlink" title="‘WebDriver’ object has no attribute ‘execute_cdp_cmd’"></a>‘WebDriver’ object has no attribute ‘execute_cdp_cmd’</h2><p>在<a href="/2023/11/22/selenium05/" title="Selenium | 操作Docker里的Chrome浏览器">连接远程Chrome</a>的情况下，调用<code>execute_cdp_cmd</code>执行cdp命令（比如<a href="/2021/04/19/selenium02/" title="Selenium | 配置Chrome的option">隐藏Selenium特征</a>）时会报这个错，应该是远程浏览器不支持此函数直接执行cdp命令，一切行为都要通过url进行。</p>
-<p>可以自己封装一个函数来在远程浏览器上执行cdp命令：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">def execute_cdp_cmd(driver, cmd, params=&#123;&#125;):</span><br><span class="line">    resource = &quot;/session/%s/chromium/send_command_and_get_result&quot; % driver.session_id</span><br><span class="line">    url = driver.command_executor._url + resource</span><br><span class="line">    body = json.dumps(&#123;&#x27;cmd&#x27;: cmd, &#x27;params&#x27;: params&#125;)</span><br><span class="line">    response = driver.command_executor._request(&#x27;POST&#x27;, url, body)</span><br><span class="line">    return response.get(&#x27;value&#x27;)</span><br><span class="line">with open(&#x27;resource/stealth.min.js&#x27;) as f:</span><br><span class="line">    js = f.read()</span><br></pre></td></tr></table></figure>
-<p>对比：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 本地函数</span><br><span class="line">drive.execute_cdp_cmd(&quot;Page.addScriptToEvaluateOnNewDocument&quot;, &#123;&quot;source&quot;: js&#125;)</span><br><span class="line"></span><br><span class="line"># 远程函数</span><br><span class="line">execute_cdp_cmd(browser, &quot;Page.addScriptToEvaluateOnNewDocument&quot;, &#123;&quot;source&quot;: js&#125;)</span><br></pre></td></tr></table></figure>
-
-<p>结构还是比较相似的。</p>
-]]></content>
-      <categories>
-        <category>自动化</category>
-        <category>Python</category>
-        <category>常用库</category>
-        <category>Selenium</category>
-        <category>Selenium</category>
-      </categories>
-      <tags>
-        <tag>自动化</tag>
-        <tag>Python</tag>
-        <tag>Selenium</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Selenium | 获取canvas画布中的图片</title>
     <url>/2024/08/19/selenium07/</url>
     <content><![CDATA[<p>搬运自<a href="https://blog.csdn.net/weixin_39726347/article/details/87632561">这里</a>。</p>
@@ -4024,6 +4204,30 @@ python proxyPool.py server
         <tag>自动化</tag>
         <tag>Python</tag>
         <tag>Selenium</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>异步 | @Async注解配置线程池</title>
+    <url>/2023/07/08/spring00/</url>
+    <content><![CDATA[<p><a href="https://blog.csdn.net/dyc87112/article/details/120326353">参考文档</a></p>
+<span id="more"></span>
+
+<p>省流版：</p>
+<h2 id="配置默认线程池"><a href="#配置默认线程池" class="headerlink" title="配置默认线程池"></a>配置默认线程池</h2><p>默认线程池的配置很简单，只需要在配置文件中完成即可，主要有以下这些参数：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">spring.task.execution.pool.core-size=2</span><br><span class="line">spring.task.execution.pool.max-size=5</span><br><span class="line">spring.task.execution.pool.queue-capacity=10</span><br><span class="line">spring.task.execution.pool.keep-alive=60s</span><br><span class="line">spring.task.execution.pool.allow-core-thread-timeout=true</span><br><span class="line">spring.task.execution.shutdown.await-termination=false</span><br><span class="line">spring.task.execution.shutdown.await-termination-period=</span><br><span class="line">spring.task.execution.thread-name-prefix=task-</span><br></pre></td></tr></table></figure>
+
+<p>具体配置含义如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">spring.task.execution.pool.core-size：线程池创建时的初始化线程数，默认为8</span><br><span class="line">spring.task.execution.pool.max-size：线程池的最大线程数，默认为int最大值</span><br><span class="line">spring.task.execution.pool.queue-capacity：用来缓冲执行任务的队列，默认为int最大值</span><br><span class="line">spring.task.execution.pool.keep-alive：线程终止前允许保持空闲的时间</span><br><span class="line">spring.task.execution.pool.allow-core-thread-timeout：是否允许核心线程超时</span><br><span class="line">spring.task.execution.shutdown.await-termination：是否等待剩余任务完成后才关闭应用</span><br><span class="line">spring.task.execution.shutdown.await-termination-period：等待剩余任务完成的最大时间</span><br><span class="line">spring.task.execution.thread-name-prefix：线程名的前缀，设置好了之后可以方便我们在日志中查看处理任务所在的线程池</span><br></pre></td></tr></table></figure>
+
+<p>亲测可用</p>
+]]></content>
+      <categories>
+        <category>Java</category>
+        <category>Spring</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>Spring</tag>
       </tags>
   </entry>
   <entry>
@@ -4052,67 +4256,29 @@ python proxyPool.py server
       </tags>
   </entry>
   <entry>
-    <title>异步 | @Async注解配置线程池</title>
-    <url>/2023/07/08/spring00/</url>
-    <content><![CDATA[<p><a href="https://blog.csdn.net/dyc87112/article/details/120326353">参考文档</a></p>
+    <title>记一次WebSocket的CLOSE_WAIT问题解决</title>
+    <url>/2024/10/15/spring02/</url>
+    <content><![CDATA[<p>这几天发现线上的服务器有很多CLOSE_WAIT的连接，导致新的请求接不进来。</p>
 <span id="more"></span>
 
-<p>省流版：</p>
-<h2 id="配置默认线程池"><a href="#配置默认线程池" class="headerlink" title="配置默认线程池"></a>配置默认线程池</h2><p>默认线程池的配置很简单，只需要在配置文件中完成即可，主要有以下这些参数：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">spring.task.execution.pool.core-size=2</span><br><span class="line">spring.task.execution.pool.max-size=5</span><br><span class="line">spring.task.execution.pool.queue-capacity=10</span><br><span class="line">spring.task.execution.pool.keep-alive=60s</span><br><span class="line">spring.task.execution.pool.allow-core-thread-timeout=true</span><br><span class="line">spring.task.execution.shutdown.await-termination=false</span><br><span class="line">spring.task.execution.shutdown.await-termination-period=</span><br><span class="line">spring.task.execution.thread-name-prefix=task-</span><br></pre></td></tr></table></figure>
+<h2 id="问题原因"><a href="#问题原因" class="headerlink" title="问题原因"></a>问题原因</h2><p>经排查，是WebSocket连接没有正常关闭引起的。</p>
+<h2 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决"></a>问题解决</h2><p>直接贴代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">@Configuration</span><br><span class="line">@EnableWebSocket</span><br><span class="line">public class WebSocketConfig implements WebSocketConfigurer &#123;</span><br><span class="line">    @Bean</span><br><span class="line">    public ServletServerContainerFactoryBean createWebSocketContainer() &#123;</span><br><span class="line">        var container = new ServletServerContainerFactoryBean();</span><br><span class="line">        container.setMaxSessionIdleTimeout(...);</span><br><span class="line">        return container;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>具体配置含义如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">spring.task.execution.pool.core-size：线程池创建时的初始化线程数，默认为8</span><br><span class="line">spring.task.execution.pool.max-size：线程池的最大线程数，默认为int最大值</span><br><span class="line">spring.task.execution.pool.queue-capacity：用来缓冲执行任务的队列，默认为int最大值</span><br><span class="line">spring.task.execution.pool.keep-alive：线程终止前允许保持空闲的时间</span><br><span class="line">spring.task.execution.pool.allow-core-thread-timeout：是否允许核心线程超时</span><br><span class="line">spring.task.execution.shutdown.await-termination：是否等待剩余任务完成后才关闭应用</span><br><span class="line">spring.task.execution.shutdown.await-termination-period：等待剩余任务完成的最大时间</span><br><span class="line">spring.task.execution.thread-name-prefix：线程名的前缀，设置好了之后可以方便我们在日志中查看处理任务所在的线程池</span><br></pre></td></tr></table></figure>
-
-<p>亲测可用</p>
+<p>解决方法来自<a href="https://stackoverflow.com/questions/25930285/spring-websocket-timeout-settings">这里</a>。</p>
+<p>这是设置超时关闭，设置完运行了两天发现情况有所好转，但还是存在CLOSE_WAIT的问题，于是开始重检代码。</p>
+<p>经过<code>jstack</code>大法重检，发现问题在于服务端把所有的WebSocket连接放在一个<code>Hashtable</code>中。在高并发场景下，<code>Hashtable</code>撑不住了。</p>
+<p>把<code>Hashtable</code>换成<code>ConcurrentHashMap</code>，问题解决。</p>
 ]]></content>
       <categories>
         <category>Java</category>
         <category>Spring</category>
+        <category>WebSocket</category>
       </categories>
       <tags>
         <tag>Java</tag>
         <tag>Spring</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>缓存 | @Cacheable注解函数内部调用不生效</title>
-    <url>/2023/10/28/spring01/</url>
-    <content><![CDATA[<p>出现问题的原因：Spring cache的实现原理是基于AOP的动态代理实现的：即都在方法调用前后去获取方法的名称、参数、返回值，然后根据方法名称、参数生成缓存的key(自定义的key例外)，进行缓存。this调用不是代理对象的调用,  所以aop失效,注解失效。</p>
-<p>解决办法就是，我们获取当前Bean,由它来调用。</p>
-<span id="more"></span>
-
-<h1 id="SpringContextUtil"><a href="#SpringContextUtil" class="headerlink" title="SpringContextUtil"></a>SpringContextUtil</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import org.springframework.beans.BeansException;</span><br><span class="line">import org.springframework.context.ApplicationContext;</span><br><span class="line">import org.springframework.context.ApplicationContextAware;</span><br><span class="line">import org.springframework.context.annotation.Lazy;</span><br><span class="line">import org.springframework.stereotype.Component;</span><br><span class="line"> </span><br><span class="line">/**</span><br><span class="line"> *不依赖于Autowired而使用java代码快速获取到spring管理的bean</span><br><span class="line"> */</span><br><span class="line">@Component</span><br><span class="line">@Lazy(false)</span><br><span class="line">public class SpringContextUtil  implements ApplicationContextAware &#123;</span><br><span class="line">	 private static ApplicationContext applicationContext;</span><br><span class="line">	 public void setApplicationContext(ApplicationContext applicationContext) throws BeansException &#123;</span><br><span class="line">		 SpringContextUtil .applicationContext = applicationContext;</span><br><span class="line">	 &#125;</span><br><span class="line">	 public static ApplicationContext getApplicationContext() &#123;</span><br><span class="line">	     return applicationContext;</span><br><span class="line">	 &#125;</span><br><span class="line">	 public static Object getBean(String name) &#123;</span><br><span class="line">	     return getApplicationContext().getBean(name);</span><br><span class="line">	 &#125;</span><br><span class="line">	 public static &lt;T&gt; T getBean(Class&lt;T&gt; clazz) &#123;</span><br><span class="line">	     return getApplicationContext().getBean(clazz);</span><br><span class="line">	 &#125;</span><br><span class="line">	 public static &lt;T&gt; T getBean(String name, Class&lt;T&gt; clazz) &#123;</span><br><span class="line">	     return getApplicationContext().getBean(name, clazz);</span><br><span class="line">	 &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="Service-调用"><a href="#Service-调用" class="headerlink" title="Service 调用"></a>Service 调用</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">package com.mark.pay.service;</span><br><span class="line"> </span><br><span class="line">import com.mark.pay.bean.User;</span><br><span class="line">import com.mark.pay.common.spring.SpringContextUtil;</span><br><span class="line">import com.mark.pay.dao.UserMapper;</span><br><span class="line">import org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line">import org.springframework.cache.annotation.*;</span><br><span class="line">import org.springframework.stereotype.Service;</span><br><span class="line"> </span><br><span class="line">@Service</span><br><span class="line">@CacheConfig(cacheNames = &quot;user&quot;,cacheManager = &quot;cacheManager&quot;)</span><br><span class="line">public class TestService &#123;</span><br><span class="line"> </span><br><span class="line">    @Autowired</span><br><span class="line">    UserMapper userMapper;</span><br><span class="line"> </span><br><span class="line">    @Cacheable( key =&quot;#id&quot;)</span><br><span class="line">    public User query(Integer id) &#123;</span><br><span class="line">        return userMapper.selectByPrimaryKey(id);</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">    public User testCacheQuery(Integer id)&#123;</span><br><span class="line">        TestService service = SpringContextUtil.getBean(TestService.class);</span><br><span class="line">        return service.query(id);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://blog.csdn.net/qq_36990177/article/details/109755106">Springboot Cache @Cacheable 类内部调用时不生效，解决办法</a></p>
-]]></content>
-      <categories>
-        <category>Java</category>
-        <category>Spring</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>Spring</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>sql | MySql的upserte语句</title>
-    <url>/2023/04/11/sql00/</url>
-    <content><![CDATA[<p>upsert是mysql的方言，其作用是数据库没有这条数据，就新增，有这条数据就修改。</p>
-<span id="more"></span>
-
-<h1 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">INSERT INTO student ( id, NAME, age, sign )</span><br><span class="line">VALUES</span><br><span class="line">	( &#x27;1&#x27;, &#x27;张三&#x27;, 18, 1 ) </span><br><span class="line">	ON DUPLICATE KEY UPDATE NAME = &#x27;李四&#x27;;</span><br></pre></td></tr></table></figure>
-
-<p>其中<code>id</code>是唯一主键。</p>
-<p>要注意的是，联合主键不能使用upsert。</p>
-]]></content>
-      <categories>
-        <category>SQL</category>
-      </categories>
-      <tags>
-        <tag>SQL</tag>
+        <tag>WebSocket</tag>
       </tags>
   </entry>
   <entry>
@@ -4153,6 +4319,57 @@ python proxyPool.py server
       </categories>
       <tags>
         <tag>Steam</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>缓存 | @Cacheable注解函数内部调用不生效</title>
+    <url>/2023/10/28/spring01/</url>
+    <content><![CDATA[<p>出现问题的原因：Spring cache的实现原理是基于AOP的动态代理实现的：即都在方法调用前后去获取方法的名称、参数、返回值，然后根据方法名称、参数生成缓存的key(自定义的key例外)，进行缓存。this调用不是代理对象的调用,  所以aop失效,注解失效。</p>
+<p>解决办法就是，我们获取当前Bean,由它来调用。</p>
+<span id="more"></span>
+
+<h1 id="SpringContextUtil"><a href="#SpringContextUtil" class="headerlink" title="SpringContextUtil"></a>SpringContextUtil</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import org.springframework.beans.BeansException;</span><br><span class="line">import org.springframework.context.ApplicationContext;</span><br><span class="line">import org.springframework.context.ApplicationContextAware;</span><br><span class="line">import org.springframework.context.annotation.Lazy;</span><br><span class="line">import org.springframework.stereotype.Component;</span><br><span class="line"> </span><br><span class="line">/**</span><br><span class="line"> *不依赖于Autowired而使用java代码快速获取到spring管理的bean</span><br><span class="line"> */</span><br><span class="line">@Component</span><br><span class="line">@Lazy(false)</span><br><span class="line">public class SpringContextUtil  implements ApplicationContextAware &#123;</span><br><span class="line">	 private static ApplicationContext applicationContext;</span><br><span class="line">	 public void setApplicationContext(ApplicationContext applicationContext) throws BeansException &#123;</span><br><span class="line">		 SpringContextUtil .applicationContext = applicationContext;</span><br><span class="line">	 &#125;</span><br><span class="line">	 public static ApplicationContext getApplicationContext() &#123;</span><br><span class="line">	     return applicationContext;</span><br><span class="line">	 &#125;</span><br><span class="line">	 public static Object getBean(String name) &#123;</span><br><span class="line">	     return getApplicationContext().getBean(name);</span><br><span class="line">	 &#125;</span><br><span class="line">	 public static &lt;T&gt; T getBean(Class&lt;T&gt; clazz) &#123;</span><br><span class="line">	     return getApplicationContext().getBean(clazz);</span><br><span class="line">	 &#125;</span><br><span class="line">	 public static &lt;T&gt; T getBean(String name, Class&lt;T&gt; clazz) &#123;</span><br><span class="line">	     return getApplicationContext().getBean(name, clazz);</span><br><span class="line">	 &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="Service-调用"><a href="#Service-调用" class="headerlink" title="Service 调用"></a>Service 调用</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">package com.mark.pay.service;</span><br><span class="line"> </span><br><span class="line">import com.mark.pay.bean.User;</span><br><span class="line">import com.mark.pay.common.spring.SpringContextUtil;</span><br><span class="line">import com.mark.pay.dao.UserMapper;</span><br><span class="line">import org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line">import org.springframework.cache.annotation.*;</span><br><span class="line">import org.springframework.stereotype.Service;</span><br><span class="line"> </span><br><span class="line">@Service</span><br><span class="line">@CacheConfig(cacheNames = &quot;user&quot;,cacheManager = &quot;cacheManager&quot;)</span><br><span class="line">public class TestService &#123;</span><br><span class="line"> </span><br><span class="line">    @Autowired</span><br><span class="line">    UserMapper userMapper;</span><br><span class="line"> </span><br><span class="line">    @Cacheable( key =&quot;#id&quot;)</span><br><span class="line">    public User query(Integer id) &#123;</span><br><span class="line">        return userMapper.selectByPrimaryKey(id);</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">    public User testCacheQuery(Integer id)&#123;</span><br><span class="line">        TestService service = SpringContextUtil.getBean(TestService.class);</span><br><span class="line">        return service.query(id);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://blog.csdn.net/qq_36990177/article/details/109755106">Springboot Cache @Cacheable 类内部调用时不生效，解决办法</a></p>
+]]></content>
+      <categories>
+        <category>Java</category>
+        <category>Spring</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>Spring</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Selenium | Docker里的Chrome浏览器自动化过程报错</title>
+    <url>/2023/11/22/selenium06/</url>
+    <content><![CDATA[<p>记录下Docker里的Chrome浏览器自动化过程报错以及解决方法。</p>
+<span id="more"></span>
+
+<h2 id="session-deleted-because-of-page-crash"><a href="#session-deleted-because-of-page-crash" class="headerlink" title="session deleted because of page crash"></a>session deleted because of page crash</h2><p>用Docker启动的Chrome容器，可用空间默认只有64M，太小了容易崩溃。</p>
+<p>在创建容器时设置shm-size为500M即可，如果是命令行启动，加上<code>--shm-size=&quot;500M&quot;</code>。</p>
+<h2 id="‘WebDriver’-object-has-no-attribute-‘execute-cdp-cmd’"><a href="#‘WebDriver’-object-has-no-attribute-‘execute-cdp-cmd’" class="headerlink" title="‘WebDriver’ object has no attribute ‘execute_cdp_cmd’"></a>‘WebDriver’ object has no attribute ‘execute_cdp_cmd’</h2><p>在<a href="/2023/11/22/selenium05/" title="Selenium | 操作Docker里的Chrome浏览器">连接远程Chrome</a>的情况下，调用<code>execute_cdp_cmd</code>执行cdp命令（比如<a href="/2021/04/19/selenium02/" title="Selenium | 配置Chrome的option">隐藏Selenium特征</a>）时会报这个错，应该是远程浏览器不支持此函数直接执行cdp命令，一切行为都要通过url进行。</p>
+<p>可以自己封装一个函数来在远程浏览器上执行cdp命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">def execute_cdp_cmd(driver, cmd, params=&#123;&#125;):</span><br><span class="line">    resource = &quot;/session/%s/chromium/send_command_and_get_result&quot; % driver.session_id</span><br><span class="line">    url = driver.command_executor._url + resource</span><br><span class="line">    body = json.dumps(&#123;&#x27;cmd&#x27;: cmd, &#x27;params&#x27;: params&#125;)</span><br><span class="line">    response = driver.command_executor._request(&#x27;POST&#x27;, url, body)</span><br><span class="line">    return response.get(&#x27;value&#x27;)</span><br><span class="line">with open(&#x27;resource/stealth.min.js&#x27;) as f:</span><br><span class="line">    js = f.read()</span><br></pre></td></tr></table></figure>
+<p>对比：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 本地函数</span><br><span class="line">drive.execute_cdp_cmd(&quot;Page.addScriptToEvaluateOnNewDocument&quot;, &#123;&quot;source&quot;: js&#125;)</span><br><span class="line"></span><br><span class="line"># 远程函数</span><br><span class="line">execute_cdp_cmd(browser, &quot;Page.addScriptToEvaluateOnNewDocument&quot;, &#123;&quot;source&quot;: js&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>结构还是比较相似的。</p>
+]]></content>
+      <categories>
+        <category>自动化</category>
+        <category>Python</category>
+        <category>常用库</category>
+        <category>Selenium</category>
+        <category>Selenium</category>
+      </categories>
+      <tags>
+        <tag>自动化</tag>
+        <tag>Python</tag>
+        <tag>Selenium</tag>
       </tags>
   </entry>
   <entry>
@@ -4227,31 +4444,21 @@ python proxyPool.py server
       </tags>
   </entry>
   <entry>
-    <title>Python多环境 | python3.5上使用virtualenv创建虚拟环境的坑</title>
-    <url>/2023/07/15/virtualenv01/</url>
-    <content><![CDATA[<p>python3.5上使用virtualenv的一些问题。</p>
+    <title>sql | MySql的upserte语句</title>
+    <url>/2023/04/11/sql00/</url>
+    <content><![CDATA[<p>upsert是mysql的方言，其作用是数据库没有这条数据，就新增，有这条数据就修改。</p>
 <span id="more"></span>
 
-<p>搬运自<a href="https://www.cnblogs.com/Se7eN-HOU/p/16175633.html">这里</a></p>
-<h2 id="一、坑一：安装的virtualenv版本太高"><a href="#一、坑一：安装的virtualenv版本太高" class="headerlink" title="一、坑一：安装的virtualenv版本太高"></a>一、坑一：安装的virtualenv版本太高</h2><p>显示使用virtualenv 安装虚拟环境报错　　</p>
-<img data-src="/images/virtualenv01/img00.avif" width="60%">
+<h1 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">INSERT INTO student ( id, NAME, age, sign )</span><br><span class="line">VALUES</span><br><span class="line">	( &#x27;1&#x27;, &#x27;张三&#x27;, 18, 1 ) </span><br><span class="line">	ON DUPLICATE KEY UPDATE NAME = &#x27;李四&#x27;;</span><br></pre></td></tr></table></figure>
 
-<p>出现这个问题就是说明你的virtualev安装的版本太高，降低一下版本重新安装即可，我这里使用的是15这个版本</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pip install virtualenv==15.0.0 </span><br></pre></td></tr></table></figure>
-
-<h2 id="二、坑2：pip的版本太高"><a href="#二、坑2：pip的版本太高" class="headerlink" title="二、坑2：pip的版本太高"></a>二、坑2：pip的版本太高</h2><img data-src="/images/virtualenv01/img01.avif" width="60%">
-
-<p>如果出现上面的错误，说明你的pip的版本太高，没办法，只能说是python3.5的版本太低了，历史遗留问题，没办法，必须要使用python3.5，只能乖乖降pip的版本</p>
-<p>python3.5最高支持pip&#x3D;20的版本</p>
-<p>所以解决方案：将本机的pip版本降到20或20以下。</p>
-<h2 id="解决方案优化"><a href="#解决方案优化" class="headerlink" title="解决方案优化"></a>解决方案优化</h2><p>这篇博客后边的解决方案我没用，因为手头有pip的tar安装包，直接<code>python setup.py install</code>装一下pip和对应的setuptools就好了。</p>
+<p>其中<code>id</code>是唯一主键。</p>
+<p>要注意的是，联合主键不能使用upsert。</p>
 ]]></content>
       <categories>
-        <category>Python</category>
+        <category>SQL</category>
       </categories>
       <tags>
-        <tag>Python</tag>
-        <tag>Virtualenv</tag>
+        <tag>SQL</tag>
       </tags>
   </entry>
   <entry>
@@ -4313,26 +4520,6 @@ python proxyPool.py server
       </tags>
   </entry>
   <entry>
-    <title>virtualenv的使用场景</title>
-    <url>/2023/07/20/virtualenv03/</url>
-    <content><![CDATA[<p>说一下为什么用virtualenv。</p>
-<span id="more"></span>
-
-<p>我还是比较习惯用Anaconda，但在内网环境下，Anaconda创建和管理环境特别麻烦，所以转用virtualenv。</p>
-<p>virtualenv的优势在于可以使用本地python环境，用<code>.tar.gz</code>安装包安装多个python环境后，可以实现离线创建多种不同的python版本虚拟环境。</p>
-<p>在实际应用中，<code>.tar.gz</code>的安装包有时缺少环境，又没有root权限，所以产生了一个迂回的方案。</p>
-<p>用Anaconda的离线安装包装Anaconda，然后用virtualenv使用本地的Anaconda的base环境创建虚拟环境。</p>
-<p>也不是不能用.jpg</p>
-]]></content>
-      <categories>
-        <category>Python</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-        <tag>Virtualenv</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Tkinter | 初学Tkinter</title>
     <url>/2021/03/22/visualization00/</url>
     <content><![CDATA[<p>起因是我写了一些自己用的小工具，不想每次调用的时候改里边的文件路径，也不想每次都调出命令行打一堆参数。所以就想自己做个一可视化界面，把操作封装进去，多省事。</p>
@@ -4373,6 +4560,53 @@ python proxyPool.py server
 </tbody></table>
 <p>控件：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">from tkinter import filedialog</span><br><span class="line"># Label控件，主要用来显示文字。</span><br><span class="line"># 说明： bg为背景，fg为字体颜色，font为字体，width为长，height为高，这里的长和高是字符的长和高，比如height=2,就是标签有2个字符这么高。</span><br><span class="line">l1 = tk.Label(window, textvariable=video_path, bg=&#x27;white&#x27;, fg=&#x27;black&#x27;, font=(&#x27;Arial&#x27;, 18), height=2)</span><br><span class="line"># 控件要摆放后才能使用。</span><br><span class="line">l1.pack() </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 定义一个函数功能（内容自己自由编写），供点击Button按键时调用，调用命令参数command=函数名</span><br><span class="line">def select_video():</span><br><span class="line">    default_dir = r&quot;F:\Downloads&quot;</span><br><span class="line">	# 获取选择到的文件的路径</span><br><span class="line">    file_path = filedialog.askopenfilename(title=u&#x27;选择文件&#x27;, initialdir=(os.path.expanduser(default_dir)))</span><br><span class="line">    video_path.set(file_path)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">b1 = tk.Button(window, text=&#x27;选择视频文件&#x27;, font=(&#x27;Arial&#x27;, 12), width=10, height=1, command=select_video)</span><br><span class="line">b1.pack()</span><br><span class="line"></span><br><span class="line"># 输入框，&#x27;show&#x27;的值为默认替换显示，值为&#x27;*&#x27;时，效果就像输密码一样。</span><br><span class="line">entry = tk.Entry(window, show=None)</span><br><span class="line">#对文本框内容进行打包</span><br><span class="line">entry.pack()</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Python</category>
+        <category>常用库</category>
+        <category>可视化</category>
+        <category>tkinter</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>可视化</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>virtualenv的使用场景</title>
+    <url>/2023/07/20/virtualenv03/</url>
+    <content><![CDATA[<p>说一下为什么用virtualenv。</p>
+<span id="more"></span>
+
+<p>我还是比较习惯用Anaconda，但在内网环境下，Anaconda创建和管理环境特别麻烦，所以转用virtualenv。</p>
+<p>virtualenv的优势在于可以使用本地python环境，用<code>.tar.gz</code>安装包安装多个python环境后，可以实现离线创建多种不同的python版本虚拟环境。</p>
+<p>在实际应用中，<code>.tar.gz</code>的安装包有时缺少环境，又没有root权限，所以产生了一个迂回的方案。</p>
+<p>用Anaconda的离线安装包装Anaconda，然后用virtualenv使用本地的Anaconda的base环境创建虚拟环境。</p>
+<p>也不是不能用.jpg</p>
+]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>Virtualenv</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Tkinter | 循环产生控件时函数的执行逻辑</title>
+    <url>/2021/03/23/visualization02/</url>
+    <content><![CDATA[<p>我用控件循环产生控件时，发现这些控件绑定的函数跟预想的不太一样。</p>
+<span id="more"></span>
+
+<p>比如我循环产生10个button，如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">for i in range(10):</span><br><span class="line">    button = tk.Button(window, text=&#x27;按钮&#x27;, font=(&#x27;宋体&#x27;, 14), command=lambda: print(i))</span><br><span class="line">    button.grid(row=i + 1, column=2)</span><br></pre></td></tr></table></figure>
+
+<p>用lambda的原因是button自带的command属性不能传参，只能传递函数名，我用lambda绕开这个限制。</p>
+<p>在预想中，这10个按钮从上到下点击之后会依次输出0~9。</p>
+<p>但实际上，不管点击哪个按钮，都只会输出9。</p>
+<p>想了想，应该是生成控件的时候只是绑定了函数名，点击执行时才执行了我的lambda，这时lambda去读取参数，i就是9，所以无论点击哪个按钮，都只会输出9。</p>
+<p>解决方法是用lambda时对参数进行冻结，说到底还是我对lambda的用法不是很了解才会产生这样的问题。</p>
+<p>代码如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">for i in range(10):</span><br><span class="line">    button = tk.Button(window, text=&#x27;按钮&#x27;, font=(&#x27;宋体&#x27;, 14), command=lambda x=i: print(x))</span><br><span class="line">    button.grid(row=i + 1, column=2)</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>Python</category>
         <category>常用库</category>
@@ -4600,30 +4834,31 @@ python proxyPool.py server
       </tags>
   </entry>
   <entry>
-    <title>Tkinter | 循环产生控件时函数的执行逻辑</title>
-    <url>/2021/03/23/visualization02/</url>
-    <content><![CDATA[<p>我用控件循环产生控件时，发现这些控件绑定的函数跟预想的不太一样。</p>
+    <title>Python多环境 | python3.5上使用virtualenv创建虚拟环境的坑</title>
+    <url>/2023/07/15/virtualenv01/</url>
+    <content><![CDATA[<p>python3.5上使用virtualenv的一些问题。</p>
 <span id="more"></span>
 
-<p>比如我循环产生10个button，如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">for i in range(10):</span><br><span class="line">    button = tk.Button(window, text=&#x27;按钮&#x27;, font=(&#x27;宋体&#x27;, 14), command=lambda: print(i))</span><br><span class="line">    button.grid(row=i + 1, column=2)</span><br></pre></td></tr></table></figure>
+<p>搬运自<a href="https://www.cnblogs.com/Se7eN-HOU/p/16175633.html">这里</a></p>
+<h2 id="一、坑一：安装的virtualenv版本太高"><a href="#一、坑一：安装的virtualenv版本太高" class="headerlink" title="一、坑一：安装的virtualenv版本太高"></a>一、坑一：安装的virtualenv版本太高</h2><p>显示使用virtualenv 安装虚拟环境报错　　</p>
+<img data-src="/images/virtualenv01/img00.avif" width="60%">
 
-<p>用lambda的原因是button自带的command属性不能传参，只能传递函数名，我用lambda绕开这个限制。</p>
-<p>在预想中，这10个按钮从上到下点击之后会依次输出0~9。</p>
-<p>但实际上，不管点击哪个按钮，都只会输出9。</p>
-<p>想了想，应该是生成控件的时候只是绑定了函数名，点击执行时才执行了我的lambda，这时lambda去读取参数，i就是9，所以无论点击哪个按钮，都只会输出9。</p>
-<p>解决方法是用lambda时对参数进行冻结，说到底还是我对lambda的用法不是很了解才会产生这样的问题。</p>
-<p>代码如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">for i in range(10):</span><br><span class="line">    button = tk.Button(window, text=&#x27;按钮&#x27;, font=(&#x27;宋体&#x27;, 14), command=lambda x=i: print(x))</span><br><span class="line">    button.grid(row=i + 1, column=2)</span><br></pre></td></tr></table></figure>]]></content>
+<p>出现这个问题就是说明你的virtualev安装的版本太高，降低一下版本重新安装即可，我这里使用的是15这个版本</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pip install virtualenv==15.0.0 </span><br></pre></td></tr></table></figure>
+
+<h2 id="二、坑2：pip的版本太高"><a href="#二、坑2：pip的版本太高" class="headerlink" title="二、坑2：pip的版本太高"></a>二、坑2：pip的版本太高</h2><img data-src="/images/virtualenv01/img01.avif" width="60%">
+
+<p>如果出现上面的错误，说明你的pip的版本太高，没办法，只能说是python3.5的版本太低了，历史遗留问题，没办法，必须要使用python3.5，只能乖乖降pip的版本</p>
+<p>python3.5最高支持pip&#x3D;20的版本</p>
+<p>所以解决方案：将本机的pip版本降到20或20以下。</p>
+<h2 id="解决方案优化"><a href="#解决方案优化" class="headerlink" title="解决方案优化"></a>解决方案优化</h2><p>这篇博客后边的解决方案我没用，因为手头有pip的tar安装包，直接<code>python setup.py install</code>装一下pip和对应的setuptools就好了。</p>
+]]></content>
       <categories>
         <category>Python</category>
-        <category>常用库</category>
-        <category>可视化</category>
-        <category>tkinter</category>
       </categories>
       <tags>
         <tag>Python</tag>
-        <tag>可视化</tag>
+        <tag>Virtualenv</tag>
       </tags>
   </entry>
   <entry>
@@ -4760,6 +4995,26 @@ python proxyPool.py server
       </tags>
   </entry>
   <entry>
+    <title>将 WSL Linux 实例安装到其他盘</title>
+    <url>/2024/10/09/wsl00/</url>
+    <content><![CDATA[<p>纯搬运。</p>
+<span id="more"></span>
+
+<p>搬运自<a href="https://zhuanlan.zhihu.com/p/525955480">这里</a>，备份如下：</p>
+<img data-src="/images/wsl00/img00.avif" width="60%">
+
+<p>根据评论，找到了更方便的工具：<a href="https://github.com/DDoSolitary/LxRunOffline">LxRunOffline</a>，这个不是教程，就不备份了。</p>
+]]></content>
+      <categories>
+        <category>Windows</category>
+        <category>WSL</category>
+      </categories>
+      <tags>
+        <tag>Windows</tag>
+        <tag>WSL</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>you-get | 在线视频下载工具</title>
     <url>/2021/06/16/you-get00/</url>
     <content><![CDATA[<p>这是个用来下载视频的工具。</p>
@@ -4792,235 +5047,6 @@ python proxyPool.py server
       <tags>
         <tag>游戏</tag>
         <tag>水排序谜题</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>pip换源的注意事项</title>
-    <url>/2020/11/27/anaconda00/</url>
-    <content><![CDATA[<p>之前把pip换源了，现在要装opencv-python的3.4.11.43版本，清华源没有，就把默认源加上了<code>https://pypi.python.org/simple/</code>，顺便记一下pip换源的方法。</p>
-<span id="more"></span>
-
-<h2 id="位置"><a href="#位置" class="headerlink" title="位置"></a>位置</h2><p>linux:</p>
-<p>修改 ~&#x2F;.config&#x2F;pip&#x2F;pip.conf (没有就创建一个)。</p>
-<p>windows:</p>
-<p>直接在user目录中创建一个pip目录，如：C:\Users\xx\pip，新建文件pip.ini。</p>
-<h2 id="内容"><a href="#内容" class="headerlink" title="内容"></a>内容</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[global]</span><br><span class="line">index-url = https://pypi.tuna.tsinghua.edu.cn/simple</span><br><span class="line">extra-index-url=</span><br><span class="line">	https://pypi.mirrors.ustc.edu.cn/simple/</span><br><span class="line">	https://pypi.douban.com/simple/</span><br><span class="line">	https://pypi.python.org/simple/</span><br><span class="line">[install]</span><br><span class="line">trusted-host = tuna.tsinghua.edu.cn</span><br><span class="line">	pypi.douban.com</span><br><span class="line">	mirrors.ustc.edu.cn</span><br><span class="line">	python.org</span><br></pre></td></tr></table></figure>
-
-<p>另外记一个错误写法：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[global]</span><br><span class="line">index-url=http://pypi.douban.com/simple</span><br><span class="line">extra-index-url=http://mirrors.aliyun.com/pypi/simple/</span><br><span class="line">extra-index-url=https://pypi.tuna.tsinghua.edu.cn/simple/</span><br><span class="line">extra-index-url=http://pypi.mirrors.ustc.edu.cn/simple/</span><br><span class="line">[install]</span><br><span class="line">trusted-host=pypi.douban.com</span><br><span class="line">trusted-host=mirrors.aliyun.com</span><br><span class="line">trusted-host=pypi.tuna.tsinghua.edu.cn</span><br><span class="line">trusted-host=pypi.mirrors.ustc.edu.cn</span><br></pre></td></tr></table></figure>
-
-<p>这样会报错：<code>option &#39;extra-index-url&#39; in section &#39;global&#39; already exists.</code></p>
-<h2 id="进阶"><a href="#进阶" class="headerlink" title="进阶"></a>进阶</h2><p><code>pip</code>命令不止一个配置文件地址，并且配置文件有不同的覆盖范围和加载顺序，可以用<code>pip -v config list</code>或<code>pip config debug</code>查看。</p>
-]]></content>
-      <categories>
-        <category>Anaconda</category>
-        <category>pip</category>
-      </categories>
-      <tags>
-        <tag>Anaconda</tag>
-        <tag>pip</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Python调用大模型API</title>
-    <url>/2024/09/12/llm00/</url>
-    <content><![CDATA[<p>怎样用Python调用大语言模型？</p>
-<span id="more"></span>
-
-<p>使用<code>text/event-stream</code>来输出。</p>
-<p>示例代码：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import requests</span><br><span class="line">import json</span><br><span class="line">import sseclient</span><br><span class="line"> </span><br><span class="line">API_KEY = &#x27;[INSERT YOUR OPENAI API KEY HERE]&#x27;</span><br><span class="line"></span><br><span class="line">def performRequestWithStreaming():</span><br><span class="line">    reqUrl = &#x27;https://api.openai.com/v1/completions&#x27;</span><br><span class="line">    reqHeaders = &#123;</span><br><span class="line">        &#x27;Accept&#x27;: &#x27;text/event-stream&#x27;,</span><br><span class="line">        &#x27;Authorization&#x27;: &#x27;Bearer &#x27; + API_KEY</span><br><span class="line">    &#125;</span><br><span class="line">    reqBody = &#123;</span><br><span class="line">      &quot;model&quot;: &quot;text-davinci-003&quot;,</span><br><span class="line">      &quot;prompt&quot;: &quot;What is Python?&quot;,</span><br><span class="line">      &quot;max_tokens&quot;: 100,</span><br><span class="line">      &quot;temperature&quot;: 0,</span><br><span class="line">      &quot;stream&quot;: True,</span><br><span class="line">    &#125;</span><br><span class="line">    request = requests.post(reqUrl, stream=True, headers=reqHeaders, json=reqBody)</span><br><span class="line">    client = sseclient.SSEClient(request)</span><br><span class="line">    for event in client.events():</span><br><span class="line">        if event.data != &#x27;[DONE]&#x27;:</span><br><span class="line">            print(json.loads(event.data)[&#x27;choices&#x27;][0][&#x27;text&#x27;], end=&quot;&quot;, flush=True),</span><br><span class="line"></span><br><span class="line">if __name__ == &#x27;__main__&#x27;:</span><br><span class="line">    performRequestWithStreaming()</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Python</category>
-        <category>大语言模型</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-        <tag>大语言模型</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Python | 主线程结束后自动关闭子线程</title>
-    <url>/2024/09/12/python09/</url>
-    <content><![CDATA[<p>在<code>threading</code>模块创建的线程中，设置为守护线程即可达到题目的目的。</p>
-<span id="more"></span>
-
-<p>示例代码：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">thread = threading.Thread(target=my_thread_func)</span><br><span class="line">thread.daemon = True</span><br><span class="line">thread.start()</span><br></pre></td></tr></table></figure>
-
-<p>这样就OK了。</p>
-]]></content>
-      <categories>
-        <category>Python</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>将 WSL Linux 实例安装到其他盘</title>
-    <url>/2024/10/09/wsl00/</url>
-    <content><![CDATA[<p>纯搬运。</p>
-<span id="more"></span>
-
-<p>搬运自<a href="https://zhuanlan.zhihu.com/p/525955480">这里</a>，备份如下：</p>
-<img data-src="/images/wsl00/img00.avif" width="60%">
-
-<p>根据评论，找到了更方便的工具：<a href="https://github.com/DDoSolitary/LxRunOffline">LxRunOffline</a>，这个不是教程，就不备份了。</p>
-]]></content>
-      <categories>
-        <category>Windows</category>
-        <category>WSL</category>
-      </categories>
-      <tags>
-        <tag>Windows</tag>
-        <tag>WSL</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>记一次WebSocket的CLOSE_WAIT问题解决</title>
-    <url>/2024/10/15/spring02/</url>
-    <content><![CDATA[<p>这几天发现线上的服务器有很多CLOSE_WAIT的连接，导致新的请求接不进来。</p>
-<span id="more"></span>
-
-<h2 id="问题原因"><a href="#问题原因" class="headerlink" title="问题原因"></a>问题原因</h2><p>经排查，是WebSocket连接没有正常关闭引起的。</p>
-<h2 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决"></a>问题解决</h2><p>直接贴代码：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">@Configuration</span><br><span class="line">@EnableWebSocket</span><br><span class="line">public class WebSocketConfig implements WebSocketConfigurer &#123;</span><br><span class="line">    @Bean</span><br><span class="line">    public ServletServerContainerFactoryBean createWebSocketContainer() &#123;</span><br><span class="line">        var container = new ServletServerContainerFactoryBean();</span><br><span class="line">        container.setMaxSessionIdleTimeout(...);</span><br><span class="line">        return container;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>解决方法来自<a href="https://stackoverflow.com/questions/25930285/spring-websocket-timeout-settings">这里</a>。</p>
-<p>这是设置超时关闭，设置完运行了两天发现情况有所好转，但还是存在CLOSE_WAIT的问题，于是开始重检代码。</p>
-<p>经过<code>jstack</code>大法重检，发现问题在于服务端把所有的WebSocket连接放在一个<code>Hashtable</code>中。在高并发场景下，<code>Hashtable</code>撑不住了。</p>
-<p>把<code>Hashtable</code>换成<code>ConcurrentHashMap</code>，问题解决。</p>
-]]></content>
-      <categories>
-        <category>Java</category>
-        <category>Spring</category>
-        <category>WebSocket</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>Spring</tag>
-        <tag>WebSocket</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo | Warning: LF will be replaced by CRLF and Special characters appear</title>
-    <url>/2024/10/21/hexo09/</url>
-    <content><![CDATA[<p>使用<code>hexo d</code>部署的时候，提示<code>Warning: LF will be replaced by CRLF and Special characters appear</code>。</p>
-<span id="more"></span>
-
-<h2 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h2><p>在Unix系统中，行尾用换行符 (LF) 表示。在 Windows 中，一行由回车符 (CR) 和换行符 (LF) 表示，即 (CRLF)。当从 git 获取从 unix 系统上传的代码时，它们只会有一个 LF。就会报这个Warning。</p>
-<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>修改<code>[hexo-blog-root-dir]/.deploy_git/.git/config</code>文件。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[core]</span><br><span class="line"># some options</span><br><span class="line">	autocrlf = false</span><br><span class="line">[filter &quot;lfs&quot;]</span><br><span class="line">	required = true</span><br><span class="line">	clean = git-lfs clean -- %f</span><br><span class="line">	smudge = git-lfs smudge -- %f</span><br><span class="line">	process = git-lfs filter-process</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Git</category>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Git</tag>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Nginx | location 和 proxy_pass路径配置总结</title>
-    <url>/2024/10/22/nginx01/</url>
-    <content><![CDATA[<p>Nginx的配置中，一个<code>/</code>可能导致巨大的差异。</p>
-<span id="more"></span>
-
-<p>找到了一篇特别详细的博客，<a href="https://www.cnblogs.com/operationhome/p/15212801.html">传送门</a>。</p>
-<p>博客总结如下：</p>
-<p>访问的URL都是<code>test.com/user/test.html</code>，<code>upstream</code>都是<code>test1</code>。</p>
-<table>
-<thead>
-<tr>
-<th align="center">序号</th>
-<th align="center">location配置</th>
-<th align="center">proxy_pass配置</th>
-<th align="center">后端接收的请求</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">1</td>
-<td align="center">&#x2F;user&#x2F;</td>
-<td align="center"><a href="http://test1/">http://test1/</a></td>
-<td align="center">&#x2F;test.html</td>
-</tr>
-<tr>
-<td align="center">2</td>
-<td align="center">&#x2F;user&#x2F;</td>
-<td align="center"><a href="http://test1/">http://test1</a></td>
-<td align="center">&#x2F;user&#x2F;test.html</td>
-</tr>
-<tr>
-<td align="center">3</td>
-<td align="center">&#x2F;user</td>
-<td align="center"><a href="http://test1/">http://test1</a></td>
-<td align="center">&#x2F;user&#x2F;test.html</td>
-</tr>
-<tr>
-<td align="center">4</td>
-<td align="center">&#x2F;user</td>
-<td align="center"><a href="http://test1/">http://test1/</a></td>
-<td align="center">&#x2F;&#x2F;test.html</td>
-</tr>
-<tr>
-<td align="center">5</td>
-<td align="center">&#x2F;user&#x2F;</td>
-<td align="center"><a href="http://test1/haha/">http://test1/haha/</a></td>
-<td align="center">&#x2F;haha&#x2F;test.html</td>
-</tr>
-<tr>
-<td align="center">6</td>
-<td align="center">&#x2F;user&#x2F;</td>
-<td align="center"><a href="http://test1/haha">http://test1/haha</a></td>
-<td align="center">&#x2F;hahatest.html</td>
-</tr>
-</tbody></table>
-<p>这玩意……用脑子真记不下来……放博客用到了查一下吧。</p>
-]]></content>
-      <categories>
-        <category>Nginx</category>
-      </categories>
-      <tags>
-        <tag>Nginx</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Pycharm | 无法重命名解释器</title>
-    <url>/2024/11/03/pycharm00/</url>
-    <content><![CDATA[<p>在重命名解释器时遇到了<code>cannot save settings, please specify a different SDK name</code>错误。</p>
-<span id="more"></span>
-
-<h2 id="问题原因"><a href="#问题原因" class="headerlink" title="问题原因"></a>问题原因</h2><p>之前重命名过另一个解释器，因为未知原因，没在UI上显示，但在配置文件中还有记录，所以再次重命名为相同名字时报错。</p>
-<hr>
-<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>配置文件在<code>C:\Users\&lt;username&gt;\AppData\Roaming\JetBrains\PyCharm2023.1\options\jdk.table.xml</code></p>
-<p>删除配置文件中错误的解释器配置就可以了。</p>
-]]></content>
-      <categories>
-        <category>Pycharm</category>
-      </categories>
-      <tags>
-        <tag>Pycharm</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Linux防火墙配置</title>
-    <url>/2024/12/24/linux12/</url>
-    <content><![CDATA[<p>配置白名单防火墙</p>
-<span id="more"></span>
-
-<h2 id="开放指定端口"><a href="#开放指定端口" class="headerlink" title="开放指定端口"></a>开放指定端口</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">firewall-cmd --permanent --add-port=3306/tcp</span><br></pre></td></tr></table></figure>
-
-<h2 id="删除指定端口"><a href="#删除指定端口" class="headerlink" title="删除指定端口"></a>删除指定端口</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">firewall-cmd --permanent --remove-port=3306/tcp</span><br></pre></td></tr></table></figure>
-
-<h2 id="对指定IP开放指定端口"><a href="#对指定IP开放指定端口" class="headerlink" title="对指定IP开放指定端口"></a>对指定IP开放指定端口</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">firewall-cmd --permanent --add-rich-rule=&#x27;rule family=&quot;ipv4&quot; source address=&quot;xxx.xxx.xxx.xxx&quot; port protocol=&quot;tcp&quot; port=&quot;3306&quot; accept&#x27;</span><br></pre></td></tr></table></figure>
-
-<h2 id="重新加载"><a href="#重新加载" class="headerlink" title="重新加载"></a>重新加载</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">firewall-cmd --reload</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
       </tags>
   </entry>
 </search>
