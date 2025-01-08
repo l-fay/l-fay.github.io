@@ -5049,4 +5049,23 @@ python proxyPool.py server
         <tag>水排序谜题</tag>
       </tags>
   </entry>
+  <entry>
+    <title>FFmpeg | 使用英伟达显卡加速编码</title>
+    <url>/2025/01/07/ffmpeg18/</url>
+    <content><![CDATA[<p>新整了张卡，学习了下GPU加速。</p>
+<span id="more"></span>
+
+<p>软硬编解码说白了就是，软编解码就是CPU编解码，硬编解码是GPU编解码。</p>
+<p>以编码为例，软编码就是小火慢炖，硬编码就是大火猛烧。</p>
+<p>软编码编的慢，硬编码编的快。</p>
+<h2 id="胡扯时间"><a href="#胡扯时间" class="headerlink" title="胡扯时间"></a>胡扯时间</h2><p>个人感觉软编码编出来的质量好一些，同一个文件、同一个源和目标编码、相同参数的情况下，软编码编出来文件体积要小一点。</p>
+<p>当然肉眼看着没啥差别。</p>
+]]></content>
+      <categories>
+        <category>ffmpeg</category>
+      </categories>
+      <tags>
+        <tag>ffmpeg</tag>
+      </tags>
+  </entry>
 </search>

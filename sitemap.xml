@@ -2,6 +2,17 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://l-fay.github.io/2025/01/07/ffmpeg18/</loc>
+    
+    <lastmod>2025-01-08T01:17:33.290Z</lastmod>
+    
+    <date>1736247613000</date>
+    <title>FFmpeg | 使用英伟达显卡加速编码 | 兰秋廿柒的博客</title>
+    
+    <desc>新整了张卡，学习了下GPU加速。</desc>
+  </url>
+  
+  <url>
     <loc>https://l-fay.github.io/2024/09/12/python09/</loc>
     
     <lastmod>2025-01-02T07:17:08.119Z</lastmod>
