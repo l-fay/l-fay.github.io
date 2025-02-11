@@ -1262,7 +1262,7 @@ table th:nth-of-type(3) {
       <categories>
         <category>Python</category>
         <category>常用库</category>
-        <category>flask</category>
+        <category>Flask</category>
       </categories>
       <tags>
         <tag>Python</tag>
@@ -1289,7 +1289,7 @@ table th:nth-of-type(3) {
       <categories>
         <category>Python</category>
         <category>常用库</category>
-        <category>flask</category>
+        <category>Flask</category>
       </categories>
       <tags>
         <tag>Python</tag>
@@ -5073,6 +5073,122 @@ python proxyPool.py server
       </categories>
       <tags>
         <tag>ffmpeg</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Anaconda虚拟环境下更换python版本</title>
+    <url>/2025/02/09/anaconda02/</url>
+    <content><![CDATA[<p>在不重建环境的情况下升&#x2F;降级python版本。</p>
+<span id="more"></span>
+
+<h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><p>不论升降，都用<code>conda install python</code>。</p>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><p>修改版本后原来使用pip安装的包会被删掉，无法使用。</p>
+]]></content>
+      <categories>
+        <category>Anaconda</category>
+      </categories>
+      <tags>
+        <tag>Anaconda</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Flask | Flask设置同时支持IPv4和IPv6</title>
+    <url>/2025/02/09/flask03/</url>
+    <content><![CDATA[<p>通过对Flask进行设置，可以同时支持IPv4和IPv6。</p>
+<span id="more"></span>
+
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><p>只需要改变Flask的run方法参数。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">app.run(host=&#x27;::&#x27;, threaded=True)</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Python</category>
+        <category>常用库</category>
+        <category>Flask</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>Flask</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Poetry的介绍</title>
+    <url>/2025/02/09/poetry00/</url>
+    <content><![CDATA[<p>Poetry的介绍可以看下<a href="https://blog.csdn.net/swindler_ice/article/details/127040576">这里</a>。</p>
+<span id="more"></span>
+
+<p>暂时不打算用，就不细说了。</p>
+]]></content>
+      <categories>
+        <category>Python</category>
+        <category>Poetry</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>Poetry</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>IPv6实现外网访问群晖NAS</title>
+    <url>/2025/02/09/nas01/</url>
+    <content><![CDATA[<p>如题。</p>
+<span id="more"></span>
+
+<h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><p>要想实现外网访问，就要保证Nas不是内网设备，而是有自己独立的IP。</p>
+<p>所以首先要做以下事项：</p>
+<p>1、确保运营商给了公网IP<br>2、为Nas设备设置单独的公网IP</p>
+<p>这两部做完后，就能通过IP访问Nas了。但大多数情况下，运营商给的公网是动态的，还需要域名。<br>1、自己准备域名，一般就去阿里云腾讯云买。<br>2、域名DNS解析，一般在哪买的在哪解析。<br>3、上报IP变化，比如在本地起一个DDNS-GO服务做这个。</p>
+<p>如果是群晖设备，就简单了：<br>1、使用自带的域名服务</p>
+<p>下面以群晖设备为例，走一遍流程，方便下次不走弯路。</p>
+<h1 id="流程记录"><a href="#流程记录" class="headerlink" title="流程记录"></a>流程记录</h1><h2 id="确保运营商给了公网IP"><a href="#确保运营商给了公网IP" class="headerlink" title="确保运营商给了公网IP"></a>确保运营商给了公网IP</h2><p>自己分析一下。</p>
+<h2 id="为Nas设备设置单独的公网IP"><a href="#为Nas设备设置单独的公网IP" class="headerlink" title="为Nas设备设置单独的公网IP"></a>为Nas设备设置单独的公网IP</h2><p>这一步简单来说就是光猫改桥接+路由器拨号。</p>
+<p>光猫改桥接网上教程一抓一大把，就不说了，路由器拨号这个教程较少，记一下。</p>
+<p>我是梅林固件，在左侧“外部网络”选项里，<code>WAN 联机类型</code>选择<code>PPPoE</code>。<br><code>自动取得远程网络地址</code>和<code>自动接上 DNS 服务器</code>选“是”。<br><code>PPP 用户名称</code>输入宽带账号（因为我是办的单宽带，所以有个账号，随手机的宽带我不知道宽带账号是什么）。<br><code>密码</code>输入宽带密码，不知道的要么在光猫里查，要么给运营商打电话重置密码（我没在光猫里查到，我是打的电话）。</p>
+<p>到这有网了，就OK了。</p>
+<h2 id="使用自带的域名服务"><a href="#使用自带的域名服务" class="headerlink" title="使用自带的域名服务"></a>使用自带的域名服务</h2><p>打开群晖页面，<code>控制面板</code>-<code>连接性</code>-<code>外部访问</code>-<code>DDNS</code>-<code>新增</code>。</p>
+<p><code>服务器供应商</code>选<code>Synology</code>，也就是群晖，剩下的照着填就完了。</p>
+<p>需要注意的是，IPv4和IPv6有哪个公网IP就填哪个，不然可能后续解析的时候会出问题。</p>
+<p>比如我只有IPv6公网IP，但我第一次弄的时候IPv4和IPv6都选上了，导致我在访问Nas的时候，有时优先走IPv4，就访问不到。</p>
+<p>我猜测是因为这里给DNS上报的IPv4地址是运营商的大内网地址，在外网访问的时候就访问不到了。</p>
+<p>到这一步，就可以做到外网访问了，当然IPv4访问</p>
+<h2 id="反代"><a href="#反代" class="headerlink" title="反代"></a>反代</h2><p>这是个进阶玩法，现在Nas已经有域名访问的能力了，但是局域网内的其他设备是没有的。</p>
+<p>Nas可以用群晖提供的域名，内网设备虽然有公网IP但没有域名，怎么办？</p>
+<p>群晖提供了一个反代的功能，可以将内网其他设备的端口反代到群晖的端口上。</p>
+<p>反代的功能在<code>控制面板</code>-<code>系统</code>-<code>登录门户</code>-<code>高级</code>-<code>反向代理服务器</code>。</p>
+<p>具体用法很简单，看看就会了，就不细说了。</p>
+]]></content>
+      <categories>
+        <category>Nas</category>
+        <category>群晖</category>
+        <category>Docker</category>
+      </categories>
+      <tags>
+        <tag>群晖</tag>
+        <tag>Docker</tag>
+        <tag>Nas</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>使用SSH连接WSL</title>
+    <url>/2025/02/09/windows06/</url>
+    <content><![CDATA[<p>本质上就是把WSL当做一台普通的Linux服务器来操作。</p>
+<span id="more"></span>
+
+<h2 id="重装SSH"><a href="#重装SSH" class="headerlink" title="重装SSH"></a>重装SSH</h2><p>因为WSL毕竟是个镜像，ssh服务可能比较旧了，不太可信。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt-get remove openssh-server</span><br><span class="line">sudo apt-get install openssh-server</span><br></pre></td></tr></table></figure>
+
+<h2 id="打开远程连接配置"><a href="#打开远程连接配置" class="headerlink" title="打开远程连接配置"></a>打开远程连接配置</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo vi /etc/ssh/sshd_config</span><br></pre></td></tr></table></figure>
+
+<p>然后把<code>PasswordAuthentication yes</code>的注释放开。</p>
+<h2 id="重启ssh服务并设置开机自启"><a href="#重启ssh服务并设置开机自启" class="headerlink" title="重启ssh服务并设置开机自启"></a>重启ssh服务并设置开机自启</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo service ssh restart</span><br><span class="line">sudo systemctl enable ssh</span><br></pre></td></tr></table></figure>
+
+<p>然后就查下ip自己连吧。</p>
+]]></content>
+      <categories>
+        <category>Windows</category>
+        <category>WSL</category>
+      </categories>
+      <tags>
+        <tag>Windows</tag>
+        <tag>WSL</tag>
       </tags>
   </entry>
 </search>

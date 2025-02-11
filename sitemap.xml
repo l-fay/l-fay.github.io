@@ -2,6 +2,83 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://l-fay.github.io/2025/02/09/nas01/</loc>
+    
+    <lastmod>2025-02-11T07:06:01.882Z</lastmod>
+    
+    <date>1739106772000</date>
+    <title>IPv6实现外网访问群晖NAS | 兰秋廿柒的博客</title>
+    
+    <desc>如题。</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2025/02/09/flask03/</loc>
+    
+    <lastmod>2025-02-11T05:39:28.419Z</lastmod>
+    
+    <date>1739105257000</date>
+    <title>Flask | Flask设置同时支持IPv4和IPv6 | 兰秋廿柒的博客</title>
+    
+    <desc>通过对Flask进行设置，可以同时支持IPv4和IPv6。</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2023/10/22/flask00/</loc>
+    
+    <lastmod>2025-02-11T02:55:34.690Z</lastmod>
+    
+    <date>1697974361000</date>
+    <title>Flask | flask的定时任务 | 兰秋廿柒的博客</title>
+    
+    <desc>记一下flask中执行定时任务的方式</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2023/10/28/flask01/</loc>
+    
+    <lastmod>2025-02-11T02:55:31.577Z</lastmod>
+    
+    <date>1698484452000</date>
+    <title>Flask | RuntimeError: No application found. Either work inside a view function or push an application context. | 兰秋廿柒的博客</title>
+    
+    <desc>问题在于调用时找不到flask的app，就算用current_app，也会在不被flask管理的模块中调用时遇到此错误。</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2025/02/09/anaconda02/</loc>
+    
+    <lastmod>2025-02-11T02:46:37.705Z</lastmod>
+    
+    <date>1739105049000</date>
+    <title>Anaconda虚拟环境下更换python版本 | 兰秋廿柒的博客</title>
+    
+    <desc>在不重建环境的情况下升&#x2F;降级python版本。</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2025/02/09/poetry00/</loc>
+    
+    <lastmod>2025-02-11T02:23:19.280Z</lastmod>
+    
+    <date>1739102050000</date>
+    <title>Poetry的介绍 | 兰秋廿柒的博客</title>
+    
+    <desc>Poetry的介绍可以看下这里。</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2025/02/09/windows06/</loc>
+    
+    <lastmod>2025-02-11T01:48:20.692Z</lastmod>
+    
+    <date>1739100132000</date>
+    <title>使用SSH连接WSL | 兰秋廿柒的博客</title>
+    
+    <desc>本质上就是把WSL当做一台普通的Linux服务器来操作。</desc>
+  </url>
+  
+  <url>
     <loc>https://l-fay.github.io/2025/01/07/ffmpeg18/</loc>
     
     <lastmod>2025-01-08T01:28:23.277Z</lastmod>
@@ -1421,17 +1498,6 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/2023/10/28/flask01/</loc>
-    
-    <lastmod>2024-10-09T10:15:05.843Z</lastmod>
-    
-    <date>1698484452000</date>
-    <title>Flask | RuntimeError: No application found. Either work inside a view function or push an application context. | 兰秋廿柒的博客</title>
-    
-    <desc>问题在于调用时找不到flask的app，就算用current_app，也会在不被flask管理的模块中调用时遇到此错误。</desc>
-  </url>
-  
-  <url>
     <loc>https://l-fay.github.io/2022/02/11/ffmpegParameter01/</loc>
     
     <lastmod>2024-10-09T10:15:05.842Z</lastmod>
@@ -1440,17 +1506,6 @@
     <title>ffmpeg | 用过的参数记录 | 兰秋廿柒的博客</title>
     
     <desc>记录用过的参数。</desc>
-  </url>
-  
-  <url>
-    <loc>https://l-fay.github.io/2023/10/22/flask00/</loc>
-    
-    <lastmod>2024-10-09T10:15:05.842Z</lastmod>
-    
-    <date>1697974361000</date>
-    <title>Flask | flask的定时任务 | 兰秋廿柒的博客</title>
-    
-    <desc>记一下flask中执行定时任务的方式</desc>
   </url>
   
   <url>
