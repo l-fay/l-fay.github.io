@@ -2,9 +2,31 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://l-fay.github.io/2025/02/13/npm00/</loc>
+    
+    <lastmod>2025-02-14T08:21:39.613Z</lastmod>
+    
+    <date>1739448150000</date>
+    <title>npm换源方法 | 兰秋廿柒的博客</title>
+    
+    <desc>共有三种方法。</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2025/02/13/npm01/</loc>
+    
+    <lastmod>2025-02-14T08:20:36.883Z</lastmod>
+    
+    <date>1739448979000</date>
+    <title>npm报错：request to https://registry.npm.taobao.org failed, reason certificate has expired | 兰秋廿柒的博客</title>
+    
+    <desc>原因是淘宝的旧源已经不用了。</desc>
+  </url>
+  
+  <url>
     <loc>https://l-fay.github.io/2025/02/09/nas01/</loc>
     
-    <lastmod>2025-02-11T07:06:01.882Z</lastmod>
+    <lastmod>2025-02-12T07:11:50.470Z</lastmod>
     
     <date>1739106772000</date>
     <title>IPv6实现外网访问群晖NAS | 兰秋廿柒的博客</title>

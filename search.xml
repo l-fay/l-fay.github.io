@@ -5135,7 +5135,7 @@ python proxyPool.py server
 <h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><p>要想实现外网访问，就要保证Nas不是内网设备，而是有自己独立的IP。</p>
 <p>所以首先要做以下事项：</p>
 <p>1、确保运营商给了公网IP<br>2、为Nas设备设置单独的公网IP</p>
-<p>这两部做完后，就能通过IP访问Nas了。但大多数情况下，运营商给的公网是动态的，还需要域名。<br>1、自己准备域名，一般就去阿里云腾讯云买。<br>2、域名DNS解析，一般在哪买的在哪解析。<br>3、上报IP变化，比如在本地起一个DDNS-GO服务做这个。</p>
+<p>这两步做完后，就能通过IP访问Nas了。但大多数情况下，运营商给的公网是动态的，还需要域名。<br>1、自己准备域名，一般就去阿里云腾讯云买。<br>2、域名DNS解析，一般在哪买的在哪解析。<br>3、上报IP变化，比如在本地起一个DDNS-GO服务做这个。</p>
 <p>如果是群晖设备，就简单了：<br>1、使用自带的域名服务</p>
 <p>下面以群晖设备为例，走一遍流程，方便下次不走弯路。</p>
 <h1 id="流程记录"><a href="#流程记录" class="headerlink" title="流程记录"></a>流程记录</h1><h2 id="确保运营商给了公网IP"><a href="#确保运营商给了公网IP" class="headerlink" title="确保运营商给了公网IP"></a>确保运营商给了公网IP</h2><p>自己分析一下。</p>
@@ -5189,6 +5189,48 @@ python proxyPool.py server
       <tags>
         <tag>Windows</tag>
         <tag>WSL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>npm报错：request to https://registry.npm.taobao.org failed, reason certificate has expired</title>
+    <url>/2025/02/13/npm01/</url>
+    <content><![CDATA[<p>原因是淘宝的旧源已经不用了。</p>
+<span id="more"></span>
+
+<p>解决方法也简单，换个源就行。</p>
+<p>换源方法可以看<a href="/2025/02/13/npm00/" title="npm换源方法">这篇文章</a>。</p>
+]]></content>
+      <categories>
+        <category>npm</category>
+      </categories>
+      <tags>
+        <tag>npm</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>npm换源方法</title>
+    <url>/2025/02/13/npm00/</url>
+    <content><![CDATA[<p>共有三种方法。</p>
+<span id="more"></span>
+
+<h1 id="方法一-命令行修改"><a href="#方法一-命令行修改" class="headerlink" title="方法一 命令行修改"></a>方法一 命令行修改</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 查看当前源地址</span><br><span class="line">npm config get registry</span><br><span class="line"></span><br><span class="line">// 换源</span><br><span class="line">npm config set registry &lt;要修改的源地址&gt;</span><br></pre></td></tr></table></figure>
+
+<p>例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 淘宝源</span><br><span class="line">npm config set registry https://registry.npmmirror.com/</span><br></pre></td></tr></table></figure>
+
+<h1 id="方法二-编辑配置文件"><a href="#方法二-编辑配置文件" class="headerlink" title="方法二 编辑配置文件"></a>方法二 编辑配置文件</h1><p>以Windows为例，文件路径是：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">C:\Users\&lt;用户名&gt;\.npmrc</span><br></pre></td></tr></table></figure>
+
+<p>编辑为：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">registry=https://registry.npmmirror.com/</span><br></pre></td></tr></table></figure>
+
+<h1 id="方法三-用nrm管理npm源（推荐）"><a href="#方法三-用nrm管理npm源（推荐）" class="headerlink" title="方法三 用nrm管理npm源（推荐）"></a>方法三 用nrm管理npm源（推荐）</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install -g nrm     // 安装nrm</span><br><span class="line">nrm ls                 // 查看源列表</span><br><span class="line">nrm use taobao         // 换源</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>npm</category>
+      </categories>
+      <tags>
+        <tag>npm</tag>
       </tags>
   </entry>
 </search>
