@@ -2393,11 +2393,11 @@ table th:nth-of-type(3) {
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import requests</span><br><span class="line">import json</span><br><span class="line">import sseclient</span><br><span class="line"> </span><br><span class="line">API_KEY = &#x27;[INSERT YOUR OPENAI API KEY HERE]&#x27;</span><br><span class="line"></span><br><span class="line">def performRequestWithStreaming():</span><br><span class="line">    reqUrl = &#x27;https://api.openai.com/v1/completions&#x27;</span><br><span class="line">    reqHeaders = &#123;</span><br><span class="line">        &#x27;Accept&#x27;: &#x27;text/event-stream&#x27;,</span><br><span class="line">        &#x27;Authorization&#x27;: &#x27;Bearer &#x27; + API_KEY</span><br><span class="line">    &#125;</span><br><span class="line">    reqBody = &#123;</span><br><span class="line">      &quot;model&quot;: &quot;text-davinci-003&quot;,</span><br><span class="line">      &quot;prompt&quot;: &quot;What is Python?&quot;,</span><br><span class="line">      &quot;max_tokens&quot;: 100,</span><br><span class="line">      &quot;temperature&quot;: 0,</span><br><span class="line">      &quot;stream&quot;: True,</span><br><span class="line">    &#125;</span><br><span class="line">    request = requests.post(reqUrl, stream=True, headers=reqHeaders, json=reqBody)</span><br><span class="line">    client = sseclient.SSEClient(request)</span><br><span class="line">    for event in client.events():</span><br><span class="line">        if event.data != &#x27;[DONE]&#x27;:</span><br><span class="line">            print(json.loads(event.data)[&#x27;choices&#x27;][0][&#x27;text&#x27;], end=&quot;&quot;, flush=True),</span><br><span class="line"></span><br><span class="line">if __name__ == &#x27;__main__&#x27;:</span><br><span class="line">    performRequestWithStreaming()</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>Python</category>
-        <category>大语言模型</category>
+        <category>LLM</category>
       </categories>
       <tags>
         <tag>Python</tag>
-        <tag>大语言模型</tag>
+        <tag>LLM</tag>
       </tags>
   </entry>
   <entry>
@@ -5231,6 +5231,71 @@ python proxyPool.py server
       </categories>
       <tags>
         <tag>npm</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>DeepSeek | 本地部署DeepSeek-R1模型及经验总结</title>
+    <url>/2025/02/18/llm01/</url>
+    <content><![CDATA[<p>记一下自己的操作步骤。</p>
+<span id="more"></span>
+
+<h1 id="硬件情况"><a href="#硬件情况" class="headerlink" title="硬件情况"></a>硬件情况</h1><p>我的GPU是RTX 4070Ti Super，16G显存。</p>
+<p>CPU是i5-12600KF。</p>
+<p>内存是DDR5 64G。</p>
+<p>Win10。</p>
+<h1 id="经验总结"><a href="#经验总结" class="headerlink" title="经验总结"></a>经验总结</h1><p>最后部署了14B的模型，比较流畅，显存占用11G左右。</p>
+<p>7B、8B都布过，显存占用没看。</p>
+<p>32B的布完爆显存（或者是爆内存？）了，能用是能用，卡的离谱。</p>
+<p>看网上说还有一个量化过的<code>deepseek-r1:32b-q4_0</code>，还没试。</p>
+<p>大致情况是这样，后面就没什么营养了，都是网上说烂了的东西。</p>
+<h1 id="安装Ollama"><a href="#安装Ollama" class="headerlink" title="安装Ollama"></a>安装Ollama</h1><p>官网下载安装包并安装。</p>
+<p>Ollama是一个命令行工具，安装完后可以在命令行<code>ollama -v</code>验证。</p>
+<p>需要注意的是，Ollama默认安装位置和模型存储位置在C盘，按需自己修改，修改方法是设置环境变量，例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">OLLAMA_MODELS=F:\LLM\Ollama\models</span><br></pre></td></tr></table></figure>
+
+<h1 id="使用Ollama下载并运行DeepSeek-R1-14B模型"><a href="#使用Ollama下载并运行DeepSeek-R1-14B模型" class="headerlink" title="使用Ollama下载并运行DeepSeek-R1-14B模型"></a>使用Ollama下载并运行DeepSeek-R1-14B模型</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ollama run deepseek-r1:7b</span><br></pre></td></tr></table></figure>
+
+<p>这一步需要注意的是，网络直连速度一般，不到1M。按需自己想办法。</p>
+<h1 id="安装ChatBox"><a href="#安装ChatBox" class="headerlink" title="安装ChatBox"></a>安装ChatBox</h1><p>官网下载安装。</p>
+<p>设置中，模型提供方选择Ollama Api，Api域名写<a href="http://localhost:11434，下面的模型选择deepseep-r1:14b。">http://localhost:11434，下面的模型选择deepseep-r1:14b。</a></p>
+<p>到这就能用了。</p>
+]]></content>
+      <categories>
+        <category>LLM</category>
+        <category>模型</category>
+        <category>DeepSeek</category>
+        <category>工具</category>
+        <category>Ollama</category>
+        <category>Chatbox</category>
+      </categories>
+      <tags>
+        <tag>LLM</tag>
+        <tag>DeepSeek</tag>
+        <tag>Ollama</tag>
+        <tag>Chatbox</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>DeepSeek | 使用网络公开的DeepSeek Api</title>
+    <url>/2025/02/18/llm02/</url>
+    <content><![CDATA[<p>如题。</p>
+<span id="more"></span>
+
+<p>使用<code>ZoomEye</code>搜索<code>app=&quot;Ollama&quot;</code>，就可以搜到很多公开Api，在ChatBox里可以调用。</p>
+]]></content>
+      <categories>
+        <category>LLM</category>
+        <category>模型</category>
+        <category>DeepSeek</category>
+        <category>工具</category>
+        <category>Ollama</category>
+        <category>Chatbox</category>
+      </categories>
+      <tags>
+        <tag>LLM</tag>
+        <tag>DeepSeek</tag>
+        <tag>Ollama</tag>
+        <tag>Chatbox</tag>
       </tags>
   </entry>
 </search>

@@ -2,6 +2,39 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://l-fay.github.io/2025/02/18/llm02/</loc>
+    
+    <lastmod>2025-02-19T05:45:11.391Z</lastmod>
+    
+    <date>1739882822000</date>
+    <title>DeepSeek | 使用网络公开的DeepSeek Api | 兰秋廿柒的博客</title>
+    
+    <desc>如题。</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2025/02/18/llm01/</loc>
+    
+    <lastmod>2025-02-19T03:06:21.691Z</lastmod>
+    
+    <date>1739882568000</date>
+    <title>DeepSeek | 本地部署DeepSeek-R1模型及经验总结 | 兰秋廿柒的博客</title>
+    
+    <desc>记一下自己的操作步骤。</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2024/09/12/llm00/</loc>
+    
+    <lastmod>2025-02-19T02:44:12.589Z</lastmod>
+    
+    <date>1726148761000</date>
+    <title>Python调用大模型API | 兰秋廿柒的博客</title>
+    
+    <desc>怎样用Python调用大语言模型？</desc>
+  </url>
+  
+  <url>
     <loc>https://l-fay.github.io/2025/02/13/npm00/</loc>
     
     <lastmod>2025-02-14T08:21:39.613Z</lastmod>
@@ -1088,17 +1121,6 @@
     <title>Python连接MySQL连接池 | 兰秋廿柒的博客</title>
     
     <desc>记录一下怎么用python连接MySQL连接池。</desc>
-  </url>
-  
-  <url>
-    <loc>https://l-fay.github.io/2024/09/12/llm00/</loc>
-    
-    <lastmod>2024-10-09T10:15:05.887Z</lastmod>
-    
-    <date>1726148761000</date>
-    <title>Python调用大模型API | 兰秋廿柒的博客</title>
-    
-    <desc>怎样用Python调用大语言模型？</desc>
   </url>
   
   <url>
