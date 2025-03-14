@@ -5298,4 +5298,21 @@ python proxyPool.py server
         <tag>Chatbox</tag>
       </tags>
   </entry>
+  <entry>
+    <title>PotPlay | lrc字幕无法正确按照时间轴显示</title>
+    <url>/2025/03/13/potplayer00/</url>
+    <content><![CDATA[<p>记录一下问题。</p>
+<span id="more"></span>
+
+<p>更新到了250313版本，发现.lrc格式的字幕对不上时间了。没办法，回退到了250226版本。</p>
+<p>如果后续出现了.lrc字幕显示和时间轴不一致的情况，可以回退至250226版本。</p>
+<p>记录一下</p>
+]]></content>
+      <categories>
+        <category>PotPlay</category>
+      </categories>
+      <tags>
+        <tag>PotPlay</tag>
+      </tags>
+  </entry>
 </search>
