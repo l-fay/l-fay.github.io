@@ -2,6 +2,17 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://l-fay.github.io/2025/06/03/frp00/</loc>
+    
+    <lastmod>2025-06-04T08:19:16.749Z</lastmod>
+    
+    <date>1748951017000</date>
+    <title>FRP内网穿透部署 | 兰秋廿柒的博客</title>
+    
+    <desc>FRP (Fast Reverse Proxy) 是一款高性能的内网穿透工具，FRP 的工作原理是利用内网机器主动与公网服务器建立连接，从而创建一个数据隧道，使得外网流量可以通过这个隧道被转发到内网机器。这样，即使内网机器没有公网 IP，也可以被外网访问。</desc>
+  </url>
+  
+  <url>
     <loc>https://l-fay.github.io/2025/03/13/potplayer00/</loc>
     
     <lastmod>2025-03-21T06:47:14.725Z</lastmod>

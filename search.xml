@@ -5315,4 +5315,44 @@ python proxyPool.py server
         <tag>PotPlayer</tag>
       </tags>
   </entry>
+  <entry>
+    <title>FRP内网穿透部署</title>
+    <url>/2025/06/03/frp00/</url>
+    <content><![CDATA[<p>FRP (Fast Reverse Proxy) 是一款高性能的内网穿透工具，FRP 的工作原理是利用内网机器主动与公网服务器建立连接，从而创建一个数据隧道，使得外网流量可以通过这个隧道被转发到内网机器。这样，即使内网机器没有公网 IP，也可以被外网访问。</p>
+<span id="more"></span>
+
+<p>FRP分为FRPS（服务器）和FRPC（客户端）。服务器需要有公网IP，客户端部署在你想要穿透的内网机上，同局域网布一个客户端就行了。</p>
+<h1 id="FRPS（FRP-服务端）"><a href="#FRPS（FRP-服务端）" class="headerlink" title="FRPS（FRP 服务端）"></a>FRPS（FRP 服务端）</h1><p>SSH进入服务器，用一键安装脚本部署：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">wget https://raw.githubusercontent.com/MvsCode/frps-onekey/master/install-frps.sh -O ./install-frps.sh</span><br><span class="line">chmod 700 ./install-frps.sh</span><br><span class="line">./install-frps.sh install</span><br></pre></td></tr></table></figure>
+<p>接着脚本会让你依次设置各种端口，为了避免冲突，建议手动设置各个端口号，我设置的如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">BindPort 7000</span><br><span class="line">HTTP Port 8800</span><br><span class="line">HTTPS Port 8443</span><br><span class="line">Web面板端口 8555</span><br><span class="line">账号密码都是 admin</span><br><span class="line">token 设置长密码</span><br></pre></td></tr></table></figure>
+<p>域名地址，默认<br>最大用户默认<br>接下来各种日志选择都默认即可</p>
+<p>安装好后运行 FRP（后台运行）</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nohup ./frps -c frps.ini &gt;/dev/null 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure>
+
+<p>访问<code>服务器公网ip:Web面板端口</code>，能成功进入WEB后台就成功了。</p>
+<p>常用命令</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">开启FRP：frps start</span><br><span class="line"></span><br><span class="line">停止FRP：frps stop</span><br><span class="line"></span><br><span class="line">重启FRP：frps restart</span><br></pre></td></tr></table></figure>
+
+<h1 id="FRPC（FRP-客户端）"><a href="#FRPC（FRP-客户端）" class="headerlink" title="FRPC（FRP 客户端）"></a>FRPC（FRP 客户端）</h1><p>这里使用Docker安装。</p>
+<p>镜像名：<br>stilleshan&#x2F;frpc</p>
+<p>用<code>docker pull</code>拉一下或者可视化面板拉一下。</p>
+<p>我的镜像版本是0.62.1，这个版本已经不支持ini了，所以我用的是toml。</p>
+<p>将docker内部地址<code>/frp/frpc.toml</code>映射到自己的物理地址。</p>
+<p>配置文件内容：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[common]</span><br><span class="line">server_addr = 你的服务器 IP</span><br><span class="line">server_port = frp 通信通道端口号（最开始设置的第一个）</span><br><span class="line">token = 你的token</span><br><span class="line"></span><br><span class="line">[任务名称，随便写，不能重名，如：NAS1]</span><br><span class="line">type = tcp</span><br><span class="line">local_ip = 局域网 IP</span><br><span class="line">local_port = 本地端口号</span><br><span class="line">remote_port = 对外端口号</span><br><span class="line"></span><br><span class="line">[任务名称，随便写，不能重名，如：NAS2]</span><br><span class="line">type = tcp</span><br><span class="line">local_ip = 局域网 IP</span><br><span class="line">local_port = 本地端口号</span><br><span class="line">remote_port = 对外端口号</span><br></pre></td></tr></table></figure>
+
+<p>注意：每次增加设备或者改写配置都需要重启 Docker 容器才会生效。</p>
+<p>现在在浏览器打开<code>服务器IP/域名:端口号</code>就可以正常访问内网的设备了。</p>
+<p>参考文章：<a href="https://www.mspace.cc/archives/894">2024 一键部署 FRP 内网穿透服务端 + 群晖 NAS 客户端配置 | 保姆级教程</a></p>
+]]></content>
+      <categories>
+        <category>Docker</category>
+        <category>FRP</category>
+      </categories>
+      <tags>
+        <tag>Docker</tag>
+        <tag>FRP</tag>
+      </tags>
+  </entry>
 </search>
