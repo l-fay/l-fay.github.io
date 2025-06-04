@@ -5356,7 +5356,7 @@ python proxyPool.py server
       </tags>
   </entry>
   <entry>
-    <title>Docker部署mysql</title>
+    <title>Docker部署MySql</title>
     <url>/2025/06/03/mysql01/</url>
     <content><![CDATA[<p>记录一下Docker部署MySql的流程和遇到的问题。</p>
 <span id="more"></span>
