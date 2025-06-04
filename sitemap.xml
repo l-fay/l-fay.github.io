@@ -2,6 +2,28 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://l-fay.github.io/2025/06/03/mysql01/</loc>
+    
+    <lastmod>2025-06-04T09:33:28.372Z</lastmod>
+    
+    <date>1748960977000</date>
+    <title>Docker部署mysql | 兰秋廿柒的博客</title>
+    
+    <desc>记录一下Docker部署MySql的流程和遇到的问题。</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2021/10/21/mysql00/</loc>
+    
+    <lastmod>2025-06-04T09:17:41.854Z</lastmod>
+    
+    <date>1634820810000</date>
+    <title>Python连接MySQL连接池 | 兰秋廿柒的博客</title>
+    
+    <desc>记录一下怎么用python连接MySQL连接池。</desc>
+  </url>
+  
+  <url>
     <loc>https://l-fay.github.io/2025/06/03/frp00/</loc>
     
     <lastmod>2025-06-04T08:19:16.749Z</lastmod>
@@ -1132,17 +1154,6 @@
     <title>群晖 | 将Docker的网络模式从bridge切换到host | 兰秋廿柒的博客</title>
     
     <desc>目的是让docker容器可以使用ipv6网络</desc>
-  </url>
-  
-  <url>
-    <loc>https://l-fay.github.io/2021/10/21/mysql00/</loc>
-    
-    <lastmod>2024-10-09T10:15:05.888Z</lastmod>
-    
-    <date>1634820810000</date>
-    <title>Python连接MySQL连接池 | 兰秋廿柒的博客</title>
-    
-    <desc>记录一下怎么用python连接MySQL连接池。</desc>
   </url>
   
   <url>

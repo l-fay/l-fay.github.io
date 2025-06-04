@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://l-fay.github.io/2025/06/03/mysql01/</loc>
+    <lastmod>2025-06-04</lastmod>
+  </url>
+  <url>
+    <loc>https://l-fay.github.io/2021/10/21/mysql00/</loc>
+    <lastmod>2025-06-04</lastmod>
+  </url>
+  <url>
     <loc>https://l-fay.github.io/2025/06/03/frp00/</loc>
     <lastmod>2025-06-04</lastmod>
   </url>
@@ -410,10 +418,6 @@
   </url>
   <url>
     <loc>https://l-fay.github.io/2023/12/09/nas00/</loc>
-    <lastmod>2024-10-09</lastmod>
-  </url>
-  <url>
-    <loc>https://l-fay.github.io/2021/10/21/mysql00/</loc>
     <lastmod>2024-10-09</lastmod>
   </url>
   <url>
