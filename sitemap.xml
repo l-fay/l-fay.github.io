@@ -2,6 +2,28 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://l-fay.github.io/2025/06/05/mac00/</loc>
+    
+    <lastmod>2025-06-06T08:16:49.645Z</lastmod>
+    
+    <date>1749135406000</date>
+    <title>Mac服务器报错处理 | No Route To Host | 兰秋廿柒的博客</title>
+    
+    <desc>用Mac当服务器跑应用遇到了问题，陆陆续续解决了一个星期吧，把经验记录一下。</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2025/06/05/mac01/</loc>
+    
+    <lastmod>2025-06-06T08:13:11.973Z</lastmod>
+    
+    <date>1749137626000</date>
+    <title>Mac有线网络显示“自分配IP” | 兰秋廿柒的博客</title>
+    
+    <desc>这个到最后也没找到原因，记一下怎么弄好的。</desc>
+  </url>
+  
+  <url>
     <loc>https://l-fay.github.io/2025/06/03/mysql01/</loc>
     
     <lastmod>2025-06-04T09:38:31.579Z</lastmod>

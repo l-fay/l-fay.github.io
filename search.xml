@@ -5393,4 +5393,56 @@ python proxyPool.py server
         <tag>MySql</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Mac有线网络显示“自分配IP”</title>
+    <url>/2025/06/05/mac01/</url>
+    <content><![CDATA[<p>这个到最后也没找到原因，记一下怎么弄好的。</p>
+<span id="more"></span>
+
+<h1 id="问题现象"><a href="#问题现象" class="headerlink" title="问题现象"></a>问题现象</h1><p>无线正常。</p>
+<p>用有线连接路由器时，显示“自分配的ip”，同时子网掩码是“255.255.0.0”，ip是169.254.38.13，无法上网，其他子网成员的子网掩码都是255.255.255.0。</p>
+<h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><p>用AI找的方案，重置以太网设置：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo ifconfig en0 down  # 关闭网卡（en0是有线网卡名）</span><br><span class="line">sudo rm /Library/Preferences/SystemConfiguration/NetworkInterfaces.plist  # 删除硬件配置</span><br><span class="line">sudo rm /Library/Preferences/SystemConfiguration/preferences.plist  # 删除网络配置</span><br><span class="line">sudo nvram -c  # 清除NVRAM (关机后按Cmd+Option+P+R开机重置)</span><br><span class="line"></span><br><span class="line"># 1. 关闭网络配置守护进程</span><br><span class="line">sudo /usr/libexec/airportd stop</span><br><span class="line"></span><br><span class="line"># 2. 删除系统级网络配置文件</span><br><span class="line">sudo rm /Library/Preferences/SystemConfiguration/NetworkInterfaces.plist</span><br><span class="line">sudo rm /Library/Preferences/SystemConfiguration/preferences.plist</span><br><span class="line"></span><br><span class="line"># 3. 清除动态配置缓存</span><br><span class="line">sudo rm /var/db/dhcpclient_leases  # DHCP缓存</span><br><span class="line">sudo dscacheutil -flushcache</span><br><span class="line"></span><br><span class="line"># 4. 重启Mac</span><br><span class="line">sudo shutdown -r now</span><br></pre></td></tr></table></figure>
+
+<p>好是好了，但我不太清楚每一步的具体含义，慎用。</p>
+<h1 id="踩过的坑"><a href="#踩过的坑" class="headerlink" title="踩过的坑"></a>踩过的坑</h1><p>去看了路由器相关日志：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">May 24 19:10:55 dnsmasq-dhcp[24459]: DHCPDISCOVER(br0) xx:xx:xx:xx:xx:xx </span><br><span class="line">May 24 19:10:55 dnsmasq-dhcp[24459]: DHCPOFFER(br0) 192.168.1.101 xx:xx:xx:xx:xx:xx </span><br><span class="line">May 24 19:11:04 dnsmasq-dhcp[24459]: DHCPDISCOVER(br0) xx:xx:xx:xx:xx:xx </span><br><span class="line">May 24 19:11:04 dnsmasq-dhcp[24459]: DHCPOFFER(br0) 192.168.1.101 xx:xx:xx:xx:xx:xx </span><br><span class="line">May 24 19:11:13 dnsmasq-dhcp[24459]: DHCPDISCOVER(br0) xx:xx:xx:xx:xx:xx </span><br><span class="line">May 24 19:11:13 dnsmasq-dhcp[24459]: DHCPOFFER(br0) 192.168.1.101 xx:xx:xx:xx:xx:xx </span><br><span class="line">May 24 19:11:21 dnsmasq-dhcp[24459]: DHCPDISCOVER(br0) xx:xx:xx:xx:xx:xx </span><br><span class="line">May 24 19:11:21 dnsmasq-dhcp[24459]: DHCPOFFER(br0) 192.168.1.101 xx:xx:xx:xx:xx:xx </span><br></pre></td></tr></table></figure>
+
+<p><code>xx:xx:xx:xx:xx:xx</code>是Mac的MAC地址。</p>
+<p>这里确实有问题，日志里只有设备的DISCOVER和路由器的OFFER，没有设备REQUEST和路由器ACK，所以很像是设备问题。</p>
+<p>确实对这个没啥研究，后来问题也解决了，就没再深究。</p>
+]]></content>
+      <categories>
+        <category>MAC</category>
+      </categories>
+      <tags>
+        <tag>MAC</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Mac服务器报错处理 | No Route To Host</title>
+    <url>/2025/06/05/mac00/</url>
+    <content><![CDATA[<p>用Mac当服务器跑应用遇到了问题，陆陆续续解决了一个星期吧，把经验记录一下。</p>
+<span id="more"></span>
+
+<h1 id="问题现象"><a href="#问题现象" class="headerlink" title="问题现象"></a>问题现象</h1><p>我在Mac上跑了Web应用，应用内部需要访问内网IP，如<code>192.168.1.101</code>之类的。</p>
+<p>这些IP有的是中间件比如MySQL、Redis、RabbitMQ之类的，有的是其他Web服务（部署在局域网内其他设备），都是域名+本地hosts方式访问的。</p>
+<p>服务启动时没有问题，也能正常用，服务可以正常访问这些IP。</p>
+<p>过了一段时间之后——大概就是晚上睡一觉起来的时间——服务就无法访问内网IP了。</p>
+<p>日志显示<code>No Route To Host</code>，重连机制也失败，报同样的错。</p>
+<h1 id="最终解决方案"><a href="#最终解决方案" class="headerlink" title="最终解决方案"></a>最终解决方案</h1><p>启服务用<code>sudo</code>启。</p>
+<p>没错！就是这样！这是个权限问题！Fxxx Apple！</p>
+<h1 id="问题原因"><a href="#问题原因" class="headerlink" title="问题原因"></a>问题原因</h1><p>通过检索，在<a href="https://gitlab.com/gnachman/iterm2/-/issues/12106">这里</a>和<a href="https://www.reddit.com/r/networking/comments/1i28aee/comment/m7e8qit/?tl=zh-hans&translated=1">这里</a>找到了问题原因。</p>
+<p>Mac在本地网络访问上是有权限控制的，8小时后（这个时长是检索的时候不知道在哪个讨论帖里看到的）就会拒绝服务的所有本地网络访问。</p>
+<h1 id="踩过的坑"><a href="#踩过的坑" class="headerlink" title="踩过的坑"></a>踩过的坑</h1><h2 id="DHCP问题"><a href="#DHCP问题" class="headerlink" title="DHCP问题"></a>DHCP问题</h2><p>因为这个Mac买回来，DHCP一直有问题，详情在<a href="/2025/06/05/mac01/" title="Mac有线网络显示“自分配IP”">这里</a>，所以刚开始以为是请求发不到路由器导致的，但最后DHCP问题解决了，这个问题也没好。</p>
+<h2 id="代码问题"><a href="#代码问题" class="headerlink" title="代码问题"></a>代码问题</h2><p>中间还反复看了代码，加了各种重连机制，把三方库里的源码都改了，结果都没用，白费功夫。</p>
+<h2 id="Mac设置问题"><a href="#Mac设置问题" class="headerlink" title="Mac设置问题"></a>Mac设置问题</h2><p>帖子里说在<code>系统设置</code>&gt;<code>隐私和安全</code>&gt;<code>本地网络</code>里把权限打开，但我的服务是用命令行启动的，不是个标准的Mac OS服务，这个也没用。</p>
+]]></content>
+      <categories>
+        <category>MAC</category>
+      </categories>
+      <tags>
+        <tag>MAC</tag>
+      </tags>
+  </entry>
 </search>
