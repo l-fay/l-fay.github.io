@@ -5445,4 +5445,24 @@ python proxyPool.py server
         <tag>MAC</tag>
       </tags>
   </entry>
+  <entry>
+    <title>SSH连接Windows报错：Permission denied, please try again</title>
+    <url>/2025/06/12/windows07/</url>
+    <content><![CDATA[<p>账号密码都是正确的，但就是连不上。</p>
+<span id="more"></span>
+
+<p>问题是计算机名和用户名一致引起的。</p>
+<p>执行<code>whoami</code>，输出了<code>lqnq\lqnq</code>，前面是计算机名后边是用户名。</p>
+<p>改下计算机名重启就行，改用户名还要改我的其他服务的连接，太麻烦。</p>
+<p>猜测是因为Windows的登录逻辑里用了字符串匹配导致错误？不知道，瞎猜的。</p>
+]]></content>
+      <categories>
+        <category>Windows</category>
+        <category>SSH</category>
+      </categories>
+      <tags>
+        <tag>Windows</tag>
+        <tag>SSH</tag>
+      </tags>
+  </entry>
 </search>
