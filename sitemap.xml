@@ -2,6 +2,17 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://l-fay.github.io/2025/06/25/python11/</loc>
+    
+    <lastmod>2025-06-26T02:36:26.038Z</lastmod>
+    
+    <date>1750853096000</date>
+    <title>Python | subprocess执行git语句的换行问题 | 兰秋廿柒的博客</title>
+    
+    <desc>使用subprocess执行git clone时，希望python的输出模拟终端执行命令的模式。</desc>
+  </url>
+  
+  <url>
     <loc>https://l-fay.github.io/2025/06/12/windows07/</loc>
     
     <lastmod>2025-06-13T08:32:58.113Z</lastmod>
