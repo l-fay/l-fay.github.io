@@ -1426,6 +1426,28 @@ table th:nth-of-type(3) {
 </ul>
 </li>
 </ul>
+<h3 id="提示框"><a href="#提示框" class="headerlink" title="提示框"></a>提示框</h3><p>类型​​：支持 6 种样式，对应不同颜色和图标：<br>default（灰）、primary（蓝）、info（青）<br>success（绿）、warning（黄）、danger（红）</p>
+<details class="note success"><summary><p>操作成功</p>
+</summary>
+<p>✅ 数据已保存！<br>    - 自动生效<br>    - 无需重启</p>
+
+</details>
+
+<div class="note warning"><p>⚠️ 未保存的内容将丢失！</p>
+</div>
+
+<details class="note danger"><summary><p>高危操作</p>
+</summary>
+<p>❗️ 此操作不可逆，请谨慎执行！</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&quot;删除所有数据&quot;</span>)</span><br></pre></td></tr></table></figure>
+</details>
+<div class="note default"><p>信息</p>
+</div>
+<div class="note primary"><p>信息</p>
+</div>
+<div class="note info"><p>信息</p>
+</div>
+
 <h3 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h3><table>
 <thead>
 <tr>
@@ -5496,6 +5518,51 @@ python proxyPool.py server
       </categories>
       <tags>
         <tag>Python， Git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Git | 在git命令中带上账号密码</title>
+    <url>/2025/06/26/git04/</url>
+    <content><![CDATA[<p>场景不细说了，反正就是有这需求。</p>
+<span id="more"></span>
+
+<p>查了下，带账号密码很简单。</p>
+<p>账号：user<br>密码：password<br>git地址：<a href="https://xxx.xxx.com/xxx/xxx.Git">https://xxx.xxx.com/xxx/xxx.Git</a></p>
+<p>带账号密码的<br>&#96;&#96;&#96;</p>
+]]></content>
+      <categories>
+        <category>Git</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Git | 在clone时为github配置代理</title>
+    <url>/2025/08/06/git05/</url>
+    <content><![CDATA[<p>平常clone的项目都是文本，今天遇到一个项目中单文件好几M，特别慢，所以找了一个配置代理的方法，亲测可用。</p>
+<span id="more"></span>
+
+<p>搬运自<a href="https://zhuanlan.zhihu.com/p/481574024">这里</a></p>
+<h1 id="设置ssh代理（终极解决方案）"><a href="#设置ssh代理（终极解决方案）" class="headerlink" title="设置ssh代理（终极解决方案）"></a>设置ssh代理（终极解决方案）</h1><p>https代理存在一个局限，那就是没有办法做身份验证，每次拉取私库或者推送代码时，都需要输入github的账号和密码，非常痛苦。</p>
+<p>更进一步是设置ssh代理。只需要配置一个config就可以了。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># Linux、MacOS</span><br><span class="line">vi ~/.ssh/config</span><br><span class="line"># Windows </span><br><span class="line">到C:\Users\your_user_name\.ssh目录下，新建一个config文件（无后缀名）</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>将下面内容加到config文件中即可</p>
+<div class="note info"><p>对于windows用户，注意代理会用到connect.exe，你如果安装了Git都会自带connect.exe，如我的路径为C:\APP\Git\mingw64\bin\connect</p>
+</div>
+
+
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#Windows用户，注意替换你的端口号和connect.exe的路径</span><br><span class="line">ProxyCommand &quot;C:\APP\Git\mingw64\bin\connect&quot; -S 127.0.0.1:51837 -a none %h %p</span><br><span class="line"></span><br><span class="line">#MacOS用户用下方这条命令，注意替换你的端口号</span><br><span class="line">#ProxyCommand nc -v -x 127.0.0.1:51837 %h %p</span><br><span class="line"></span><br><span class="line">Host github.com</span><br><span class="line">  User git</span><br><span class="line">  Port 22</span><br><span class="line">  Hostname github.com</span><br><span class="line">  # 注意修改路径为你的路径</span><br><span class="line">  IdentityFile &quot;C:\Users\Your_User_Name\.ssh\id_rsa&quot;</span><br><span class="line">  TCPKeepAlive yes</span><br><span class="line"></span><br><span class="line">Host ssh.github.com</span><br><span class="line">  User git</span><br><span class="line">  Port 443</span><br><span class="line">  Hostname ssh.github.com</span><br><span class="line">  # 注意修改路径为你的路径</span><br><span class="line">  IdentityFile &quot;C:\Users\Your_User_Name\.ssh\id_rsa&quot;</span><br><span class="line">  TCPKeepAlive yes</span><br></pre></td></tr></table></figure>
+
+<p>保存后文件后测试方法，建议clone一个有大文件的项目，看看速度，同时也可以看看代理的流量。</p>
+]]></content>
+      <categories>
+        <category>Git</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
       </tags>
   </entry>
 </search>

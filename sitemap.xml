@@ -2,6 +2,39 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://l-fay.github.io/2025/08/06/git05/</loc>
+    
+    <lastmod>2025-08-08T02:39:51.507Z</lastmod>
+    
+    <date>1754491675000</date>
+    <title>Git | 在clone时为github配置代理 | 兰秋廿柒的博客</title>
+    
+    <desc>平常clone的项目都是文本，今天遇到一个项目中单文件好几M，特别慢，所以找了一个配置代理的方法，亲测可用。</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2020/08/01/hexo00/</loc>
+    
+    <lastmod>2025-08-08T02:38:54.090Z</lastmod>
+    
+    <date>1596271344000</date>
+    <title>我就想试试怎么写博客 | 兰秋廿柒的博客</title>
+    
+    <desc>写这个的目的就是试一试hexo的各种语法，免得以后忘记。</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2025/06/26/git04/</loc>
+    
+    <lastmod>2025-06-26T02:58:37.981Z</lastmod>
+    
+    <date>1750906230000</date>
+    <title>Git | 在git命令中带上账号密码 | 兰秋廿柒的博客</title>
+    
+    <desc>场景不细说了，反正就是有这需求。</desc>
+  </url>
+  
+  <url>
     <loc>https://l-fay.github.io/2025/06/25/python11/</loc>
     
     <lastmod>2025-06-26T02:36:26.038Z</lastmod>
@@ -1539,17 +1572,6 @@
     <title>Hexo | Hexo推送时如何避免每次都要输入账号密码 | 兰秋廿柒的博客</title>
     
     <desc>之前不知道动到哪里的设置了，每次hexo d的时候都要输入完整的账号密码才能发布。</desc>
-  </url>
-  
-  <url>
-    <loc>https://l-fay.github.io/2020/08/01/hexo00/</loc>
-    
-    <lastmod>2024-10-09T10:15:05.863Z</lastmod>
-    
-    <date>1596271344000</date>
-    <title>我就想试试怎么写博客 | 兰秋廿柒的博客</title>
-    
-    <desc>写这个的目的就是试一试hexo的各种语法，免得以后忘记。</desc>
   </url>
   
   <url>
