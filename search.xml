@@ -5527,9 +5527,9 @@ python proxyPool.py server
 <span id="more"></span>
 
 <p>查了下，带账号密码很简单。</p>
-<p>账号：user<br>密码：password<br>git地址：<a href="https://xxx.xxx.com/xxx/xxx.Git">https://xxx.xxx.com/xxx/xxx.Git</a></p>
-<p>带账号密码的<br>&#96;&#96;&#96;</p>
-]]></content>
+<p>账号：user<br>密码：password<br>git地址：<a href="https://xxx.xxx.com/xxx/xxx.git">https://xxx.xxx.com/xxx/xxx.git</a></p>
+<p>带账号密码的</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git clone https://user:password@xxx.xxx.com/xxx/xxx.git</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>Git</category>
       </categories>
