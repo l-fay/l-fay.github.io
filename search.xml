@@ -5499,7 +5499,6 @@ python proxyPool.py server
 
 <h1 id="第二版"><a href="#第二版" class="headerlink" title="第二版"></a>第二版</h1><p>第一版代码运行时，发现捕获到的文本特别少。</p>
 <p>然后在<a href="https://stackoverflow.com/questions/25986533/how-to-get-subprocess-stdout-while-running-git-command">这里</a>找到了原因：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">When not writing to a terminal, git clone doesn&#x27;t have any output to either stdout or stderr, except on error.</span><br></pre></td></tr></table></figure>
 <blockquote><p>When not writing to a terminal, <code>git clone</code> doesn’t have any output to either <code>stdout</code> or <code>stderr</code>, except on error.<br>当没有写入终端时，<code>git clone</code>不会向<code>stdout</code>或<code>stderr</code>输出任何内容，除非发生错误。</p>
 <footer><strong>@abarnert</strong><cite><a href="https://stackoverflow.com/questions/25986533/how-to-get-subprocess-stdout-while-running-git-command">stackoverflow.com/questions/25986533/how-to-get-subprocess-stdout-while-running-git-command</a></cite></footer></blockquote>
 

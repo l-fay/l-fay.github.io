@@ -2,6 +2,17 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://l-fay.github.io/2025/06/25/python11/</loc>
+    
+    <lastmod>2025-09-04T02:42:35.782Z</lastmod>
+    
+    <date>1750853096000</date>
+    <title>Python | subprocess执行git语句的换行问题 | 兰秋廿柒的博客</title>
+    
+    <desc>使用subprocess执行git clone时，希望python的输出模拟终端执行命令的模式。</desc>
+  </url>
+  
+  <url>
     <loc>https://l-fay.github.io/2025/06/26/git04/</loc>
     
     <lastmod>2025-09-04T02:40:49.060Z</lastmod>
@@ -32,17 +43,6 @@
     <title>我就想试试怎么写博客 | 兰秋廿柒的博客</title>
     
     <desc>写这个的目的就是试一试hexo的各种语法，免得以后忘记。</desc>
-  </url>
-  
-  <url>
-    <loc>https://l-fay.github.io/2025/06/25/python11/</loc>
-    
-    <lastmod>2025-06-26T02:36:26.038Z</lastmod>
-    
-    <date>1750853096000</date>
-    <title>Python | subprocess执行git语句的换行问题 | 兰秋廿柒的博客</title>
-    
-    <desc>使用subprocess执行git clone时，希望python的输出模拟终端执行命令的模式。</desc>
   </url>
   
   <url>

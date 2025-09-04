@@ -28,7 +28,7 @@
 <meta property="og:description" content="使用subprocess执行git clone时，希望python的输出模拟终端执行命令的模式。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-06-25T12:04:56.000Z">
-<meta property="article:modified_time" content="2025-06-26T02:36:26.038Z">
+<meta property="article:modified_time" content="2025-09-04T02:42:35.782Z">
 <meta property="article:author" content="兰秋廿柒">
 <meta property="article:tag" content="Python， Git">
 <meta name="twitter:card" content="summary">
@@ -252,7 +252,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>416</span>
+      <span>396</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -278,7 +278,6 @@
 
 <h1 id="第二版"><a href="#第二版" class="headerlink" title="第二版"></a>第二版</h1><p>第一版代码运行时，发现捕获到的文本特别少。</p>
 <p>然后在<a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/25986533/how-to-get-subprocess-stdout-while-running-git-command">这里</a>找到了原因：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">When not writing to a terminal, git clone doesn&#x27;t have any output to either stdout or stderr, except on error.</span><br></pre></td></tr></table></figure>
 <blockquote><p>When not writing to a terminal, <code>git clone</code> doesn’t have any output to either <code>stdout</code> or <code>stderr</code>, except on error.<br>当没有写入终端时，<code>git clone</code>不会向<code>stdout</code>或<code>stderr</code>输出任何内容，除非发生错误。</p>
 <footer><strong>@abarnert</strong><cite><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/25986533/how-to-get-subprocess-stdout-while-running-git-command">stackoverflow.com/questions/25986533/how-to-get-subprocess-stdout-while-running-git-command</a></cite></footer></blockquote>
 
