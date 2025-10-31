@@ -2,6 +2,17 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://l-fay.github.io/2023/07/20/virtualenv02/</loc>
+    
+    <lastmod>2025-10-31T06:47:48.718Z</lastmod>
+    
+    <date>1689854742000</date>
+    <title>Python多环境 | 安装virtualenv的步骤 | 兰秋廿柒的博客</title>
+    
+    <desc>这篇博客记一下安装virtualenv的通常步骤。</desc>
+  </url>
+  
+  <url>
     <loc>https://l-fay.github.io/2025/06/25/python11/</loc>
     
     <lastmod>2025-09-04T02:42:35.782Z</lastmod>
@@ -472,17 +483,6 @@
     <title>virtualenv的使用场景 | 兰秋廿柒的博客</title>
     
     <desc>说一下为什么用virtualenv。</desc>
-  </url>
-  
-  <url>
-    <loc>https://l-fay.github.io/2023/07/20/virtualenv02/</loc>
-    
-    <lastmod>2024-10-09T10:15:05.944Z</lastmod>
-    
-    <date>1689854742000</date>
-    <title>Python多环境 | 安装virtualenv的步骤 | 兰秋廿柒的博客</title>
-    
-    <desc>这篇博客记一下安装virtualenv的通常步骤。</desc>
   </url>
   
   <url>

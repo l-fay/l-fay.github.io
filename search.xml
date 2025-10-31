@@ -4513,6 +4513,9 @@ python proxyPool.py server
 <p>指定本地python版本创建新环境</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mkvirtualenv --python=/xxx/bin/python env_name</span><br></pre></td></tr></table></figure>
 
+<p>不装<code>pip</code>、<code>setuptools</code>、<code>wheel</code></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mkvirtualenv --python=/xxx/bin/python env_name --no-pip --no-setuptools --no-wheel</span><br></pre></td></tr></table></figure>
+
 <h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><p>查看所有环境</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">workon</span><br></pre></td></tr></table></figure>
 
