@@ -5578,7 +5578,7 @@ python proxyPool.py server
   <entry>
     <title>如何给Mac挂载局域网存储</title>
     <url>/2026/01/11/mac02/</url>
-    <content><![CDATA[<p>以下是与ChatGPT的对话，并且最终解决了问题</p>
+    <content><![CDATA[<p>以下是与LLM的对话，并且最终解决了问题</p>
 <span id="more"></span>
 
 <h1 id="用户问题"><a href="#用户问题" class="headerlink" title="用户问题"></a>用户问题</h1><p>我的mac电脑挂载了一个局域网位置，但是偶尔会断网，我该怎么挂载局域网并实现自动重连</p>
