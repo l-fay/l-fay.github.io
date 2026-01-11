@@ -2,6 +2,17 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://l-fay.github.io/2025/01/20/test00/</loc>
+    
+    <lastmod>2026-01-11T14:23:56.428Z</lastmod>
+    
+    <date>1737371199000</date>
+    <title>测试图片 | 兰秋廿柒的博客</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
     <loc>https://l-fay.github.io/2026/01/11/mac02/</loc>
     
     <lastmod>2026-01-11T14:22:22.854Z</lastmod>
@@ -329,17 +340,6 @@
     <title>FFmpeg | 使用英伟达显卡加速编码 | 兰秋廿柒的博客</title>
     
     <desc>新整了张卡，学习了下GPU加速。</desc>
-  </url>
-  
-  <url>
-    <loc>https://l-fay.github.io/2025/01/20/test00/</loc>
-    
-    <lastmod>2025-01-20T11:07:37.693Z</lastmod>
-    
-    <date>1737371199000</date>
-    <title> | 兰秋廿柒的博客</title>
-    
-    <desc></desc>
   </url>
   
   <url>
