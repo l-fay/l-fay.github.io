@@ -149,18 +149,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">172</span>
+          <span class="site-state-item-count">195</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">109</span>
+        <span class="site-state-item-count">120</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">82</span>
+        <span class="site-state-item-count">92</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -186,7 +186,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://l-fay.github.io/2024/08/20/db00/">
+    <link itemprop="mainEntityOfPage" href="https://l-fay.github.io/2025/02/18/llm02/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar1.jpg">
@@ -204,7 +204,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/08/20/db00/" class="post-title-link" itemprop="url">数据库 | json_remove()函数在不同数据库的区别</a>
+          <a href="/2025/02/18/llm02/" class="post-title-link" itemprop="url">DeepSeek | 使用网络公开的DeepSeek Api</a>
         </h2>
 
         <div class="post-meta-container">
@@ -215,7 +215,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2024-08-20 23:28:09" itemprop="dateCreated datePublished" datetime="2024-08-20T23:28:09+08:00">2024-08-20</time>
+      <time title="创建时间：2025-02-18 20:47:02" itemprop="dateCreated datePublished" datetime="2025-02-18T20:47:02+08:00">2025-02-18</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -223,19 +223,27 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
+          <a href="/categories/LLM/" itemprop="url" rel="index"><span itemprop="name">LLM</span></a>
         </span>
           ，
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/" itemprop="url" rel="index"><span itemprop="name">MySQL</span></a>
+          <a href="/categories/LLM/%E6%A8%A1%E5%9E%8B/" itemprop="url" rel="index"><span itemprop="name">模型</span></a>
         </span>
           ，
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/MariaDb/" itemprop="url" rel="index"><span itemprop="name">MariaDb</span></a>
+          <a href="/categories/LLM/%E6%A8%A1%E5%9E%8B/DeepSeek/" itemprop="url" rel="index"><span itemprop="name">DeepSeek</span></a>
         </span>
           ，
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/TdSQL/" itemprop="url" rel="index"><span itemprop="name">TdSQL</span></a>
+          <a href="/categories/LLM/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/LLM/%E5%B7%A5%E5%85%B7/Ollama/" itemprop="url" rel="index"><span itemprop="name">Ollama</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/LLM/%E5%B7%A5%E5%85%B7/Chatbox/" itemprop="url" rel="index"><span itemprop="name">Chatbox</span></a>
         </span>
     </span>
 
@@ -246,7 +254,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>259</span>
+      <span>27</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -264,10 +272,10 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>今天遇到一个问题，在执行<code>select</code>操作时报错，排查出来是json_remove()函数在不同数据库有区别。</p>
+          <p>如题。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2024/08/20/db00/#more" rel="contents">
+              <a class="btn" href="/2025/02/18/llm02/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -298,7 +306,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://l-fay.github.io/2024/08/19/selenium07/">
+    <link itemprop="mainEntityOfPage" href="https://l-fay.github.io/2025/02/18/llm01/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar1.jpg">
@@ -316,7 +324,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/08/19/selenium07/" class="post-title-link" itemprop="url">Selenium | 获取canvas画布中的图片</a>
+          <a href="/2025/02/18/llm01/" class="post-title-link" itemprop="url">DeepSeek | 本地部署DeepSeek-R1模型及经验总结</a>
         </h2>
 
         <div class="post-meta-container">
@@ -327,7 +335,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2024-08-19 19:11:53" itemprop="dateCreated datePublished" datetime="2024-08-19T19:11:53+08:00">2024-08-19</time>
+      <time title="创建时间：2025-02-18 20:42:48" itemprop="dateCreated datePublished" datetime="2025-02-18T20:42:48+08:00">2025-02-18</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -335,23 +343,27 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+          <a href="/categories/LLM/" itemprop="url" rel="index"><span itemprop="name">LLM</span></a>
         </span>
           ，
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Python/%E5%B8%B8%E7%94%A8%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">常用库</span></a>
+          <a href="/categories/LLM/%E6%A8%A1%E5%9E%8B/" itemprop="url" rel="index"><span itemprop="name">模型</span></a>
         </span>
           ，
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Python/%E5%B8%B8%E7%94%A8%E5%BA%93/Selenium/" itemprop="url" rel="index"><span itemprop="name">Selenium</span></a>
+          <a href="/categories/LLM/%E6%A8%A1%E5%9E%8B/DeepSeek/" itemprop="url" rel="index"><span itemprop="name">DeepSeek</span></a>
         </span>
           ，
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E8%87%AA%E5%8A%A8%E5%8C%96/" itemprop="url" rel="index"><span itemprop="name">自动化</span></a>
+          <a href="/categories/LLM/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
         </span>
           ，
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E8%87%AA%E5%8A%A8%E5%8C%96/Selenium/" itemprop="url" rel="index"><span itemprop="name">Selenium</span></a>
+          <a href="/categories/LLM/%E5%B7%A5%E5%85%B7/Ollama/" itemprop="url" rel="index"><span itemprop="name">Ollama</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/LLM/%E5%B7%A5%E5%85%B7/Chatbox/" itemprop="url" rel="index"><span itemprop="name">Chatbox</span></a>
         </span>
     </span>
 
@@ -362,7 +374,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>243</span>
+      <span>310</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -380,11 +392,10 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>搬运自<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_39726347/article/details/87632561">这里</a>。</p>
-<p>没办法直接获取，但是JS有获取的方法，详见<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLCanvasElement/toDataURL">canvas文档</a>。</p>
+          <p>记一下自己的操作步骤。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2024/08/19/selenium07/#more" rel="contents">
+              <a class="btn" href="/2025/02/18/llm01/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -415,7 +426,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://l-fay.github.io/2024/08/18/python08/">
+    <link itemprop="mainEntityOfPage" href="https://l-fay.github.io/2025/02/13/npm01/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar1.jpg">
@@ -433,7 +444,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/08/18/python08/" class="post-title-link" itemprop="url">Python | DataFrame合并后处理重复index的方法</a>
+          <a href="/2025/02/13/npm01/" class="post-title-link" itemprop="url">npm报错：request to https://registry.npm.taobao.org failed, reason certificate has expired</a>
         </h2>
 
         <div class="post-meta-container">
@@ -444,7 +455,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2024-08-18 11:41:53" itemprop="dateCreated datePublished" datetime="2024-08-18T11:41:53+08:00">2024-08-18</time>
+      <time title="创建时间：2025-02-13 20:16:19" itemprop="dateCreated datePublished" datetime="2025-02-13T20:16:19+08:00">2025-02-13</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -452,7 +463,7 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+          <a href="/categories/npm/" itemprop="url" rel="index"><span itemprop="name">npm</span></a>
         </span>
     </span>
 
@@ -463,7 +474,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>268</span>
+      <span>39</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -481,10 +492,10 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>在<a href="/2024/08/18/python07/" title="Python | DataFrame的合并方法总结">合并DataFrame的博客</a>的2.1章节中，可以看到输出结果的index重复了，后续所有通过index的操作都会受影响。</p>
+          <p>原因是淘宝的旧源已经不用了。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2024/08/18/python08/#more" rel="contents">
+              <a class="btn" href="/2025/02/13/npm01/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -515,7 +526,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://l-fay.github.io/2024/08/18/python07/">
+    <link itemprop="mainEntityOfPage" href="https://l-fay.github.io/2025/02/13/npm00/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar1.jpg">
@@ -533,7 +544,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/08/18/python07/" class="post-title-link" itemprop="url">Python | DataFrame的合并方法总结</a>
+          <a href="/2025/02/13/npm00/" class="post-title-link" itemprop="url">npm换源方法</a>
         </h2>
 
         <div class="post-meta-container">
@@ -544,7 +555,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2024-08-18 10:38:05" itemprop="dateCreated datePublished" datetime="2024-08-18T10:38:05+08:00">2024-08-18</time>
+      <time title="创建时间：2025-02-13 20:02:30" itemprop="dateCreated datePublished" datetime="2025-02-13T20:02:30+08:00">2025-02-13</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -552,7 +563,7 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+          <a href="/categories/npm/" itemprop="url" rel="index"><span itemprop="name">npm</span></a>
         </span>
     </span>
 
@@ -563,111 +574,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>566</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>2 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>在数据分析过程中，通常需要将不同的数据集合并在一起进行分析，而Python中常用的数据结构之一——DataFrame，提供了多种方法用于合并数据。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2024/08/18/python07/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://l-fay.github.io/2024/08/03/windows05/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar1.jpg">
-      <meta itemprop="name" content="兰秋廿柒">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="兰秋廿柒的博客">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 兰秋廿柒的博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/08/03/windows05/" class="post-title-link" itemprop="url">解决天猫精灵连接Windows10蓝牙时，语音控制会中断媒体播放的问题</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-08-03 11:56:59" itemprop="dateCreated datePublished" datetime="2024-08-03T11:56:59+08:00">2024-08-03</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Windows/" itemprop="url" rel="index"><span itemprop="name">Windows</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Windows/%E8%93%9D%E7%89%99/" itemprop="url" rel="index"><span itemprop="name">蓝牙</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>253</span>
+      <span>110</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -685,10 +592,10 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>用天猫精灵当蓝牙音响的时候，遇到个很困扰的问题，每次天猫精灵语音控制的过程中，都会启动&#x2F;暂停电脑中的媒体播放。</p>
+          <p>共有三种方法。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2024/08/03/windows05/#more" rel="contents">
+              <a class="btn" href="/2025/02/13/npm00/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -719,7 +626,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://l-fay.github.io/2024/07/24/chrome00/">
+    <link itemprop="mainEntityOfPage" href="https://l-fay.github.io/2025/02/09/nas01/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar1.jpg">
@@ -737,7 +644,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/07/24/chrome00/" class="post-title-link" itemprop="url">群晖管理端web页docker面板排版混乱的问题</a>
+          <a href="/2025/02/09/nas01/" class="post-title-link" itemprop="url">IPv6实现外网访问群晖NAS</a>
         </h2>
 
         <div class="post-meta-container">
@@ -748,415 +655,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2024-07-24 21:10:02" itemprop="dateCreated datePublished" datetime="2024-07-24T21:10:02+08:00">2024-07-24</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%BE%A4%E6%99%96/" itemprop="url" rel="index"><span itemprop="name">群晖</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Chrome/" itemprop="url" rel="index"><span itemprop="name">Chrome</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>62</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>问题如题，留个记录。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2024/07/24/chrome00/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://l-fay.github.io/2024/05/19/git03/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar1.jpg">
-      <meta itemprop="name" content="兰秋廿柒">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="兰秋廿柒的博客">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 兰秋廿柒的博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/05/19/git03/" class="post-title-link" itemprop="url">Git | 同时提交到两个git地址</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-05-19 20:56:17" itemprop="dateCreated datePublished" datetime="2024-05-19T20:56:17+08:00">2024-05-19</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Git/" itemprop="url" rel="index"><span itemprop="name">Git</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>86</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>需要给同一个项目设置两个远程git地址，主要是为了灾备。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2024/05/19/git03/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://l-fay.github.io/2024/01/20/proxy03/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar1.jpg">
-      <meta itemprop="name" content="兰秋廿柒">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="兰秋廿柒的博客">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 兰秋廿柒的博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/01/20/proxy03/" class="post-title-link" itemprop="url">Proxy | 代理分类</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-01-20 19:17:06" itemprop="dateCreated datePublished" datetime="2024-01-20T19:17:06+08:00">2024-01-20</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Proxy/" itemprop="url" rel="index"><span itemprop="name">Proxy</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>430</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>记一下代理的几种分类。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2024/01/20/proxy03/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://l-fay.github.io/2024/01/02/python06/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar1.jpg">
-      <meta itemprop="name" content="兰秋廿柒">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="兰秋廿柒的博客">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 兰秋廿柒的博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/01/02/python06/" class="post-title-link" itemprop="url">Python | 不同场景下使用代理的方法</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-01-02 16:21:27" itemprop="dateCreated datePublished" datetime="2024-01-02T16:21:27+08:00">2024-01-02</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Python/Proxy/" itemprop="url" rel="index"><span itemprop="name">Proxy</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>247</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>两种使用代理的方法。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2024/01/02/python06/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://l-fay.github.io/2023/12/09/nas00/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar1.jpg">
-      <meta itemprop="name" content="兰秋廿柒">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="兰秋廿柒的博客">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 兰秋廿柒的博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/12/09/nas00/" class="post-title-link" itemprop="url">群晖 | 将Docker的网络模式从bridge切换到host</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2023-12-09 12:29:36" itemprop="dateCreated datePublished" datetime="2023-12-09T12:29:36+08:00">2023-12-09</time>
+      <time title="创建时间：2025-02-09 21:12:52" itemprop="dateCreated datePublished" datetime="2025-02-09T21:12:52+08:00">2025-02-09</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1183,14 +682,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>365</span>
+      <span>760</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
+      <span>3 分钟</span>
     </span>
 </div>
 
@@ -1201,10 +700,10 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>目的是让docker容器可以使用ipv6网络</p>
+          <p>如题。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2023/12/09/nas00/#more" rel="contents">
+              <a class="btn" href="/2025/02/09/nas01/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1227,8 +726,510 @@
 
 
 
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://l-fay.github.io/2025/02/09/flask03/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar1.jpg">
+      <meta itemprop="name" content="兰秋廿柒">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="兰秋廿柒的博客">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 兰秋廿柒的博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/02/09/flask03/" class="post-title-link" itemprop="url">Flask | Flask设置同时支持IPv4和IPv6</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-02-09 20:47:37" itemprop="dateCreated datePublished" datetime="2025-02-09T20:47:37+08:00">2025-02-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Python/%E5%B8%B8%E7%94%A8%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">常用库</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Python/%E5%B8%B8%E7%94%A8%E5%BA%93/Flask/" itemprop="url" rel="index"><span itemprop="name">Flask</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>36</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>通过对Flask进行设置，可以同时支持IPv4和IPv6。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2025/02/09/flask03/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://l-fay.github.io/2025/02/09/anaconda02/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar1.jpg">
+      <meta itemprop="name" content="兰秋廿柒">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="兰秋廿柒的博客">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 兰秋廿柒的博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/02/09/anaconda02/" class="post-title-link" itemprop="url">Anaconda虚拟环境下更换python版本</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-02-09 20:44:09" itemprop="dateCreated datePublished" datetime="2025-02-09T20:44:09+08:00">2025-02-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Anaconda/" itemprop="url" rel="index"><span itemprop="name">Anaconda</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>54</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>在不重建环境的情况下升&#x2F;降级python版本。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2025/02/09/anaconda02/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://l-fay.github.io/2025/02/09/poetry00/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar1.jpg">
+      <meta itemprop="name" content="兰秋廿柒">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="兰秋廿柒的博客">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 兰秋廿柒的博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/02/09/poetry00/" class="post-title-link" itemprop="url">Poetry的介绍</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-02-09 19:54:10" itemprop="dateCreated datePublished" datetime="2025-02-09T19:54:10+08:00">2025-02-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Python/Poetry/" itemprop="url" rel="index"><span itemprop="name">Poetry</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>22</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>Poetry的介绍可以看下<a target="_blank" rel="noopener" href="https://blog.csdn.net/swindler_ice/article/details/127040576">这里</a>。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2025/02/09/poetry00/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://l-fay.github.io/2025/02/09/windows06/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar1.jpg">
+      <meta itemprop="name" content="兰秋廿柒">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="兰秋廿柒的博客">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 兰秋廿柒的博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/02/09/windows06/" class="post-title-link" itemprop="url">使用SSH连接WSL</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-02-09 19:22:12" itemprop="dateCreated datePublished" datetime="2025-02-09T19:22:12+08:00">2025-02-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Windows/" itemprop="url" rel="index"><span itemprop="name">Windows</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Windows/WSL/" itemprop="url" rel="index"><span itemprop="name">WSL</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>112</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>本质上就是把WSL当做一台普通的Linux服务器来操作。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2025/02/09/windows06/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://l-fay.github.io/2025/01/20/test00/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar1.jpg">
+      <meta itemprop="name" content="兰秋廿柒">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="兰秋廿柒的博客">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 兰秋廿柒的博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/01/20/test00/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-01-20 19:06:39" itemprop="dateCreated datePublished" datetime="2025-01-20T19:06:39+08:00">2025-01-20</time>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>2</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <span id="more"></span>
+
+<p><img data-src="data:image/jpg;base64,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" alt="alt"></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
   <nav class="pagination">
-    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/20/">20</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 </div>
@@ -1239,7 +1240,7 @@
 
   <div class="copyright">
     &copy; 
-    <span itemprop="copyrightYear">2024</span>
+    <span itemprop="copyrightYear">2026</span>
     <span class="with-love">
       <i class="fa fa-heart"></i>
     </span>
@@ -1251,14 +1252,14 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">201k</span>
+    <span title="站点总字数">208k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">11:11</span>
+    <span title="站点阅读时长">11:34</span>
   </span>
 </div>
 <div class="busuanzi-count">

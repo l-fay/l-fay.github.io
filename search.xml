@@ -182,6 +182,28 @@
 </ul>
 </li>
 </ul>
+<h3 id="提示框"><a href="#提示框" class="headerlink" title="提示框"></a>提示框</h3><p>类型​​：支持 6 种样式，对应不同颜色和图标：<br>default（灰）、primary（蓝）、info（青）<br>success（绿）、warning（黄）、danger（红）</p>
+<details class="note success"><summary><p>操作成功</p>
+</summary>
+<p>✅ 数据已保存！<br>    - 自动生效<br>    - 无需重启</p>
+
+</details>
+
+<div class="note warning"><p>⚠️ 未保存的内容将丢失！</p>
+</div>
+
+<details class="note danger"><summary><p>高危操作</p>
+</summary>
+<p>❗️ 此操作不可逆，请谨慎执行！</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&quot;删除所有数据&quot;</span>)</span><br></pre></td></tr></table></figure>
+</details>
+<div class="note default"><p>信息</p>
+</div>
+<div class="note primary"><p>信息</p>
+</div>
+<div class="note info"><p>信息</p>
+</div>
+
 <h3 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h3><table>
 <thead>
 <tr>
@@ -201,7 +223,7 @@
 <h3 id="超链接"><a href="#超链接" class="headerlink" title="超链接"></a>超链接</h3><p><a href="https://hexo.io/docs/writing.html">官方文档</a></p>
 <a href="/2020/08/01/hexo00/" title="我就想试试怎么写博客">站内跳转</a>
 
-<h3 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h3><img src="/images/avatar1.avif" width="60%">
+<h3 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h3><img data-src="/images/avatar1.avif" width="60%">
 
 <h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><p>文件名和title不要求一致</p>
 ]]></content>
@@ -241,11 +263,11 @@
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import requests</span><br><span class="line">import json</span><br><span class="line">import sseclient</span><br><span class="line"> </span><br><span class="line">API_KEY = &#x27;[INSERT YOUR OPENAI API KEY HERE]&#x27;</span><br><span class="line"></span><br><span class="line">def performRequestWithStreaming():</span><br><span class="line">    reqUrl = &#x27;https://api.openai.com/v1/completions&#x27;</span><br><span class="line">    reqHeaders = &#123;</span><br><span class="line">        &#x27;Accept&#x27;: &#x27;text/event-stream&#x27;,</span><br><span class="line">        &#x27;Authorization&#x27;: &#x27;Bearer &#x27; + API_KEY</span><br><span class="line">    &#125;</span><br><span class="line">    reqBody = &#123;</span><br><span class="line">      &quot;model&quot;: &quot;text-davinci-003&quot;,</span><br><span class="line">      &quot;prompt&quot;: &quot;What is Python?&quot;,</span><br><span class="line">      &quot;max_tokens&quot;: 100,</span><br><span class="line">      &quot;temperature&quot;: 0,</span><br><span class="line">      &quot;stream&quot;: True,</span><br><span class="line">    &#125;</span><br><span class="line">    request = requests.post(reqUrl, stream=True, headers=reqHeaders, json=reqBody)</span><br><span class="line">    client = sseclient.SSEClient(request)</span><br><span class="line">    for event in client.events():</span><br><span class="line">        if event.data != &#x27;[DONE]&#x27;:</span><br><span class="line">            print(json.loads(event.data)[&#x27;choices&#x27;][0][&#x27;text&#x27;], end=&quot;&quot;, flush=True),</span><br><span class="line"></span><br><span class="line">if __name__ == &#x27;__main__&#x27;:</span><br><span class="line">    performRequestWithStreaming()</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>Python</category>
-        <category>大语言模型</category>
+        <category>LLM</category>
       </categories>
       <tags>
         <tag>Python</tag>
-        <tag>大语言模型</tag>
+        <tag>LLM</tag>
       </tags>
   </entry>
   <entry>
@@ -414,7 +436,7 @@
   <entry>
     <title>Python | 主线程结束后自动关闭子线程</title>
     <url>/2024/09/12/python09/</url>
-    <content><![CDATA[<p>在<code>threading</code>模块创建的线程中，设置为守护线程即可达到题目的目的。</p>
+    <content><![CDATA[<p>在<code>threading</code>模块创建的线程中，设置为守护线程即可达到标题的目的。</p>
 <span id="more"></span>
 
 <p>示例代码：</p>
@@ -1615,7 +1637,7 @@
       <categories>
         <category>Python</category>
         <category>常用库</category>
-        <category>flask</category>
+        <category>Flask</category>
       </categories>
       <tags>
         <tag>Python</tag>
@@ -1792,7 +1814,7 @@ table th:nth-of-type(3) {
       <categories>
         <category>Python</category>
         <category>常用库</category>
-        <category>flask</category>
+        <category>Flask</category>
       </categories>
       <tags>
         <tag>Python</tag>
@@ -2708,7 +2730,7 @@ table th:nth-of-type(3) {
 <h2 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pip install mysql-connector-python</span><br></pre></td></tr></table></figure>
 
 <h2 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h2><p>直接上demo。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import time</span><br><span class="line">from mysql.connector.pooling import MySQLConnectionPool</span><br><span class="line"></span><br><span class="line">class MySql:</span><br><span class="line"></span><br><span class="line">    def __init__(self, config):</span><br><span class="line">        self.expire = 1800</span><br><span class="line">        self.mysql_pool = MySQLConnectionPool(</span><br><span class="line">            host=config.MYSQL_HOST,</span><br><span class="line">            port=config.MYSQL_PORT,</span><br><span class="line">            user=config.MYSQL_USER,</span><br><span class="line">            passwd=config.MYSQL_PASSWORD,</span><br><span class="line">            database=config.MYSQL_DATABASE,</span><br><span class="line">            ssl_disabled=config.SSL_DISABLED,</span><br><span class="line">            pool_size=config.MYSQL_MAX_CONNECTIONS</span><br><span class="line">        )</span><br><span class="line"></span><br><span class="line">    def __get_connection(self):</span><br><span class="line">        try:</span><br><span class="line">            conn = self.mysql_pool.get_connection()</span><br><span class="line">            return conn</span><br><span class="line">        except:</span><br><span class="line">            time.sleep(5)</span><br><span class="line"></span><br><span class="line">    def select(self, sql: str, arg=None):</span><br><span class="line">        if not arg == None and not isinstance(arg, tuple):</span><br><span class="line">            arg = (arg,)</span><br><span class="line">        with self.__get_connection() as conn:</span><br><span class="line">            with conn.cursor() as cur:</span><br><span class="line">                cur.execute(sql, arg)</span><br><span class="line">                result = cur.fetchall()</span><br><span class="line">                return result</span><br><span class="line"></span><br><span class="line">    def insert(self, sql: str, arg=None):</span><br><span class="line">        if not arg == None and not isinstance(arg, tuple):</span><br><span class="line">            arg = (arg,)</span><br><span class="line">        with self.__get_connection() as conn:</span><br><span class="line">            with conn.cursor() as cur:</span><br><span class="line">                try:</span><br><span class="line">                    cur.execute(sql, arg)</span><br><span class="line">                    conn.commit()</span><br><span class="line">                    return True</span><br><span class="line">                except Exception as e:</span><br><span class="line">                    print(e)</span><br><span class="line">                    conn.rollback()</span><br><span class="line">                    return False</span><br><span class="line"></span><br><span class="line">    def update(self, sql: str, arg=None):</span><br><span class="line">        if not arg == None and not isinstance(arg, tuple):</span><br><span class="line">            arg = (arg,)</span><br><span class="line">        with self.__get_connection() as conn:</span><br><span class="line">            with conn.cursor() as cur:</span><br><span class="line">                try:</span><br><span class="line">                    cur.execute(sql, arg)</span><br><span class="line">                    conn.commit()</span><br><span class="line">                    return True</span><br><span class="line">                except Exception as e:</span><br><span class="line">                    print(e)</span><br><span class="line">                    conn.rollback()</span><br><span class="line">                    return False</span><br><span class="line"></span><br><span class="line">    def alter(self, sql: str, arg=None):</span><br><span class="line">        if not arg == None and not isinstance(arg, tuple):</span><br><span class="line">            arg = (arg,)</span><br><span class="line">        with self.__get_connection() as conn:</span><br><span class="line">            with conn.cursor() as cur:</span><br><span class="line">                try:</span><br><span class="line">                    cur.execute(sql, arg)</span><br><span class="line">                    conn.commit()</span><br><span class="line">                    return True</span><br><span class="line">                except Exception as e:</span><br><span class="line">                    print(e)</span><br><span class="line">                    conn.rollback()</span><br><span class="line">                    return False</span><br><span class="line"></span><br><span class="line">    def get_index(self, table: str):</span><br><span class="line">        sql = &quot;&quot;&quot;</span><br><span class="line">        show </span><br><span class="line">        INDEX </span><br><span class="line">        from </span><br><span class="line">        &quot;&quot;&quot; + table + &quot;&quot;&quot;</span><br><span class="line">         </span><br><span class="line">        where </span><br><span class="line">        not Key_name = &#x27;PRIMARY&#x27;</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        with self.__get_connection() as conn:</span><br><span class="line">            with conn.cursor() as cur:</span><br><span class="line">                try:</span><br><span class="line">                    cur.execute(sql)</span><br><span class="line">                    result = cur.fetchall()</span><br><span class="line">                    index_names = []</span><br><span class="line">                    for i in result:</span><br><span class="line">                        index_names.append(i[2])</span><br><span class="line">                    return index_names</span><br><span class="line">                except Exception as e:</span><br><span class="line">                    print(e)</span><br><span class="line">                    conn.rollback()</span><br><span class="line">                    return []</span><br><span class="line"></span><br><span class="line">    def truncate(self, sql: str, arg=None):</span><br><span class="line">        if not arg == None and not isinstance(arg, tuple):</span><br><span class="line">            arg = (arg,)</span><br><span class="line">        with self.__get_connection() as conn:</span><br><span class="line">            with conn.cursor() as cur:</span><br><span class="line">                try:</span><br><span class="line">                    cur.execute(sql, arg)</span><br><span class="line">                    conn.commit()</span><br><span class="line">                    return True</span><br><span class="line">                except Exception as e:</span><br><span class="line">                    print(e)</span><br><span class="line">                    conn.rollback()</span><br><span class="line">                    return False</span><br></pre></td></tr></table></figure>]]></content>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import time</span><br><span class="line">from application.common.classes.Logger import Logger</span><br><span class="line">from mysql.connector.pooling import MySQLConnectionPool</span><br><span class="line"></span><br><span class="line">from application.common.exception.MySqlException import MySqlException</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class MySql:</span><br><span class="line">    _instance = None</span><br><span class="line">    _initialized = False</span><br><span class="line"></span><br><span class="line">    # 确保单例</span><br><span class="line">    def __new__(cls, *args, **kwargs):</span><br><span class="line">        if cls._instance is None:</span><br><span class="line">            cls._instance = object.__new__(cls)</span><br><span class="line">        return cls._instance</span><br><span class="line"></span><br><span class="line">    def __init__(self, config=None):</span><br><span class="line">        if not self.__class__._initialized:</span><br><span class="line">            self.expire = 1800</span><br><span class="line">            self.host = config.MYSQL_HOST</span><br><span class="line">            self.port = config.MYSQL_PORT</span><br><span class="line">            self.user = config.MYSQL_USER</span><br><span class="line">            self.passwd = config.MYSQL_PASSWORD</span><br><span class="line">            self.database = config.MYSQL_DATABASE</span><br><span class="line">            self.ssl_disabled = config.SSL_DISABLED</span><br><span class="line">            self.pool_size = config.MYSQL_MAX_CONNECTIONS</span><br><span class="line">            self.use_pure = config.USE_PURE</span><br><span class="line">            self.__new_connect()</span><br><span class="line">            self.__class__._initialized = True</span><br><span class="line"></span><br><span class="line">    def __new_connect(self):</span><br><span class="line">        self.mysql_pool = MySQLConnectionPool(</span><br><span class="line">            host=self.host,</span><br><span class="line">            port=self.port,</span><br><span class="line">            user=self.user,</span><br><span class="line">            passwd=self.passwd,</span><br><span class="line">            database=self.database,</span><br><span class="line">            ssl_disabled=self.ssl_disabled,</span><br><span class="line">            pool_size=self.pool_size,</span><br><span class="line">            use_pure=self.use_pure</span><br><span class="line">        )</span><br><span class="line"></span><br><span class="line">    def __get_connection(self):</span><br><span class="line">        try:</span><br><span class="line">            conn = self.mysql_pool.get_connection()</span><br><span class="line">            if conn is None:</span><br><span class="line">                self.__new_connect()</span><br><span class="line">                time.sleep(1)</span><br><span class="line">                return self.__get_connection()</span><br><span class="line">            else:</span><br><span class="line">                return conn</span><br><span class="line">        except Exception as e:</span><br><span class="line">            log = Logger()</span><br><span class="line">            log.error_trace()</span><br><span class="line">            self.__new_connect()</span><br><span class="line">            time.sleep(5)</span><br><span class="line">            return self.__get_connection()</span><br><span class="line"></span><br><span class="line">    def select(self, sql: str, arg=None):</span><br><span class="line">        if not arg == None and not isinstance(arg, tuple):</span><br><span class="line">            arg = (arg,)</span><br><span class="line">        with self.__get_connection() as conn:</span><br><span class="line">            with conn.cursor(dictionary=True) as cur:</span><br><span class="line">                cur.execute(sql, arg)</span><br><span class="line">                result = cur.fetchall()</span><br><span class="line">                return result</span><br><span class="line"></span><br><span class="line">    def insert(self, sql: str, arg=None):</span><br><span class="line">        if not arg == None and not isinstance(arg, tuple):</span><br><span class="line">            arg = (arg,)</span><br><span class="line">        with self.__get_connection() as conn:</span><br><span class="line">            with conn.cursor() as cur:</span><br><span class="line">                try:</span><br><span class="line">                    cur.execute(sql, arg)</span><br><span class="line">                    conn.commit()</span><br><span class="line">                    return True</span><br><span class="line">                except Exception as e:</span><br><span class="line">                    log = Logger()</span><br><span class="line">                    log.error_trace()</span><br><span class="line">                    conn.rollback()</span><br><span class="line">                    return False</span><br><span class="line"></span><br><span class="line">    def insert_many(self, sql: str, arg=None):</span><br><span class="line">        if not arg == None and not isinstance(arg, list) and not all(isinstance(i, tuple) for i in arg):</span><br><span class="line">            raise MySqlException(&quot;insertMany参数必须为list[tuple]类型&quot;)</span><br><span class="line">        with self.__get_connection() as conn:</span><br><span class="line">            with conn.cursor() as cur:</span><br><span class="line">                try:</span><br><span class="line">                    cur.executemany(sql, arg)</span><br><span class="line">                    conn.commit()</span><br><span class="line">                    return True</span><br><span class="line">                except Exception as e:</span><br><span class="line">                    log = Logger()</span><br><span class="line">                    log.error_trace()</span><br><span class="line">                    conn.rollback()</span><br><span class="line">                    return False</span><br><span class="line"></span><br><span class="line">    def update(self, sql: str, arg=None):</span><br><span class="line">        if not arg == None and not isinstance(arg, tuple):</span><br><span class="line">            arg = (arg,)</span><br><span class="line">        with self.__get_connection() as conn:</span><br><span class="line">            with conn.cursor() as cur:</span><br><span class="line">                try:</span><br><span class="line">                    cur.execute(sql, arg)</span><br><span class="line">                    conn.commit()</span><br><span class="line">                    return True</span><br><span class="line">                except Exception as e:</span><br><span class="line">                    log = Logger()</span><br><span class="line">                    log.error_trace()</span><br><span class="line">                    conn.rollback()</span><br><span class="line">                    return False</span><br><span class="line"></span><br><span class="line">    def alter(self, sql: str, arg=None):</span><br><span class="line">        if not arg == None and not isinstance(arg, tuple):</span><br><span class="line">            arg = (arg,)</span><br><span class="line">        with self.__get_connection() as conn:</span><br><span class="line">            with conn.cursor() as cur:</span><br><span class="line">                try:</span><br><span class="line">                    cur.execute(sql, arg)</span><br><span class="line">                    conn.commit()</span><br><span class="line">                    return True</span><br><span class="line">                except Exception as e:</span><br><span class="line">                    log = Logger()</span><br><span class="line">                    log.error_trace()</span><br><span class="line">                    conn.rollback()</span><br><span class="line">                    return False</span><br><span class="line"></span><br><span class="line">    def get_index(self, table: str):</span><br><span class="line">        sql = &quot;&quot;&quot;</span><br><span class="line">        show </span><br><span class="line">        INDEX </span><br><span class="line">        from </span><br><span class="line">        &quot;&quot;&quot; + table + &quot;&quot;&quot;</span><br><span class="line"></span><br><span class="line">        where </span><br><span class="line">        not Key_name = &#x27;PRIMARY&#x27;</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        with self.__get_connection() as conn:</span><br><span class="line">            with conn.cursor() as cur:</span><br><span class="line">                try:</span><br><span class="line">                    cur.execute(sql)</span><br><span class="line">                    result = cur.fetchall()</span><br><span class="line">                    index_names = []</span><br><span class="line">                    for i in result:</span><br><span class="line">                        index_names.append(i[2])</span><br><span class="line">                    return index_names</span><br><span class="line">                except Exception as e:</span><br><span class="line">                    log = Logger()</span><br><span class="line">                    log.error_trace()</span><br><span class="line">                    conn.rollback()</span><br><span class="line">                    return []</span><br><span class="line"></span><br><span class="line">    def truncate(self, sql: str, arg=None):</span><br><span class="line">        if not arg == None and not isinstance(arg, tuple):</span><br><span class="line">            arg = (arg,)</span><br><span class="line">        with self.__get_connection() as conn:</span><br><span class="line">            with conn.cursor() as cur:</span><br><span class="line">                try:</span><br><span class="line">                    cur.execute(sql, arg)</span><br><span class="line">                    conn.commit()</span><br><span class="line">                    return True</span><br><span class="line">                except Exception as e:</span><br><span class="line">                    log = Logger()</span><br><span class="line">                    log.error_trace()</span><br><span class="line">                    conn.rollback()</span><br><span class="line">                    return False</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>Python</category>
         <category>常用库</category>
@@ -4520,6 +4542,9 @@ python proxyPool.py server
 <p>指定本地python版本创建新环境</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mkvirtualenv --python=/xxx/bin/python env_name</span><br></pre></td></tr></table></figure>
 
+<p>不装<code>pip</code>、<code>setuptools</code>、<code>wheel</code></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mkvirtualenv --python=/xxx/bin/python env_name --no-pip --no-setuptools --no-wheel</span><br></pre></td></tr></table></figure>
+
 <h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><p>查看所有环境</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">workon</span><br></pre></td></tr></table></figure>
 
@@ -4994,13 +5019,789 @@ python proxyPool.py server
 <h2 id="问题原因"><a href="#问题原因" class="headerlink" title="问题原因"></a>问题原因</h2><p>之前重命名过另一个解释器，因为未知原因，没在UI上显示，但在配置文件中还有记录，所以再次重命名为相同名字时报错。</p>
 <hr>
 <h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>配置文件在<code>C:\Users\&lt;username&gt;\AppData\Roaming\JetBrains\PyCharm2023.1\options\jdk.table.xml</code></p>
-<p>删除配置文件中错误的解释器配置就好了。</p>
+<p>删除配置文件中错误的解释器配置就可以了。</p>
 ]]></content>
       <categories>
         <category>Pycharm</category>
       </categories>
       <tags>
         <tag>Pycharm</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/2025/01/20/test00/</url>
+    <content><![CDATA[<span id="more"></span>
+
+<p><img data-src="data:image/jpg;base64,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" alt="alt"></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>Anaconda虚拟环境下更换python版本</title>
+    <url>/2025/02/09/anaconda02/</url>
+    <content><![CDATA[<p>在不重建环境的情况下升&#x2F;降级python版本。</p>
+<span id="more"></span>
+
+<h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><p>不论升降，都用<code>conda install python</code>。</p>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><p>修改版本后原来使用pip安装的包会被删掉，无法使用。</p>
+]]></content>
+      <categories>
+        <category>Anaconda</category>
+      </categories>
+      <tags>
+        <tag>Anaconda</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>FFmpeg | 使用英伟达显卡加速编码</title>
+    <url>/2025/01/07/ffmpeg18/</url>
+    <content><![CDATA[<p>新整了张卡，学习了下GPU加速。</p>
+<span id="more"></span>
+
+<h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>软硬编解码说白了就是，软编解码就是CPU编解码，硬编解码是GPU编解码。</p>
+<p>以编码为例，软编码就是小火慢炖，硬编码就是大火猛烧。</p>
+<p>软编码编的慢，硬编码编的快。</p>
+<h1 id="查看支持的编码"><a href="#查看支持的编码" class="headerlink" title="查看支持的编码"></a>查看支持的编码</h1><p>我是要编码，不是要解码，所以命令是：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Windows：</span><br><span class="line">ffmpeg -codecs | findstr nvenc</span><br><span class="line"></span><br><span class="line">Linux：</span><br><span class="line">ffmpeg -codecs | grep nvenc</span><br></pre></td></tr></table></figure>
+
+<p>解码不太确定，毕竟没用过，应该是：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Windows：</span><br><span class="line">ffmpeg -codecs | findstr cuvid</span><br><span class="line"></span><br><span class="line">Linux：</span><br><span class="line">ffmpeg -codecs | grep cuvid</span><br></pre></td></tr></table></figure>
+
+<p>我平常压视频用<code>hevc</code>所以对应的编码是<code>hevc_nvenc</code>，把平常转码的目标格式从<code>hevc</code>换成<code>hevc_nvenc</code>就行了。</p>
+<h1 id="胡扯时间"><a href="#胡扯时间" class="headerlink" title="胡扯时间"></a>胡扯时间</h1><p>个人感觉软编码编出来的质量好一些，同一个文件、同一个源和目标编码、相同参数的情况下，软编码编出来文件体积要小一点。</p>
+<p>当然肉眼看着没啥差别。</p>
+]]></content>
+      <categories>
+        <category>ffmpeg</category>
+      </categories>
+      <tags>
+        <tag>ffmpeg</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Flask | Flask设置同时支持IPv4和IPv6</title>
+    <url>/2025/02/09/flask03/</url>
+    <content><![CDATA[<p>通过对Flask进行设置，可以同时支持IPv4和IPv6。</p>
+<span id="more"></span>
+
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><p>只需要改变Flask的run方法参数。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">app.run(host=&#x27;::&#x27;, threaded=True)</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Python</category>
+        <category>常用库</category>
+        <category>Flask</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>Flask</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>FRP内网穿透部署</title>
+    <url>/2025/06/03/frp00/</url>
+    <content><![CDATA[<p>FRP (Fast Reverse Proxy) 是一款高性能的内网穿透工具，FRP 的工作原理是利用内网机器主动与公网服务器建立连接，从而创建一个数据隧道，使得外网流量可以通过这个隧道被转发到内网机器。这样，即使内网机器没有公网 IP，也可以被外网访问。</p>
+<span id="more"></span>
+
+<p>FRP分为FRPS（服务器）和FRPC（客户端）。服务器需要有公网IP，客户端部署在你想要穿透的内网机上，同局域网布一个客户端就行了。</p>
+<h1 id="FRPS（FRP-服务端）"><a href="#FRPS（FRP-服务端）" class="headerlink" title="FRPS（FRP 服务端）"></a>FRPS（FRP 服务端）</h1><p>SSH进入服务器，用一键安装脚本部署：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">wget https://raw.githubusercontent.com/MvsCode/frps-onekey/master/install-frps.sh -O ./install-frps.sh</span><br><span class="line">chmod 700 ./install-frps.sh</span><br><span class="line">./install-frps.sh install</span><br></pre></td></tr></table></figure>
+<p>接着脚本会让你依次设置各种端口，为了避免冲突，建议手动设置各个端口号，我设置的如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">BindPort 7000</span><br><span class="line">HTTP Port 8800</span><br><span class="line">HTTPS Port 8443</span><br><span class="line">Web面板端口 8555</span><br><span class="line">账号密码都是 admin</span><br><span class="line">token 设置长密码</span><br></pre></td></tr></table></figure>
+<p>域名地址，默认<br>最大用户默认<br>接下来各种日志选择都默认即可</p>
+<p>安装好后运行 FRP（后台运行）</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nohup ./frps -c frps.ini &gt;/dev/null 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure>
+
+<p>访问<code>服务器公网ip:Web面板端口</code>，能成功进入WEB后台就成功了。</p>
+<p>常用命令</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">开启FRP：frps start</span><br><span class="line"></span><br><span class="line">停止FRP：frps stop</span><br><span class="line"></span><br><span class="line">重启FRP：frps restart</span><br></pre></td></tr></table></figure>
+
+<h1 id="FRPC（FRP-客户端）"><a href="#FRPC（FRP-客户端）" class="headerlink" title="FRPC（FRP 客户端）"></a>FRPC（FRP 客户端）</h1><p>这里使用Docker安装。</p>
+<p>镜像名：<br>stilleshan&#x2F;frpc</p>
+<p>用<code>docker pull</code>拉一下或者可视化面板拉一下。</p>
+<p>我的镜像版本是0.62.1，这个版本已经不支持ini了，所以我用的是toml。</p>
+<p>将docker内部地址<code>/frp/frpc.toml</code>映射到自己的物理地址。</p>
+<p>配置文件内容：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[common]</span><br><span class="line">server_addr = 你的服务器 IP</span><br><span class="line">server_port = frp 通信通道端口号（最开始设置的第一个）</span><br><span class="line">token = 你的token</span><br><span class="line"></span><br><span class="line">[任务名称，随便写，不能重名，如：NAS1]</span><br><span class="line">type = tcp</span><br><span class="line">local_ip = 局域网 IP</span><br><span class="line">local_port = 本地端口号</span><br><span class="line">remote_port = 对外端口号</span><br><span class="line"></span><br><span class="line">[任务名称，随便写，不能重名，如：NAS2]</span><br><span class="line">type = tcp</span><br><span class="line">local_ip = 局域网 IP</span><br><span class="line">local_port = 本地端口号</span><br><span class="line">remote_port = 对外端口号</span><br></pre></td></tr></table></figure>
+
+<p>注意：每次增加设备或者改写配置都需要重启 Docker 容器才会生效。</p>
+<p>现在在浏览器打开<code>服务器IP/域名:端口号</code>就可以正常访问内网的设备了。</p>
+<p>参考文章：<a href="https://www.mspace.cc/archives/894">2024 一键部署 FRP 内网穿透服务端 + 群晖 NAS 客户端配置 | 保姆级教程</a></p>
+]]></content>
+      <categories>
+        <category>Docker</category>
+        <category>FRP</category>
+      </categories>
+      <tags>
+        <tag>Docker</tag>
+        <tag>FRP</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Git | 在git命令中带上账号密码</title>
+    <url>/2025/06/26/git04/</url>
+    <content><![CDATA[<p>场景不细说了，反正就是有这需求。</p>
+<span id="more"></span>
+
+<p>查了下，带账号密码很简单。</p>
+<p>账号：user<br>密码：password<br>git地址：<a href="https://xxx.xxx.com/xxx/xxx.git">https://xxx.xxx.com/xxx/xxx.git</a></p>
+<p>带账号密码的</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git clone https://user:password@xxx.xxx.com/xxx/xxx.git</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Git</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Git | 在clone时为github配置代理</title>
+    <url>/2025/08/06/git05/</url>
+    <content><![CDATA[<p>平常clone的项目都是文本，今天遇到一个项目中单文件好几M，特别慢，所以找了一个配置代理的方法，亲测可用。</p>
+<span id="more"></span>
+
+<p>搬运自<a href="https://zhuanlan.zhihu.com/p/481574024">这里</a></p>
+<h1 id="设置ssh代理（终极解决方案）"><a href="#设置ssh代理（终极解决方案）" class="headerlink" title="设置ssh代理（终极解决方案）"></a>设置ssh代理（终极解决方案）</h1><p>https代理存在一个局限，那就是没有办法做身份验证，每次拉取私库或者推送代码时，都需要输入github的账号和密码，非常痛苦。</p>
+<p>更进一步是设置ssh代理。只需要配置一个config就可以了。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># Linux、MacOS</span><br><span class="line">vi ~/.ssh/config</span><br><span class="line"># Windows </span><br><span class="line">到C:\Users\your_user_name\.ssh目录下，新建一个config文件（无后缀名）</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>将下面内容加到config文件中即可</p>
+<div class="note info"><p>对于windows用户，注意代理会用到connect.exe，你如果安装了Git都会自带connect.exe，如我的路径为C:\APP\Git\mingw64\bin\connect</p>
+</div>
+
+
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#Windows用户，注意替换你的端口号和connect.exe的路径</span><br><span class="line">ProxyCommand &quot;C:\APP\Git\mingw64\bin\connect&quot; -S 127.0.0.1:51837 -a none %h %p</span><br><span class="line"></span><br><span class="line">#MacOS用户用下方这条命令，注意替换你的端口号</span><br><span class="line">#ProxyCommand nc -v -x 127.0.0.1:51837 %h %p</span><br><span class="line"></span><br><span class="line">Host github.com</span><br><span class="line">  User git</span><br><span class="line">  Port 22</span><br><span class="line">  Hostname github.com</span><br><span class="line">  # 注意修改路径为你的路径</span><br><span class="line">  IdentityFile &quot;C:\Users\Your_User_Name\.ssh\id_rsa&quot;</span><br><span class="line">  TCPKeepAlive yes</span><br><span class="line"></span><br><span class="line">Host ssh.github.com</span><br><span class="line">  User git</span><br><span class="line">  Port 443</span><br><span class="line">  Hostname ssh.github.com</span><br><span class="line">  # 注意修改路径为你的路径</span><br><span class="line">  IdentityFile &quot;C:\Users\Your_User_Name\.ssh\id_rsa&quot;</span><br><span class="line">  TCPKeepAlive yes</span><br></pre></td></tr></table></figure>
+
+<p>保存后文件后测试方法，建议clone一个有大文件的项目，看看速度，同时也可以看看代理的流量。</p>
+]]></content>
+      <categories>
+        <category>Git</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux防火墙配置</title>
+    <url>/2024/12/24/linux12/</url>
+    <content><![CDATA[<p>配置白名单防火墙</p>
+<span id="more"></span>
+
+<h2 id="开放指定端口"><a href="#开放指定端口" class="headerlink" title="开放指定端口"></a>开放指定端口</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">firewall-cmd --permanent --add-port=3306/tcp</span><br></pre></td></tr></table></figure>
+
+<h2 id="删除指定端口"><a href="#删除指定端口" class="headerlink" title="删除指定端口"></a>删除指定端口</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">firewall-cmd --permanent --remove-port=3306/tcp</span><br></pre></td></tr></table></figure>
+
+<h2 id="对指定IP开放指定端口"><a href="#对指定IP开放指定端口" class="headerlink" title="对指定IP开放指定端口"></a>对指定IP开放指定端口</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">firewall-cmd --permanent --add-rich-rule=&#x27;rule family=&quot;ipv4&quot; source address=&quot;xxx.xxx.xxx.xxx&quot; port protocol=&quot;tcp&quot; port=&quot;3306&quot; accept&#x27;</span><br></pre></td></tr></table></figure>
+
+<h2 id="重新加载"><a href="#重新加载" class="headerlink" title="重新加载"></a>重新加载</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">firewall-cmd --reload</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>DeepSeek | 本地部署DeepSeek-R1模型及经验总结</title>
+    <url>/2025/02/18/llm01/</url>
+    <content><![CDATA[<p>记一下自己的操作步骤。</p>
+<span id="more"></span>
+
+<h1 id="硬件情况"><a href="#硬件情况" class="headerlink" title="硬件情况"></a>硬件情况</h1><p>我的GPU是RTX 4070Ti Super，16G显存。</p>
+<p>CPU是i5-12600KF。</p>
+<p>内存是DDR5 64G。</p>
+<p>Win10。</p>
+<h1 id="经验总结"><a href="#经验总结" class="headerlink" title="经验总结"></a>经验总结</h1><p>最后部署了14B的模型，比较流畅，显存占用11G左右。</p>
+<p>7B、8B都布过，显存占用没看。</p>
+<p>32B的布完爆显存（或者是爆内存？）了，能用是能用，卡的离谱。</p>
+<p>看网上说还有一个量化过的<code>deepseek-r1:32b-q4_0</code>，还没试。</p>
+<p>大致情况是这样，后面就没什么营养了，都是网上说烂了的东西。</p>
+<h1 id="安装Ollama"><a href="#安装Ollama" class="headerlink" title="安装Ollama"></a>安装Ollama</h1><p>官网下载安装包并安装。</p>
+<p>Ollama是一个命令行工具，安装完后可以在命令行<code>ollama -v</code>验证。</p>
+<p>需要注意的是，Ollama默认安装位置和模型存储位置在C盘，按需自己修改，修改方法是设置环境变量，例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">OLLAMA_MODELS=F:\LLM\Ollama\models</span><br></pre></td></tr></table></figure>
+
+<h1 id="使用Ollama下载并运行DeepSeek-R1-14B模型"><a href="#使用Ollama下载并运行DeepSeek-R1-14B模型" class="headerlink" title="使用Ollama下载并运行DeepSeek-R1-14B模型"></a>使用Ollama下载并运行DeepSeek-R1-14B模型</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ollama run deepseek-r1:7b</span><br></pre></td></tr></table></figure>
+
+<p>这一步需要注意的是，网络直连速度一般，不到1M。按需自己想办法。</p>
+<h1 id="安装ChatBox"><a href="#安装ChatBox" class="headerlink" title="安装ChatBox"></a>安装ChatBox</h1><p>官网下载安装。</p>
+<p>设置中，模型提供方选择Ollama Api，Api域名写<a href="http://localhost:11434，下面的模型选择deepseep-r1:14b。">http://localhost:11434，下面的模型选择deepseep-r1:14b。</a></p>
+<p>到这就能用了。</p>
+]]></content>
+      <categories>
+        <category>LLM</category>
+        <category>模型</category>
+        <category>DeepSeek</category>
+        <category>工具</category>
+        <category>Ollama</category>
+        <category>Chatbox</category>
+      </categories>
+      <tags>
+        <tag>LLM</tag>
+        <tag>DeepSeek</tag>
+        <tag>Ollama</tag>
+        <tag>Chatbox</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Mac服务器报错处理 | No Route To Host</title>
+    <url>/2025/06/05/mac00/</url>
+    <content><![CDATA[<p>用Mac当服务器跑应用遇到了问题，陆陆续续解决了一个星期吧，把经验记录一下。</p>
+<span id="more"></span>
+
+<h1 id="问题现象"><a href="#问题现象" class="headerlink" title="问题现象"></a>问题现象</h1><p>我在Mac上跑了Web应用，应用内部需要访问内网IP，如<code>192.168.1.101</code>之类的。</p>
+<p>这些IP有的是中间件比如MySQL、Redis、RabbitMQ之类的，有的是其他Web服务（部署在局域网内其他设备），都是域名+本地hosts方式访问的。</p>
+<p>服务启动时没有问题，也能正常用，服务可以正常访问这些IP。</p>
+<p>过了一段时间之后——大概就是晚上睡一觉起来的时间——服务就无法访问内网IP了。</p>
+<p>日志显示<code>No Route To Host</code>，重连机制也失败，报同样的错。</p>
+<h1 id="最终解决方案"><a href="#最终解决方案" class="headerlink" title="最终解决方案"></a>最终解决方案</h1><p>启服务用<code>sudo</code>启。</p>
+<p>没错！就是这样！这是个权限问题！Fxxx Apple！</p>
+<h1 id="问题原因"><a href="#问题原因" class="headerlink" title="问题原因"></a>问题原因</h1><p>通过检索，在<a href="https://gitlab.com/gnachman/iterm2/-/issues/12106">这里</a>和<a href="https://www.reddit.com/r/networking/comments/1i28aee/comment/m7e8qit/?tl=zh-hans&translated=1">这里</a>找到了问题原因。</p>
+<p>Mac在本地网络访问上是有权限控制的，8小时后（这个时长是检索的时候不知道在哪个讨论帖里看到的）就会拒绝服务的所有本地网络访问。</p>
+<h1 id="踩过的坑"><a href="#踩过的坑" class="headerlink" title="踩过的坑"></a>踩过的坑</h1><h2 id="DHCP问题"><a href="#DHCP问题" class="headerlink" title="DHCP问题"></a>DHCP问题</h2><p>因为这个Mac买回来，DHCP一直有问题，详情在<a href="/2025/06/05/mac01/" title="Mac有线网络显示“自分配IP”">这里</a>，所以刚开始以为是请求发不到路由器导致的，但最后DHCP问题解决了，这个问题也没好。</p>
+<h2 id="代码问题"><a href="#代码问题" class="headerlink" title="代码问题"></a>代码问题</h2><p>中间还反复看了代码，加了各种重连机制，把三方库里的源码都改了，结果都没用，白费功夫。</p>
+<h2 id="Mac设置问题"><a href="#Mac设置问题" class="headerlink" title="Mac设置问题"></a>Mac设置问题</h2><p>帖子里说在<code>系统设置</code>&gt;<code>隐私和安全</code>&gt;<code>本地网络</code>里把权限打开，但我的服务是用命令行启动的，不是个标准的Mac OS服务，这个也没用。</p>
+]]></content>
+      <categories>
+        <category>MAC</category>
+      </categories>
+      <tags>
+        <tag>MAC</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>DeepSeek | 使用网络公开的DeepSeek Api</title>
+    <url>/2025/02/18/llm02/</url>
+    <content><![CDATA[<p>如题。</p>
+<span id="more"></span>
+
+<p>使用<code>ZoomEye</code>搜索<code>app=&quot;Ollama&quot;</code>，就可以搜到很多公开Api，在ChatBox里可以调用。</p>
+]]></content>
+      <categories>
+        <category>LLM</category>
+        <category>模型</category>
+        <category>DeepSeek</category>
+        <category>工具</category>
+        <category>Ollama</category>
+        <category>Chatbox</category>
+      </categories>
+      <tags>
+        <tag>LLM</tag>
+        <tag>DeepSeek</tag>
+        <tag>Ollama</tag>
+        <tag>Chatbox</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Mac有线网络显示“自分配IP”</title>
+    <url>/2025/06/05/mac01/</url>
+    <content><![CDATA[<p>这个到最后也没找到原因，记一下怎么弄好的。</p>
+<span id="more"></span>
+
+<h1 id="问题现象"><a href="#问题现象" class="headerlink" title="问题现象"></a>问题现象</h1><p>无线正常。</p>
+<p>用有线连接路由器时，显示“自分配的ip”，同时子网掩码是“255.255.0.0”，ip是169.254.38.13，无法上网，其他子网成员的子网掩码都是255.255.255.0。</p>
+<h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><p>用AI找的方案，重置以太网设置：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo ifconfig en0 down  # 关闭网卡（en0是有线网卡名）</span><br><span class="line">sudo rm /Library/Preferences/SystemConfiguration/NetworkInterfaces.plist  # 删除硬件配置</span><br><span class="line">sudo rm /Library/Preferences/SystemConfiguration/preferences.plist  # 删除网络配置</span><br><span class="line">sudo nvram -c  # 清除NVRAM (关机后按Cmd+Option+P+R开机重置)</span><br><span class="line"></span><br><span class="line"># 1. 关闭网络配置守护进程</span><br><span class="line">sudo /usr/libexec/airportd stop</span><br><span class="line"></span><br><span class="line"># 2. 删除系统级网络配置文件</span><br><span class="line">sudo rm /Library/Preferences/SystemConfiguration/NetworkInterfaces.plist</span><br><span class="line">sudo rm /Library/Preferences/SystemConfiguration/preferences.plist</span><br><span class="line"></span><br><span class="line"># 3. 清除动态配置缓存</span><br><span class="line">sudo rm /var/db/dhcpclient_leases  # DHCP缓存</span><br><span class="line">sudo dscacheutil -flushcache</span><br><span class="line"></span><br><span class="line"># 4. 重启Mac</span><br><span class="line">sudo shutdown -r now</span><br></pre></td></tr></table></figure>
+
+<p>好是好了，但我不太清楚每一步的具体含义，慎用。</p>
+<h1 id="踩过的坑"><a href="#踩过的坑" class="headerlink" title="踩过的坑"></a>踩过的坑</h1><p>去看了路由器相关日志：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">May 24 19:10:55 dnsmasq-dhcp[24459]: DHCPDISCOVER(br0) xx:xx:xx:xx:xx:xx </span><br><span class="line">May 24 19:10:55 dnsmasq-dhcp[24459]: DHCPOFFER(br0) 192.168.1.101 xx:xx:xx:xx:xx:xx </span><br><span class="line">May 24 19:11:04 dnsmasq-dhcp[24459]: DHCPDISCOVER(br0) xx:xx:xx:xx:xx:xx </span><br><span class="line">May 24 19:11:04 dnsmasq-dhcp[24459]: DHCPOFFER(br0) 192.168.1.101 xx:xx:xx:xx:xx:xx </span><br><span class="line">May 24 19:11:13 dnsmasq-dhcp[24459]: DHCPDISCOVER(br0) xx:xx:xx:xx:xx:xx </span><br><span class="line">May 24 19:11:13 dnsmasq-dhcp[24459]: DHCPOFFER(br0) 192.168.1.101 xx:xx:xx:xx:xx:xx </span><br><span class="line">May 24 19:11:21 dnsmasq-dhcp[24459]: DHCPDISCOVER(br0) xx:xx:xx:xx:xx:xx </span><br><span class="line">May 24 19:11:21 dnsmasq-dhcp[24459]: DHCPOFFER(br0) 192.168.1.101 xx:xx:xx:xx:xx:xx </span><br></pre></td></tr></table></figure>
+
+<p><code>xx:xx:xx:xx:xx:xx</code>是Mac的MAC地址。</p>
+<p>这里确实有问题，日志里只有设备的DISCOVER和路由器的OFFER，没有设备REQUEST和路由器ACK，所以很像是设备问题。</p>
+<p>确实对这个没啥研究，后来问题也解决了，就没再深究。</p>
+]]></content>
+      <categories>
+        <category>MAC</category>
+      </categories>
+      <tags>
+        <tag>MAC</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Docker部署MySql</title>
+    <url>/2025/06/03/mysql01/</url>
+    <content><![CDATA[<p>记录一下Docker部署MySql的流程和遇到的问题。</p>
+<span id="more"></span>
+
+<h1 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h1><p>拉取镜像：<code>docker pull mysql:8.0.33</code><br>设置映射：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/xxx/MySQL:/var/lib/mysql:rw</span><br><span class="line">/xxx/MySQL/config:/etc/mysql/conf.d:rw</span><br></pre></td></tr></table></figure>
+<p>环境变量：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">MYSQL_ROOT_PASSWORD=xxxxxxxxx</span><br></pre></td></tr></table></figure>
+
+<p>然后把容器run起来。</p>
+<h1 id="修改设置"><a href="#修改设置" class="headerlink" title="修改设置"></a>修改设置</h1><p>进入docker容器的命令行，连上mysql：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker exec -it docker容器名 bash</span><br><span class="line">mysql -uroot -pxxxxxxxxx</span><br></pre></td></tr></table></figure>
+
+<p>改下远程登录设置：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">use mysql;</span><br><span class="line"></span><br><span class="line">select host, user, plugin from user;  // 看下root的host是什么配置，并看下加密方式（plugin）</span><br><span class="line"></span><br><span class="line">update user set host=&#x27;%&#x27; where user=&#x27;root&#x27;;   // 设置允许外部主机访问</span><br><span class="line"></span><br><span class="line">FLUSH PRIVILEGES;    // 刷新设置</span><br></pre></td></tr></table></figure>
+
+<p>因为我自己需要<code>mysql_native_password</code>方式，所以还要：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ALTER USER &#x27;root&#x27;@&#x27;%&#x27; IDENTIFIED WITH mysql_native_password BY &#x27;你的密码&#x27;;</span><br><span class="line">FLUSH PRIVILEGES;</span><br></pre></td></tr></table></figure>
+
+<p>然后就可以用了。</p>
+<h1 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h1><p>由于我是在新主机上按照旧配置重建数据库，所以在<code>docker pull</code>的时候，使用了旧主机上的<code>latest</code>tag，导致拉下来的镜像是MySql9，在启动的时候一直报错：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">The designated data directory /var/lib/mysql/ is unusable. You can remove all files that the server added to it.</span><br></pre></td></tr></table></figure>
+<p>后来发现是版本问题。</p>
+<p>因为我的需求就是MySql8，所以也没有细究报错原因，指定tag为<code>8.0.33</code>重新启动后，就没问题了。</p>
+]]></content>
+      <categories>
+        <category>Docker</category>
+        <category>数据库</category>
+        <category>MySQL</category>
+      </categories>
+      <tags>
+        <tag>Docker</tag>
+        <tag>数据库</tag>
+        <tag>MySql</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>IPv6实现外网访问群晖NAS</title>
+    <url>/2025/02/09/nas01/</url>
+    <content><![CDATA[<p>如题。</p>
+<span id="more"></span>
+
+<h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><p>要想实现外网访问，就要保证Nas不是内网设备，而是有自己独立的IP。</p>
+<p>所以首先要做以下事项：</p>
+<p>1、确保运营商给了公网IP<br>2、为Nas设备设置单独的公网IP</p>
+<p>这两步做完后，就能通过IP访问Nas了。但大多数情况下，运营商给的公网是动态的，还需要域名。<br>1、自己准备域名，一般就去阿里云腾讯云买。<br>2、域名DNS解析，一般在哪买的在哪解析。<br>3、上报IP变化，比如在本地起一个DDNS-GO服务做这个。</p>
+<p>如果是群晖设备，就简单了：<br>1、使用自带的域名服务</p>
+<p>下面以群晖设备为例，走一遍流程，方便下次不走弯路。</p>
+<h1 id="流程记录"><a href="#流程记录" class="headerlink" title="流程记录"></a>流程记录</h1><h2 id="确保运营商给了公网IP"><a href="#确保运营商给了公网IP" class="headerlink" title="确保运营商给了公网IP"></a>确保运营商给了公网IP</h2><p>自己分析一下。</p>
+<h2 id="为Nas设备设置单独的公网IP"><a href="#为Nas设备设置单独的公网IP" class="headerlink" title="为Nas设备设置单独的公网IP"></a>为Nas设备设置单独的公网IP</h2><p>这一步简单来说就是光猫改桥接+路由器拨号。</p>
+<p>光猫改桥接网上教程一抓一大把，就不说了，路由器拨号这个教程较少，记一下。</p>
+<p>我是梅林固件，在左侧“外部网络”选项里，<code>WAN 联机类型</code>选择<code>PPPoE</code>。<br><code>自动取得远程网络地址</code>和<code>自动接上 DNS 服务器</code>选“是”。<br><code>PPP 用户名称</code>输入宽带账号（因为我是办的单宽带，所以有个账号，随手机的宽带我不知道宽带账号是什么）。<br><code>密码</code>输入宽带密码，不知道的要么在光猫里查，要么给运营商打电话重置密码（我没在光猫里查到，我是打的电话）。</p>
+<p>到这有网了，就OK了。</p>
+<h2 id="使用自带的域名服务"><a href="#使用自带的域名服务" class="headerlink" title="使用自带的域名服务"></a>使用自带的域名服务</h2><p>打开群晖页面，<code>控制面板</code>-<code>连接性</code>-<code>外部访问</code>-<code>DDNS</code>-<code>新增</code>。</p>
+<p><code>服务器供应商</code>选<code>Synology</code>，也就是群晖，剩下的照着填就完了。</p>
+<p>需要注意的是，IPv4和IPv6有哪个公网IP就填哪个，不然可能后续解析的时候会出问题。</p>
+<p>比如我只有IPv6公网IP，但我第一次弄的时候IPv4和IPv6都选上了，导致我在访问Nas的时候，有时优先走IPv4，就访问不到。</p>
+<p>我猜测是因为这里给DNS上报的IPv4地址是运营商的大内网地址，在外网访问的时候就访问不到了。</p>
+<p>到这一步，就可以做到外网访问了，当然IPv4访问</p>
+<h2 id="反代"><a href="#反代" class="headerlink" title="反代"></a>反代</h2><p>这是个进阶玩法，现在Nas已经有域名访问的能力了，但是局域网内的其他设备是没有的。</p>
+<p>Nas可以用群晖提供的域名，内网设备虽然有公网IP但没有域名，怎么办？</p>
+<p>群晖提供了一个反代的功能，可以将内网其他设备的端口反代到群晖的端口上。</p>
+<p>反代的功能在<code>控制面板</code>-<code>系统</code>-<code>登录门户</code>-<code>高级</code>-<code>反向代理服务器</code>。</p>
+<p>具体用法很简单，看看就会了，就不细说了。</p>
+]]></content>
+      <categories>
+        <category>Nas</category>
+        <category>群晖</category>
+        <category>Docker</category>
+      </categories>
+      <tags>
+        <tag>群晖</tag>
+        <tag>Docker</tag>
+        <tag>Nas</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>npm报错：request to https://registry.npm.taobao.org failed, reason certificate has expired</title>
+    <url>/2025/02/13/npm01/</url>
+    <content><![CDATA[<p>原因是淘宝的旧源已经不用了。</p>
+<span id="more"></span>
+
+<p>解决方法也简单，换个源就行。</p>
+<p>换源方法可以看<a href="/2025/02/13/npm00/" title="npm换源方法">这篇文章</a>。</p>
+]]></content>
+      <categories>
+        <category>npm</category>
+      </categories>
+      <tags>
+        <tag>npm</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>npm换源方法</title>
+    <url>/2025/02/13/npm00/</url>
+    <content><![CDATA[<p>共有三种方法。</p>
+<span id="more"></span>
+
+<h1 id="方法一-命令行修改"><a href="#方法一-命令行修改" class="headerlink" title="方法一 命令行修改"></a>方法一 命令行修改</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 查看当前源地址</span><br><span class="line">npm config get registry</span><br><span class="line"></span><br><span class="line">// 换源</span><br><span class="line">npm config set registry &lt;要修改的源地址&gt;</span><br></pre></td></tr></table></figure>
+
+<p>例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 淘宝源</span><br><span class="line">npm config set registry https://registry.npmmirror.com/</span><br></pre></td></tr></table></figure>
+
+<h1 id="方法二-编辑配置文件"><a href="#方法二-编辑配置文件" class="headerlink" title="方法二 编辑配置文件"></a>方法二 编辑配置文件</h1><p>以Windows为例，文件路径是：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">C:\Users\&lt;用户名&gt;\.npmrc</span><br></pre></td></tr></table></figure>
+
+<p>编辑为：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">registry=https://registry.npmmirror.com/</span><br></pre></td></tr></table></figure>
+
+<h1 id="方法三-用nrm管理npm源（推荐）"><a href="#方法三-用nrm管理npm源（推荐）" class="headerlink" title="方法三 用nrm管理npm源（推荐）"></a>方法三 用nrm管理npm源（推荐）</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install -g nrm     // 安装nrm</span><br><span class="line">nrm ls                 // 查看源列表</span><br><span class="line">nrm use taobao         // 换源</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>npm</category>
+      </categories>
+      <tags>
+        <tag>npm</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Poetry的介绍</title>
+    <url>/2025/02/09/poetry00/</url>
+    <content><![CDATA[<p>Poetry的介绍可以看下<a href="https://blog.csdn.net/swindler_ice/article/details/127040576">这里</a>。</p>
+<span id="more"></span>
+
+<p>暂时不打算用，就不细说了。</p>
+]]></content>
+      <categories>
+        <category>Python</category>
+        <category>Poetry</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>Poetry</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>PotPlayer | lrc字幕无法正确按照时间轴显示</title>
+    <url>/2025/03/13/potplayer00/</url>
+    <content><![CDATA[<p>记录一下问题。</p>
+<span id="more"></span>
+
+<p>更新到了250313版本，发现.lrc格式的字幕对不上时间了。没办法，回退到了250226版本。</p>
+<p>如果后续出现了.lrc字幕显示和时间轴不一致的情况，可以回退至250226版本。</p>
+<p>记录一下。</p>
+]]></content>
+      <categories>
+        <category>PotPlayer</category>
+      </categories>
+      <tags>
+        <tag>PotPlayer</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Python | A process in the process pool was terminated abruptly while the future was running or pending</title>
+    <url>/2024/12/31/python10/</url>
+    <content><![CDATA[<p>错误处理。</p>
+<span id="more"></span>
+
+<h2 id="问题-错误"><a href="#问题-错误" class="headerlink" title="问题&#x2F;错误"></a>问题&#x2F;错误</h2><p>代码报错<code>A process in the process pool was terminated abruptly while the future was running or pending</code></p>
+<hr>
+<h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>原因是在多进程（<code>ProcessPoolExecutor</code>）中，<code>multiprocessing.Manager().dict()</code>和<code>multiprocessing.Manager().list()</code>不能作为返回值，和pool.submit().result()有冲突。</p>
+<p>猜测和序列化有关，没有深究。</p>
+<hr>
+<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>本质上都是要保证在子程序return时，返回值是<code>dict</code>或<code>list</code>。</p>
+<p>推荐方法一。</p>
+<h3 id="方法一-使用普通dict和list"><a href="#方法一-使用普通dict和list" class="headerlink" title="方法一 使用普通dict和list"></a>方法一 使用普通<code>dict</code>和<code>list</code></h3><p>在子程序里没必要使用进程安全的<code>multiprocessing.Manager().dict()</code>和<code>multiprocessing.Manager().list()</code>，可以直接使用普通<code>dict</code>和<code>list</code>。</p>
+<h3 id="方法二-使用copy"><a href="#方法二-使用copy" class="headerlink" title="方法二 使用copy"></a>方法二 使用copy</h3><p>也可以在return之前，使用<code>copy</code>或<code>deepcopy</code>转成普通<code>dict</code>和<code>list</code>。</p>
+<hr>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p><code>multiprocessing.Manager().dict()</code>、<code>multiprocessing.Manager().list()</code>和pool.submit().result()有冲突。</p>
+<p>所以要保证在子程序return时，返回值是<code>dict</code>或<code>list</code>。</p>
+]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Python | subprocess执行git语句的换行问题</title>
+    <url>/2025/06/25/python11/</url>
+    <content><![CDATA[<p>使用<code>subprocess</code>执行<code>git clone</code>时，希望python的输出模拟终端执行命令的模式。</p>
+<span id="more"></span>
+
+<h1 id="第一版"><a href="#第一版" class="headerlink" title="第一版"></a>第一版</h1><p>刚开始使用的方法是用<code>subprocess.PIPE</code>捕获stdout，并把stderr重定向到stdout。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">def exec_command_local(command):</span><br><span class="line">    process = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)</span><br><span class="line">    stdout = []</span><br><span class="line">    while True:</span><br><span class="line">        output_line = process.stdout.readline()</span><br><span class="line">        if output_line == &quot;&quot; and process.poll() is not None:</span><br><span class="line">            break</span><br><span class="line">        if output_line:</span><br><span class="line">            stdout.append(output_line)</span><br><span class="line">            print(f&quot;&#123;output_line&#125;&quot;,end=&quot;&quot;)</span><br><span class="line"></span><br><span class="line">    return stdout</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="第二版"><a href="#第二版" class="headerlink" title="第二版"></a>第二版</h1><p>第一版代码运行时，发现捕获到的文本特别少。</p>
+<p>然后在<a href="https://stackoverflow.com/questions/25986533/how-to-get-subprocess-stdout-while-running-git-command">这里</a>找到了原因：</p>
+<blockquote><p>When not writing to a terminal, <code>git clone</code> doesn’t have any output to either <code>stdout</code> or <code>stderr</code>, except on error.<br>当没有写入终端时，<code>git clone</code>不会向<code>stdout</code>或<code>stderr</code>输出任何内容，除非发生错误。</p>
+<footer><strong>@abarnert</strong><cite><a href="https://stackoverflow.com/questions/25986533/how-to-get-subprocess-stdout-while-running-git-command">stackoverflow.com/questions/25986533/how-to-get-subprocess-stdout-while-running-git-command</a></cite></footer></blockquote>
+
+<p>同时答主也给了两个解决方案：</p>
+<p>1、使用伪终端，但答主和题主在评论区的交流中提到伪终端无法在windows上使用，我就是windows上要用，我也没去验证新版的python支持不支持。<br>2、使用git的<code>--progress</code>参数，这样git无论有没有在终端中运行，都会打印出完整信息。</p>
+<p>我使用了方案2，在拼接git命令时加上了<code>--progress</code>参数，就不贴代码了。</p>
+<h1 id="第三版"><a href="#第三版" class="headerlink" title="第三版"></a>第三版</h1><p>第二版代码确实能捕获到很多信息，但是全都是以<code>\n</code>结尾的，导致我一个git命令可能要输出几百行，信息太多了。</p>
+<p>后来想了想，确实没有什么异步的必要，也不对返回值做解析，就改成这样：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">subprocess.run(command, shell=True, check=True)</span><br></pre></td></tr></table></figure>
+
+<p>换成run得了😅</p>
+]]></content>
+      <categories>
+        <category>Python</category>
+        <category>Git</category>
+      </categories>
+      <tags>
+        <tag>Python， Git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>使用SSH连接WSL</title>
+    <url>/2025/02/09/windows06/</url>
+    <content><![CDATA[<p>本质上就是把WSL当做一台普通的Linux服务器来操作。</p>
+<span id="more"></span>
+
+<h2 id="重装SSH"><a href="#重装SSH" class="headerlink" title="重装SSH"></a>重装SSH</h2><p>因为WSL毕竟是个镜像，ssh服务可能比较旧了，不太可信。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt-get remove openssh-server</span><br><span class="line">sudo apt-get install openssh-server</span><br></pre></td></tr></table></figure>
+
+<h2 id="打开远程连接配置"><a href="#打开远程连接配置" class="headerlink" title="打开远程连接配置"></a>打开远程连接配置</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo vi /etc/ssh/sshd_config</span><br></pre></td></tr></table></figure>
+
+<p>然后把<code>PasswordAuthentication yes</code>的注释放开。</p>
+<h2 id="重启ssh服务并设置开机自启"><a href="#重启ssh服务并设置开机自启" class="headerlink" title="重启ssh服务并设置开机自启"></a>重启ssh服务并设置开机自启</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo service ssh restart</span><br><span class="line">sudo systemctl enable ssh</span><br></pre></td></tr></table></figure>
+
+<p>然后就查下ip自己连吧。</p>
+]]></content>
+      <categories>
+        <category>Windows</category>
+        <category>WSL</category>
+      </categories>
+      <tags>
+        <tag>Windows</tag>
+        <tag>WSL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SSH连接Windows报错：Permission denied, please try again</title>
+    <url>/2025/06/12/windows07/</url>
+    <content><![CDATA[<p>账号密码都是正确的，但就是连不上。</p>
+<span id="more"></span>
+
+<p>问题是计算机名和用户名一致引起的。</p>
+<p>执行<code>whoami</code>，输出了<code>lqnq\lqnq</code>，前面是计算机名后边是用户名。</p>
+<p>改下计算机名重启就行，改用户名还要改我的其他服务的连接，太麻烦。</p>
+<p>猜测是因为Windows的登录逻辑里用了字符串匹配导致错误？不知道，瞎猜的。</p>
+]]></content>
+      <categories>
+        <category>Windows</category>
+        <category>SSH</category>
+      </categories>
+      <tags>
+        <tag>Windows</tag>
+        <tag>SSH</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>如何给Mac挂载局域网存储</title>
+    <url>/2026/01/11/mac02/</url>
+    <content><![CDATA[<p>以下是与ChatGPT的对话，并且最终解决了问题</p>
+<span id="more"></span>
+
+<h1 id="用户问题"><a href="#用户问题" class="headerlink" title="用户问题"></a>用户问题</h1><p>我的mac电脑过载了一个局域网位置，但是偶尔会断网，我该怎么挂载局域网并实现自动重连</p>
+<h1 id="回答"><a href="#回答" class="headerlink" title="回答"></a>回答</h1><p>这个问题在 macOS 上<strong>很常见</strong>：<br>Finder 里“连接服务器”挂载的局域网（SMB &#x2F; AFP &#x2F; NFS）一旦<strong>网络抖动、休眠、Wi-Fi 切换</strong>，就会静默断开，而且<strong>不会自动重连</strong>。</p>
+<p>下面我给你一套<strong>稳定、可自动重连、可长期使用</strong>的方案，从「简单」到「最稳」按推荐顺序来。</p>
+<h2 id="一、先确认你现在是怎么挂载的（很重要）"><a href="#一、先确认你现在是怎么挂载的（很重要）" class="headerlink" title="一、先确认你现在是怎么挂载的（很重要）"></a>一、先确认你现在是怎么挂载的（很重要）</h2><p>你大概率是这样做的：</p>
+<p>Finder → 前往 → 连接服务器 → <code>smb://192.168.1.100/share</code></p>
+<p><strong>问题点</strong>：</p>
+<ul>
+<li>Finder 挂载 <strong>不具备自动重连机制</strong></li>
+<li>网络瞬断 &#x3D; 永久断开，除非你手动点一次</li>
+</ul>
+<p>👉 所以要解决“偶尔断网”，<strong>一定要绕开 Finder 的默认行为</strong></p>
+<h2 id="二、最稳方案（强烈推荐）：autofs-自动挂载-自动重连"><a href="#二、最稳方案（强烈推荐）：autofs-自动挂载-自动重连" class="headerlink" title="二、最稳方案（强烈推荐）：autofs 自动挂载 + 自动重连"></a>二、最稳方案（强烈推荐）：autofs 自动挂载 + 自动重连</h2><p>这是 <strong>macOS 原生方案</strong>，企业和服务器都在用。</p>
+<h3 id="✔-优点"><a href="#✔-优点" class="headerlink" title="✔ 优点"></a>✔ 优点</h3><ul>
+<li>网络断 → 自动重连</li>
+<li>不会卡 Finder</li>
+<li>休眠 &#x2F; 唤醒 &#x2F; Wi-Fi 切换都能恢复</li>
+<li>比启动项脚本稳定得多</li>
+</ul>
+<h3 id="步骤-1：创建一个挂载点"><a href="#步骤-1：创建一个挂载点" class="headerlink" title="步骤 1：创建一个挂载点"></a>步骤 1：创建一个挂载点</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">mkdir</span> -p /Volumes/lan</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="步骤-2：编辑-autofs-主配置"><a href="#步骤-2：编辑-autofs-主配置" class="headerlink" title="步骤 2：编辑 autofs 主配置"></a>步骤 2：编辑 autofs 主配置</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> nano /etc/auto_master</span><br></pre></td></tr></table></figure>
+
+<p>在<strong>最后一行</strong>加上：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">/Volumes/lan    auto_lan    -nosuid,noowners</span><br></pre></td></tr></table></figure>
+
+<p>保存退出（<code>Ctrl + O</code> → <code>Enter</code> → <code>Ctrl + X</code>）</p>
+<h3 id="步骤-3：创建映射文件"><a href="#步骤-3：创建映射文件" class="headerlink" title="步骤 3：创建映射文件"></a>步骤 3：创建映射文件</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> nano /etc/auto_lan</span><br></pre></td></tr></table></figure>
+
+<p>写入（以 SMB 为例）：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">share   -fstype=smbfs,soft,nobrowse ://用户名:密码@服务器IP/共享名</span><br></pre></td></tr></table></figure>
+
+<p>例如：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">nas   -fstype=smbfs,soft,nobrowse ://user:pass@192.168.1.100/media</span><br></pre></td></tr></table></figure>
+
+<p>⚠️ 注意：</p>
+<ul>
+<li><strong>密码包含特殊字符</strong>需要 URL 编码</li>
+<li><code>nobrowse</code> 防止 Finder 卡死</li>
+<li><code>soft</code> 避免断网时系统假死</li>
+</ul>
+<h3 id="步骤-4：重载-autofs"><a href="#步骤-4：重载-autofs" class="headerlink" title="步骤 4：重载 autofs"></a>步骤 4：重载 autofs</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> automount -vc</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="使用方式（关键）"><a href="#使用方式（关键）" class="headerlink" title="使用方式（关键）"></a>使用方式（关键）</h3><p>你 <strong>不用手动挂载</strong>，只要访问：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">ls</span> /Volumes/lan/nas</span><br></pre></td></tr></table></figure>
+
+<p>系统会：</p>
+<ul>
+<li>自动挂载</li>
+<li>断线 → 自动重连</li>
+<li>无感恢复</li>
+</ul>
+<h2 id="三、如果你不想改系统配置（次优方案）"><a href="#三、如果你不想改系统配置（次优方案）" class="headerlink" title="三、如果你不想改系统配置（次优方案）"></a>三、如果你不想改系统配置（次优方案）</h2><h3 id="用「启动项-脚本-定时重连」"><a href="#用「启动项-脚本-定时重连」" class="headerlink" title="用「启动项 + 脚本 + 定时重连」"></a>用「启动项 + 脚本 + 定时重连」</h3><h3 id="脚本示例（SMB）"><a href="#脚本示例（SMB）" class="headerlink" title="脚本示例（SMB）"></a>脚本示例（SMB）</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/zsh</span></span><br><span class="line"></span><br><span class="line">MOUNT_POINT=<span class="string">&quot;/Volumes/nas&quot;</span></span><br><span class="line">SERVER=<span class="string">&quot;//user:pass@192.168.1.100/media&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> ! mount | grep -q <span class="string">&quot;<span class="variable">$MOUNT_POINT</span>&quot;</span>; <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">mkdir</span> -p <span class="string">&quot;<span class="variable">$MOUNT_POINT</span>&quot;</span></span><br><span class="line">    mount_smbfs <span class="string">&quot;<span class="variable">$SERVER</span>&quot;</span> <span class="string">&quot;<span class="variable">$MOUNT_POINT</span>&quot;</span></span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
+
+<p>保存为：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">~/mount_nas.sh</span><br><span class="line"><span class="built_in">chmod</span> +x ~/mount_nas.sh</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="设置定时检查（每-1-分钟）"><a href="#设置定时检查（每-1-分钟）" class="headerlink" title="设置定时检查（每 1 分钟）"></a>设置定时检查（每 1 分钟）</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">crontab -e</span><br></pre></td></tr></table></figure>
+
+<p>加入：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">*/1 * * * * /Users/你的用户名/mount_nas.sh</span><br></pre></td></tr></table></figure>
+
+<p>📌 <strong>问题</strong>：</p>
+<ul>
+<li>Wi-Fi 切换时偶尔失败</li>
+<li>Finder 有时会卡</li>
+<li>不如 autofs 稳</li>
+</ul>
+<h2 id="四、强烈不推荐的方式（你大概率正在用）"><a href="#四、强烈不推荐的方式（你大概率正在用）" class="headerlink" title="四、强烈不推荐的方式（你大概率正在用）"></a>四、强烈不推荐的方式（你大概率正在用）</h2><p>❌ Finder「登录时重新打开窗口」<br>❌ 把网络卷拖进“登录项”<br>❌ 第三方自动挂载工具（不稳定 &#x2F; 权限问题）</p>
+<h2 id="五、额外稳定性优化（建议一起做）"><a href="#五、额外稳定性优化（建议一起做）" class="headerlink" title="五、额外稳定性优化（建议一起做）"></a>五、额外稳定性优化（建议一起做）</h2><h3 id="1️⃣-防止-Wi-Fi-休眠断链"><a href="#1️⃣-防止-Wi-Fi-休眠断链" class="headerlink" title="1️⃣ 防止 Wi-Fi 休眠断链"></a>1️⃣ 防止 Wi-Fi 休眠断链</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pmset -a tcpkeepalive 1</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="2️⃣-SMB-参数优化（如果是-NAS-Windows）"><a href="#2️⃣-SMB-参数优化（如果是-NAS-Windows）" class="headerlink" title="2️⃣ SMB 参数优化（如果是 NAS &#x2F; Windows）"></a>2️⃣ SMB 参数优化（如果是 NAS &#x2F; Windows）</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> nano /etc/nsmb.conf</span><br></pre></td></tr></table></figure>
+<figure class="highlight ini"><table><tr><td class="code"><pre><span class="line"><span class="section">[default]</span></span><br><span class="line"><span class="attr">signing_required</span>=<span class="literal">no</span></span><br><span class="line"><span class="attr">streams</span>=<span class="literal">yes</span></span><br><span class="line"><span class="attr">soft</span>=<span class="literal">yes</span></span><br><span class="line"><span class="attr">notify_off</span>=<span class="literal">yes</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="六、我需要你补充这-3-个信息（我可以直接给你定制版）"><a href="#六、我需要你补充这-3-个信息（我可以直接给你定制版）" class="headerlink" title="六、我需要你补充这 3 个信息（我可以直接给你定制版）"></a>六、我需要你补充这 3 个信息（我可以直接给你定制版）</h2><p>你回复我：</p>
+<p>1️⃣ 你挂载的是</p>
+<ul>
+<li>SMB（Windows &#x2F; NAS）</li>
+<li>NFS</li>
+<li>AFP</li>
+</ul>
+<p>2️⃣ 是 <strong>Wi-Fi 还是有线</strong></p>
+<p>3️⃣ 服务器是</p>
+<ul>
+<li>NAS（什么型号）</li>
+<li>Windows</li>
+<li>Linux</li>
+</ul>
+<p>我可以直接给你：</p>
+<ul>
+<li><strong>完全可复制的配置</strong></li>
+<li>帮你规避 macOS 常见坑</li>
+</ul>
+<p>一句话总结：</p>
+<p><strong>想要“断网自动恢复”，mac 上唯一长期靠谱的方案就是 autofs。</strong></p>
+<h1 id="用户问题-1"><a href="#用户问题-1" class="headerlink" title="用户问题"></a>用户问题</h1><p>你的步骤3中的命令到底是share开头还是nas开头？</p>
+<h1 id="回答-1"><a href="#回答-1" class="headerlink" title="回答"></a>回答</h1><p>问得非常好，这里我之前<strong>确实容易让人混淆</strong>，我给你一次性说清楚规则，你照着用就不会错。</p>
+<h2 id="结论先给你"><a href="#结论先给你" class="headerlink" title="结论先给你"></a>结论先给你</h2><p><strong>既不是必须 share，也不是必须 nas</strong><br>👉 <strong>这一段是你自己起的名字，叫什么都行</strong></p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">&lt;名字&gt;   -fstype=smbfs,soft,nobrowse ://用户名:密码@服务器IP/共享名</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="这个“名字”到底是什么？"><a href="#这个“名字”到底是什么？" class="headerlink" title="这个“名字”到底是什么？"></a>这个“名字”到底是什么？</h2><p>它是 <strong>autofs 的子目录名</strong>，决定了你最终访问的路径。</p>
+<p>假设你在 <code>/etc/auto_master</code> 里写的是：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">/Volumes/lan    auto_lan    -nosuid,noowners</span><br></pre></td></tr></table></figure>
+
+<p>那 <code>/etc/auto_lan</code> 里的第一列：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">nas</span><br></pre></td></tr></table></figure>
+
+<p>表示的是：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">/Volumes/lan/nas</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="举两个完整例子（你一看就懂）"><a href="#举两个完整例子（你一看就懂）" class="headerlink" title="举两个完整例子（你一看就懂）"></a>举两个完整例子（你一看就懂）</h2><h3 id="示例-1：用-nas-开头"><a href="#示例-1：用-nas-开头" class="headerlink" title="示例 1：用 nas 开头"></a>示例 1：用 nas 开头</h3><p><code>/etc/auto_lan</code> 内容：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">nas   -fstype=smbfs,soft,nobrowse ://user:pass@192.168.1.100/media</span><br></pre></td></tr></table></figure>
+
+<p>访问路径就是：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/Volumes/lan/nas</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="示例-2：用-share-开头"><a href="#示例-2：用-share-开头" class="headerlink" title="示例 2：用 share 开头"></a>示例 2：用 share 开头</h3><figure class="highlight text"><table><tr><td class="code"><pre><span class="line">share   -fstype=smbfs,soft,nobrowse ://user:pass@192.168.1.100/media</span><br></pre></td></tr></table></figure>
+
+<p>访问路径就是：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/Volumes/lan/share</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="关键规则（记住这-3-条就不会再晕）"><a href="#关键规则（记住这-3-条就不会再晕）" class="headerlink" title="关键规则（记住这 3 条就不会再晕）"></a>关键规则（记住这 3 条就不会再晕）</h2><p>1️⃣ <strong>第一列是目录名，不是命令，不是固定值</strong><br>2️⃣ 这个名字 &#x3D; 你访问用的文件夹名<br>3️⃣ 想叫啥叫啥（<code>nas</code> &#x2F; <code>share</code> &#x2F; <code>movie</code> &#x2F; <code>backup</code> 都行）</p>
+<h2 id="我推荐你怎么写（实战建议）"><a href="#我推荐你怎么写（实战建议）" class="headerlink" title="我推荐你怎么写（实战建议）"></a>我推荐你怎么写（实战建议）</h2><p>如果你只有一个局域网共享：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">nas   -fstype=smbfs,soft,nobrowse ://user:pass@IP/共享名</span><br></pre></td></tr></table></figure>
+
+<p>如果你有多个共享：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">movie   -fstype=smbfs ://user:pass@IP/movie</span><br><span class="line">backup  -fstype=smbfs ://user:pass@IP/backup</span><br></pre></td></tr></table></figure>
+
+<p>访问时：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/Volumes/lan/movie</span><br><span class="line">/Volumes/lan/backup</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="最后确认一句（很重要）"><a href="#最后确认一句（很重要）" class="headerlink" title="最后确认一句（很重要）"></a>最后确认一句（很重要）</h2><p>你只需要记住：</p>
+<p><strong>“第一列只是路径名，随便起，不是关键字。”</strong></p>
+<p>如果你愿意，把你现在的 <code>/etc/auto_lan</code> 贴出来（打码 IP 和密码就行），我可以直接帮你检查有没有隐藏坑。</p>
+<h1 id="用户问题-2"><a href="#用户问题-2" class="headerlink" title="用户问题"></a>用户问题</h1><p>我的密码里有@符号，我该怎么写映射文件？</p>
+<h1 id="回答-2"><a href="#回答-2" class="headerlink" title="回答"></a>回答</h1><p>这是个<strong>关键坑点</strong>，你踩得很准 👍<br>结论先给你：</p>
+<p><strong>密码里有 @，绝对不能原样写在映射文件里，必须做 URL 编码。</strong></p>
+<p>否则 autofs &#x2F; smbfs 会把 <code>@</code> 误当成<br><code>user:pass@host</code> 里的 <strong>分隔符</strong>，直接解析错。</p>
+<h2 id="一、你现在这个写法为什么一定会错"><a href="#一、你现在这个写法为什么一定会错" class="headerlink" title="一、你现在这个写法为什么一定会错"></a>一、你现在这个写法为什么一定会错</h2><p>错误示例（不要这样写）：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">nas  -fstype=smbfs ://user:p@ssword@192.168.1.100/media</span><br></pre></td></tr></table></figure>
+
+<p>系统会理解成：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">用户名 = user</span><br><span class="line">密码 = p</span><br><span class="line">服务器 = ssword@192.168.1.100</span><br></pre></td></tr></table></figure>
+
+<p>必挂不上。</p>
+<h2 id="二、正确做法：URL-编码（唯一正确方案）"><a href="#二、正确做法：URL-编码（唯一正确方案）" class="headerlink" title="二、正确做法：URL 编码（唯一正确方案）"></a>二、正确做法：URL 编码（唯一正确方案）</h2><h3 id="常用字符对照（你至少要记住这几个）"><a href="#常用字符对照（你至少要记住这几个）" class="headerlink" title="常用字符对照（你至少要记住这几个）"></a>常用字符对照（你至少要记住这几个）</h3><table>
+<thead>
+<tr>
+<th>原字符</th>
+<th>编码后</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>@</td>
+<td>%40</td>
+</tr>
+<tr>
+<td>:</td>
+<td>%3A</td>
+</tr>
+<tr>
+<td>&#x2F;</td>
+<td>%2F</td>
+</tr>
+<tr>
+<td>#</td>
+<td>%23</td>
+</tr>
+<tr>
+<td>%</td>
+<td>%25</td>
+</tr>
+</tbody></table>
+<h3 id="示例：你的密码里有"><a href="#示例：你的密码里有" class="headerlink" title="示例：你的密码里有 @"></a>示例：你的密码里有 @</h3><p>假设真实信息是：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">用户名: admin</span><br><span class="line">密码:  ab@12:34</span><br></pre></td></tr></table></figure>
+
+<p>编码后密码：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">ab%4012%3A34</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="etc-auto-lan-正确写法"><a href="#etc-auto-lan-正确写法" class="headerlink" title="&#x2F;etc&#x2F;auto_lan 正确写法"></a>&#x2F;etc&#x2F;auto_lan 正确写法</h3><figure class="highlight text"><table><tr><td class="code"><pre><span class="line">nas   -fstype=smbfs,soft,nobrowse ://admin:ab%4012%3A34@192.168.1.100/media</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="三、怎么快速把密码编码（不用自己查表）"><a href="#三、怎么快速把密码编码（不用自己查表）" class="headerlink" title="三、怎么快速把密码编码（不用自己查表）"></a>三、怎么快速把密码编码（不用自己查表）</h2><h3 id="方法-1（推荐）：mac-自带-python3"><a href="#方法-1（推荐）：mac-自带-python3" class="headerlink" title="方法 1（推荐）：mac 自带 python3"></a>方法 1（推荐）：mac 自带 python3</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">python3 - &amp;lt;&amp;lt;<span class="string">&#x27;EOF&#x27;</span></span><br><span class="line">import urllib.parse</span><br><span class="line"><span class="built_in">print</span>(urllib.parse.quote(<span class="string">&quot;你的真实密码&quot;</span>))</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
+
+<p>输出的就是<strong>可以直接用的字符串</strong>。</p>
+<h3 id="方法-2：终端一行搞定"><a href="#方法-2：终端一行搞定" class="headerlink" title="方法 2：终端一行搞定"></a>方法 2：终端一行搞定</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">python3 -c <span class="string">&#x27;import urllib.parse; print(urllib.parse.quote(&quot;ab@12:34&quot;))&#x27;</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="四、更安全的做法（如果你在意明文密码）"><a href="#四、更安全的做法（如果你在意明文密码）" class="headerlink" title="四、更安全的做法（如果你在意明文密码）"></a>四、更安全的做法（如果你在意明文密码）</h2><p>autofs <strong>不强制</strong>你把密码写在文件里</p>
+<h3 id="用交互式凭据（推荐给有安全要求的人）"><a href="#用交互式凭据（推荐给有安全要求的人）" class="headerlink" title="用交互式凭据（推荐给有安全要求的人）"></a>用交互式凭据（推荐给有安全要求的人）</h3><figure class="highlight text"><table><tr><td class="code"><pre><span class="line">nas   -fstype=smbfs,soft,nobrowse ://admin@192.168.1.100/media</span><br></pre></td></tr></table></figure>
+
+<p>第一次访问：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">ls</span> /Volumes/lan/nas</span><br></pre></td></tr></table></figure>
+
+<p>系统会弹窗要密码，并自动存进 <strong>钥匙串</strong>，之后断线重连都不用再输。</p>
+<p>✔ 自动重连<br>✔ 不明文存密码<br>✔ 最稳</p>
+<h2 id="五、最后帮你检查-3-个容易一起出的问题"><a href="#五、最后帮你检查-3-个容易一起出的问题" class="headerlink" title="五、最后帮你检查 3 个容易一起出的问题"></a>五、最后帮你检查 3 个容易一起出的问题</h2><p>1️⃣ 密码里还有 <code>:</code>、<code>/</code>、<code>%</code> → <strong>也要编码</strong><br>2️⃣ 映射文件权限建议：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">chmod</span> 600 /etc/auto_lan</span><br></pre></td></tr></table></figure>
+
+<p>3️⃣ 改完一定要执行：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> automount -vc</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="一句话总结"><a href="#一句话总结" class="headerlink" title="一句话总结"></a>一句话总结</h2><p><strong>映射文件里是 URL，不是普通字符串。<br>密码有 @ → 写成 %40，否则必炸。</strong></p>
+<p>如果你愿意，把你的映射行（打码密码）贴出来，我可以帮你做一次最终校验。</p>
+]]></content>
+      <categories>
+        <category>MAC</category>
+      </categories>
+      <tags>
+        <tag>MAC</tag>
       </tags>
   </entry>
 </search>

@@ -2,14 +2,344 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://l-fay.github.io/2026/01/11/mac02/</loc>
+    
+    <lastmod>2026-01-11T14:22:22.854Z</lastmod>
+    
+    <date>1768140658000</date>
+    <title>如何给Mac挂载局域网存储 | 兰秋廿柒的博客</title>
+    
+    <desc>以下是与ChatGPT的对话，并且最终解决了问题</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2025/06/12/windows07/</loc>
+    
+    <lastmod>2026-01-11T14:09:16.586Z</lastmod>
+    
+    <date>1749741377000</date>
+    <title>SSH连接Windows报错：Permission denied, please try again | 兰秋廿柒的博客</title>
+    
+    <desc>账号密码都是正确的，但就是连不上。</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2023/07/20/virtualenv02/</loc>
+    
+    <lastmod>2026-01-11T14:09:16.585Z</lastmod>
+    
+    <date>1689854742000</date>
+    <title>Python多环境 | 安装virtualenv的步骤 | 兰秋廿柒的博客</title>
+    
+    <desc>这篇博客记一下安装virtualenv的通常步骤。</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2025/06/25/python11/</loc>
+    
+    <lastmod>2026-01-11T14:09:16.585Z</lastmod>
+    
+    <date>1750853096000</date>
+    <title>Python | subprocess执行git语句的换行问题 | 兰秋廿柒的博客</title>
+    
+    <desc>使用subprocess执行git clone时，希望python的输出模拟终端执行命令的模式。</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2025/06/05/mac00/</loc>
+    
+    <lastmod>2026-01-11T14:09:16.584Z</lastmod>
+    
+    <date>1749135406000</date>
+    <title>Mac服务器报错处理 | No Route To Host | 兰秋廿柒的博客</title>
+    
+    <desc>用Mac当服务器跑应用遇到了问题，陆陆续续解决了一个星期吧，把经验记录一下。</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2025/06/05/mac01/</loc>
+    
+    <lastmod>2026-01-11T14:09:16.584Z</lastmod>
+    
+    <date>1749137626000</date>
+    <title>Mac有线网络显示“自分配IP” | 兰秋廿柒的博客</title>
+    
+    <desc>这个到最后也没找到原因，记一下怎么弄好的。</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2020/08/01/hexo00/</loc>
+    
+    <lastmod>2026-01-11T14:09:16.583Z</lastmod>
+    
+    <date>1596271344000</date>
+    <title>我就想试试怎么写博客 | 兰秋廿柒的博客</title>
+    
+    <desc>写这个的目的就是试一试hexo的各种语法，免得以后忘记。</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2025/08/06/git05/</loc>
+    
+    <lastmod>2026-01-11T14:09:16.568Z</lastmod>
+    
+    <date>1754491675000</date>
+    <title>Git | 在clone时为github配置代理 | 兰秋廿柒的博客</title>
+    
+    <desc>平常clone的项目都是文本，今天遇到一个项目中单文件好几M，特别慢，所以找了一个配置代理的方法，亲测可用。</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2025/06/26/git04/</loc>
+    
+    <lastmod>2026-01-11T14:09:16.567Z</lastmod>
+    
+    <date>1750906230000</date>
+    <title>Git | 在git命令中带上账号密码 | 兰秋廿柒的博客</title>
+    
+    <desc>场景不细说了，反正就是有这需求。</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2024/09/12/python09/</loc>
+    
+    <lastmod>2025-06-04T15:33:16.928Z</lastmod>
+    
+    <date>1726147259000</date>
+    <title>Python | 主线程结束后自动关闭子线程 | 兰秋廿柒的博客</title>
+    
+    <desc>在threading模块创建的线程中，设置为守护线程即可达到标题的目的。</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2024/12/31/python10/</loc>
+    
+    <lastmod>2025-06-04T15:33:16.928Z</lastmod>
+    
+    <date>1735624408000</date>
+    <title>Python | A process in the process pool was terminated abruptly while the future was running or pending | 兰秋廿柒的博客</title>
+    
+    <desc>错误处理。</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2025/02/09/windows06/</loc>
+    
+    <lastmod>2025-06-04T15:33:16.928Z</lastmod>
+    
+    <date>1739100132000</date>
+    <title>使用SSH连接WSL | 兰秋廿柒的博客</title>
+    
+    <desc>本质上就是把WSL当做一台普通的Linux服务器来操作。</desc>
+  </url>
+  
+  <url>
     <loc>https://l-fay.github.io/2024/11/03/pycharm00/</loc>
     
-    <lastmod>2024-11-03T11:43:14.741Z</lastmod>
+    <lastmod>2025-06-04T15:33:16.927Z</lastmod>
     
     <date>1730619431000</date>
     <title>Pycharm | 无法重命名解释器 | 兰秋廿柒的博客</title>
     
     <desc>在重命名解释器时遇到了cannot save settings, please specify a different SDK name错误。</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2025/02/13/npm01/</loc>
+    
+    <lastmod>2025-06-04T15:33:16.926Z</lastmod>
+    
+    <date>1739448979000</date>
+    <title>npm报错：request to https://registry.npm.taobao.org failed, reason certificate has expired | 兰秋廿柒的博客</title>
+    
+    <desc>原因是淘宝的旧源已经不用了。</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2025/02/09/poetry00/</loc>
+    
+    <lastmod>2025-06-04T15:33:16.926Z</lastmod>
+    
+    <date>1739102050000</date>
+    <title>Poetry的介绍 | 兰秋廿柒的博客</title>
+    
+    <desc>Poetry的介绍可以看下这里。</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2025/03/13/potplayer00/</loc>
+    
+    <lastmod>2025-06-04T15:33:16.926Z</lastmod>
+    
+    <date>1741873645000</date>
+    <title>PotPlayer | lrc字幕无法正确按照时间轴显示 | 兰秋廿柒的博客</title>
+    
+    <desc>记录一下问题。</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2025/02/13/npm00/</loc>
+    
+    <lastmod>2025-06-04T15:33:16.925Z</lastmod>
+    
+    <date>1739448150000</date>
+    <title>npm换源方法 | 兰秋廿柒的博客</title>
+    
+    <desc>共有三种方法。</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2025/06/03/mysql01/</loc>
+    
+    <lastmod>2025-06-04T15:33:16.924Z</lastmod>
+    
+    <date>1748960977000</date>
+    <title>Docker部署MySql | 兰秋廿柒的博客</title>
+    
+    <desc>记录一下Docker部署MySql的流程和遇到的问题。</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2025/02/09/nas01/</loc>
+    
+    <lastmod>2025-06-04T15:33:16.924Z</lastmod>
+    
+    <date>1739106772000</date>
+    <title>IPv6实现外网访问群晖NAS | 兰秋廿柒的博客</title>
+    
+    <desc>如题。</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2021/10/21/mysql00/</loc>
+    
+    <lastmod>2025-06-04T15:33:16.923Z</lastmod>
+    
+    <date>1634820810000</date>
+    <title>Python连接MySQL连接池 | 兰秋廿柒的博客</title>
+    
+    <desc>记录一下怎么用python连接MySQL连接池。</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2025/02/18/llm01/</loc>
+    
+    <lastmod>2025-06-04T15:33:16.922Z</lastmod>
+    
+    <date>1739882568000</date>
+    <title>DeepSeek | 本地部署DeepSeek-R1模型及经验总结 | 兰秋廿柒的博客</title>
+    
+    <desc>记一下自己的操作步骤。</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2025/02/18/llm02/</loc>
+    
+    <lastmod>2025-06-04T15:33:16.922Z</lastmod>
+    
+    <date>1739882822000</date>
+    <title>DeepSeek | 使用网络公开的DeepSeek Api | 兰秋廿柒的博客</title>
+    
+    <desc>如题。</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2024/09/12/llm00/</loc>
+    
+    <lastmod>2025-06-04T15:33:16.921Z</lastmod>
+    
+    <date>1726148761000</date>
+    <title>Python调用大模型API | 兰秋廿柒的博客</title>
+    
+    <desc>怎样用Python调用大语言模型？</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2024/12/24/linux12/</loc>
+    
+    <lastmod>2025-06-04T15:33:16.921Z</lastmod>
+    
+    <date>1735040732000</date>
+    <title>Linux防火墙配置 | 兰秋廿柒的博客</title>
+    
+    <desc>配置白名单防火墙</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2025/06/03/frp00/</loc>
+    
+    <lastmod>2025-06-04T15:33:16.920Z</lastmod>
+    
+    <date>1748951017000</date>
+    <title>FRP内网穿透部署 | 兰秋廿柒的博客</title>
+    
+    <desc>FRP (Fast Reverse Proxy) 是一款高性能的内网穿透工具，FRP 的工作原理是利用内网机器主动与公网服务器建立连接，从而创建一个数据隧道，使得外网流量可以通过这个隧道被转发到内网机器。这样，即使内网机器没有公网 IP，也可以被外网访问。</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2023/10/28/flask01/</loc>
+    
+    <lastmod>2025-06-04T15:33:16.919Z</lastmod>
+    
+    <date>1698484452000</date>
+    <title>Flask | RuntimeError: No application found. Either work inside a view function or push an application context. | 兰秋廿柒的博客</title>
+    
+    <desc>问题在于调用时找不到flask的app，就算用current_app，也会在不被flask管理的模块中调用时遇到此错误。</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2025/02/09/flask03/</loc>
+    
+    <lastmod>2025-06-04T15:33:16.919Z</lastmod>
+    
+    <date>1739105257000</date>
+    <title>Flask | Flask设置同时支持IPv4和IPv6 | 兰秋廿柒的博客</title>
+    
+    <desc>通过对Flask进行设置，可以同时支持IPv4和IPv6。</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2023/10/22/flask00/</loc>
+    
+    <lastmod>2025-06-04T15:33:16.918Z</lastmod>
+    
+    <date>1697974361000</date>
+    <title>Flask | flask的定时任务 | 兰秋廿柒的博客</title>
+    
+    <desc>记一下flask中执行定时任务的方式</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2025/02/09/anaconda02/</loc>
+    
+    <lastmod>2025-06-04T15:33:16.917Z</lastmod>
+    
+    <date>1739105049000</date>
+    <title>Anaconda虚拟环境下更换python版本 | 兰秋廿柒的博客</title>
+    
+    <desc>在不重建环境的情况下升&#x2F;降级python版本。</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2025/01/07/ffmpeg18/</loc>
+    
+    <lastmod>2025-06-04T15:33:16.917Z</lastmod>
+    
+    <date>1736247613000</date>
+    <title>FFmpeg | 使用英伟达显卡加速编码 | 兰秋廿柒的博客</title>
+    
+    <desc>新整了张卡，学习了下GPU加速。</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2025/01/20/test00/</loc>
+    
+    <lastmod>2025-01-20T11:07:37.693Z</lastmod>
+    
+    <date>1737371199000</date>
+    <title> | 兰秋廿柒的博客</title>
+    
+    <desc></desc>
   </url>
   
   <url>
@@ -153,17 +483,6 @@
     <title>Python多环境 | 基于virtualenv+virtualenvwrapper创建python虚拟环境 | 兰秋廿柒的博客</title>
     
     <desc>这个工具支持在离线环境下配置多环境，记一下。</desc>
-  </url>
-  
-  <url>
-    <loc>https://l-fay.github.io/2023/07/20/virtualenv02/</loc>
-    
-    <lastmod>2024-11-03T07:21:07.769Z</lastmod>
-    
-    <date>1689854742000</date>
-    <title>Python多环境 | 安装virtualenv的步骤 | 兰秋廿柒的博客</title>
-    
-    <desc>这篇博客记一下安装virtualenv的通常步骤。</desc>
   </url>
   
   <url>
@@ -849,17 +1168,6 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/2021/10/21/mysql00/</loc>
-    
-    <lastmod>2024-11-03T07:21:07.693Z</lastmod>
-    
-    <date>1634820810000</date>
-    <title>Python连接MySQL连接池 | 兰秋廿柒的博客</title>
-    
-    <desc>记录一下怎么用python连接MySQL连接池。</desc>
-  </url>
-  
-  <url>
     <loc>https://l-fay.github.io/2023/10/20/linux11/</loc>
     
     <lastmod>2024-11-03T07:21:07.692Z</lastmod>
@@ -1245,17 +1553,6 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/2023/10/28/flask01/</loc>
-    
-    <lastmod>2024-11-03T07:21:07.660Z</lastmod>
-    
-    <date>1698484452000</date>
-    <title>Flask | RuntimeError: No application found. Either work inside a view function or push an application context. | 兰秋廿柒的博客</title>
-    
-    <desc>问题在于调用时找不到flask的app，就算用current_app，也会在不被flask管理的模块中调用时遇到此错误。</desc>
-  </url>
-  
-  <url>
     <loc>https://l-fay.github.io/2022/02/11/ffmpegParameter01/</loc>
     
     <lastmod>2024-11-03T07:21:07.660Z</lastmod>
@@ -1264,17 +1561,6 @@
     <title>ffmpeg | 用过的参数记录 | 兰秋廿柒的博客</title>
     
     <desc>记录用过的参数。</desc>
-  </url>
-  
-  <url>
-    <loc>https://l-fay.github.io/2023/10/22/flask00/</loc>
-    
-    <lastmod>2024-11-03T07:21:07.660Z</lastmod>
-    
-    <date>1697974361000</date>
-    <title>Flask | flask的定时任务 | 兰秋廿柒的博客</title>
-    
-    <desc>记一下flask中执行定时任务的方式</desc>
   </url>
   
   <url>
@@ -1806,28 +2092,6 @@
   </url>
   
   <url>
-    <loc>https://l-fay.github.io/2024/09/12/python09/</loc>
-    
-    <lastmod>2024-11-03T06:45:11.618Z</lastmod>
-    
-    <date>1726147259000</date>
-    <title>Python | 主线程结束后自动关闭子线程 | 兰秋廿柒的博客</title>
-    
-    <desc>在threading模块创建的线程中，设置为守护线程即可达到题目的目的。</desc>
-  </url>
-  
-  <url>
-    <loc>https://l-fay.github.io/2024/09/12/llm00/</loc>
-    
-    <lastmod>2024-11-03T06:45:11.617Z</lastmod>
-    
-    <date>1726148761000</date>
-    <title>Python调用大模型API | 兰秋廿柒的博客</title>
-    
-    <desc>怎样用Python调用大语言模型？</desc>
-  </url>
-  
-  <url>
     <loc>https://l-fay.github.io/2020/08/20/linux00/</loc>
     
     <lastmod>2024-11-03T06:45:11.617Z</lastmod>
@@ -1880,17 +2144,6 @@
     <title>自动开关机 | 兰秋廿柒的博客</title>
     
     <desc>放假回家了，在回家之前给实验室电脑弄了个自动开关机，方便远程，</desc>
-  </url>
-  
-  <url>
-    <loc>https://l-fay.github.io/2020/08/01/hexo00/</loc>
-    
-    <lastmod>2024-11-03T06:45:11.615Z</lastmod>
-    
-    <date>1596271344000</date>
-    <title>我就想试试怎么写博客 | 兰秋廿柒的博客</title>
-    
-    <desc>写这个的目的就是试一试hexo的各种语法，免得以后忘记。</desc>
   </url>
   
   <url>
