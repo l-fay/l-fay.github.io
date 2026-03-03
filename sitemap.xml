@@ -2,6 +2,39 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://l-fay.github.io/2026/03/03/llm03/</loc>
+    
+    <lastmod>2026-03-03T10:29:40.211Z</lastmod>
+    
+    <date>1772534759000</date>
+    <title>大模型时代的一些思考 | 兰秋廿柒的博客</title>
+    
+    <desc>好久没有写博客的冲动了，强迫自己记一下最近的一些想法。</desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2025/01/20/test00/</loc>
+    
+    <lastmod>2026-03-03T09:41:13.451Z</lastmod>
+    
+    <date>1737371199000</date>
+    <title>测试图片 | 兰秋廿柒的博客</title>
+    
+    <desc></desc>
+  </url>
+  
+  <url>
+    <loc>https://l-fay.github.io/2026/01/11/mac02/</loc>
+    
+    <lastmod>2026-03-03T09:41:13.449Z</lastmod>
+    
+    <date>1768140658000</date>
+    <title>如何给Mac挂载局域网存储 | 兰秋廿柒的博客</title>
+    
+    <desc>以下是与LLM的对话，并且最终解决了问题</desc>
+  </url>
+  
+  <url>
     <loc>https://l-fay.github.io/2023/07/20/virtualenv02/</loc>
     
     <lastmod>2025-10-31T06:47:48.718Z</lastmod>

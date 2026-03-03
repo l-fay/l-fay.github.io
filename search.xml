@@ -5567,4 +5567,277 @@ python proxyPool.py server
         <tag>Git</tag>
       </tags>
   </entry>
+  <entry>
+    <title>大模型时代的一些思考</title>
+    <url>/2026/03/03/llm03/</url>
+    <content><![CDATA[<p>好久没有写博客的冲动了，强迫自己记一下最近的一些想法。</p>
+<span id="more"></span>
+
+<h1 id="ChatGPT"><a href="#ChatGPT" class="headerlink" title="ChatGPT"></a>ChatGPT</h1><p>最初ChatGPT横空出世的时候，作为一个在深度学习领域水过论文的人，大概了解了一下Transformer和涌现，并没有给我的心里带来多大的起伏。只是觉得，“哦，NBNB”。</p>
+<p>当时也就是利用ChatGPT来写一些毫无营养的公文，并没有更深入的应用。</p>
+<h1 id="DeepSeek"><a href="#DeepSeek" class="headerlink" title="DeepSeek"></a>DeepSeek</h1><p>然后就是DeepSeek。</p>
+<p>从ChatGPT时代开始，就一直有人在研究思维链之类的东西，所以深度思考也并不让我很意外。</p>
+<p>只是从DeepSeek开始，国内各家搭载DeepSeek模型的平台可以让我很方便地用上，感觉方便了许多。</p>
+<p>DeepSeek对我最直接的的冲击，就是促使我买了张大显存的显卡自己本地化部署模型玩了玩，淘汰了我旧的垃圾显卡，阴差阳错地躲过了硬件大涨价。</p>
+<p>所以我很感谢DeepSeek。</p>
+<p>在DeepSeek时代中，我还自己串了个工作流，一直用到现在，本质上还是个玩具。</p>
+<h1 id="MCP"><a href="#MCP" class="headerlink" title="MCP"></a>MCP</h1><p>这一波AI浪潮里，最震撼我的莫过于MCP的出世。</p>
+<p>MCP的出现，意味着AI影响现实世界的方式更加直接，可以做到更多的事情。</p>
+<p>从MCP面世以来，AI的应用技术简直一天一个样子，太疯狂了。</p>
+<h1 id="OpenClaw和具身智能"><a href="#OpenClaw和具身智能" class="headerlink" title="OpenClaw和具身智能"></a>OpenClaw和具身智能</h1><p>然后很快，就是OpenClaw。</p>
+<p>说实话，我觉得很多人吹OpenClaw是为了买课给不懂的人，实际上大多数人并没有使用OpenClaw的场景。</p>
+<p>但这并不代表OpenClaw就不行。</p>
+<p>我认为OpenClaw是一个里程碑，它代表着目前AI应用技术的巅峰。大多数人用不到只是因为它在现实的物理世界没有配套的手脚，并且它还没有摧毁某个具体的行业。</p>
+<p>具身智能也在发展，Agent作为大脑，具身智能作为身体，这不就是一个人吗？人能做的，它终究都能做的。</p>
+<h1 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h1><p>回到开头，好久没有写博客的冲动了，因为大多数前AI时代的疑难杂症可以在几轮对话里轻松解决。解决地太轻松，都没感觉到有什么坑，所以自然也没什么想记下来的东西。对比这两篇文章：<a href="/2025/06/05/mac00/" title="Mac服务器报错处理 | No Route To Host">第一篇</a>、<a href="/2026/01/11/mac02/" title="如何给Mac挂载局域网存储">第二篇</a>，这个感觉越发明显。</p>
+<p>最近一段时间，AI发展恨不得一年走完人类五百年的路。</p>
+<p>贾维斯已经来了，奥创也许正在路上。我担心吗？我担心个P，天塌了有个子高的顶着。</p>
+<p>我只是感到有些焦虑，我仿佛有些理解了，改革开放时期，人们面对时代浪潮的不同想法。</p>
+<p>一些人抓住新机遇乘风起飞；一些人面对时代剧变无可适从；还有一些人，甚至没有意识到世道已经变了，只能在几十年后后知后觉地说，“如果我当年……”。</p>
+<p>我现在就是第二种人，不知道在这个世道里，能利用AI做什么。但至少我还在探索，先积累一些知识和经验总不会错。我希望当有一天，我的积累足够的时候，能够开开智，让自己的生活再上一个台阶吧。</p>
+]]></content>
+      <categories>
+        <category>LLM</category>
+      </categories>
+      <tags>
+        <tag>LLM</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>如何给Mac挂载局域网存储</title>
+    <url>/2026/01/11/mac02/</url>
+    <content><![CDATA[<p>以下是与LLM的对话，并且最终解决了问题</p>
+<span id="more"></span>
+
+<h1 id="用户问题"><a href="#用户问题" class="headerlink" title="用户问题"></a>用户问题</h1><p>我的mac电脑挂载了一个局域网位置，但是偶尔会断网，我该怎么挂载局域网并实现自动重连</p>
+<h1 id="回答"><a href="#回答" class="headerlink" title="回答"></a>回答</h1><p>这个问题在 macOS 上<strong>很常见</strong>：<br>Finder 里“连接服务器”挂载的局域网（SMB &#x2F; AFP &#x2F; NFS）一旦<strong>网络抖动、休眠、Wi-Fi 切换</strong>，就会静默断开，而且<strong>不会自动重连</strong>。</p>
+<p>下面我给你一套<strong>稳定、可自动重连、可长期使用</strong>的方案，从「简单」到「最稳」按推荐顺序来。</p>
+<h2 id="一、先确认你现在是怎么挂载的（很重要）"><a href="#一、先确认你现在是怎么挂载的（很重要）" class="headerlink" title="一、先确认你现在是怎么挂载的（很重要）"></a>一、先确认你现在是怎么挂载的（很重要）</h2><p>你大概率是这样做的：</p>
+<p>Finder → 前往 → 连接服务器 → <code>smb://192.168.1.100/share</code></p>
+<p><strong>问题点</strong>：</p>
+<ul>
+<li>Finder 挂载 <strong>不具备自动重连机制</strong></li>
+<li>网络瞬断 &#x3D; 永久断开，除非你手动点一次</li>
+</ul>
+<p>👉 所以要解决“偶尔断网”，<strong>一定要绕开 Finder 的默认行为</strong></p>
+<h2 id="二、最稳方案（强烈推荐）：autofs-自动挂载-自动重连"><a href="#二、最稳方案（强烈推荐）：autofs-自动挂载-自动重连" class="headerlink" title="二、最稳方案（强烈推荐）：autofs 自动挂载 + 自动重连"></a>二、最稳方案（强烈推荐）：autofs 自动挂载 + 自动重连</h2><p>这是 <strong>macOS 原生方案</strong>，企业和服务器都在用。</p>
+<h3 id="✔-优点"><a href="#✔-优点" class="headerlink" title="✔ 优点"></a>✔ 优点</h3><ul>
+<li>网络断 → 自动重连</li>
+<li>不会卡 Finder</li>
+<li>休眠 &#x2F; 唤醒 &#x2F; Wi-Fi 切换都能恢复</li>
+<li>比启动项脚本稳定得多</li>
+</ul>
+<h3 id="步骤-1：创建一个挂载点"><a href="#步骤-1：创建一个挂载点" class="headerlink" title="步骤 1：创建一个挂载点"></a>步骤 1：创建一个挂载点</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">mkdir</span> -p /Volumes/lan</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="步骤-2：编辑-autofs-主配置"><a href="#步骤-2：编辑-autofs-主配置" class="headerlink" title="步骤 2：编辑 autofs 主配置"></a>步骤 2：编辑 autofs 主配置</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> nano /etc/auto_master</span><br></pre></td></tr></table></figure>
+
+<p>在<strong>最后一行</strong>加上：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">/Volumes/lan    auto_lan    -nosuid,noowners</span><br></pre></td></tr></table></figure>
+
+<p>保存退出（<code>Ctrl + O</code> → <code>Enter</code> → <code>Ctrl + X</code>）</p>
+<h3 id="步骤-3：创建映射文件"><a href="#步骤-3：创建映射文件" class="headerlink" title="步骤 3：创建映射文件"></a>步骤 3：创建映射文件</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> nano /etc/auto_lan</span><br></pre></td></tr></table></figure>
+
+<p>写入（以 SMB 为例）：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">share   -fstype=smbfs,soft,nobrowse ://用户名:密码@服务器IP/共享名</span><br></pre></td></tr></table></figure>
+
+<p>例如：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">nas   -fstype=smbfs,soft,nobrowse ://user:pass@192.168.1.100/media</span><br></pre></td></tr></table></figure>
+
+<p>⚠️ 注意：</p>
+<ul>
+<li><strong>密码包含特殊字符</strong>需要 URL 编码</li>
+<li><code>nobrowse</code> 防止 Finder 卡死</li>
+<li><code>soft</code> 避免断网时系统假死</li>
+</ul>
+<h3 id="步骤-4：重载-autofs"><a href="#步骤-4：重载-autofs" class="headerlink" title="步骤 4：重载 autofs"></a>步骤 4：重载 autofs</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> automount -vc</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="使用方式（关键）"><a href="#使用方式（关键）" class="headerlink" title="使用方式（关键）"></a>使用方式（关键）</h3><p>你 <strong>不用手动挂载</strong>，只要访问：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">ls</span> /Volumes/lan/nas</span><br></pre></td></tr></table></figure>
+
+<p>系统会：</p>
+<ul>
+<li>自动挂载</li>
+<li>断线 → 自动重连</li>
+<li>无感恢复</li>
+</ul>
+<h2 id="三、如果你不想改系统配置（次优方案）"><a href="#三、如果你不想改系统配置（次优方案）" class="headerlink" title="三、如果你不想改系统配置（次优方案）"></a>三、如果你不想改系统配置（次优方案）</h2><h3 id="用「启动项-脚本-定时重连」"><a href="#用「启动项-脚本-定时重连」" class="headerlink" title="用「启动项 + 脚本 + 定时重连」"></a>用「启动项 + 脚本 + 定时重连」</h3><h3 id="脚本示例（SMB）"><a href="#脚本示例（SMB）" class="headerlink" title="脚本示例（SMB）"></a>脚本示例（SMB）</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/zsh</span></span><br><span class="line"></span><br><span class="line">MOUNT_POINT=<span class="string">&quot;/Volumes/nas&quot;</span></span><br><span class="line">SERVER=<span class="string">&quot;//user:pass@192.168.1.100/media&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> ! mount | grep -q <span class="string">&quot;<span class="variable">$MOUNT_POINT</span>&quot;</span>; <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">mkdir</span> -p <span class="string">&quot;<span class="variable">$MOUNT_POINT</span>&quot;</span></span><br><span class="line">    mount_smbfs <span class="string">&quot;<span class="variable">$SERVER</span>&quot;</span> <span class="string">&quot;<span class="variable">$MOUNT_POINT</span>&quot;</span></span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
+
+<p>保存为：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">~/mount_nas.sh</span><br><span class="line"><span class="built_in">chmod</span> +x ~/mount_nas.sh</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="设置定时检查（每-1-分钟）"><a href="#设置定时检查（每-1-分钟）" class="headerlink" title="设置定时检查（每 1 分钟）"></a>设置定时检查（每 1 分钟）</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">crontab -e</span><br></pre></td></tr></table></figure>
+
+<p>加入：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">*/1 * * * * /Users/你的用户名/mount_nas.sh</span><br></pre></td></tr></table></figure>
+
+<p>📌 <strong>问题</strong>：</p>
+<ul>
+<li>Wi-Fi 切换时偶尔失败</li>
+<li>Finder 有时会卡</li>
+<li>不如 autofs 稳</li>
+</ul>
+<h2 id="四、强烈不推荐的方式（你大概率正在用）"><a href="#四、强烈不推荐的方式（你大概率正在用）" class="headerlink" title="四、强烈不推荐的方式（你大概率正在用）"></a>四、强烈不推荐的方式（你大概率正在用）</h2><p>❌ Finder「登录时重新打开窗口」<br>❌ 把网络卷拖进“登录项”<br>❌ 第三方自动挂载工具（不稳定 &#x2F; 权限问题）</p>
+<h2 id="五、额外稳定性优化（建议一起做）"><a href="#五、额外稳定性优化（建议一起做）" class="headerlink" title="五、额外稳定性优化（建议一起做）"></a>五、额外稳定性优化（建议一起做）</h2><h3 id="1️⃣-防止-Wi-Fi-休眠断链"><a href="#1️⃣-防止-Wi-Fi-休眠断链" class="headerlink" title="1️⃣ 防止 Wi-Fi 休眠断链"></a>1️⃣ 防止 Wi-Fi 休眠断链</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pmset -a tcpkeepalive 1</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="2️⃣-SMB-参数优化（如果是-NAS-Windows）"><a href="#2️⃣-SMB-参数优化（如果是-NAS-Windows）" class="headerlink" title="2️⃣ SMB 参数优化（如果是 NAS &#x2F; Windows）"></a>2️⃣ SMB 参数优化（如果是 NAS &#x2F; Windows）</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> nano /etc/nsmb.conf</span><br></pre></td></tr></table></figure>
+<figure class="highlight ini"><table><tr><td class="code"><pre><span class="line"><span class="section">[default]</span></span><br><span class="line"><span class="attr">signing_required</span>=<span class="literal">no</span></span><br><span class="line"><span class="attr">streams</span>=<span class="literal">yes</span></span><br><span class="line"><span class="attr">soft</span>=<span class="literal">yes</span></span><br><span class="line"><span class="attr">notify_off</span>=<span class="literal">yes</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="六、我需要你补充这-3-个信息（我可以直接给你定制版）"><a href="#六、我需要你补充这-3-个信息（我可以直接给你定制版）" class="headerlink" title="六、我需要你补充这 3 个信息（我可以直接给你定制版）"></a>六、我需要你补充这 3 个信息（我可以直接给你定制版）</h2><p>你回复我：</p>
+<p>1️⃣ 你挂载的是</p>
+<ul>
+<li>SMB（Windows &#x2F; NAS）</li>
+<li>NFS</li>
+<li>AFP</li>
+</ul>
+<p>2️⃣ 是 <strong>Wi-Fi 还是有线</strong></p>
+<p>3️⃣ 服务器是</p>
+<ul>
+<li>NAS（什么型号）</li>
+<li>Windows</li>
+<li>Linux</li>
+</ul>
+<p>我可以直接给你：</p>
+<ul>
+<li><strong>完全可复制的配置</strong></li>
+<li>帮你规避 macOS 常见坑</li>
+</ul>
+<p>一句话总结：</p>
+<p><strong>想要“断网自动恢复”，mac 上唯一长期靠谱的方案就是 autofs。</strong></p>
+<h1 id="用户问题-1"><a href="#用户问题-1" class="headerlink" title="用户问题"></a>用户问题</h1><p>你的步骤3中的命令到底是share开头还是nas开头？</p>
+<h1 id="回答-1"><a href="#回答-1" class="headerlink" title="回答"></a>回答</h1><p>问得非常好，这里我之前<strong>确实容易让人混淆</strong>，我给你一次性说清楚规则，你照着用就不会错。</p>
+<h2 id="结论先给你"><a href="#结论先给你" class="headerlink" title="结论先给你"></a>结论先给你</h2><p><strong>既不是必须 share，也不是必须 nas</strong><br>👉 <strong>这一段是你自己起的名字，叫什么都行</strong></p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">&lt;名字&gt;   -fstype=smbfs,soft,nobrowse ://用户名:密码@服务器IP/共享名</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="这个“名字”到底是什么？"><a href="#这个“名字”到底是什么？" class="headerlink" title="这个“名字”到底是什么？"></a>这个“名字”到底是什么？</h2><p>它是 <strong>autofs 的子目录名</strong>，决定了你最终访问的路径。</p>
+<p>假设你在 <code>/etc/auto_master</code> 里写的是：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">/Volumes/lan    auto_lan    -nosuid,noowners</span><br></pre></td></tr></table></figure>
+
+<p>那 <code>/etc/auto_lan</code> 里的第一列：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">nas</span><br></pre></td></tr></table></figure>
+
+<p>表示的是：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">/Volumes/lan/nas</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="举两个完整例子（你一看就懂）"><a href="#举两个完整例子（你一看就懂）" class="headerlink" title="举两个完整例子（你一看就懂）"></a>举两个完整例子（你一看就懂）</h2><h3 id="示例-1：用-nas-开头"><a href="#示例-1：用-nas-开头" class="headerlink" title="示例 1：用 nas 开头"></a>示例 1：用 nas 开头</h3><p><code>/etc/auto_lan</code> 内容：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">nas   -fstype=smbfs,soft,nobrowse ://user:pass@192.168.1.100/media</span><br></pre></td></tr></table></figure>
+
+<p>访问路径就是：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/Volumes/lan/nas</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="示例-2：用-share-开头"><a href="#示例-2：用-share-开头" class="headerlink" title="示例 2：用 share 开头"></a>示例 2：用 share 开头</h3><figure class="highlight text"><table><tr><td class="code"><pre><span class="line">share   -fstype=smbfs,soft,nobrowse ://user:pass@192.168.1.100/media</span><br></pre></td></tr></table></figure>
+
+<p>访问路径就是：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/Volumes/lan/share</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="关键规则（记住这-3-条就不会再晕）"><a href="#关键规则（记住这-3-条就不会再晕）" class="headerlink" title="关键规则（记住这 3 条就不会再晕）"></a>关键规则（记住这 3 条就不会再晕）</h2><p>1️⃣ <strong>第一列是目录名，不是命令，不是固定值</strong><br>2️⃣ 这个名字 &#x3D; 你访问用的文件夹名<br>3️⃣ 想叫啥叫啥（<code>nas</code> &#x2F; <code>share</code> &#x2F; <code>movie</code> &#x2F; <code>backup</code> 都行）</p>
+<h2 id="我推荐你怎么写（实战建议）"><a href="#我推荐你怎么写（实战建议）" class="headerlink" title="我推荐你怎么写（实战建议）"></a>我推荐你怎么写（实战建议）</h2><p>如果你只有一个局域网共享：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">nas   -fstype=smbfs,soft,nobrowse ://user:pass@IP/共享名</span><br></pre></td></tr></table></figure>
+
+<p>如果你有多个共享：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">movie   -fstype=smbfs ://user:pass@IP/movie</span><br><span class="line">backup  -fstype=smbfs ://user:pass@IP/backup</span><br></pre></td></tr></table></figure>
+
+<p>访问时：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/Volumes/lan/movie</span><br><span class="line">/Volumes/lan/backup</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="最后确认一句（很重要）"><a href="#最后确认一句（很重要）" class="headerlink" title="最后确认一句（很重要）"></a>最后确认一句（很重要）</h2><p>你只需要记住：</p>
+<p><strong>“第一列只是路径名，随便起，不是关键字。”</strong></p>
+<p>如果你愿意，把你现在的 <code>/etc/auto_lan</code> 贴出来（打码 IP 和密码就行），我可以直接帮你检查有没有隐藏坑。</p>
+<h1 id="用户问题-2"><a href="#用户问题-2" class="headerlink" title="用户问题"></a>用户问题</h1><p>我的密码里有@符号，我该怎么写映射文件？</p>
+<h1 id="回答-2"><a href="#回答-2" class="headerlink" title="回答"></a>回答</h1><p>这是个<strong>关键坑点</strong>，你踩得很准 👍<br>结论先给你：</p>
+<p><strong>密码里有 @，绝对不能原样写在映射文件里，必须做 URL 编码。</strong></p>
+<p>否则 autofs &#x2F; smbfs 会把 <code>@</code> 误当成<br><code>user:pass@host</code> 里的 <strong>分隔符</strong>，直接解析错。</p>
+<h2 id="一、你现在这个写法为什么一定会错"><a href="#一、你现在这个写法为什么一定会错" class="headerlink" title="一、你现在这个写法为什么一定会错"></a>一、你现在这个写法为什么一定会错</h2><p>错误示例（不要这样写）：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">nas  -fstype=smbfs ://user:p@ssword@192.168.1.100/media</span><br></pre></td></tr></table></figure>
+
+<p>系统会理解成：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">用户名 = user</span><br><span class="line">密码 = p</span><br><span class="line">服务器 = ssword@192.168.1.100</span><br></pre></td></tr></table></figure>
+
+<p>必挂不上。</p>
+<h2 id="二、正确做法：URL-编码（唯一正确方案）"><a href="#二、正确做法：URL-编码（唯一正确方案）" class="headerlink" title="二、正确做法：URL 编码（唯一正确方案）"></a>二、正确做法：URL 编码（唯一正确方案）</h2><h3 id="常用字符对照（你至少要记住这几个）"><a href="#常用字符对照（你至少要记住这几个）" class="headerlink" title="常用字符对照（你至少要记住这几个）"></a>常用字符对照（你至少要记住这几个）</h3><table>
+<thead>
+<tr>
+<th>原字符</th>
+<th>编码后</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>@</td>
+<td>%40</td>
+</tr>
+<tr>
+<td>:</td>
+<td>%3A</td>
+</tr>
+<tr>
+<td>&#x2F;</td>
+<td>%2F</td>
+</tr>
+<tr>
+<td>#</td>
+<td>%23</td>
+</tr>
+<tr>
+<td>%</td>
+<td>%25</td>
+</tr>
+</tbody></table>
+<h3 id="示例：你的密码里有"><a href="#示例：你的密码里有" class="headerlink" title="示例：你的密码里有 @"></a>示例：你的密码里有 @</h3><p>假设真实信息是：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">用户名: admin</span><br><span class="line">密码:  ab@12:34</span><br></pre></td></tr></table></figure>
+
+<p>编码后密码：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">ab%4012%3A34</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="etc-auto-lan-正确写法"><a href="#etc-auto-lan-正确写法" class="headerlink" title="&#x2F;etc&#x2F;auto_lan 正确写法"></a>&#x2F;etc&#x2F;auto_lan 正确写法</h3><figure class="highlight text"><table><tr><td class="code"><pre><span class="line">nas   -fstype=smbfs,soft,nobrowse ://admin:ab%4012%3A34@192.168.1.100/media</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="三、怎么快速把密码编码（不用自己查表）"><a href="#三、怎么快速把密码编码（不用自己查表）" class="headerlink" title="三、怎么快速把密码编码（不用自己查表）"></a>三、怎么快速把密码编码（不用自己查表）</h2><h3 id="方法-1（推荐）：mac-自带-python3"><a href="#方法-1（推荐）：mac-自带-python3" class="headerlink" title="方法 1（推荐）：mac 自带 python3"></a>方法 1（推荐）：mac 自带 python3</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">python3 - &amp;lt;&amp;lt;<span class="string">&#x27;EOF&#x27;</span></span><br><span class="line">import urllib.parse</span><br><span class="line"><span class="built_in">print</span>(urllib.parse.quote(<span class="string">&quot;你的真实密码&quot;</span>))</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
+
+<p>输出的就是<strong>可以直接用的字符串</strong>。</p>
+<h3 id="方法-2：终端一行搞定"><a href="#方法-2：终端一行搞定" class="headerlink" title="方法 2：终端一行搞定"></a>方法 2：终端一行搞定</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">python3 -c <span class="string">&#x27;import urllib.parse; print(urllib.parse.quote(&quot;ab@12:34&quot;))&#x27;</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="四、更安全的做法（如果你在意明文密码）"><a href="#四、更安全的做法（如果你在意明文密码）" class="headerlink" title="四、更安全的做法（如果你在意明文密码）"></a>四、更安全的做法（如果你在意明文密码）</h2><p>autofs <strong>不强制</strong>你把密码写在文件里</p>
+<h3 id="用交互式凭据（推荐给有安全要求的人）"><a href="#用交互式凭据（推荐给有安全要求的人）" class="headerlink" title="用交互式凭据（推荐给有安全要求的人）"></a>用交互式凭据（推荐给有安全要求的人）</h3><figure class="highlight text"><table><tr><td class="code"><pre><span class="line">nas   -fstype=smbfs,soft,nobrowse ://admin@192.168.1.100/media</span><br></pre></td></tr></table></figure>
+
+<p>第一次访问：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">ls</span> /Volumes/lan/nas</span><br></pre></td></tr></table></figure>
+
+<p>系统会弹窗要密码，并自动存进 <strong>钥匙串</strong>，之后断线重连都不用再输。</p>
+<p>✔ 自动重连<br>✔ 不明文存密码<br>✔ 最稳</p>
+<h2 id="五、最后帮你检查-3-个容易一起出的问题"><a href="#五、最后帮你检查-3-个容易一起出的问题" class="headerlink" title="五、最后帮你检查 3 个容易一起出的问题"></a>五、最后帮你检查 3 个容易一起出的问题</h2><p>1️⃣ 密码里还有 <code>:</code>、<code>/</code>、<code>%</code> → <strong>也要编码</strong><br>2️⃣ 映射文件权限建议：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">chmod</span> 600 /etc/auto_lan</span><br></pre></td></tr></table></figure>
+
+<p>3️⃣ 改完一定要执行：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> automount -vc</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="一句话总结"><a href="#一句话总结" class="headerlink" title="一句话总结"></a>一句话总结</h2><p><strong>映射文件里是 URL，不是普通字符串。<br>密码有 @ → 写成 %40，否则必炸。</strong></p>
+<p>如果你愿意，把你的映射行（打码密码）贴出来，我可以帮你做一次最终校验。</p>
+]]></content>
+      <categories>
+        <category>MAC</category>
+      </categories>
+      <tags>
+        <tag>MAC</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>测试图片</title>
+    <url>/2025/01/20/test00/</url>
+    <content><![CDATA[<span id="more"></span>
+
+<p><img data-src="data:image/jpg;base64,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" alt="alt"></p>
+]]></content>
+  </entry>
 </search>
