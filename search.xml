@@ -5105,7 +5105,7 @@ python proxyPool.py server
 <p>FRP分为FRPS（服务器）和FRPC（客户端）。服务器需要有公网IP，客户端部署在你想要穿透的内网机上，同局域网布一个客户端就行了。</p>
 <h1 id="FRPS（FRP-服务端）"><a href="#FRPS（FRP-服务端）" class="headerlink" title="FRPS（FRP 服务端）"></a>FRPS（FRP 服务端）</h1><p>SSH进入服务器，用一键安装脚本部署：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">wget https://raw.githubusercontent.com/MvsCode/frps-onekey/master/install-frps.sh -O ./install-frps.sh</span><br><span class="line">chmod 700 ./install-frps.sh</span><br><span class="line">./install-frps.sh install</span><br></pre></td></tr></table></figure>
-<p>接着脚本会让你依次设置各种端口，为了避免冲突，建议手动设置各个端口号，我设置的如下 ：</p>
+<p>接着脚本会让你依次设置各种端口，为了避免冲突，建议手动设置各个端口号，我设置的如下：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">BindPort 7000</span><br><span class="line">HTTP Port 8800</span><br><span class="line">HTTPS Port 8443</span><br><span class="line">Web面板端口 8555</span><br><span class="line">账号是 admin</span><br><span class="line">密码自己设置</span><br><span class="line">token 设置长密码</span><br></pre></td></tr></table></figure>
 <p>域名地址，默认<br>最大用户默认<br>接下来各种日志选择都默认即可</p>
 <p>安装好后运行 FRP（后台运行）</p>
